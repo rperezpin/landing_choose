@@ -1,0 +1,145 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+---
+
+<Layout title="Aviso Legal - choose">
+    <Section className="legal-page" variant="light">
+        <div class="legal-content">
+            <h1>Aviso Legal</h1>
+
+            <section>
+                <h2>1. Información General</h2>
+                <p>
+                    En cumplimiento con el deber de información dispuesto en la
+                    Ley 34/2002 de Servicios de la Sociedad de la Información y
+                    el Comercio Electrónico (LSSI-CE) de 11 de julio, se
+                    facilitan a continuación los siguientes datos de información
+                    general de este sitio web:
+                </p>
+                <ul>
+                    <li><strong>Titular:</strong> rpidev (Rubén Pérez)</li>
+                    <li>
+                        <strong>Email de contacto:</strong> hello@rpidev.com
+                    </li>
+                    <li><strong>Sitio Web:</strong> www.choose.es</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>2. Términos y Condiciones de Uso</h2>
+                <p>
+                    El acceso y/o uso de este portal le atribuye la condición de
+                    USUARIO, que acepta, desde dicho acceso y/o uso, las
+                    Condiciones Generales de Uso aquí reflejadas. Las citadas
+                    Condiciones serán de aplicación independientemente de las
+                    Condiciones Generales de Contratación que en su caso
+                    resulten de obligado cumplimiento.
+                </p>
+            </section>
+
+            <section>
+                <h2>3. Propiedad Intelectual e Industrial</h2>
+                <p>
+                    El titular es dueño de todos los derechos de propiedad
+                    intelectual e industrial de su página web, así como de los
+                    elementos contenidos en la misma (a título enunciativo,
+                    imágenes, sonido, audio, vídeo, software o textos; marcas o
+                    logotipos, combinaciones de colores, estructura y diseño,
+                    selección de materiales usados, programas de ordenador
+                    necesarios para su funcionamiento, acceso y uso, etc.).
+                </p>
+                <p>
+                    Todos los derechos reservados. En virtud de lo dispuesto en
+                    la Ley de Propiedad Intelectual, quedan expresamente
+                    prohibidas la reproducción, la distribución y la
+                    comunicación pública, incluida su modalidad de puesta a
+                    disposición, de la totalidad o parte de los contenidos de
+                    esta página web, con fines comerciales, en cualquier soporte
+                    y por cualquier medio técnico, sin la autorización del
+                    titular.
+                </p>
+            </section>
+
+            <section>
+                <h2>4. Exclusión de Garantías y Responsabilidad</h2>
+                <p>
+                    El titular no se hace responsable, en ningún caso, de los
+                    daños y perjuicios de cualquier naturaleza que pudieran
+                    ocasionar, a título enunciativo: errores u omisiones en los
+                    contenidos, falta de disponibilidad del portal o la
+                    transmisión de virus o programas maliciosos o lesivos en los
+                    contenidos, a pesar de haber adoptado todas las medidas
+                    tecnológicas necesarias para evitarlo.
+                </p>
+            </section>
+
+            <section>
+                <h2>5. Modificaciones</h2>
+                <p>
+                    El titular se reserva el derecho de efectuar sin previo
+                    aviso las modificaciones que considere oportunas en su
+                    portal, pudiendo cambiar, suprimir o añadir tanto los
+                    contenidos y servicios que se presten a través de la misma
+                    como la forma en la que éstos aparezcan presentados o
+                    localizados en su portal.
+                </p>
+            </section>
+
+            <a href="/" class="btn-back">&larr; Volver al inicio</a>
+        </div>
+    </Section>
+</Layout>
+
+<style>
+    .legal-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 4rem 0;
+    }
+
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        color: var(--color-dark);
+    }
+
+    section {
+        margin-bottom: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--color-primary);
+    }
+
+    p {
+        line-height: 1.6;
+        color: var(--color-text-muted);
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        list-style: disc;
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--color-text-muted);
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+    }
+
+    .btn-back {
+        display: inline-block;
+        margin-top: 2rem;
+        color: var(--color-primary);
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .btn-back:hover {
+        text-decoration: underline;
+    }
+</style>

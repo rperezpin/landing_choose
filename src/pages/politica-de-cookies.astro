@@ -1,0 +1,122 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+---
+
+<Layout title="Política de Cookies - choose">
+    <Section className="legal-page" variant="light">
+        <div class="legal-content">
+            <h1>Política de Cookies</h1>
+
+            <section>
+                <h2>1. ¿Qué son las cookies?</h2>
+                <p>
+                    Las cookies son pequeños archivos de texto que los sitios
+                    web instalan en el ordenador o dispositivo móvil de los
+                    usuarios que los visitan. Permiten que el sitio web recuerde
+                    las acciones y preferencias del usuario (identificador de
+                    inicio de sesión, idioma, tamaño de letra y otras
+                    preferencias de visualización) para que este no tenga que
+                    volver a configurarlas cuando regrese al sitio o navegue por
+                    sus páginas.
+                </p>
+            </section>
+
+            <section>
+                <h2>2. ¿Cómo utilizamos las cookies?</h2>
+                <p>
+                    En <strong>choose</strong> utilizamos cookies para mejorar la
+                    experiencia de usuario y analizar el tráfico del sitio. Específicamente,
+                    utilizamos:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Cookies técnicas:</strong> Necesarias para el funcionamiento
+                        del sitio web.
+                    </li>
+                    <li>
+                        <strong>Cookies de personalización:</strong> Permiten recordar
+                        preferencias seleccionadas por el usuario.
+                    </li>
+                    <li>
+                        <strong>Cookies de análisis:</strong> Nos ayudan a entender
+                        cómo los visitantes interactúan con el sitio web, recogiendo
+                        y proporcionando información de forma anónima.
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>3. Control de cookies</h2>
+                <p>
+                    Usted puede controlar y eliminar las cookies como desee.
+                    Para más información, consulte <a
+                        href="https://aboutcookies.org"
+                        target="_blank">aboutcookies.org</a
+                    >. Puede eliminar todas las cookies que ya se encuentran en
+                    su ordenador y configurar la mayoría de los navegadores para
+                    que dejen de aceptarlas. Pero tenga presente que, si rechaza
+                    las cookies, es posible que tenga que volver a configurar
+                    manualmente algunas preferencias cada vez que visite un
+                    sitio y que dejen de funcionar determinados servicios y
+                    funcionalidades.
+                </p>
+            </section>
+
+            <a href="/" class="btn-back">&larr; Volver al inicio</a>
+        </div>
+    </Section>
+</Layout>
+
+<style>
+    .legal-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 4rem 0;
+    }
+
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        color: var(--color-dark);
+    }
+
+    section {
+        margin-bottom: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--color-primary);
+    }
+
+    p {
+        line-height: 1.6;
+        color: var(--color-text-muted);
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        list-style: disc;
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--color-text-muted);
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+    }
+
+    .btn-back {
+        display: inline-block;
+        margin-top: 2rem;
+        color: var(--color-primary);
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .btn-back:hover {
+        text-decoration: underline;
+    }
+</style>

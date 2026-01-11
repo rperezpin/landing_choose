@@ -1,0 +1,46 @@
+---
+interface Props {
+    id?: string;
+    className?: string;
+    variant?: "light" | "dark" | "glass";
+}
+
+const { id, className = "", variant = "light" } = Astro.props;
+---
+
+<section id={id} class={`section ${variant} ${className}`}>
+    <div class="container">
+        <slot />
+    </div>
+</section>
+
+<style>
+    .section {
+        padding: 6rem 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .light {
+        background-color: var(--color-bg);
+    }
+
+    .dark {
+        background-color: var(--color-dark);
+        color: white;
+    }
+
+    .glass {
+        background: linear-gradient(
+            135deg,
+            rgba(108, 99, 255, 0.05) 0%,
+            rgba(255, 211, 105, 0.05) 100%
+        );
+    }
+
+    @media (max-width: 768px) {
+        .section {
+            padding: 4rem 0;
+        }
+    }
+</style>

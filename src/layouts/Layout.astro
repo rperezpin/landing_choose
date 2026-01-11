@@ -1,0 +1,173 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "choose - Encuentra tu dispositivo ideal en segundos, sin complicaciones.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="container">
+        <div class="logo">
+          <img
+            src="/choose-removebg-preview.png"
+            alt="choose logo"
+            class="logo-img"
+          />
+        </div>
+        <ul class="nav-links">
+          <li><a href="#problem">Problema</a></li>
+          <li><a href="#how-it-works">Cómo funciona</a></li>
+          <li><a href="#features">Características</a></li>
+        </ul>
+        <a href="#" class="btn btn-primary">Empieza el Asistente</a>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-info">
+            <img
+              src="/choose-removebg-preview.png"
+              alt="choose logo"
+              class="logo-img footer-logo"
+            />
+            <p>Simplificamos la compra de electrónica con IA.</p>
+          </div>
+          <div class="footer-links">
+            <h4>Enlaces</h4>
+            <ul>
+              <li><a href="#problem">Problema</a></li>
+              <li><a href="#how-it-works">Cómo funciona</a></li>
+              <li><a href="#features">Características</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; {new Date().getFullYear()} choose. Todos los derechos reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <style>
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo-img {
+        height: 40px;
+        width: auto;
+      }
+
+      .footer-logo {
+        filter: brightness(0) invert(1);
+        height: 50px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-links li a {
+        font-weight: 500;
+        color: var(--color-text-muted);
+      }
+
+      .nav-links li a:hover {
+        color: var(--color-primary);
+      }
+
+      .footer {
+        background-color: var(--color-dark);
+        color: white;
+        padding: 4rem 0 2rem;
+        margin-top: 4rem;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 3rem;
+      }
+
+      .footer-info p {
+        margin-top: 1rem;
+        color: #aaa;
+      }
+
+      .footer-links h4 {
+        margin-bottom: 1.5rem;
+      }
+
+      .footer-links ul li {
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-links ul li a {
+        color: #aaa;
+      }
+
+      .footer-links ul li a:hover {
+        color: var(--color-secondary);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .footer-content {
+          flex-direction: column;
+          gap: 2rem;
+        }
+      }
+    </style>
+  </body>
+</html>

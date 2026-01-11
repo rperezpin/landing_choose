@@ -1,0 +1,406 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+---
+
+<Layout title="choose - Encuentra tu dispositivo ideal en segundos">
+	<!-- Hero Section -->
+	<Section className="hero-section" variant="glass">
+		<div class="hero-content animate-fade-in">
+			<h1>
+				Encuentra tu dispositivo ideal en segundos, <span
+					class="highlight">sin complicaciones.</span
+				>
+			</h1>
+			<p class="sub-headline">
+				Simplificamos la compra de electrónica combinando tus
+				necesidades reales con la mejor inteligencia artificial.
+			</p>
+			<div class="hero-actions">
+				<a href="#" class="btn btn-primary btn-large"
+					>Empieza el Asistente</a
+				>
+				<a href="#how-it-works" class="btn-text"
+					>Ver cómo funciona &rarr;</a
+				>
+			</div>
+		</div>
+		<div class="hero-visual">
+			<div class="visual-blob"></div>
+			<!-- Placeholder for an image or sophisticated SVG animation -->
+			<div class="illustration">
+				<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+					<path
+						fill="#6C63FF"
+						d="M47.5,-57.2C60.1,-47.9,67.9,-31.4,70.1,-14.3C72.3,2.8,68.9,20.5,59.3,34.8C49.7,49.1,33.9,60.1,16.5,64.2C-0.9,68.3,-19.9,65.5,-35.3,56.5C-50.7,47.5,-62.5,32.3,-67.4,15.2C-72.3,-1.9,-70.3,-20.9,-60.8,-34.5C-51.3,-48.1,-34.3,-56.3,-18.2,-61.1C-2.1,-65.9,13.1,-67.3,47.5,-57.2Z"
+						transform="translate(100 100)"></path>
+				</svg>
+			</div>
+		</div>
+	</Section>
+
+	<!-- Problem Section -->
+	<Section id="problem" variant="light">
+		<div class="section-header">
+			<span class="badge">El Problema</span>
+			<h2>¿Cansado de comparar especificaciones infinitas?</h2>
+			<p>
+				Demasiadas opciones, muy poco tiempo. El parálisis por análisis
+				es real cuando buscas tecnología.
+			</p>
+		</div>
+		<div class="problem-grid">
+			<div class="problem-item">
+				<div class="problem-icon">😩</div>
+				<h3>Confusión Total</h3>
+				<p>
+					Gigas, núcleos, resoluciones... ¿qué es lo que realmente
+					necesitas?
+				</p>
+			</div>
+			<div class="problem-item">
+				<div class="problem-icon">⏳</div>
+				<h3>Pérdida de Tiempo</h3>
+				<p>Horas leyendo reviews contradictorias en diferentes webs.</p>
+			</div>
+			<div class="problem-item">
+				<div class="problem-icon">💸</div>
+				<h3>Miedo a Fallar</h3>
+				<p>
+					Gastar una fortuna en algo que no se adapta a tu día a día.
+				</p>
+			</div>
+		</div>
+	</Section>
+
+	<!-- How It Works Section -->
+	<Section id="how-it-works" variant="glass">
+		<div class="section-header">
+			<span class="badge">Proceso</span>
+			<h2>Tu viaje hacia la compra ideal</h2>
+			<p>Cuatro pasos sencillos para eliminar la incertidumbre.</p>
+		</div>
+		<div class="steps-container">
+			<div class="step">
+				<div class="step-num">1</div>
+				<div class="step-content">
+					<h3>Selecciona tu Categoría</h3>
+					<p>
+						¿Buscas un portátil, un móvil, una tablet o el accesorio
+						perfecto? Empezamos acotando el terreno.
+					</p>
+				</div>
+			</div>
+			<div class="step">
+				<div class="step-num">2</div>
+				<div class="step-content">
+					<h3>Define el Uso</h3>
+					<p>
+						Dinos si es para Gaming, Trabajo, Estudios o
+						Creatividad. Ajustamos los resultados a tu perfil real.
+					</p>
+				</div>
+			</div>
+			<div class="step">
+				<div class="step-num">3</div>
+				<div class="step-content">
+					<h3>Personalización Total</h3>
+					<p>
+						Filtra por sistema operativo, extras necesarios y tu
+						rango de presupuesto. Sin opciones irrelevantes.
+					</p>
+				</div>
+			</div>
+			<div class="step">
+				<div class="step-num">4</div>
+				<div class="step-content">
+					<h3>Tu Experto IA Personal</h3>
+					<p>
+						Usa el chat integrado para preguntar detalles críticos
+						como "¿Es este portátil lo suficientemente ligero para
+						llevarlo a la universidad?".
+					</p>
+				</div>
+			</div>
+		</div>
+	</Section>
+
+	<!-- Features Section -->
+	<Section id="features" variant="light">
+		<div class="section-header">
+			<span class="badge">Nuestra Tecnología</span>
+			<h2>Diseñado para la eficiencia</h2>
+		</div>
+		<div class="features-grid">
+			<FeatureCard
+				title="Velocidad Extrema"
+				description="Resultados instantáneos para que no pierdas ni un segundo."
+				icon="⚡"
+			/>
+			<FeatureCard
+				title="Catálogo Inteligente"
+				description="Selección curada de Laptops, Smartphones, Tablets y Accesorios."
+				icon="🛍️"
+			/>
+			<FeatureCard
+				title="Asistente IA Dedicado"
+				description="Respuestas personalizadas basadas en el stock actual y tus necesidades."
+				icon="🤖"
+			/>
+		</div>
+	</Section>
+
+	<!-- CTA Section -->
+	<Section variant="dark" className="cta-final">
+		<div class="cta-content">
+			<h2>¿Listo para dejar de buscar y empezar a encontrar?</h2>
+			<p>
+				Únete a los usuarios que ya han simplificado su vida
+				tecnológica.
+			</p>
+			<a href="#" class="btn btn-secondary btn-large"
+				>Empieza el Asistente Ahora</a
+			>
+		</div>
+	</Section>
+</Layout>
+
+<style>
+	/* Section Header */
+	.section-header {
+		text-align: center;
+		max-width: 700px;
+		margin: 0 auto 4rem;
+	}
+
+	.badge {
+		display: inline-block;
+		padding: 0.4rem 1rem;
+		background-color: rgba(108, 99, 255, 0.1);
+		color: var(--color-primary);
+		border-radius: 50px;
+		font-weight: 700;
+		font-size: 0.8rem;
+		text-transform: uppercase;
+		margin-bottom: 1rem;
+	}
+
+	.section-header h2 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.section-header p {
+		font-size: 1.1rem;
+		color: var(--color-text-muted);
+	}
+
+	/* Hero Section Styles */
+	.hero-section :global(.container) {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 4rem;
+		min-height: 80vh;
+	}
+
+	.hero-content {
+		flex: 1;
+	}
+
+	.hero-content h1 {
+		font-size: 3.5rem;
+		line-height: 1.1;
+		margin-bottom: 1.5rem;
+	}
+
+	.highlight {
+		color: var(--color-primary);
+		position: relative;
+		display: inline-block;
+	}
+
+	.highlight::after {
+		content: "";
+		position: absolute;
+		bottom: 5px;
+		left: 0;
+		width: 100%;
+		height: 8px;
+		background-color: var(--color-secondary);
+		z-index: -1;
+		opacity: 0.5;
+	}
+
+	.sub-headline {
+		font-size: 1.25rem;
+		color: var(--color-text-muted);
+		margin-bottom: 2.5rem;
+		max-width: 600px;
+	}
+
+	.hero-actions {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+	}
+
+	.btn-large {
+		padding: 1rem 2.5rem;
+		font-size: 1.1rem;
+	}
+
+	.btn-text {
+		font-weight: 600;
+		color: var(--color-dark);
+	}
+
+	.btn-text:hover {
+		color: var(--color-primary);
+		transform: translateX(5px);
+	}
+
+	.hero-visual {
+		flex: 1;
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.illustration {
+		width: 100%;
+		max-width: 500px;
+		z-index: 2;
+	}
+
+	.visual-blob {
+		position: absolute;
+		width: 120%;
+		height: 120%;
+		background: radial-gradient(
+			circle,
+			rgba(108, 99, 255, 0.1) 0%,
+			rgba(255, 211, 105, 0.1) 100%
+		);
+		border-radius: 50%;
+		filter: blur(40px);
+		z-index: 1;
+	}
+
+	/* Problem Grid */
+	.problem-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2rem;
+	}
+
+	.problem-item {
+		text-align: center;
+		padding: 2rem;
+	}
+
+	.problem-icon {
+		font-size: 3rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.problem-item h3 {
+		margin-bottom: 1rem;
+	}
+
+	/* Steps Container */
+	.steps-container {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 3rem;
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.step {
+		display: flex;
+		gap: 1.5rem;
+		align-items: flex-start;
+	}
+
+	.step-num {
+		background-color: var(--color-primary);
+		color: white;
+		width: 40px;
+		height: 40px;
+		min-width: 40px;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: 800;
+		box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+	}
+
+	.step-content h3 {
+		margin-bottom: 0.5rem;
+	}
+
+	/* Features Grid */
+	.features-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2rem;
+	}
+
+	/* CTA Final */
+	.cta-final {
+		text-align: center;
+	}
+
+	.cta-content h2 {
+		font-size: 3rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.cta-content p {
+		font-size: 1.2rem;
+		margin-bottom: 2.5rem;
+		opacity: 0.8;
+	}
+
+	/* Responsive */
+	@media (max-width: 1024px) {
+		.hero-section :global(.container) {
+			flex-direction: column;
+			text-align: center;
+			padding-top: 6rem;
+		}
+
+		.hero-content h1 {
+			font-size: 2.8rem;
+		}
+
+		.hero-actions {
+			justify-content: center;
+		}
+
+		.sub-headline {
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.problem-grid,
+		.features-grid,
+		.steps-container {
+			grid-template-columns: 1fr;
+		}
+
+		.section-header h2 {
+			font-size: 2rem;
+		}
+
+		.cta-content h2 {
+			font-size: 2.2rem;
+		}
+	}
+</style>

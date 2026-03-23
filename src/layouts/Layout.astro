@@ -4,23 +4,91 @@ import "../styles/global.css";
 interface Props {
   title: string;
   description?: string;
+  canonical?: string;
 }
 
 const {
   title,
-  description = "choose - Encuentra tu dispositivo ideal en segundos, sin complicaciones.",
+  description = "Asistente gratuito con IA para elegir tu próximo portátil, móvil, tablet o accesorio según tu uso y presupuesto. Compara en Amazon, PcComponentes y más en menos de 2 minutos.",
+  canonical = "https://easychoose.es/",
 } = Astro.props;
+
+const ogImage = "https://easychoose.es/og-image.png";
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="author" content="EasyChoose" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#6C63FF" />
+    <meta name="application-name" content="EasyChoose" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="EasyChoose — Asistente de compra de tecnología con IA" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="EasyChoose" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="es" href="https://easychoose.es/" />
+    <link rel="alternate" hreflang="x-default" href="https://easychoose.es/" />
+    
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json" is:inline>
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "EasyChoose",
+      "url": "https://easychoose.es",
+      "logo": "https://easychoose.es/choose-removebg-preview.png"
+    }
+    </script>
+
+    <!-- Structured Data: WebApplication -->
+    <script type="application/ld+json" is:inline>
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "EasyChoose",
+      "alternateName": "EasyChoose — Asistente de Compra de Tecnología",
+      "description": "Asistente gratuito con IA para elegir portátiles, móviles, tablets y accesorios según tu uso y presupuesto. Compara precios en Amazon, PcComponentes, AliExpress y Miravia.",
+      "url": "https://app.easychoose.es",
+      "applicationCategory": "ShoppingApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "EasyChoose",
+        "url": "https://easychoose.es"
+      }
+    }
+    </script>
   </head>
   <body>
     <header class="header">
@@ -33,11 +101,12 @@ const {
           />
         </div>
         <ul class="nav-links">
-          <li><a href="#problem">Problema</a></li>
+          <li><a href="#categories">Categorías</a></li>
           <li><a href="#how-it-works">Cómo funciona</a></li>
-          <li><a href="#features">Características</a></li>
+          <li><a href="#social-proof">Testimonios</a></li>
+          <li><a href="#faq">FAQ</a></li>
         </ul>
-        <a href="#" class="btn btn-primary">Empieza el Asistente</a>
+        <a href="https://app.easychoose.es" class="btn btn-primary">Empieza el Asistente</a>
       </nav>
     </header>
 
@@ -54,14 +123,15 @@ const {
               alt="choose logo"
               class="logo-img footer-logo"
             />
-            <p>Simplificamos la compra de electrónica con IA.</p>
+            <p>Simplificamos la compra de tecnología con IA. Gratis y sin registro.</p>
           </div>
           <div class="footer-links">
             <h4>Enlaces</h4>
             <ul>
-              <li><a href="#problem">Problema</a></li>
+              <li><a href="#categories">Categorías</a></li>
               <li><a href="#how-it-works">Cómo funciona</a></li>
-              <li><a href="#features">Características</a></li>
+              <li><a href="#social-proof">Testimonios</a></li>
+              <li><a href="#faq">FAQ</a></li>
             </ul>
           </div>
           <div class="footer-links">
@@ -75,7 +145,7 @@ const {
         </div>
         <div class="footer-bottom">
           <p>
-            &copy; {new Date().getFullYear()} choose. Todos los derechos reservados.
+            &copy; {new Date().getFullYear()} EasyChoose. Todos los derechos reservados.
           </p>
           <p class="credits">
             Made with <span class="heart">💙</span> by <a

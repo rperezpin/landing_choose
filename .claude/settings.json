@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//home/ruben/Proyectos/casvisol/**)",
+      "Read(//home/ruben/Proyectos/gptpc/**)",
+      "Bash(git -C /home/ruben/Proyectos/landing_choose remote -v)",
+      "Bash(chmod +x /home/ruben/Proyectos/landing_choose/deploy.sh)"
+    ]
+  }
+}

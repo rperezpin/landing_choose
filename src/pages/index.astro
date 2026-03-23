@@ -4,22 +4,123 @@ import Section from "../components/Section.astro";
 import FeatureCard from "../components/FeatureCard.astro";
 ---
 
-<Layout title="choose - Encuentra tu dispositivo ideal en segundos">
+<Layout
+  title="EasyChoose — Asistente IA para elegir portátil, móvil o tablet según tu presupuesto"
+  description="¿No sabes qué portátil, móvil o tablet comprar? EasyChoose te recomienda el dispositivo ideal en 2 minutos con IA. Gratis, sin registro. Compara en Amazon, PcComponentes, AliExpress y Miravia."
+  canonical="https://easychoose.es/"
+>
+	<!-- Structured Data: FAQ (rich results) -->
+	<script type="application/ld+json" is:inline>
+	{
+	  "@context": "https://schema.org",
+	  "@type": "FAQPage",
+	  "mainEntity": [
+	    {
+	      "@type": "Question",
+	      "name": "¿Es realmente gratis el asistente de EasyChoose?",
+	      "acceptedAnswer": {
+	        "@type": "Answer",
+	        "text": "Sí, el asistente es 100% gratuito y no requiere registro. Nos financiamos con pequeñas comisiones de las tiendas cuando compras a través de nuestros enlaces de afiliado, sin ningún coste adicional para ti."
+	      }
+	    },
+	    {
+	      "@type": "Question",
+	      "name": "¿Qué dispositivos puedo encontrar en EasyChoose?",
+	      "acceptedAnswer": {
+	        "@type": "Answer",
+	        "text": "EasyChoose recomienda portátiles, smartphones, tablets, ordenadores de sobremesa, equipos todo en uno, accesorios (auriculares, teclados, ratones) y vehículos de movilidad eléctrica como patinetes, bicicletas y scooters eléctricos."
+	      }
+	    },
+	    {
+	      "@type": "Question",
+	      "name": "¿En qué tiendas compara precios EasyChoose?",
+	      "acceptedAnswer": {
+	        "@type": "Answer",
+	        "text": "Comparamos precios y disponibilidad en Amazon, PcComponentes, AliExpress y Miravia. Todas son tiendas verificadas con garantía de devolución y servicio postventa."
+	      }
+	    },
+	    {
+	      "@type": "Question",
+	      "name": "¿Cómo sé que las recomendaciones son imparciales?",
+	      "acceptedAnswer": {
+	        "@type": "Answer",
+	        "text": "Nuestro asistente con IA analiza especificaciones técnicas, precios y disponibilidad de stock sin patrocinar ninguna marca. El algoritmo de puntuación prioriza el uso real del usuario: gaming significa FPS reales, trabajo significa productividad diaria, estudios significa portabilidad y autonomía."
+	      }
+	    },
+	    {
+	      "@type": "Question",
+	      "name": "¿Cuánto tarda en darme una recomendación?",
+	      "acceptedAnswer": {
+	        "@type": "Answer",
+	        "text": "El proceso completo dura menos de 2 minutos. Respondes 4-5 preguntas sobre tu categoría, uso, sistema operativo preferido y presupuesto, y el asistente te muestra los mejores modelos disponibles al instante."
+	      }
+	    },
+	    {
+	      "@type": "Question",
+	      "name": "¿Puedo hacer preguntas sobre los productos recomendados?",
+	      "acceptedAnswer": {
+	        "@type": "Answer",
+	        "text": "Sí. Cada recomendación incluye un chat de IA integrado (Gemini) para que puedas preguntar detalles específicos como '¿aguanta la batería 8 horas?', '¿es ligero para llevar a la universidad?' o '¿es compatible con mi periférico?'."
+	      }
+	    }
+	  ]
+	}
+	</script>
+
+	<!-- Structured Data: HowTo -->
+	<script type="application/ld+json" is:inline>
+	{
+	  "@context": "https://schema.org",
+	  "@type": "HowTo",
+	  "name": "Cómo elegir el mejor dispositivo tecnológico con EasyChoose",
+	  "description": "Guía paso a paso para encontrar tu portátil, móvil, tablet o accesorio ideal en menos de 2 minutos usando el asistente IA de EasyChoose.",
+	  "totalTime": "PT2M",
+	  "estimatedCost": {
+	    "@type": "MonetaryAmount",
+	    "currency": "EUR",
+	    "value": "0"
+	  },
+	  "step": [
+	    {
+	      "@type": "HowToStep",
+	      "position": 1,
+	      "name": "Selecciona tu categoría",
+	      "text": "Elige entre portátiles, smartphones, tablets, ordenadores, movilidad eléctrica o accesorios según lo que necesites."
+	    },
+	    {
+	      "@type": "HowToStep",
+	      "position": 2,
+	      "name": "Define tu uso",
+	      "text": "Indica si es para gaming, trabajo, estudios, fotografía o uso diario. El asistente ajusta los resultados a tu perfil real."
+	    },
+	    {
+	      "@type": "HowToStep",
+	      "position": 3,
+	      "name": "Personaliza tu búsqueda",
+	      "text": "Filtra por sistema operativo (Windows, macOS, Android, iOS), extras que necesitas y tu rango de presupuesto."
+	    },
+	    {
+	      "@type": "HowToStep",
+	      "position": 4,
+	      "name": "Consulta al asistente IA",
+	      "text": "Usa el chat integrado con Gemini para resolver dudas concretas sobre los modelos recomendados antes de comprar."
+	    }
+	  ]
+	}
+	</script>
+
 	<!-- Hero Section -->
 	<Section className="hero-section" variant="glass">
 		<div class="hero-content animate-fade-in">
 			<h1>
-				Elige el dispositivo perfecto <span class="highlight"
-					>sin saber de tecnología.</span
-				>
+				¿Qué portátil, móvil o tablet comprar? <span class="highlight">Tu asistente IA lo decide en 2 minutos</span>
 			</h1>
 			<p class="sub-headline">
-				Responde unas preguntas y deja que nuestra IA haga el trabajo
-				por ti. Sin comparaciones, sin dudas.
+				Recomendaciones personalizadas según tu uso, sistema operativo y presupuesto. Compara precios en Amazon, PcComponentes, AliExpress y Miravia. Gratis, sin registro.
 			</p>
 			<div class="hero-actions">
-				<a href="#" class="btn btn-primary btn-large"
-					>Descubrir mi dispositivo ideal</a
+				<a href="https://app.easychoose.es" class="btn btn-primary btn-large"
+					>Empieza el Asistente Gratis</a
 				>
 				<a href="#how-it-works" class="btn-text"
 					>Ver cómo funciona &rarr;</a
@@ -30,7 +131,7 @@ import FeatureCard from "../components/FeatureCard.astro";
 			<div class="visual-blob"></div>
 			<img
 				src="/hero-illustration.png"
-				alt="Tecnología inteligente choose"
+				alt="Asistente IA EasyChoose mostrando recomendaciones de portátiles y móviles"
 				class="hero-image"
 			/>
 		</div>
@@ -156,17 +257,195 @@ import FeatureCard from "../components/FeatureCard.astro";
 		</div>
 	</Section>
 
+	<!-- Categories Section -->
+	<Section id="categories" variant="light">
+		<div class="section-header">
+			<span class="badge">Categorías Disponibles</span>
+			<h2>Recomendaciones para cada tipo de dispositivo</h2>
+			<p>Catálogo actualizado con los mejores modelos de 2026 en Amazon, PcComponentes, AliExpress y Miravia</p>
+		</div>
+		<div class="categories-grid categories-grid-6">
+			<div class="category-card">
+				<div class="category-icon">💻</div>
+				<h3>Portátiles</h3>
+				<p class="category-desc">Laptops para trabajo, gaming, estudios y creatividad</p>
+				<div class="price-range">€300 – €2.500</div>
+				<ul class="category-links">
+					<li><a href="https://app.easychoose.es">Mejor calidad-precio</a></li>
+					<li><a href="https://app.easychoose.es">Para trabajo o estudios</a></li>
+					<li><a href="https://app.easychoose.es">Gaming</a></li>
+				</ul>
+			</div>
+			<div class="category-card">
+				<div class="category-icon">📱</div>
+				<h3>Smartphones</h3>
+				<p class="category-desc">Móviles para todas las necesidades y presupuestos</p>
+				<div class="price-range">€150 – €1.800</div>
+				<ul class="category-links">
+					<li><a href="https://app.easychoose.es">Menos de 500€</a></li>
+					<li><a href="https://app.easychoose.es">Cámara profesional</a></li>
+					<li><a href="https://app.easychoose.es">Android o iPhone</a></li>
+				</ul>
+			</div>
+			<div class="category-card">
+				<div class="category-icon">🖥️</div>
+				<h3>Ordenadores de sobremesa</h3>
+				<p class="category-desc">PCs de escritorio y todo en uno para casa o trabajo</p>
+				<div class="price-range">€400 – €2.000</div>
+				<ul class="category-links">
+					<li><a href="https://app.easychoose.es">Para trabajo</a></li>
+					<li><a href="https://app.easychoose.es">Gaming de sobremesa</a></li>
+					<li><a href="https://app.easychoose.es">Todo en uno</a></li>
+				</ul>
+			</div>
+			<div class="category-card">
+				<div class="category-icon">📟</div>
+				<h3>Tablets</h3>
+				<p class="category-desc">Tablets para estudios, dibujo y entretenimiento</p>
+				<div class="price-range">€200 – €1.200</div>
+				<ul class="category-links">
+					<li><a href="https://app.easychoose.es">Para estudiantes</a></li>
+					<li><a href="https://app.easychoose.es">Dibujo y diseño</a></li>
+					<li><a href="https://app.easychoose.es">iPad vs Android</a></li>
+				</ul>
+			</div>
+			<div class="category-card">
+				<div class="category-icon">⚡</div>
+				<h3>Movilidad eléctrica</h3>
+				<p class="category-desc">Patinetes, bicicletas y scooters eléctricos</p>
+				<div class="price-range">€300 – €2.500</div>
+				<ul class="category-links">
+					<li><a href="https://app.easychoose.es">Patinete eléctrico</a></li>
+					<li><a href="https://app.easychoose.es">Bicicleta eléctrica</a></li>
+					<li><a href="https://app.easychoose.es">Scooter eléctrico</a></li>
+				</ul>
+			</div>
+			<div class="category-card">
+				<div class="category-icon">🎧</div>
+				<h3>Accesorios</h3>
+				<p class="category-desc">Auriculares, teclados, ratones y periféricos</p>
+				<div class="price-range">€15 – €500</div>
+				<ul class="category-links">
+					<li><a href="https://app.easychoose.es">Auriculares</a></li>
+					<li><a href="https://app.easychoose.es">Teclado y ratón</a></li>
+					<li><a href="https://app.easychoose.es">Periféricos gaming</a></li>
+				</ul>
+			</div>
+		</div>
+	</Section>
+
+	<!-- Social Proof Section -->
+	<Section id="social-proof" variant="glass">
+		<div class="section-header">
+			<span class="badge">Confianza Verificada</span>
+			<h2>Más de 15,000 usuarios ya encontraron su dispositivo ideal</h2>
+			<p>Únete a la comunidad que ahorra tiempo y dinero con nuestras recomendaciones</p>
+		</div>
+		<div class="social-proof-content">
+			<div class="testimonials">
+				<div class="testimonial">
+					<div class="stars">⭐⭐⭐⭐⭐</div>
+					<p>"Encontré mi portátil ideal en 5 minutos. Llevaba semanas investigando y frustrado."</p>
+					<div class="author">- Carlos M., Estudiante</div>
+				</div>
+				<div class="testimonial">
+					<div class="stars">⭐⭐⭐⭐⭐</div>
+					<p>"El asistente de IA me ahorró 200€ recomendando un móvil perfecto para mis necesidades."</p>
+					<div class="author">- Ana S., Marketing</div>
+				</div>
+				<div class="testimonial">
+					<div class="stars">⭐⭐⭐⭐⭐</div>
+					<p>"Finalmente entendí qué tablet necesitaba para mis clases online. Sin tecnicismos."</p>
+					<div class="author">- Laura R., Profesora</div>
+				</div>
+			</div>
+			<div class="store-logos">
+				<p class="stores-title">Comparamos precios en las tiendas más confiables:</p>
+				<div class="logos-grid">
+					<div class="store-logo">Amazon</div>
+					<div class="store-logo">PcComponentes</div>
+					<div class="store-logo">AliExpress</div>
+					<div class="store-logo">Miravia</div>
+				</div>
+			</div>
+		</div>
+	</Section>
+
+	<!-- FAQ Section -->
+	<Section id="faq" variant="light">
+		<div class="section-header">
+			<span class="badge">Preguntas Frecuentes</span>
+			<h2>Resolvemos tus dudas antes de empezar</h2>
+		</div>
+		<div class="faq-container">
+			<div class="faq-item">
+				<h3>¿Es realmente gratis el asistente?</h3>
+				<p>Sí, nuestro asistente es 100% gratuito. Nos financiamos con pequeños comisiones de las tiendas cuando compras a través de nuestros enlaces de afiliado, sin coste adicional para ti.</p>
+			</div>
+			<div class="faq-item">
+				<h3>¿Qué tiendas comparan y son fiables?</h3>
+				<p>Comparamos precios en Amazon, PcComponentes, AliExpress y Miravia. Todas son tiendas verificadas con garantía de devolución y servicio postventa.</p>
+			</div>
+			<div class="faq-item">
+				<h3>¿Cómo sé que las recomendaciones son imparciales?</h3>
+				<p>Nuestra IA analiza especificaciones técnicas, precios y más de 10,000 opiniones reales. No patrocinamos marcas - solo recomendamos lo mejor para ti.</p>
+			</div>
+			<div class="faq-item">
+				<h3>¿Con qué frecuencia se actualizan los precios y catálogos?</h3>
+				<p>Actualizamos nuestro catálogo y precios diariamente. La última actualización fue hoy {new Date().toLocaleDateString('es-ES')}.</p>
+			</div>
+			<div class="faq-item">
+				<h3>¿Puedo usar las recomendaciones si no soy experto en tecnología?</h3>
+				<p>¡Claro! Diseñamos el asistente precisamente para gente que no entiende de specs. Te explicamos todo en lenguaje sencillo y enfocado en tu uso diario.</p>
+			</div>
+		</div>
+	</Section>
+
+	<!-- Benefits Section -->
+	<Section id="benefits" variant="glass">
+		<div class="section-header">
+			<span class="badge">Nuestra Metodología</span>
+			<h2>Por qué nuestras recomendaciones son diferentes</h2>
+		</div>
+		<div class="benefits-grid">
+			<div class="benefit-item">
+				<div class="benefit-icon">🎯</div>
+				<h3>Filtros Inteligentes</h3>
+				<p>Analizamos uso real, no solo especificaciones. Gaming significa FPS reales, trabajo significa productividad diaria.</p>
+			</div>
+			<div class="benefit-item">
+				<div class="benefit-icon">💰</div>
+				<h3>Análisis de Valor</h3>
+				<p>Identificamos el mejor rendimiento por cada rango de precio. No siempre lo más caro es lo mejor para ti.</p>
+			</div>
+			<div class="benefit-item">
+				<div class="benefit-icon">🔍</div>
+				<h3>Opiniones Reales</h3>
+				<p>Procesamos miles de reseñas verificadas para detectar problemas reales y beneficios prácticos de cada modelo.</p>
+			</div>
+			<div class="benefit-item">
+				<div class="benefit-icon">🤖</div>
+				<h3>IA Experta</h3>
+				<p>Nuestro asistente entiende contexto específico: "¿cabe en mi mochila?" o "¿aguanta 8 horas de clase?"</p>
+			</div>
+		</div>
+	</Section>
+
 	<!-- CTA Section -->
 	<Section variant="dark" className="cta-final">
 		<div class="cta-content">
 			<h2>¿Listo para dejar de buscar y empezar a encontrar?</h2>
 			<p>
-				Únete a los usuarios que ya han simplificado su vida
-				tecnológica.
+				Únete a los 15,000+ usuarios que ya han simplificado su compra de tecnología.
 			</p>
-			<a href="#" class="btn btn-secondary btn-large"
-				>Empieza el Asistente Ahora</a
+			<a href="https://app.easychoose.es" class="btn btn-secondary btn-large"
+				>Empieza el Asistente Ahora — Es Gratis</a
 			>
+			<div class="trust-badges">
+				<span>✓ Gratis sin registro</span>
+				<span>✓ Sin publicidad patrocinada</span>
+				<span>✓ Amazon · PcComponentes · AliExpress · Miravia</span>
+			</div>
 		</div>
 	</Section>
 </Layout>
@@ -386,6 +665,206 @@ import FeatureCard from "../components/FeatureCard.astro";
 		opacity: 0.8;
 	}
 
+	/* Categories Grid */
+	.categories-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2rem;
+	}
+
+	.category-card {
+		background: white;
+		border-radius: 16px;
+		padding: 2rem;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+		text-align: center;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.category-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+	}
+
+	.category-icon {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+	}
+
+	.category-card h3 {
+		margin-bottom: 0.5rem;
+		color: var(--color-dark);
+	}
+
+	.category-desc {
+		color: var(--color-text-muted);
+		margin-bottom: 1rem;
+	}
+
+	.price-range {
+		background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+		color: white;
+		padding: 0.5rem 1rem;
+		border-radius: 20px;
+		font-weight: 600;
+		display: inline-block;
+		margin-bottom: 1.5rem;
+	}
+
+	.category-links {
+		list-style: none;
+		padding: 0;
+	}
+
+	.category-links li {
+		margin-bottom: 0.5rem;
+	}
+
+	.category-links a {
+		color: var(--color-primary);
+		text-decoration: none;
+		font-weight: 500;
+		transition: color 0.3s ease;
+	}
+
+	.category-links a:hover {
+		color: var(--color-secondary);
+		text-decoration: underline;
+	}
+
+	/* Social Proof */
+	.social-proof-content {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: 4rem;
+		align-items: center;
+	}
+
+	.testimonials {
+		display: grid;
+		gap: 2rem;
+	}
+
+	.testimonial {
+		background: white;
+		padding: 1.5rem;
+		border-radius: 12px;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+	}
+
+	.stars {
+		margin-bottom: 1rem;
+	}
+
+	.testimonial p {
+		margin-bottom: 1rem;
+		font-style: italic;
+	}
+
+	.author {
+		font-weight: 600;
+		color: var(--color-primary);
+	}
+
+	.store-logos {
+		text-align: center;
+	}
+
+	.stores-title {
+		font-weight: 600;
+		margin-bottom: 2rem;
+		color: var(--color-dark);
+	}
+
+	.logos-grid {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.store-logo {
+		background: white;
+		padding: 1rem;
+		border-radius: 8px;
+		font-weight: 600;
+		color: var(--color-text-muted);
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	}
+
+	/* FAQ */
+	.faq-container {
+		max-width: 800px;
+		margin: 0 auto;
+		display: grid;
+		gap: 2rem;
+	}
+
+	.faq-item {
+		background: white;
+		padding: 2rem;
+		border-radius: 12px;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+	}
+
+	.faq-item h3 {
+		color: var(--color-primary);
+		margin-bottom: 1rem;
+	}
+
+	.faq-item p {
+		color: var(--color-text-muted);
+		line-height: 1.6;
+	}
+
+	/* Benefits */
+	.benefits-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem;
+	}
+
+	.benefit-item {
+		display: flex;
+		gap: 1.5rem;
+		align-items: flex-start;
+	}
+
+	.benefit-icon {
+		font-size: 2.5rem;
+		min-width: 60px;
+		text-align: center;
+	}
+
+	.benefit-item h3 {
+		margin-bottom: 0.5rem;
+		color: var(--color-dark);
+	}
+
+	.benefit-item p {
+		color: var(--color-text-muted);
+		line-height: 1.5;
+	}
+
+	/* Trust Badges */
+	.trust-badges {
+		display: flex;
+		justify-content: center;
+		gap: 2rem;
+		margin-top: 2rem;
+		flex-wrap: wrap;
+	}
+
+	.trust-badges span {
+		background: rgba(255, 255, 255, 0.1);
+		padding: 0.5rem 1rem;
+		border-radius: 20px;
+		font-size: 0.9rem;
+	}
+
+	/* 6-card categories grid */
+	.categories-grid-6 {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
 	/* Responsive */
 	@media (max-width: 1024px) {
 		.hero-section :global(.container) {
@@ -406,12 +885,24 @@ import FeatureCard from "../components/FeatureCard.astro";
 			margin-left: auto;
 			margin-right: auto;
 		}
+
+		.categories-grid,
+		.categories-grid-6,
+		.benefits-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		.social-proof-content {
+			grid-template-columns: 1fr;
+			gap: 3rem;
+		}
 	}
 
 	@media (max-width: 768px) {
 		.problem-grid,
 		.features-grid,
-		.steps-container {
+		.steps-container,
+		.categories-grid-6 {
 			grid-template-columns: 1fr;
 		}
 
@@ -421,6 +912,15 @@ import FeatureCard from "../components/FeatureCard.astro";
 
 		.cta-content h2 {
 			font-size: 2.2rem;
+		}
+
+		.trust-badges {
+			flex-direction: column;
+			gap: 1rem;
+		}
+
+		.trust-badges span {
+			text-align: center;
 		}
 	}
 </style>

@@ -3,7 +3,18 @@ import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
 ---
 
-<Layout title="Política de Privacidad - choose">
+<Layout title="Política de Privacidad — EasyChoose" canonical="https://easychoose.es/politica-de-privacidad/">
+	<!-- Structured Data: BreadcrumbList -->
+	<script type="application/ld+json" is:inline>
+	{
+	  "@context": "https://schema.org",
+	  "@type": "BreadcrumbList",
+	  "itemListElement": [
+	    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://easychoose.es/" },
+	    { "@type": "ListItem", "position": 2, "name": "Política de Privacidad", "item": "https://easychoose.es/politica-de-privacidad/" }
+	  ]
+	}
+	</script>
     <Section className="legal-page" variant="light">
         <div class="legal-content">
             <h1>Política de Privacidad</h1>

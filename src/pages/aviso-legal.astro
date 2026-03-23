@@ -3,7 +3,18 @@ import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
 ---
 
-<Layout title="Aviso Legal - choose">
+<Layout title="Aviso Legal — EasyChoose" canonical="https://easychoose.es/aviso-legal/">
+	<!-- Structured Data: BreadcrumbList -->
+	<script type="application/ld+json" is:inline>
+	{
+	  "@context": "https://schema.org",
+	  "@type": "BreadcrumbList",
+	  "itemListElement": [
+	    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://easychoose.es/" },
+	    { "@type": "ListItem", "position": 2, "name": "Aviso Legal", "item": "https://easychoose.es/aviso-legal/" }
+	  ]
+	}
+	</script>
     <Section className="legal-page" variant="light">
         <div class="legal-content">
             <h1>Aviso Legal</h1>

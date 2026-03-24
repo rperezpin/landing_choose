@@ -36,18 +36,20 @@ import Section from "../components/Section.astro";
             <section>
                 <h2>2. ¿Cómo utilizamos las cookies?</h2>
                 <p>
-                    En <strong>choose</strong> utilizamos cookies para mejorar la
+                    En <strong>EasyChoose</strong> utilizamos cookies para mejorar la
                     experiencia de usuario y analizar el tráfico del sitio. Específicamente,
                     utilizamos:
                 </p>
                 <ul>
                     <li>
-                        <strong>Cookies técnicas:</strong> Necesarias para el funcionamiento
-                        del sitio web.
+                        <strong>Cookies técnicas o necesarias:</strong> Imprescindibles
+                        para el funcionamiento básico del sitio web. No requieren
+                        consentimiento previo.
                     </li>
                     <li>
                         <strong>Cookies de personalización:</strong> Permiten recordar
-                        preferencias seleccionadas por el usuario.
+                        preferencias seleccionadas por el usuario (como la aceptación
+                        de cookies).
                     </li>
                     <li>
                         <strong>Cookies de análisis:</strong> Nos ayudan a entender
@@ -58,19 +60,108 @@ import Section from "../components/Section.astro";
             </section>
 
             <section>
-                <h2>3. Control de cookies</h2>
+                <h2>3. Google Tag Manager</h2>
+                <p>
+                    Este sitio web utiliza <strong>Google Tag Manager (GTM)</strong>,
+                    un servicio de gestión de etiquetas proporcionado por Google LLC.
+                    GTM permite gestionar y desplegar etiquetas de seguimiento y análisis
+                    de forma centralizada.
+                </p>
+                <p>
+                    GTM se carga en el sitio pero, por defecto, <strong>no activa ninguna
+                    cookie de análisis o publicidad</strong> hasta que el usuario otorgue
+                    su consentimiento explícito mediante el banner de cookies. Esta
+                    implementación sigue el estándar <em>Consent Mode v2</em> de Google.
+                </p>
+                <p>
+                    Para más información sobre cómo Google gestiona los datos, consulte la
+                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+                        Política de Privacidad de Google
+                    </a>.
+                </p>
+            </section>
+
+            <section>
+                <h2>4. Tabla de cookies utilizadas</h2>
+                <table class="cookies-table">
+                    <thead>
+                        <tr>
+                            <th>Cookie</th>
+                            <th>Proveedor</th>
+                            <th>Finalidad</th>
+                            <th>Duración</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>cookie_consent</code></td>
+                            <td>EasyChoose (localStorage)</td>
+                            <td>Almacena la preferencia de consentimiento del usuario</td>
+                            <td>Persistente</td>
+                        </tr>
+                        <tr>
+                            <td><code>_ga, _ga_*</code></td>
+                            <td>Google Analytics (via GTM)</td>
+                            <td>Análisis de tráfico y comportamiento de usuarios</td>
+                            <td>2 años</td>
+                        </tr>
+                        <tr>
+                            <td><code>_gcl_*</code></td>
+                            <td>Google Ads (via GTM)</td>
+                            <td>Seguimiento de conversiones publicitarias</td>
+                            <td>90 días</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="table-note">Las cookies de análisis y publicidad (<code>_ga</code>, <code>_gcl_*</code>) solo se activan si el usuario acepta las cookies.</p>
+            </section>
+
+            <section>
+                <h2>5. Tu consentimiento</h2>
+                <p>
+                    Al visitar este sitio por primera vez, aparece un banner informativo
+                    en la parte inferior de la pantalla que te permite:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Aceptar todas:</strong> Se activarán las cookies de análisis
+                        y publicidad gestionadas a través de Google Tag Manager.
+                    </li>
+                    <li>
+                        <strong>Solo necesarias:</strong> Únicamente se usarán las cookies
+                        estrictamente necesarias para el funcionamiento del sitio. No se
+                        activarán cookies de análisis ni publicidad.
+                    </li>
+                </ul>
+                <p>
+                    Tu preferencia se guarda en el almacenamiento local de tu navegador
+                    (<code>localStorage</code>) para no volver a mostrarte el banner en
+                    visitas posteriores. Puedes cambiar o retirar tu consentimiento en
+                    cualquier momento borrando los datos de navegación de este sitio.
+                </p>
+            </section>
+
+            <section>
+                <h2>6. Control de cookies desde el navegador</h2>
                 <p>
                     Usted puede controlar y eliminar las cookies como desee.
                     Para más información, consulte <a
                         href="https://aboutcookies.org"
-                        target="_blank">aboutcookies.org</a
+                        target="_blank" rel="noopener noreferrer">aboutcookies.org</a
                     >. Puede eliminar todas las cookies que ya se encuentran en
                     su ordenador y configurar la mayoría de los navegadores para
-                    que dejen de aceptarlas. Pero tenga presente que, si rechaza
+                    que dejen de aceptarlas. Tenga presente que, si rechaza
                     las cookies, es posible que tenga que volver a configurar
                     manualmente algunas preferencias cada vez que visite un
-                    sitio y que dejen de funcionar determinados servicios y
-                    funcionalidades.
+                    sitio.
+                </p>
+            </section>
+
+            <section>
+                <h2>7. Contacto</h2>
+                <p>
+                    Si tiene alguna pregunta sobre nuestra política de cookies,
+                    puede contactarnos en <strong>hello@rpidev.com</strong>.
                 </p>
             </section>
 
@@ -129,5 +220,58 @@ import Section from "../components/Section.astro";
 
     .btn-back:hover {
         text-decoration: underline;
+    }
+
+    .cookies-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .cookies-table th,
+    .cookies-table td {
+        border: 1px solid #e5e7eb;
+        padding: 0.75rem 1rem;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    .cookies-table th {
+        background-color: rgba(108, 99, 255, 0.08);
+        color: var(--color-dark);
+        font-weight: 600;
+    }
+
+    .cookies-table td {
+        color: var(--color-text-muted);
+    }
+
+    .cookies-table code {
+        background: rgba(108, 99, 255, 0.08);
+        padding: 0.1rem 0.35rem;
+        border-radius: 4px;
+        font-size: 0.85em;
+        color: var(--color-primary);
+    }
+
+    .table-note {
+        font-size: 0.85rem;
+        font-style: italic;
+    }
+
+    code {
+        background: rgba(108, 99, 255, 0.08);
+        padding: 0.1rem 0.35rem;
+        border-radius: 4px;
+        font-size: 0.85em;
+        color: var(--color-primary);
+    }
+
+    @media (max-width: 640px) {
+        .cookies-table {
+            display: block;
+            overflow-x: auto;
+        }
     }
 </style>

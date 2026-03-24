@@ -1,0 +1,142 @@
+---
+// CookieBanner.astro — GDPR-compliant cookie consent banner
+---
+
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Aviso de cookies" aria-live="polite">
+  <div class="cookie-banner__content">
+    <div class="cookie-banner__text">
+      <p>
+        Usamos cookies propias y de terceros (Google Tag Manager) para analizar el tráfico y mejorar tu experiencia.
+        Puedes aceptar todas las cookies o seleccionar solo las necesarias.
+        <a href="/politica-de-cookies">Más información</a>.
+      </p>
+    </div>
+    <div class="cookie-banner__actions">
+      <button id="cookie-reject" class="cookie-btn cookie-btn--secondary">Solo necesarias</button>
+      <button id="cookie-accept" class="cookie-btn cookie-btn--primary">Aceptar todas</button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    var banner = document.getElementById('cookie-banner');
+    var consent = localStorage.getItem('cookie_consent');
+
+    if (consent) {
+      banner.style.display = 'none';
+      return;
+    }
+
+    banner.style.display = 'flex';
+
+    document.getElementById('cookie-accept').addEventListener('click', function () {
+      localStorage.setItem('cookie_consent', 'accepted');
+      banner.style.display = 'none';
+      // Update GTM consent
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'update', {
+        'analytics_storage': 'granted',
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted'
+      });
+    });
+
+    document.getElementById('cookie-reject').addEventListener('click', function () {
+      localStorage.setItem('cookie_consent', 'rejected');
+      banner.style.display = 'none';
+    });
+  })();
+</script>
+
+<style>
+  .cookie-banner {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: #fff;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    padding: 1.25rem 1.5rem;
+  }
+
+  .cookie-banner__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .cookie-banner__text p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  .cookie-banner__text a {
+    color: #6C63FF;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  .cookie-banner__actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .cookie-btn {
+    padding: 0.6rem 1.25rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 2px solid #6C63FF;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .cookie-btn--primary {
+    background-color: #6C63FF;
+    color: #fff;
+  }
+
+  .cookie-btn--primary:hover {
+    background-color: #5a52e0;
+    border-color: #5a52e0;
+  }
+
+  .cookie-btn--secondary {
+    background-color: transparent;
+    color: #6C63FF;
+  }
+
+  .cookie-btn--secondary:hover {
+    background-color: rgba(108, 99, 255, 0.08);
+  }
+
+  @media (max-width: 640px) {
+    .cookie-banner__content {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .cookie-banner__actions {
+      width: 100%;
+    }
+
+    .cookie-btn {
+      flex: 1;
+      text-align: center;
+    }
+  }
+</style>

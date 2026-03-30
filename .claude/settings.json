@@ -5,7 +5,11 @@
       "Read(//home/ruben/Proyectos/gptpc/**)",
       "Bash(git -C /home/ruben/Proyectos/landing_choose remote -v)",
       "Bash(chmod +x /home/ruben/Proyectos/landing_choose/deploy.sh)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(python3 -c \":*)",
+      "Bash(file public/*.png)",
+      "Bash(head -10 grep -n \"rpidev\\\\|titular\\\\|Titular\" /home/ruben/Proyectos/landing_choose/src/pages/politica-de-cookies.astro)",
+      "Bash(python3:*)"
     ]
   }
 }

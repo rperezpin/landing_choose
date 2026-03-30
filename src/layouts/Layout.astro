@@ -6,15 +6,145 @@ interface Props {
   title: string;
   description?: string;
   canonical?: string;
+  keywords?: string[];
+  image?: string;
+  robots?: string;
 }
+
+const siteName = "EasyChoose";
+const siteUrl = "https://easychoose.es";
+const appUrl = "https://app.easychoose.es";
+const organizationId = `${siteUrl}/#organization`;
+const websiteId = `${siteUrl}/#website`;
+const webappId = `${siteUrl}/#webapp`;
+const founderId = `${siteUrl}/#founder`;
 
 const {
   title,
-  description = "Asistente gratuito con IA para elegir tu próximo portátil, móvil, tablet o accesorio según tu uso y presupuesto. Buscamos entre los mejores proveedores en menos de 2 minutos.",
-  canonical = "https://easychoose.es/",
+  description = "Asistente gratuito con IA para elegir tu próximo portátil, móvil, tablet o accesorio según tu uso y presupuesto. EasyChoose simplifica la compra de tecnología con recomendaciones claras y personalizadas.",
+  canonical = `${siteUrl}/`,
+  keywords = [
+    "asistente IA para elegir tecnologia",
+    "que portatil comprar",
+    "que movil comprar",
+    "que tablet comprar",
+    "comparador tecnologia con IA",
+    "recomendador de portatiles",
+    "recomendador de moviles",
+    "easychoose",
+  ],
+  image = `${siteUrl}/hero-illustration.png`,
+  robots = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
 } = Astro.props;
 
-const ogImage = "https://easychoose.es/og-image.png";
+const founderSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": founderId,
+  name: "Rubén Pérez",
+  jobTitle: "Founder",
+  url: `${siteUrl}/contacto/`,
+  worksFor: {
+    "@id": organizationId,
+  },
+  knowsAbout: [
+    "asistentes de compra con IA",
+    "comparación de productos tecnológicos",
+    "experiencia de usuario",
+    "recomendaciones personalizadas de tecnología",
+  ],
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": organizationId,
+  name: siteName,
+  url: `${siteUrl}/`,
+  logo: `${siteUrl}/choose-removebg-preview.png`,
+  sameAs: [`${appUrl}/`, "https://www.rpidev.com/"],
+  founder: {
+    "@id": founderId,
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer support",
+    email: "hello@rpidev.com",
+    availableLanguage: ["es-ES"],
+    url: `${siteUrl}/contacto/`,
+  },
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": websiteId,
+  name: siteName,
+  alternateName: "EasyChoose - Asistente IA para elegir tecnología",
+  url: `${siteUrl}/`,
+  inLanguage: "es-ES",
+  publisher: {
+    "@id": organizationId,
+  },
+};
+
+const softwareApplicationSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": webappId,
+  name: siteName,
+  applicationCategory: "ShoppingApplication",
+  operatingSystem: "Web",
+  inLanguage: "es-ES",
+  isAccessibleForFree: true,
+  url: `${appUrl}/`,
+  image,
+  description,
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "EUR",
+  },
+  featureList: [
+    "Recomendaciones personalizadas según uso y presupuesto",
+    "Comparación de categorías tecnológicas y movilidad eléctrica",
+    "Chat IA para resolver dudas sobre productos concretos",
+    "Asistente gratuito sin registro",
+  ],
+  publisher: {
+    "@id": organizationId,
+  },
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${canonical}#webpage`,
+  url: canonical,
+  name: title,
+  headline: title,
+  description,
+  inLanguage: "es-ES",
+  isPartOf: {
+    "@id": websiteId,
+  },
+  about: [
+    {
+      "@type": "Thing",
+      name: "elección de tecnología",
+    },
+    {
+      "@type": "Thing",
+      name: "asistente de compra con IA",
+    },
+  ],
+  primaryImageOfPage: image,
+  publisher: {
+    "@id": organizationId,
+  },
+};
+
+const layoutSchemas = [founderSchema, organizationSchema, websiteSchema, softwareApplicationSchema, webPageSchema];
 ---
 
 <!doctype html>
@@ -49,101 +179,76 @@ const ogImage = "https://easychoose.es/og-image.png";
     })(window,document,'script','dataLayer','GTM-WKHGW4FH');</script>
     <!-- End Google Tag Manager -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="format-detection" content="telephone=no, date=no, email=no, address=no" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <meta name="description" content={description} />
     <meta name="author" content="EasyChoose" />
-    <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#6C63FF" />
     <meta name="application-name" content="EasyChoose" />
+    <meta name="robots" content={robots} />
+    <meta name="theme-color" content="#6C63FF" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(", ")} />
+    <title>{title}</title>
     <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="alternate" hreflang="es-ES" href={canonical} />
+    <link rel="alternate" hreflang="es" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
+    <link rel="alternate" type="text/plain" href={`${siteUrl}/llms.txt`} title="EasyChoose for LLMs" />
+    <link rel="alternate" type="text/plain" href={`${siteUrl}/llms-full.txt`} title="EasyChoose full context for LLMs" />
 
-    <!-- Open Graph -->
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="EasyChoose — Asistente de compra de tecnología con IA" />
-    <meta property="og:locale" content="es_ES" />
-    <meta property="og:site_name" content="EasyChoose" />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:alt" content="EasyChoose, asistente IA para elegir tecnología" />
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:alt" content="EasyChoose, asistente IA para elegir tecnología" />
 
-    <!-- Hreflang -->
-    <link rel="alternate" hreflang="es" href="https://easychoose.es/" />
-    <link rel="alternate" hreflang="x-default" href="https://easychoose.es/" />
-    
-    <!-- Structured Data: Organization -->
-    <script type="application/ld+json" is:inline>
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "EasyChoose",
-      "url": "https://easychoose.es",
-      "logo": "https://easychoose.es/choose-removebg-preview.png"
-    }
-    </script>
-
-    <!-- Structured Data: WebApplication -->
-    <script type="application/ld+json" is:inline>
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "EasyChoose",
-      "alternateName": "EasyChoose — Asistente de Compra de Tecnología",
-      "description": "Asistente gratuito con IA para elegir portátiles, móviles, tablets y accesorios según tu uso y presupuesto. Buscamos entre los mejores proveedores del mercado.",
-      "url": "https://app.easychoose.es",
-      "applicationCategory": "ShoppingApplication",
-      "operatingSystem": "Web",
-      "inLanguage": "es",
-      "isAccessibleForFree": true,
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "EUR"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "EasyChoose",
-        "url": "https://easychoose.es"
-      }
-    }
-    </script>
+    {layoutSchemas.map((schema) => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKHGW4FH"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+    <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
     <CookieBanner />
     <header class="header">
-      <nav class="container">
+      <nav class="container" aria-label="Navegación principal">
         <div class="logo">
-          <img
-            src="/choose-removebg-preview.png"
-            alt="choose logo"
-            class="logo-img"
-          />
+          <a href="/">
+            <img
+              src="/choose-removebg-preview.png"
+              alt="EasyChoose, asistente con inteligencia artificial para elegir tecnología"
+              class="logo-img"
+              width="776"
+              height="294"
+            />
+          </a>
         </div>
         <ul class="nav-links">
           <li><a href="#categories">Categorías</a></li>
           <li><a href="#how-it-works">Cómo funciona</a></li>
-          <li><a href="#social-proof">Testimonios</a></li>
+          <li><a href="#comparison">Comparativa</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
-        <a href="https://app.easychoose.es" class="btn btn-primary">Empieza el Asistente</a>
+        <a href={appUrl} class="btn btn-primary">Empieza el Asistente</a>
       </nav>
     </header>
 
-    <main>
+    <main id="main-content">
       <slot />
     </main>
 
@@ -153,26 +258,30 @@ const ogImage = "https://easychoose.es/og-image.png";
           <div class="footer-info">
             <img
               src="/choose-removebg-preview.png"
-              alt="choose logo"
+              alt="EasyChoose, asistente IA para elegir portátiles, móviles y tablets"
               class="logo-img footer-logo"
+              width="776"
+              height="294"
             />
-            <p>Simplificamos la compra de tecnología con IA. Gratis y sin registro.</p>
+            <p>Simplificamos la compra de tecnología con IA. Gratis, claro y pensado para personas expertas y no expertas.</p>
           </div>
           <div class="footer-links">
-            <h4>Enlaces</h4>
+            <h4>Explorar</h4>
             <ul>
               <li><a href="#categories">Categorías</a></li>
               <li><a href="#how-it-works">Cómo funciona</a></li>
-              <li><a href="#social-proof">Testimonios</a></li>
+              <li><a href="#comparison">Comparativa</a></li>
               <li><a href="#faq">FAQ</a></li>
+              <li><a href="/contacto/">Contacto</a></li>
             </ul>
           </div>
           <div class="footer-links">
             <h4>Legal</h4>
             <ul>
-              <li><a href="/politica-de-privacidad">Privacidad</a></li>
-              <li><a href="/aviso-legal">Aviso Legal</a></li>
-              <li><a href="/politica-de-cookies">Cookies</a></li>
+              <li><a href="/politica-de-privacidad/">Privacidad</a></li>
+              <li><a href="/aviso-legal/">Aviso legal</a></li>
+              <li><a href="/politica-de-cookies/">Cookies</a></li>
+              <li><a href="/llms.txt">llms.txt</a></li>
             </ul>
           </div>
         </div>
@@ -181,9 +290,10 @@ const ogImage = "https://easychoose.es/og-image.png";
             &copy; {new Date().getFullYear()} EasyChoose. Todos los derechos reservados.
           </p>
           <p class="credits">
-            Made with <span class="heart">💙</span> by <a
-              href="http://www.rpidev.com"
-              target="_blank">rpidev</a
+            Desarrollado por <a
+              href="https://www.rpidev.com/"
+              target="_blank"
+              rel="noopener noreferrer">rpidev</a
             >
           </p>
         </div>
@@ -191,13 +301,28 @@ const ogImage = "https://easychoose.es/og-image.png";
     </footer>
 
     <style>
+      .skip-link {
+        position: absolute;
+        left: 1rem;
+        top: -4rem;
+        z-index: 1200;
+        background: var(--color-dark);
+        color: white;
+        padding: 0.75rem 1rem;
+        border-radius: 0.75rem;
+      }
+
+      .skip-link:focus {
+        top: 1rem;
+      }
+
       .header {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        background-color: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.84);
+        backdrop-filter: blur(12px);
         z-index: 1000;
         padding: 1rem 0;
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -207,10 +332,11 @@ const ogImage = "https://easychoose.es/og-image.png";
         display: flex;
         justify-content: space-between;
         align-items: center;
+        gap: 1rem;
       }
 
       .logo-img {
-        height: 40px;
+        height: 64px;
         width: auto;
       }
 
@@ -243,7 +369,12 @@ const ogImage = "https://easychoose.es/og-image.png";
       .footer-content {
         display: flex;
         justify-content: space-between;
+        gap: 2rem;
         margin-bottom: 3rem;
+      }
+
+      .footer-info {
+        max-width: 420px;
       }
 
       .footer-info p {
@@ -287,18 +418,35 @@ const ogImage = "https://easychoose.es/og-image.png";
         text-decoration: underline;
       }
 
-      .heart {
-        color: #3b82f6;
+      main {
+        padding-top: 72px;
       }
 
-      @media (max-width: 768px) {
+      @media (max-width: 900px) {
         .nav-links {
           display: none;
         }
 
+        .header .btn {
+          padding: 0.65rem 1.1rem;
+          font-size: 0.88rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .logo-img {
+          height: 52px;
+        }
+
         .footer-content {
           flex-direction: column;
-          gap: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header .btn {
+          padding: 0.55rem 0.9rem;
+          font-size: 0.8rem;
         }
       }
     </style>

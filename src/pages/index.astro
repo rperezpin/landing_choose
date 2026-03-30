@@ -1,926 +1,1254 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
-import FeatureCard from "../components/FeatureCard.astro";
+
+const appUrl = "https://app.easychoose.es/";
+const canonical = "https://easychoose.es/";
+
+const keywords = [
+  "que portatil comprar",
+  "que movil comprar",
+  "que tablet comprar",
+  "asistente IA para elegir tecnologia",
+  "comparador de tecnologia",
+  "recomendador de portatiles con IA",
+  "recomendador de moviles con IA",
+  "easychoose",
+];
+
+const steps = [
+  {
+    title: "Selecciona tu categoría",
+    description:
+      "Elige si buscas un portátil, móvil, tablet, ordenador, accesorio o un vehículo de movilidad eléctrica.",
+  },
+  {
+    title: "Define tu uso real",
+    description:
+      "Indica si lo necesitas para estudiar, trabajar, jugar, crear contenido, desplazarte o resolver una necesidad concreta.",
+  },
+  {
+    title: "Ajusta presupuesto y preferencias",
+    description:
+      "Filtra por sistema operativo, autonomía, pantalla, cámara, peso o cualquier extra importante para tu caso.",
+  },
+  {
+    title: "Resuelve la última duda con IA",
+    description:
+      "Pregunta por batería, rendimiento, portabilidad o compatibilidad antes de decidir qué modelo te conviene más.",
+  },
+];
+
+const useCases = [
+  {
+    icon: "🧠",
+    title: "No sabes de tecnología",
+    description:
+      "EasyChoose traduce especificaciones complejas a recomendaciones claras para que compres con criterio aunque no seas experto.",
+  },
+  {
+    icon: "🧭",
+    title: "Sabes lo que quieres, pero no quieres perder tiempo",
+    description:
+      "Si ya conoces el mercado, el asistente te ahorra horas cribando modelos y te lleva directo a las opciones que encajan.",
+  },
+  {
+    icon: "🎁",
+    title: "Quieres acertar con un regalo o una compra importante",
+    description:
+      "La IA te ayuda a priorizar uso real, presupuesto y necesidades prácticas para reducir el riesgo de equivocarte.",
+  },
+];
+
+const problems = [
+  {
+    icon: "😩",
+    title: "Horas comparando lo mismo",
+    description:
+      "Decenas de modelos parecen equivalentes, pero cambian en lo que sí importa para tu uso diario.",
+  },
+  {
+    icon: "⏳",
+    title: "Especificaciones difíciles de interpretar",
+    description:
+      "RAM, núcleos, nits, refresco, autonomía o latencia no siempre se traducen en una decisión clara.",
+  },
+  {
+    icon: "💸",
+    title: "Miedo a pagar de más o a quedarte corto",
+    description:
+      "La compra tecnológica duele cuando inviertes sin saber si el producto encaja de verdad con tu caso.",
+  },
+];
+
+const categories = [
+  {
+    icon: "💻",
+    title: "Portátiles",
+    description: "Laptops para trabajo, estudios, gaming, programación y creatividad.",
+    priceRange: "€300 – €2.500",
+    links: ["Mejor calidad-precio", "Para trabajo o estudios", "Gaming"],
+  },
+  {
+    icon: "📱",
+    title: "Smartphones",
+    description: "Móviles Android y iPhone para batería, cámara, uso diario o gama alta.",
+    priceRange: "€150 – €1.800",
+    links: ["Menos de 500€", "Cámara profesional", "Android o iPhone"],
+  },
+  {
+    icon: "📟",
+    title: "Tablets",
+    description: "Tablets e iPad para apuntes, lectura, dibujo, contenido multimedia y productividad ligera.",
+    priceRange: "€200 – €1.200",
+    links: ["Para estudiantes", "Dibujo y diseño", "iPad o Android"],
+  },
+  {
+    icon: "🖥️",
+    title: "Ordenadores",
+    description: "Sobremesa y todo en uno para oficina, teletrabajo, gaming y uso doméstico.",
+    priceRange: "€400 – €2.000",
+    links: ["Para trabajo", "Gaming de sobremesa", "Todo en uno"],
+  },
+  {
+    icon: "🎧",
+    title: "Accesorios",
+    description: "Auriculares, teclados, ratones, periféricos y complementos para mejorar tu setup.",
+    priceRange: "€15 – €500",
+    links: ["Auriculares", "Teclado y ratón", "Periféricos gaming"],
+  },
+  {
+    icon: "⚡",
+    title: "Movilidad eléctrica",
+    description: "Patinetes, bicicletas y scooters eléctricos para ciudad, trayectos diarios y ocio.",
+    priceRange: "€300 – €2.500",
+    links: ["Patinete eléctrico", "Bicicleta eléctrica", "Scooter eléctrico"],
+  },
+];
+
+const features = [
+  {
+    icon: "⚡",
+    title: "Velocidad Extrema",
+    text: "Resultados instantáneos para que no pierdas ni un segundo.",
+  },
+  {
+    icon: "🛍️",
+    title: "Catálogo Inteligente",
+    text: "Selección curada de portátiles, móviles, tablets, ordenadores y accesorios.",
+  },
+  {
+    icon: "🤖",
+    title: "Asistente IA Dedicado",
+    text: "Respuestas personalizadas basadas en tu contexto, necesidades y dudas finales.",
+    highlight: true,
+  },
+];
+
+const quickQuestions = [
+  {
+    icon: "💻",
+    question: "¿Qué portátil comprar para estudiar o trabajar?",
+    answer:
+      "Depende de autonomía, peso, sistema operativo y tipo de tareas. El asistente descarta modelos sobredimensionados y te enseña los que encajan con tu ritmo real.",
+  },
+  {
+    icon: "📱",
+    question: "¿Qué móvil comprar si buscas buena cámara y batería?",
+    answer:
+      "No siempre hace falta subir a la gama más cara. EasyChoose cruza cámara, autonomía, tamaño y precio para encontrar el punto de equilibrio.",
+  },
+  {
+    icon: "📟",
+    question: "¿Qué tablet elegir para apuntes, lectura o diseño?",
+    answer:
+      "La mejor tablet cambia si priorizas stylus, ecosistema, brillo de pantalla, apps o portabilidad. El asistente te orienta según ese contexto.",
+  },
+  {
+    icon: "⚡",
+    question: "¿Qué accesorio o patinete merece realmente la pena?",
+    answer:
+      "La IA filtra opciones irrelevantes y se centra en compatibilidad, ergonomía, autonomía, seguridad y valor por precio.",
+  },
+];
+
+const comparisonRows = [
+  {
+    factor: "Tiempo invertido",
+    manual: "Horas comparando fichas técnicas, reviews y tiendas.",
+    easychoose: "Un flujo guiado de pocos pasos con recomendación final clara.",
+  },
+  {
+    factor: "Comprensión técnica",
+    manual: "Tienes que interpretar specs y marketing de cada marca.",
+    easychoose: "La IA traduce datos técnicos a impacto real en tu día a día.",
+  },
+  {
+    factor: "Ajuste al presupuesto",
+    manual: "Es fácil pagar de más por prestaciones que no vas a usar.",
+    easychoose: "Prioriza valor, uso real y límites de precio desde el principio.",
+  },
+  {
+    factor: "Dudas finales",
+    manual: "La última incertidumbre suele obligarte a seguir buscando.",
+    easychoose: "Puedes preguntar a la IA por batería, peso, cámara o compatibilidad antes de decidir.",
+  },
+  {
+    factor: "Claridad de decisión",
+    manual: "Muchísima información, poca conclusión accionable.",
+    easychoose: "Una recomendación argumentada y fácil de entender.",
+  },
+];
+
+const methodology = [
+  {
+    icon: "🎯",
+    title: "Uso real antes que ficha técnica",
+    description:
+      "El asistente parte de lo que vas a hacer con el producto, no de una lista de especificaciones aisladas.",
+  },
+  {
+    icon: "💰",
+    title: "Valor por precio",
+    description:
+      "Compara opciones dentro de tu rango para evitar pagar de más o quedarte corto donde sí importa.",
+  },
+  {
+    icon: "🔍",
+    title: "Resultados que puedes interrogar",
+    description:
+      "Cada recomendación se puede revisar con el chat IA para convertir la duda final en una decisión informada.",
+  },
+  {
+    icon: "🤖",
+    title: "Transparencia comercial",
+    description:
+      "EasyChoose puede recibir comisiones de afiliación, pero la recomendación se formula según adecuación al uso, no por patrocinio de marca.",
+  },
+];
+
+const faqs = [
+  {
+    question: "¿Qué es EasyChoose y cómo funciona?",
+    answer:
+      "EasyChoose es un asistente gratuito con IA para elegir tecnología. Te hace unas pocas preguntas sobre categoría, uso, presupuesto y preferencias, y te devuelve recomendaciones claras para que compres con más seguridad y menos ruido.",
+  },
+  {
+    question: "¿Sirve aunque no entienda de procesadores, RAM o pantallas?",
+    answer:
+      "Sí. Está pensado precisamente para personas que quieren acertar sin tener que dominar especificaciones técnicas. El sistema traduce esos datos a lenguaje práctico y a impacto real en el uso diario.",
+  },
+  {
+    question: "¿Qué productos puedo comparar con EasyChoose?",
+    answer:
+      "Actualmente cubre portátiles, smartphones, tablets, ordenadores de sobremesa, accesorios y categorías de movilidad eléctrica como patinetes, bicicletas y scooters.",
+  },
+  {
+    question: "¿Las recomendaciones son gratuitas e imparciales?",
+    answer:
+      "Sí. El asistente es gratuito y no exige registro. EasyChoose puede monetizar a través de enlaces de afiliado, pero la selección se orienta a encaje con tus necesidades, no a promocionar una marca concreta.",
+  },
+  {
+    question: "¿Puedo preguntar dudas concretas antes de comprar?",
+    answer:
+      "Sí. El chat IA permite bajar al detalle y preguntar, por ejemplo, si un portátil aguanta una jornada de universidad, si un móvil prioriza batería frente a cámara o si un accesorio es compatible con tu equipo.",
+  },
+  {
+    question: "¿Para quién es útil: expertos o no expertos?",
+    answer:
+      "Para ambos perfiles. Quien no domina la tecnología gana claridad; quien ya la domina ahorra tiempo filtrando opciones y acelerando la decisión final.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "Cómo elegir tecnología con EasyChoose",
+  description:
+    "Proceso guiado para elegir portátil, móvil, tablet, ordenador, accesorio o movilidad eléctrica con ayuda de IA.",
+  totalTime: "PT2M",
+  estimatedCost: {
+    "@type": "MonetaryAmount",
+    currency: "EUR",
+    value: "0",
+  },
+  step: steps.map((step, index) => ({
+    "@type": "HowToStep",
+    position: index + 1,
+    name: step.title,
+    text: step.description,
+  })),
+};
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Categorías que cubre EasyChoose",
+  itemListElement: categories.map((category, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: category.title,
+    description: category.description,
+    url: appUrl,
+  })),
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Asistente IA para elegir tecnología",
+  serviceType: "Recomendación personalizada de productos tecnológicos",
+  url: canonical,
+  provider: {
+    "@type": "Organization",
+    name: "EasyChoose",
+    url: canonical,
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "España",
+  },
+  audience: {
+    "@type": "Audience",
+    audienceType: "Consumidores que quieren elegir tecnología con seguridad",
+  },
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "EUR",
+  },
+};
+
+const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema];
 ---
 
 <Layout
-  title="EasyChoose — Asistente IA para elegir portátil, móvil o tablet según tu presupuesto"
-  description="¿No sabes qué portátil, móvil o tablet comprar? EasyChoose te recomienda el dispositivo ideal en 2 minutos con IA. Gratis, sin registro. Buscamos entre los mejores proveedores para encontrar tu opción ideal."
-  canonical="https://easychoose.es/"
+  title="Qué portátil, móvil o tablet comprar | EasyChoose te ayuda a decidir con IA"
+  description="EasyChoose es un asistente gratuito con IA para elegir portátil, móvil, tablet, ordenador, accesorio o movilidad eléctrica según uso real y presupuesto. Menos comparación ciega, más decisión clara."
+  canonical={canonical}
+  keywords={keywords}
 >
-	<!-- Structured Data: FAQ (rich results) -->
-	<script type="application/ld+json" is:inline>
-	{
-	  "@context": "https://schema.org",
-	  "@type": "FAQPage",
-	  "mainEntity": [
-	    {
-	      "@type": "Question",
-	      "name": "¿Es realmente gratis el asistente de EasyChoose?",
-	      "acceptedAnswer": {
-	        "@type": "Answer",
-	        "text": "Sí, el asistente es 100% gratuito y no requiere registro. Nos financiamos con pequeñas comisiones de las tiendas cuando compras a través de nuestros enlaces de afiliado, sin ningún coste adicional para ti."
-	      }
-	    },
-	    {
-	      "@type": "Question",
-	      "name": "¿Qué dispositivos puedo encontrar en EasyChoose?",
-	      "acceptedAnswer": {
-	        "@type": "Answer",
-	        "text": "EasyChoose recomienda portátiles, smartphones, tablets, ordenadores de sobremesa, equipos todo en uno, accesorios (auriculares, teclados, ratones) y vehículos de movilidad eléctrica como patinetes, bicicletas y scooters eléctricos."
-	      }
-	    },
-	    {
-	      "@type": "Question",
-	      "name": "¿En qué tiendas compara precios EasyChoose?",
-	      "acceptedAnswer": {
-	        "@type": "Answer",
-	        "text": "Buscamos entre los mejores proveedores del mercado, seleccionados por su fiabilidad, garantía de devolución y servicio postventa."
-	      }
-	    },
-	    {
-	      "@type": "Question",
-	      "name": "¿Cómo sé que las recomendaciones son imparciales?",
-	      "acceptedAnswer": {
-	        "@type": "Answer",
-	        "text": "Nuestro asistente con IA analiza especificaciones técnicas, precios y disponibilidad de stock sin patrocinar ninguna marca. El algoritmo de puntuación prioriza el uso real del usuario: gaming significa FPS reales, trabajo significa productividad diaria, estudios significa portabilidad y autonomía."
-	      }
-	    },
-	    {
-	      "@type": "Question",
-	      "name": "¿Cuánto tarda en darme una recomendación?",
-	      "acceptedAnswer": {
-	        "@type": "Answer",
-	        "text": "El proceso completo dura menos de 2 minutos. Respondes 4-5 preguntas sobre tu categoría, uso, sistema operativo preferido y presupuesto, y el asistente te muestra los mejores modelos disponibles al instante."
-	      }
-	    },
-	    {
-	      "@type": "Question",
-	      "name": "¿Puedo hacer preguntas sobre los productos recomendados?",
-	      "acceptedAnswer": {
-	        "@type": "Answer",
-	        "text": "Sí. Cada recomendación incluye un chat de IA integrado (Gemini) para que puedas preguntar detalles específicos como '¿aguanta la batería 8 horas?', '¿es ligero para llevar a la universidad?' o '¿es compatible con mi periférico?'."
-	      }
-	    }
-	  ]
-	}
-	</script>
+  {pageSchemas.map((schema) => (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  ))}
 
-	<!-- Structured Data: HowTo -->
-	<script type="application/ld+json" is:inline>
-	{
-	  "@context": "https://schema.org",
-	  "@type": "HowTo",
-	  "name": "Cómo elegir el mejor dispositivo tecnológico con EasyChoose",
-	  "description": "Guía paso a paso para encontrar tu portátil, móvil, tablet o accesorio ideal en menos de 2 minutos usando el asistente IA de EasyChoose.",
-	  "totalTime": "PT2M",
-	  "estimatedCost": {
-	    "@type": "MonetaryAmount",
-	    "currency": "EUR",
-	    "value": "0"
-	  },
-	  "step": [
-	    {
-	      "@type": "HowToStep",
-	      "position": 1,
-	      "name": "Selecciona tu categoría",
-	      "text": "Elige entre portátiles, smartphones, tablets, ordenadores, movilidad eléctrica o accesorios según lo que necesites."
-	    },
-	    {
-	      "@type": "HowToStep",
-	      "position": 2,
-	      "name": "Define tu uso",
-	      "text": "Indica si es para gaming, trabajo, estudios, fotografía o uso diario. El asistente ajusta los resultados a tu perfil real."
-	    },
-	    {
-	      "@type": "HowToStep",
-	      "position": 3,
-	      "name": "Personaliza tu búsqueda",
-	      "text": "Filtra por sistema operativo (Windows, macOS, Android, iOS), extras que necesitas y tu rango de presupuesto."
-	    },
-	    {
-	      "@type": "HowToStep",
-	      "position": 4,
-	      "name": "Consulta al asistente IA",
-	      "text": "Usa el chat integrado con Gemini para resolver dudas concretas sobre los modelos recomendados antes de comprar."
-	    }
-	  ]
-	}
-	</script>
+  <Section className="hero-section" variant="glass">
+    <div class="hero-grid">
+      <div class="hero-copy animate-fade-in">
+        <span class="badge">Asistente IA gratuito</span>
+        <h1>
+          Qué portátil, móvil o tablet comprar <span class="highlight">sin perder horas comparando</span>
+        </h1>
+        <p class="hero-answer">
+          EasyChoose es un asistente gratuito con IA que te ayuda a elegir tecnología según tu uso real, tu presupuesto y tus preferencias. En lugar de obligarte a interpretar fichas técnicas, resume el mercado en una recomendación clara y accionable.
+        </p>
+        <div class="hero-actions">
+          <a href={appUrl} class="btn btn-primary btn-large">Empieza el Asistente Gratis</a>
+          <a href="#how-it-works" class="btn-text">Ver cómo funciona</a>
+        </div>
+        <ul class="hero-pills" aria-label="Beneficios clave">
+          <li>Gratis y sin registro</li>
+          <li>Lenguaje claro para no expertos</li>
+          <li>Comparación útil para decidir mejor</li>
+        </ul>
+      </div>
 
-	<!-- Hero Section -->
-	<Section className="hero-section" variant="glass">
-		<div class="hero-content animate-fade-in">
-			<h1>
-				¿Qué portátil, móvil o tablet comprar? <span class="highlight">Tu asistente IA lo decide en 2 minutos</span>
-			</h1>
-			<p class="sub-headline">
-				Recomendaciones personalizadas según tu uso, sistema operativo y presupuesto. Buscamos entre los mejores proveedores para que encuentres tu dispositivo ideal. Gratis, sin registro.
-			</p>
-			<div class="hero-actions">
-				<a href="https://app.easychoose.es" class="btn btn-primary btn-large"
-					>Empieza el Asistente Gratis</a
-				>
-				<a href="#how-it-works" class="btn-text"
-					>Ver cómo funciona &rarr;</a
-				>
-			</div>
-		</div>
-		<div class="hero-visual">
-			<div class="visual-blob"></div>
-			<img
-				src="/hero-illustration.png"
-				alt="Asistente IA EasyChoose mostrando recomendaciones de portátiles y móviles"
-				class="hero-image"
-			/>
-		</div>
-	</Section>
+      <div class="hero-visual">
+        <div class="hero-illustration-wrap" aria-label="Ilustración del asistente EasyChoose">
+          <div class="hero-floating hero-floating-top hero-floating-outside">
+            <span class="emoji-inline" aria-hidden="true">💬</span>
+            <span>Te guiamos paso a paso</span>
+          </div>
+          <img
+            src="/hero-illustration.png"
+            alt="Ilustración del asistente EasyChoose recomendando tecnología según uso y presupuesto"
+            class="hero-image"
+            width="1000"
+            height="1000"
+          />
+        </div>
+      </div>
+    </div>
+  </Section>
 
-	<!-- Problem Section -->
-	<Section id="problem" variant="light">
-		<div class="section-header">
-			<span class="badge">El Problema</span>
-			<h2>
-				No necesitas más información. Necesitas la decisión correcta.
-			</h2>
-			<p>
-				El parálisis por análisis es real. No pierdas más energía mental
-				en specs que no entiendes.
-			</p>
-		</div>
-		<div class="problem-grid">
-			<div class="problem-item">
-				<div class="problem-icon">😩</div>
-				<h3>Horas comparando</h3>
-				<p>
-					Modelos que parecen iguales pero tienen precios distintos.
-					¿Cuál elegir?
-				</p>
-			</div>
-			<div class="problem-item">
-				<div class="problem-icon">⏳</div>
-				<h3>Specs que no entiendes</h3>
-				<p>
-					Gigas, núcleos, resoluciones... deja que nosotros
-					traduzcamos la tecnología por ti.
-				</p>
-			</div>
-			<div class="problem-item">
-				<div class="problem-icon">💸</div>
-				<h3>Miedo a equivocarte</h3>
-				<p>
-					Gastar dinero en un dispositivo que no se adapta a tu día a
-					día es frustrante.
-				</p>
-			</div>
-		</div>
-	</Section>
+  <Section id="features" className="features-section" variant="light">
+    <div class="section-header">
+      <span class="badge">Nuestra tecnología</span>
+      <h2>Diseñado para la eficiencia</h2>
+    </div>
+    <div class="feature-grid">
+      {features.map((feature) => (
+        <article class={`feature-card ${feature.highlight ? "feature-card-highlight" : ""}`}>
+          <div class="emoji-feature" aria-hidden="true">{feature.icon}</div>
+          <h3>{feature.title}</h3>
+          <p>{feature.text}</p>
+        </article>
+      ))}
+    </div>
+  </Section>
 
-	<!-- How It Works Section -->
-	<Section id="how-it-works" variant="glass">
-		<div class="section-header">
-			<span class="badge">Proceso</span>
-			<h2>Tu viaje hacia la compra ideal</h2>
-			<p>
-				En menos de 60 segundos. Sin registros. Sin spam. Sin letra
-				pequeña.
-			</p>
-		</div>
-		<div class="steps-container">
-			<div class="step">
-				<div class="step-num">1</div>
-				<div class="step-content">
-					<h3>Selecciona tu Categoría</h3>
-					<p>
-						¿Buscas un portátil, un móvil, una tablet o el accesorio
-						perfecto? Empezamos acotando el terreno.
-					</p>
-				</div>
-			</div>
-			<div class="step">
-				<div class="step-num">2</div>
-				<div class="step-content">
-					<h3>Define el Uso</h3>
-					<p>
-						Dinos si es para Gaming, Trabajo, Estudios o
-						Creatividad. Ajustamos los resultados a tu perfil real.
-					</p>
-				</div>
-			</div>
-			<div class="step">
-				<div class="step-num">3</div>
-				<div class="step-content">
-					<h3>Personalización Total</h3>
-					<p>
-						Filtra por sistema operativo, extras necesarios y tu
-						rango de presupuesto. Sin opciones irrelevantes.
-					</p>
-				</div>
-			</div>
-			<div class="step">
-				<div class="step-num">4</div>
-				<div class="step-content">
-					<h3>Tu Experto IA Personal</h3>
-					<p>
-						Usa el chat integrado para preguntar detalles críticos
-						como "¿Es este portátil lo suficientemente ligero para
-						llevarlo a la universidad?".
-					</p>
-				</div>
-			</div>
-		</div>
-	</Section>
+  <Section id="answer-first" variant="light">
+    <div class="section-header">
+      <span class="badge">Respuesta rápida</span>
+      <h2>¿Qué hace EasyChoose y para quién sirve?</h2>
+      <p class="answer-first">
+        EasyChoose sirve para personas que quieren comprar tecnología sin quedarse atrapadas entre especificaciones, comparativas interminables y miedo a equivocarse. Es útil tanto si no sabes de hardware como si sí sabes pero quieres llegar antes a una buena decisión.
+      </p>
+    </div>
+    <div class="use-cases-grid">
+      {useCases.map((useCase) => (
+        <article class="info-card friendly-card friendly-centered">
+          <div class="emoji-card" aria-hidden="true">{useCase.icon}</div>
+          <h3>{useCase.title}</h3>
+          <p>{useCase.description}</p>
+        </article>
+      ))}
+    </div>
+  </Section>
 
-	<!-- Features Section -->
-	<Section id="features" variant="light">
-		<div class="section-header">
-			<span class="badge">Nuestra Tecnología</span>
-			<h2>Diseñado para la eficiencia</h2>
-		</div>
-		<div class="features-grid">
-			<FeatureCard
-				title="Velocidad Extrema"
-				description="Resultados instantáneos para que no pierdas ni un segundo."
-				icon="⚡"
-			/>
-			<FeatureCard
-				title="Catálogo Inteligente"
-				description="Selección curada de Laptops, Smartphones, Tablets y Accesorios."
-				icon="🛍️"
-			/>
-			<FeatureCard
-				title="Asistente IA Dedicado"
-				description="Respuestas personalizadas basadas en el stock actual y tus necesidades."
-				icon="🤖"
-			/>
-		</div>
-	</Section>
+  <Section id="problem" variant="glass">
+    <div class="section-header">
+      <span class="badge">El problema</span>
+      <h2>¿Por qué comprar tecnología abruma tanto?</h2>
+      <p>
+        Porque la mayoría de comparativas te enseñan datos, pero no te ayudan a decidir. EasyChoose parte de la pregunta correcta: qué necesitas tú, en qué contexto y cuánto quieres gastar.
+      </p>
+    </div>
+    <div class="problem-grid">
+      {problems.map((problem) => (
+        <article class="problem-item plain-problem">
+          <div class="problem-icon plain-emoji" aria-hidden="true">{problem.icon}</div>
+          <h3>{problem.title}</h3>
+          <p>{problem.description}</p>
+        </article>
+      ))}
+    </div>
+  </Section>
 
-	<!-- Categories Section -->
-	<Section id="categories" variant="light">
-		<div class="section-header">
-			<span class="badge">Categorías Disponibles</span>
-			<h2>Recomendaciones para cada tipo de dispositivo</h2>
-			<p>Catálogo actualizado con los mejores modelos de 2026, buscados entre los mejores proveedores del mercado</p>
-		</div>
-		<div class="categories-grid categories-grid-6">
-			<div class="category-card">
-				<div class="category-icon">💻</div>
-				<h3>Portátiles</h3>
-				<p class="category-desc">Laptops para trabajo, gaming, estudios y creatividad</p>
-				<div class="price-range">€300 – €2.500</div>
-				<ul class="category-links">
-					<li><a href="https://app.easychoose.es">Mejor calidad-precio</a></li>
-					<li><a href="https://app.easychoose.es">Para trabajo o estudios</a></li>
-					<li><a href="https://app.easychoose.es">Gaming</a></li>
-				</ul>
-			</div>
-			<div class="category-card">
-				<div class="category-icon">📱</div>
-				<h3>Smartphones</h3>
-				<p class="category-desc">Móviles para todas las necesidades y presupuestos</p>
-				<div class="price-range">€150 – €1.800</div>
-				<ul class="category-links">
-					<li><a href="https://app.easychoose.es">Menos de 500€</a></li>
-					<li><a href="https://app.easychoose.es">Cámara profesional</a></li>
-					<li><a href="https://app.easychoose.es">Android o iPhone</a></li>
-				</ul>
-			</div>
-			<div class="category-card">
-				<div class="category-icon">🖥️</div>
-				<h3>Ordenadores de sobremesa</h3>
-				<p class="category-desc">PCs de escritorio y todo en uno para casa o trabajo</p>
-				<div class="price-range">€400 – €2.000</div>
-				<ul class="category-links">
-					<li><a href="https://app.easychoose.es">Para trabajo</a></li>
-					<li><a href="https://app.easychoose.es">Gaming de sobremesa</a></li>
-					<li><a href="https://app.easychoose.es">Todo en uno</a></li>
-				</ul>
-			</div>
-			<div class="category-card">
-				<div class="category-icon">📟</div>
-				<h3>Tablets</h3>
-				<p class="category-desc">Tablets para estudios, dibujo y entretenimiento</p>
-				<div class="price-range">€200 – €1.200</div>
-				<ul class="category-links">
-					<li><a href="https://app.easychoose.es">Para estudiantes</a></li>
-					<li><a href="https://app.easychoose.es">Dibujo y diseño</a></li>
-					<li><a href="https://app.easychoose.es">iPad vs Android</a></li>
-				</ul>
-			</div>
-			<div class="category-card">
-				<div class="category-icon">⚡</div>
-				<h3>Movilidad eléctrica</h3>
-				<p class="category-desc">Patinetes, bicicletas y scooters eléctricos</p>
-				<div class="price-range">€300 – €2.500</div>
-				<ul class="category-links">
-					<li><a href="https://app.easychoose.es">Patinete eléctrico</a></li>
-					<li><a href="https://app.easychoose.es">Bicicleta eléctrica</a></li>
-					<li><a href="https://app.easychoose.es">Scooter eléctrico</a></li>
-				</ul>
-			</div>
-			<div class="category-card">
-				<div class="category-icon">🎧</div>
-				<h3>Accesorios</h3>
-				<p class="category-desc">Auriculares, teclados, ratones y periféricos</p>
-				<div class="price-range">€15 – €500</div>
-				<ul class="category-links">
-					<li><a href="https://app.easychoose.es">Auriculares</a></li>
-					<li><a href="https://app.easychoose.es">Teclado y ratón</a></li>
-					<li><a href="https://app.easychoose.es">Periféricos gaming</a></li>
-				</ul>
-			</div>
-		</div>
-	</Section>
+  <Section id="how-it-works" variant="light">
+    <div class="section-header">
+      <span class="badge">Proceso</span>
+      <h2>¿Cómo funciona el asistente para elegir tecnología?</h2>
+      <p>
+        La experiencia está diseñada para ser rápida, guiada y accionable. Respondes unas pocas preguntas y obtienes una recomendación que puedes revisar con IA antes de comprar.
+      </p>
+    </div>
+    <div class="steps-grid">
+      {steps.map((step, index) => (
+        <article class="step-card">
+          <div class="step-number">{index + 1}</div>
+          <h3>{step.title}</h3>
+          <p>{step.description}</p>
+        </article>
+      ))}
+    </div>
+  </Section>
 
-	<!-- Social Proof Section -->
-	<Section id="social-proof" variant="glass">
-		<div class="section-header">
-			<span class="badge">Confianza Verificada</span>
-			<h2>Más de 15,000 usuarios ya encontraron su dispositivo ideal</h2>
-			<p>Únete a la comunidad que ahorra tiempo y dinero con nuestras recomendaciones</p>
-		</div>
-		<div class="social-proof-content">
-			<div class="testimonials">
-				<div class="testimonial">
-					<div class="stars">⭐⭐⭐⭐⭐</div>
-					<p>"Encontré mi portátil ideal en 5 minutos. Llevaba semanas investigando y frustrado."</p>
-					<div class="author">- Carlos M., Estudiante</div>
-				</div>
-				<div class="testimonial">
-					<div class="stars">⭐⭐⭐⭐⭐</div>
-					<p>"El asistente de IA me ahorró 200€ recomendando un móvil perfecto para mis necesidades."</p>
-					<div class="author">- Ana S., Marketing</div>
-				</div>
-				<div class="testimonial">
-					<div class="stars">⭐⭐⭐⭐⭐</div>
-					<p>"Finalmente entendí qué tablet necesitaba para mis clases online. Sin tecnicismos."</p>
-					<div class="author">- Laura R., Profesora</div>
-				</div>
-			</div>
-			<div class="store-logos">
-				<p class="stores-title">Buscamos entre los mejores proveedores del mercado</p>
-				<div class="logos-grid">
-					<div class="store-logo">✓ Tiendas verificadas</div>
-					<div class="store-logo">✓ Garantía de devolución</div>
-					<div class="store-logo">✓ Servicio postventa</div>
-					<div class="store-logo">✓ Precios competitivos</div>
-				</div>
-			</div>
-		</div>
-	</Section>
+  <Section id="categories" variant="glass">
+    <div class="section-header">
+      <span class="badge">Categorías</span>
+      <h2>¿Qué tipo de producto puedes elegir con EasyChoose?</h2>
+      <p>
+        La plataforma cubre las búsquedas más habituales de compra tecnológica y convierte cada categoría en una conversación guiada, no en un catálogo caótico.
+      </p>
+    </div>
+    <div class="categories-grid">
+      {categories.map((category) => (
+        <article class="category-card">
+          <div class="category-icon category-emoji" aria-hidden="true">{category.icon}</div>
+          <h3>{category.title}</h3>
+          <p>{category.description}</p>
+          <div class="price-range">{category.priceRange}</div>
+          <ul class="category-links">
+            {category.links.map((link) => (
+              <li><a href={appUrl} class="category-link">{link}</a></li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </Section>
 
-	<!-- FAQ Section -->
-	<Section id="faq" variant="light">
-		<div class="section-header">
-			<span class="badge">Preguntas Frecuentes</span>
-			<h2>Resolvemos tus dudas antes de empezar</h2>
-		</div>
-		<div class="faq-container">
-			<div class="faq-item">
-				<h3>¿Es realmente gratis el asistente?</h3>
-				<p>Sí, nuestro asistente es 100% gratuito. Nos financiamos con pequeños comisiones de las tiendas cuando compras a través de nuestros enlaces de afiliado, sin coste adicional para ti.</p>
-			</div>
-			<div class="faq-item">
-				<h3>¿De dónde provienen los artículos recomendados?</h3>
-				<p>Los artículos se buscan entre los mejores proveedores del mercado, seleccionados por su fiabilidad, garantía de devolución y servicio postventa.</p>
-			</div>
-			<div class="faq-item">
-				<h3>¿Cómo sé que las recomendaciones son imparciales?</h3>
-				<p>Nuestra IA analiza especificaciones técnicas, precios y más de 10,000 opiniones reales. No patrocinamos marcas - solo recomendamos lo mejor para ti.</p>
-			</div>
-			<div class="faq-item">
-				<h3>¿Con qué frecuencia se actualizan los precios y catálogos?</h3>
-				<p>Actualizamos nuestro catálogo y precios diariamente. La última actualización fue hoy {new Date().toLocaleDateString('es-ES')}.</p>
-			</div>
-			<div class="faq-item">
-				<h3>¿Puedo usar las recomendaciones si no soy experto en tecnología?</h3>
-				<p>¡Claro! Diseñamos el asistente precisamente para gente que no entiende de specs. Te explicamos todo en lenguaje sencillo y enfocado en tu uso diario.</p>
-			</div>
-		</div>
-	</Section>
+  <Section id="questions" variant="light">
+    <div class="section-header">
+      <span class="badge">Intenciones de búsqueda</span>
+      <h2>¿Qué preguntas resuelve mejor esta landing?</h2>
+      <p>
+        La página está pensada para responder consultas reales de compra en lenguaje natural y para conducirlas hacia una recomendación más precisa dentro del asistente.
+      </p>
+    </div>
+    <div class="qa-grid">
+      {quickQuestions.map((item) => (
+        <article class="qa-card friendly-card improved-question-card">
+          <div class="question-top">
+            <div class="emoji-card emoji-card-small question-emoji" aria-hidden="true">{item.icon}</div>
+            <span class="question-tag">Búsqueda frecuente</span>
+          </div>
+          <h3>{item.question}</h3>
+          <p>{item.answer}</p>
+          <a href={appUrl}>Resolverlo en EasyChoose</a>
+        </article>
+      ))}
+    </div>
+  </Section>
 
-	<!-- Benefits Section -->
-	<Section id="benefits" variant="glass">
-		<div class="section-header">
-			<span class="badge">Nuestra Metodología</span>
-			<h2>Por qué nuestras recomendaciones son diferentes</h2>
-		</div>
-		<div class="benefits-grid">
-			<div class="benefit-item">
-				<div class="benefit-icon">🎯</div>
-				<h3>Filtros Inteligentes</h3>
-				<p>Analizamos uso real, no solo especificaciones. Gaming significa FPS reales, trabajo significa productividad diaria.</p>
-			</div>
-			<div class="benefit-item">
-				<div class="benefit-icon">💰</div>
-				<h3>Análisis de Valor</h3>
-				<p>Identificamos el mejor rendimiento por cada rango de precio. No siempre lo más caro es lo mejor para ti.</p>
-			</div>
-			<div class="benefit-item">
-				<div class="benefit-icon">🔍</div>
-				<h3>Opiniones Reales</h3>
-				<p>Procesamos miles de reseñas verificadas para detectar problemas reales y beneficios prácticos de cada modelo.</p>
-			</div>
-			<div class="benefit-item">
-				<div class="benefit-icon">🤖</div>
-				<h3>IA Experta</h3>
-				<p>Nuestro asistente entiende contexto específico: "¿cabe en mi mochila?" o "¿aguanta 8 horas de clase?"</p>
-			</div>
-		</div>
-	</Section>
+  <Section id="comparison" variant="glass">
+    <div class="section-header">
+      <span class="badge">Comparativa</span>
+      <h2>¿Qué cambia frente a buscar por tu cuenta?</h2>
+      <p>
+        Los motores generativos y los usuarios valoran las comparativas claras. Aquí la diferencia no es solo velocidad: es reducir ruido para llegar a una decisión defendible.
+      </p>
+    </div>
+    <div class="table-wrap">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th scope="col">Factor</th>
+            <th scope="col">Búsqueda manual</th>
+            <th scope="col">EasyChoose</th>
+          </tr>
+        </thead>
+        <tbody>
+          {comparisonRows.map((row) => (
+            <tr>
+              <th scope="row">{row.factor}</th>
+              <td>{row.manual}</td>
+              <td>{row.easychoose}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </Section>
 
-	<!-- CTA Section -->
-	<Section variant="dark" className="cta-final">
-		<div class="cta-content">
-			<h2>¿Listo para dejar de buscar y empezar a encontrar?</h2>
-			<p>
-				Únete a los 15,000+ usuarios que ya han simplificado su compra de tecnología.
-			</p>
-			<a href="https://app.easychoose.es" class="btn btn-secondary btn-large"
-				>Empieza el Asistente Ahora — Es Gratis</a
-			>
-			<div class="trust-badges">
-				<span>✓ Gratis sin registro</span>
-				<span>✓ Sin publicidad patrocinada</span>
-				<span>✓ Los mejores proveedores del mercado</span>
-			</div>
-		</div>
-	</Section>
+  <Section id="methodology" variant="light">
+    <div class="section-header">
+      <span class="badge">Nuestra metodología</span>
+      <h2>Por qué nuestras recomendaciones son diferentes</h2>
+      <p class="answer-first">
+        La recomendación se construye alrededor de uso, presupuesto, prioridades y dudas finales. El objetivo no es enseñarte todo el mercado, sino recortar el mercado hasta que la opción correcta para ti resulte evidente.
+      </p>
+    </div>
+    <div class="methodology-list">
+      {methodology.map((item) => (
+        <article class="method-item">
+          <div class="method-emoji" aria-hidden="true">{item.icon}</div>
+          <div class="method-copy">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+    <div class="trust-note">
+      <h3>Transparencia y confianza</h3>
+      <p>
+        Si compras a través de algunos enlaces, EasyChoose puede recibir una comisión sin coste adicional para ti. Puedes revisar la información legal en
+        <a href="/aviso-legal/"> aviso legal</a> o escribir a
+        <a href="/contacto/"> contacto</a> si necesitas aclaraciones.
+      </p>
+    </div>
+  </Section>
+
+  <Section id="faq" variant="glass">
+    <div class="section-header">
+      <span class="badge">FAQ</span>
+      <h2>Preguntas frecuentes antes de empezar</h2>
+      <p>
+        Estas respuestas están redactadas para ser claras tanto para personas como para motores de respuesta. Si quieres tu caso concreto, el siguiente paso es probar el asistente.
+      </p>
+    </div>
+    <div class="faq-list">
+      {faqs.map((faq, index) => (
+        <details class="faq-item" open={index === 0}>
+          <summary>{faq.question}</summary>
+          <p>{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </Section>
+
+  <Section variant="dark" className="cta-final">
+    <div class="cta-content">
+      <span class="badge badge-inverse">CTA principal</span>
+      <h2>Empieza por una pregunta simple y termina con una compra mucho más clara</h2>
+      <p>
+        Si quieres elegir portátil, móvil, tablet, accesorio o movilidad eléctrica sin ruido técnico innecesario, el asistente está listo para guiarte.
+      </p>
+      <a href={appUrl} class="btn btn-secondary btn-large">Empieza el Asistente</a>
+      <ul class="trust-pills">
+        <li>Gratis y sin registro</li>
+        <li>Orientado a uso real</li>
+        <li>Con chat IA para la última duda</li>
+      </ul>
+    </div>
+  </Section>
 </Layout>
 
 <style>
-	/* Section Header */
-	.section-header {
-		text-align: center;
-		max-width: 700px;
-		margin: 0 auto 4rem;
-	}
-
-	.badge {
-		display: inline-block;
-		padding: 0.4rem 1rem;
-		background-color: rgba(108, 99, 255, 0.1);
-		color: var(--color-primary);
-		border-radius: 50px;
-		font-weight: 700;
-		font-size: 0.8rem;
-		text-transform: uppercase;
-		margin-bottom: 1rem;
-	}
-
-	.section-header h2 {
-		font-size: 2.5rem;
-		margin-bottom: 1rem;
-	}
-
-	.section-header p {
-		font-size: 1.1rem;
-		color: var(--color-text-muted);
-	}
-
-	/* Hero Section Styles */
-	.hero-section :global(.container) {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 4rem;
-		min-height: 80vh;
-	}
-
-	.hero-content {
-		flex: 1;
-	}
-
-	.hero-content h1 {
-		font-size: 3.5rem;
-		line-height: 1.1;
-		margin-bottom: 1.5rem;
-	}
-
-	.highlight {
-		color: var(--color-primary);
-		position: relative;
-		display: inline-block;
-	}
-
-	.highlight::after {
-		content: "";
-		position: absolute;
-		bottom: 5px;
-		left: 0;
-		width: 100%;
-		height: 8px;
-		background-color: var(--color-secondary);
-		z-index: -1;
-		opacity: 0.5;
-	}
-
-	.sub-headline {
-		font-size: 1.25rem;
-		color: var(--color-text-muted);
-		margin-bottom: 2.5rem;
-		max-width: 600px;
-	}
-
-	.hero-actions {
-		display: flex;
-		align-items: center;
-		gap: 2rem;
-	}
-
-	.btn-large {
-		padding: 1rem 2.5rem;
-		font-size: 1.1rem;
-	}
-
-	.btn-text {
-		font-weight: 600;
-		color: var(--color-dark);
-	}
-
-	.btn-text:hover {
-		color: var(--color-primary);
-		transform: translateX(5px);
-	}
-
-	.hero-visual {
-		flex: 1;
-		position: relative;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
-	.hero-image {
-		width: 100%;
-		max-width: 500px;
-		z-index: 2;
-		mix-blend-mode: multiply;
-		margin-top: 3rem;
-		animation: float 6s ease-in-out infinite;
-	}
-
-	@keyframes float {
-		0% {
-			transform: translateY(0px);
-		}
-		50% {
-			transform: translateY(-20px);
-		}
-		100% {
-			transform: translateY(0px);
-		}
-	}
-
-	.visual-blob {
-		position: absolute;
-		width: 120%;
-		height: 120%;
-		background: radial-gradient(
-			circle,
-			rgba(108, 99, 255, 0.1) 0%,
-			rgba(255, 211, 105, 0.1) 100%
-		);
-		border-radius: 50%;
-		filter: blur(40px);
-		z-index: 1;
-	}
-
-	/* Problem Grid */
-	.problem-grid {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 2rem;
-	}
-
-	.problem-item {
-		text-align: center;
-		padding: 2rem;
-	}
-
-	.problem-icon {
-		font-size: 3rem;
-		margin-bottom: 1.5rem;
-	}
-
-	.problem-item h3 {
-		margin-bottom: 1rem;
-	}
-
-	/* Steps Container */
-	.steps-container {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 3rem;
-		max-width: 900px;
-		margin: 0 auto;
-	}
-
-	.step {
-		display: flex;
-		gap: 1.5rem;
-		align-items: flex-start;
-	}
-
-	.step-num {
-		background-color: var(--color-primary);
-		color: white;
-		width: 40px;
-		height: 40px;
-		min-width: 40px;
-		border-radius: 50%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		font-weight: 800;
-		box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
-	}
-
-	.step-content h3 {
-		margin-bottom: 0.5rem;
-	}
-
-	/* Features Grid */
-	.features-grid {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 2rem;
-	}
-
-	/* CTA Final */
-	.cta-final {
-		text-align: center;
-	}
-
-	.cta-content h2 {
-		font-size: 3rem;
-		margin-bottom: 1.5rem;
-	}
-
-	.cta-content p {
-		font-size: 1.2rem;
-		margin-bottom: 2.5rem;
-		opacity: 0.8;
-	}
-
-	/* Categories Grid */
-	.categories-grid {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 2rem;
-	}
-
-	.category-card {
-		background: white;
-		border-radius: 16px;
-		padding: 2rem;
-		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-		text-align: center;
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
-	}
-
-	.category-card:hover {
-		transform: translateY(-5px);
-		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-	}
-
-	.category-icon {
-		font-size: 3rem;
-		margin-bottom: 1rem;
-	}
-
-	.category-card h3 {
-		margin-bottom: 0.5rem;
-		color: var(--color-dark);
-	}
-
-	.category-desc {
-		color: var(--color-text-muted);
-		margin-bottom: 1rem;
-	}
-
-	.price-range {
-		background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-		color: white;
-		padding: 0.5rem 1rem;
-		border-radius: 20px;
-		font-weight: 600;
-		display: inline-block;
-		margin-bottom: 1.5rem;
-	}
-
-	.category-links {
-		list-style: none;
-		padding: 0;
-	}
-
-	.category-links li {
-		margin-bottom: 0.5rem;
-	}
-
-	.category-links a {
-		color: var(--color-primary);
-		text-decoration: none;
-		font-weight: 500;
-		transition: color 0.3s ease;
-	}
-
-	.category-links a:hover {
-		color: var(--color-secondary);
-		text-decoration: underline;
-	}
-
-	/* Social Proof */
-	.social-proof-content {
-		display: grid;
-		grid-template-columns: 2fr 1fr;
-		gap: 4rem;
-		align-items: center;
-	}
-
-	.testimonials {
-		display: grid;
-		gap: 2rem;
-	}
-
-	.testimonial {
-		background: white;
-		padding: 1.5rem;
-		border-radius: 12px;
-		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-	}
-
-	.stars {
-		margin-bottom: 1rem;
-	}
-
-	.testimonial p {
-		margin-bottom: 1rem;
-		font-style: italic;
-	}
-
-	.author {
-		font-weight: 600;
-		color: var(--color-primary);
-	}
-
-	.store-logos {
-		text-align: center;
-	}
-
-	.stores-title {
-		font-weight: 600;
-		margin-bottom: 2rem;
-		color: var(--color-dark);
-	}
-
-	.logos-grid {
-		display: grid;
-		gap: 1rem;
-	}
-
-	.store-logo {
-		background: white;
-		padding: 1rem;
-		border-radius: 8px;
-		font-weight: 600;
-		color: var(--color-text-muted);
-		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-	}
-
-	/* FAQ */
-	.faq-container {
-		max-width: 800px;
-		margin: 0 auto;
-		display: grid;
-		gap: 2rem;
-	}
-
-	.faq-item {
-		background: white;
-		padding: 2rem;
-		border-radius: 12px;
-		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-	}
-
-	.faq-item h3 {
-		color: var(--color-primary);
-		margin-bottom: 1rem;
-	}
-
-	.faq-item p {
-		color: var(--color-text-muted);
-		line-height: 1.6;
-	}
-
-	/* Benefits */
-	.benefits-grid {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 2rem;
-	}
-
-	.benefit-item {
-		display: flex;
-		gap: 1.5rem;
-		align-items: flex-start;
-	}
-
-	.benefit-icon {
-		font-size: 2.5rem;
-		min-width: 60px;
-		text-align: center;
-	}
-
-	.benefit-item h3 {
-		margin-bottom: 0.5rem;
-		color: var(--color-dark);
-	}
-
-	.benefit-item p {
-		color: var(--color-text-muted);
-		line-height: 1.5;
-	}
-
-	/* Trust Badges */
-	.trust-badges {
-		display: flex;
-		justify-content: center;
-		gap: 2rem;
-		margin-top: 2rem;
-		flex-wrap: wrap;
-	}
-
-	.trust-badges span {
-		background: rgba(255, 255, 255, 0.1);
-		padding: 0.5rem 1rem;
-		border-radius: 20px;
-		font-size: 0.9rem;
-	}
-
-	/* 6-card categories grid */
-	.categories-grid-6 {
-		grid-template-columns: repeat(3, 1fr);
-	}
-
-	/* Responsive */
-	@media (max-width: 1024px) {
-		.hero-section :global(.container) {
-			flex-direction: column;
-			text-align: center;
-			padding-top: 6rem;
-		}
-
-		.hero-content h1 {
-			font-size: 2.8rem;
-		}
-
-		.hero-actions {
-			justify-content: center;
-		}
-
-		.sub-headline {
-			margin-left: auto;
-			margin-right: auto;
-		}
-
-		.categories-grid,
-		.categories-grid-6,
-		.benefits-grid {
-			grid-template-columns: 1fr 1fr;
-		}
-
-		.social-proof-content {
-			grid-template-columns: 1fr;
-			gap: 3rem;
-		}
-	}
-
-	@media (max-width: 768px) {
-		.problem-grid,
-		.features-grid,
-		.steps-container,
-		.categories-grid-6 {
-			grid-template-columns: 1fr;
-		}
-
-		.section-header h2 {
-			font-size: 2rem;
-		}
-
-		.cta-content h2 {
-			font-size: 2.2rem;
-		}
-
-		.trust-badges {
-			flex-direction: column;
-			gap: 1rem;
-		}
-
-		.trust-badges span {
-			text-align: center;
-		}
-	}
+  .section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3.5rem;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    background: rgba(108, 99, 255, 0.12);
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .badge-inverse {
+    background: rgba(255, 255, 255, 0.14);
+    color: white;
+  }
+
+  .section-header h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1rem;
+  }
+
+  .section-header p {
+    color: var(--color-text-muted);
+    font-size: 1.08rem;
+  }
+
+  .answer-first {
+    font-size: 1.15rem;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+    gap: 4rem;
+    align-items: center;
+    min-height: 82vh;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2.5rem, 5vw, 4.6rem);
+    line-height: 1.03;
+    margin-bottom: 1.4rem;
+    max-width: 12ch;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+  }
+
+  .hero-answer {
+    font-size: 1.18rem;
+    color: var(--color-text-muted);
+    max-width: 60ch;
+    margin-bottom: 2rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-large {
+    padding: 1rem 2.35rem;
+    font-size: 1.05rem;
+  }
+
+  .btn-text {
+    color: var(--color-dark);
+    font-weight: 600;
+  }
+
+  .btn-text:hover {
+    color: var(--color-primary);
+  }
+
+  .hero-pills,
+  .trust-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    list-style: none;
+  }
+
+  .hero-pills li,
+  .trust-pills li {
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    background: white;
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    box-shadow: 0 16px 30px rgba(46, 46, 46, 0.06);
+    font-weight: 600;
+    color: var(--color-dark);
+  }
+
+  .hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 480px;
+  }
+
+  .hero-illustration-wrap {
+    position: relative;
+    z-index: 2;
+    width: min(100%, 560px);
+    padding-top: 5rem;
+    animation: float 6.5s ease-in-out infinite;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+    filter: none;
+  }
+
+  .hero-floating {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.95rem 1.1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(108, 99, 255, 0.12);
+    box-shadow: 0 18px 34px rgba(46, 46, 46, 0.12);
+    color: var(--color-dark);
+    font-weight: 700;
+    backdrop-filter: blur(10px);
+  }
+
+  .hero-floating-top {
+    top: 0;
+    right: 0;
+  }
+
+  .hero-floating-outside {
+    transform: translateY(-0.5rem);
+  }
+
+  .emoji-inline {
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  .features-section :global(.container) {
+    margin-top: -1.5rem;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .feature-card {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 2.2rem 1.8rem;
+    border-radius: 1.8rem;
+    background: white;
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    box-shadow: 0 18px 40px rgba(46, 46, 46, 0.06);
+  }
+
+  .feature-card-highlight {
+    border-color: rgba(108, 99, 255, 0.9);
+  }
+
+  .feature-card h3 {
+    font-size: 1.22rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .feature-card p {
+    color: var(--color-text-muted);
+    max-width: 24ch;
+    margin: 0 auto;
+  }
+
+  .emoji-feature {
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .use-cases-grid,
+  .problem-grid,
+  .steps-grid,
+  .categories-grid,
+  .qa-grid,
+  .methodology-list {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .use-cases-grid,
+  .problem-grid,
+  .qa-grid,
+  .methodology-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .steps-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .info-card,
+  .problem-item,
+  .step-card,
+  .category-card,
+  .qa-card {
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.6rem;
+    padding: 1.6rem;
+    box-shadow: 0 18px 40px rgba(46, 46, 46, 0.06);
+  }
+
+  .info-card h3,
+  .problem-item h3,
+  .step-card h3,
+  .category-card h3,
+  .qa-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .info-card p,
+  .problem-item p,
+  .step-card p,
+  .category-card p,
+  .qa-card p {
+    color: var(--color-text-muted);
+  }
+
+  .friendly-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .friendly-card::before {
+    content: "";
+    position: absolute;
+    inset: auto -1.4rem -1.4rem auto;
+    width: 6.4rem;
+    height: 6.4rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(108, 99, 255, 0.08), transparent 70%);
+  }
+
+  .friendly-centered {
+    text-align: center;
+  }
+
+  .emoji-card {
+    font-size: 2.3rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .emoji-card-small {
+    font-size: 2rem;
+  }
+
+  .question-top {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .question-emoji {
+    margin-bottom: 0;
+  }
+
+  .question-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(108, 99, 255, 0.1);
+    color: var(--color-primary);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .improved-question-card {
+    min-height: 100%;
+  }
+
+  .improved-question-card h3 {
+    line-height: 1.2;
+  }
+
+  .improved-question-card p {
+    margin-bottom: 1rem;
+  }
+
+  .problem-item {
+    position: relative;
+    text-align: center;
+  }
+
+  .plain-problem {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 1rem 1.25rem;
+  }
+
+  .plain-emoji {
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 1.2rem;
+  }
+
+  .step-card {
+    position: relative;
+    padding-top: 4.25rem;
+  }
+
+  .step-number {
+    position: absolute;
+    top: 1.2rem;
+    left: 1.2rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    background: var(--color-primary);
+    color: white;
+    font-weight: 700;
+  }
+
+  .category-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    align-items: center;
+  }
+
+  .category-emoji {
+    font-size: 2.9rem;
+    line-height: 1;
+    margin-bottom: 0.35rem;
+  }
+
+  .price-range {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.65rem 1.1rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(108, 99, 255, 0.92), rgba(255, 211, 105, 0.92));
+    color: white;
+    font-weight: 700;
+    margin: 0.25rem 0 0.7rem;
+  }
+
+  .category-links {
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .category-link,
+  .qa-card a,
+  .trust-note a {
+    color: var(--color-primary);
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+  }
+
+  .category-link:hover,
+  .qa-card a:hover,
+  .trust-note a:hover {
+    text-decoration: underline;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    box-shadow: 0 20px 40px rgba(46, 46, 46, 0.08);
+    background: white;
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 720px;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    text-align: left;
+    padding: 1.1rem 1.2rem;
+    border-bottom: 1px solid rgba(46, 46, 46, 0.08);
+    vertical-align: top;
+  }
+
+  .comparison-table thead th {
+    background: rgba(108, 99, 255, 0.08);
+    color: var(--color-dark);
+    font-size: 0.96rem;
+  }
+
+  .comparison-table tbody th {
+    width: 22%;
+    color: var(--color-dark);
+  }
+
+  .methodology-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 3rem;
+  }
+
+  .method-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.1rem;
+  }
+
+  .method-emoji {
+    flex: 0 0 auto;
+    font-size: 2.5rem;
+    line-height: 1;
+    margin-top: 0.1rem;
+  }
+
+  .method-copy h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .method-copy p {
+    color: var(--color-text-muted);
+  }
+
+  .trust-note {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    background: linear-gradient(135deg, rgba(108, 99, 255, 0.08), rgba(255, 211, 105, 0.12));
+    border: 1px solid rgba(46, 46, 46, 0.08);
+  }
+
+  .trust-note h3 {
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+  }
+
+  .trust-note p {
+    color: var(--color-text-muted);
+  }
+
+  .faq-list {
+    max-width: 880px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .faq-item {
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.4rem;
+    padding: 1.2rem 1.3rem;
+    box-shadow: 0 18px 36px rgba(46, 46, 46, 0.06);
+  }
+
+  .faq-item summary {
+    cursor: pointer;
+    font-weight: 700;
+    list-style: none;
+    padding-right: 2rem;
+    position: relative;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: -0.1rem;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--color-primary);
+  }
+
+  .faq-item[open] summary::after {
+    content: "−";
+  }
+
+  .faq-item p {
+    margin-top: 0.9rem;
+    color: var(--color-text-muted);
+  }
+
+  .cta-final :global(.container) {
+    max-width: 860px;
+  }
+
+  .cta-content {
+    text-align: center;
+  }
+
+  .cta-content h2 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    max-width: 56ch;
+    margin: 0 auto 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.08rem;
+  }
+
+  .trust-pills {
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+
+  .trust-pills li {
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: none;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-18px);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 1100px) {
+    .steps-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .categories-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero-floating-top {
+      right: 1rem;
+    }
+  }
+
+  @media (max-width: 960px) {
+    .hero-grid,
+    .use-cases-grid,
+    .problem-grid,
+    .feature-grid,
+    .qa-grid,
+    .methodology-list {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-grid {
+      gap: 2rem;
+      min-height: auto;
+    }
+
+    .hero-copy h1 {
+      max-width: none;
+    }
+
+    .hero-visual {
+      min-height: 320px;
+    }
+
+    .hero-floating {
+      position: static;
+      margin: 0.75rem auto 0;
+      width: fit-content;
+      max-width: 92%;
+    }
+
+    .hero-illustration-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      padding-top: 0;
+    }
+
+    .features-section :global(.container) {
+      margin-top: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .steps-grid,
+    .categories-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-pills,
+    .trust-pills {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .hero-pills li,
+    .trust-pills li {
+      text-align: center;
+    }
+
+    .comparison-table {
+      min-width: 620px;
+    }
+  }
 </style>

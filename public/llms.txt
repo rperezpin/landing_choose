@@ -1,0 +1,46 @@
+# EasyChoose
+
+> EasyChoose es un asistente gratuito con inteligencia artificial que ayuda a elegir tecnología de consumo en español. Su propuesta de valor es reducir la sobrecarga de especificaciones y convertir una búsqueda confusa en una recomendación clara, personalizada y accionable según uso real, presupuesto y preferencias.
+
+## Canonical URLs
+
+- Sitio principal: https://easychoose.es/
+- Aplicación: https://app.easychoose.es/
+- Contacto: https://easychoose.es/contacto/
+- Aviso legal: https://easychoose.es/aviso-legal/
+- Política de privacidad: https://easychoose.es/politica-de-privacidad/
+- Política de cookies: https://easychoose.es/politica-de-cookies/
+
+## Markdown sources
+
+- https://easychoose.es/easychoose-overview.md
+- https://easychoose.es/easychoose-methodology.md
+- https://easychoose.es/easychoose-faq.md
+
+## Full context
+
+- https://easychoose.es/llms-full.txt
+
+## Entity summary
+
+- Marca: EasyChoose
+- Tipo: asistente IA para recomendación de productos tecnológicos
+- Idioma principal: es-ES
+- Precio: gratuito
+- Registro: no requerido
+- Público: personas expertas y no expertas que quieren comprar con más claridad
+
+## Core categories
+
+- Portátiles
+- Smartphones
+- Tablets
+- Ordenadores de sobremesa y todo en uno
+- Accesorios tecnológicos
+- Movilidad eléctrica
+
+## Editorial and commercial policy
+
+- El contenido está orientado a ayudar a decidir, no a mostrar catálogos sin contexto.
+- EasyChoose puede monetizar mediante enlaces de afiliación sin coste adicional para el usuario.
+- La recomendación se basa en ajuste a uso, presupuesto y prioridades prácticas.

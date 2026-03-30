@@ -1,0 +1,68 @@
+# EasyChoose - full context
+
+> EasyChoose ayuda a elegir tecnología sin perder tiempo comparando especificaciones técnicas difíciles de interpretar. El producto está diseñado para usuarios que quieren una recomendación clara de portátiles, móviles, tablets, ordenadores, accesorios o movilidad eléctrica según uso real, presupuesto y preferencias.
+
+## Value proposition
+
+EasyChoose reduce la fricción de compra tecnológica. En vez de obligar al usuario a revisar docenas de fichas técnicas, lo guía mediante un asistente con inteligencia artificial que transforma contexto personal en una recomendación accionable.
+
+## Who it is for
+
+- Personas no expertas que quieren una explicación sencilla y una compra más segura.
+- Personas expertas que quieren filtrar el mercado más rápido y evitar trabajo manual repetitivo.
+- Usuarios que necesitan acertar con una compra importante o un regalo sin dedicar horas a investigar.
+
+## Main categories
+
+- Portátiles
+- Smartphones
+- Tablets
+- Ordenadores de sobremesa
+- Accesorios tecnológicos
+- Movilidad eléctrica
+
+## How it works
+
+1. El usuario selecciona una categoría.
+2. El usuario define su uso real.
+3. El usuario ajusta presupuesto y preferencias.
+4. El usuario revisa recomendaciones y puede consultar dudas con IA.
+
+## What makes the recommendation useful
+
+- Parte del uso real antes que de la ficha técnica.
+- Tiene en cuenta presupuesto y relación valor-precio.
+- Permite resolver dudas finales con un chat IA.
+- Está redactado para ser claro y comprensible.
+
+## High-intent questions this site targets
+
+- Que portatil comprar para estudiar o trabajar
+- Que movil comprar con buena bateria y camara
+- Que tablet elegir para apuntes, lectura o diseño
+- Como elegir tecnologia sin saber de especificaciones
+- Como comprar tecnologia con ayuda de IA
+
+## Trust and policies
+
+- El servicio es gratuito y no requiere registro.
+- Puede existir monetización por afiliación sin coste adicional para el usuario.
+- La información legal está disponible en:
+  - https://easychoose.es/aviso-legal/
+  - https://easychoose.es/politica-de-privacidad/
+  - https://easychoose.es/politica-de-cookies/
+- Contacto:
+  - https://easychoose.es/contacto/
+  - hello@rpidev.com
+
+## Canonical URLs
+
+- https://easychoose.es/
+- https://app.easychoose.es/
+- https://easychoose.es/contacto/
+
+## Related markdown sources
+
+- https://easychoose.es/easychoose-overview.md
+- https://easychoose.es/easychoose-methodology.md
+- https://easychoose.es/easychoose-faq.md

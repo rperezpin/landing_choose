@@ -1,0 +1,130 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+---
+
+<Layout
+  title="Contacto — EasyChoose"
+  description="¿Tienes alguna pregunta sobre EasyChoose? Ponte en contacto con nosotros. Respondemos en menos de 48 horas."
+  canonical="https://easychoose.es/contacto/"
+>
+  <!-- Structured Data: BreadcrumbList -->
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://easychoose.es/" },
+      { "@type": "ListItem", "position": 2, "name": "Contacto", "item": "https://easychoose.es/contacto/" }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: ContactPage -->
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contacto — EasyChoose",
+    "url": "https://easychoose.es/contacto/",
+    "description": "Página de contacto de EasyChoose. Puedes escribirnos para cualquier consulta sobre el asistente IA, colaboraciones o soporte.",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "hello@rpidev.com",
+      "contactType": "customer support",
+      "availableLanguage": "Spanish"
+    }
+  }
+  </script>
+
+  <Section className="legal-page" variant="light">
+    <div class="legal-content">
+      <h1>Contacto</h1>
+      <p class="intro">
+        ¿Tienes alguna pregunta, sugerencia o quieres colaborar con EasyChoose?
+        Escríbenos y te respondemos en menos de 48 horas.
+      </p>
+
+      <section>
+        <h2>Escríbenos directamente</h2>
+        <p>
+          La forma más rápida de contactar con nosotros es por email. Atendemos
+          consultas sobre el asistente IA, informes de errores, propuestas de
+          colaboración y cualquier otra duda.
+        </p>
+        <p>
+          <strong>Email:</strong>{" "}
+          <a href="mailto:hello@rpidev.com">hello@rpidev.com</a>
+        </p>
+      </section>
+
+      <section>
+        <h2>¿En qué podemos ayudarte?</h2>
+        <ul>
+          <li><strong>Soporte:</strong> Si el asistente no funciona como esperas o tienes dudas sobre una recomendación.</li>
+          <li><strong>Colaboraciones:</strong> Marcas, tiendas o medios que quieran trabajar con EasyChoose.</li>
+          <li><strong>Prensa:</strong> Periodistas o creadores de contenido con consultas sobre el proyecto.</li>
+          <li><strong>Privacidad:</strong> Solicitudes relacionadas con tus datos personales.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Datos de contacto</h2>
+        <ul>
+          <li><strong>Titular:</strong> rpidev (Rubén Pérez)</li>
+          <li><strong>Email:</strong> <a href="mailto:hello@rpidev.com">hello@rpidev.com</a></li>
+          <li><strong>Web:</strong> <a href="https://www.rpidev.com" target="_blank" rel="noopener">www.rpidev.com</a></li>
+        </ul>
+      </section>
+    </div>
+  </Section>
+</Layout>
+
+<style>
+  .intro {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+  }
+
+  .legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .legal-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .legal-content h2 {
+    font-size: 1.4rem;
+    margin: 2rem 0 0.75rem;
+    color: var(--color-primary);
+  }
+
+  .legal-content p,
+  .legal-content li {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+  }
+
+  .legal-content ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .legal-content a {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .legal-content a:hover {
+    text-decoration: underline;
+  }
+
+  section {
+    margin-bottom: 2rem;
+  }
+</style>

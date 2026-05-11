@@ -1,0 +1,285 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+
+const canonical = "https://easychoose.es/metodologia-puntuacion/";
+const appUrl = "https://app.easychoose.es/";
+---
+
+<Layout
+  title="Cómo EasyChoose puntúa y recomienda productos tecnológicos | Metodología"
+  description="Descubre cómo EasyChoose evalúa portátiles, móviles y tablets: criterios de puntuación, ponderación por uso real, transparencia sobre afiliados y el papel de la IA en las recomendaciones."
+  canonical={canonical}
+  keywords={["metodologia recomendacion tecnologia", "como funciona comparador ia", "criterios puntuacion portatiles", "easychoose metodologia", "asistente ia imparcial tecnologia"]}
+>
+  <!-- BreadcrumbList -->
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://easychoose.es/" },
+      { "@type": "ListItem", "position": 2, "name": "Metodología de puntuación", "item": "https://easychoose.es/metodologia-puntuacion/" }
+    ]
+  }
+  </script>
+
+  <!-- Article schema para E-E-A-T -->
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Cómo EasyChoose puntúa y recomienda productos tecnológicos",
+    "description": "Explicación detallada del sistema de puntuación de EasyChoose: criterios, ponderaciones, papel de la IA y política de transparencia comercial.",
+    "url": "https://easychoose.es/metodologia-puntuacion/",
+    "author": {
+      "@type": "Person",
+      "name": "Rubén Pérez",
+      "url": "https://www.rpidev.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "EasyChoose",
+      "url": "https://easychoose.es/"
+    },
+    "dateModified": new Date().toISOString().split("T")[0],
+    "inLanguage": "es-ES",
+    "about": [
+      { "@type": "Thing", "name": "recomendación de productos tecnológicos" },
+      { "@type": "Thing", "name": "inteligencia artificial aplicada al comercio" }
+    ]
+  }
+  </script>
+
+  <Section className="legal-page" variant="light">
+    <div class="metodologia-content">
+      <header class="page-header">
+        <span class="badge">Transparencia</span>
+        <h1>Cómo EasyChoose puntúa y recomienda productos tecnológicos</h1>
+        <p class="lead">
+          EasyChoose no es un catálogo ni una tienda. Es un sistema de puntuación que ordena el mercado según tu uso real y tu presupuesto. Esta página explica cómo funciona ese sistema, qué criterios aplica y cómo garantizamos que la recomendación no está influida por intereses comerciales.
+        </p>
+      </header>
+
+      <section>
+        <h2>Principio fundamental: uso real primero</h2>
+        <p>
+          La mayoría de comparadores tecnológicos ordenan los productos por precio, popularidad o número de valoraciones. EasyChoose adopta un enfoque diferente: el punto de partida es el uso declarado por el usuario, no el catálogo del fabricante.
+        </p>
+        <p>
+          Antes de evaluar cualquier especificación técnica, el sistema identifica el contexto de uso: si el dispositivo va a servir para estudiar, trabajar, gaming, diseño, fotografía, desplazamientos diarios u otro tipo de actividad. Ese contexto define qué criterios son relevantes y cuánto pesa cada uno en la puntuación final.
+        </p>
+        <p>
+          El resultado es que dos usuarios con el mismo presupuesto pero usos distintos reciben recomendaciones diferentes, aunque los productos disponibles sean los mismos.
+        </p>
+      </section>
+
+      <section>
+        <h2>Criterios de evaluación por categoría</h2>
+        <p>
+          EasyChoose evalúa cada producto en función de un conjunto de criterios adaptados a la categoría. A continuación se detallan los principales factores que el sistema pondera en las categorías más demandadas.
+        </p>
+
+        <h3>Portátiles</h3>
+        <ul>
+          <li><strong>Autonomía de batería:</strong> tiempo real estimado de uso continuo según el perfil de uso declarado (ofimática, vídeo, compilación, etc.).</li>
+          <li><strong>Rendimiento:</strong> capacidad del procesador y la memoria RAM para el tipo de tareas del usuario, no el benchmark sintético máximo.</li>
+          <li><strong>Portabilidad:</strong> peso y dimensiones en relación con el uso declarado (movilidad diaria vs. uso en escritorio).</li>
+          <li><strong>Calidad de pantalla:</strong> resolución, brillo y cobertura de color según si el usuario trabaja con contenido visual.</li>
+          <li><strong>Sistema operativo:</strong> adecuación del ecosistema (Windows, macOS, Linux) al flujo de trabajo del usuario.</li>
+          <li><strong>Relación valor-precio:</strong> comparación con alternativas equivalentes dentro del mismo rango de presupuesto.</li>
+        </ul>
+
+        <h3>Smartphones</h3>
+        <ul>
+          <li><strong>Autonomía:</strong> capacidad de batería y eficiencia energética en relación con el uso declarado.</li>
+          <li><strong>Calidad de cámara:</strong> evaluada por sensor, apertura y procesamiento de imagen, con más peso si el usuario declara fotografía como prioridad.</li>
+          <li><strong>Rendimiento:</strong> fluidez del sistema operativo y capacidad para ejecutar las aplicaciones habituales del usuario.</li>
+          <li><strong>Ecosistema:</strong> compatibilidad con otros dispositivos del usuario (iPhone si tiene Mac, Android si usa Windows, etc.).</li>
+          <li><strong>Actualización y soporte:</strong> años de actualizaciones de seguridad garantizados por el fabricante.</li>
+        </ul>
+
+        <h3>Tablets</h3>
+        <ul>
+          <li><strong>Soporte de stylus:</strong> compatibilidad y calidad de escritura si el usuario declara apuntes o diseño como uso principal.</li>
+          <li><strong>Pantalla:</strong> tamaño, resolución y brillo según si el uso es lectura, consumo multimedia o trabajo con aplicaciones.</li>
+          <li><strong>Ecosistema de aplicaciones:</strong> disponibilidad de apps profesionales o educativas en el sistema operativo.</li>
+          <li><strong>Portabilidad y peso:</strong> relevante si el usuario va a transportar la tablet habitualmente.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>El papel de la inteligencia artificial en las recomendaciones</h2>
+        <p>
+          EasyChoose utiliza un modelo de IA generativa (Gemini de Google) con dos funciones diferenciadas dentro del proceso de recomendación.
+        </p>
+        <p>
+          <strong>Primera función — puntuación y filtrado:</strong> El algoritmo aplica los criterios descritos anteriormente sobre el catálogo de productos disponibles y genera una lista ordenada de opciones. Este proceso es determinista para los criterios numéricos (precio, peso, batería) y asistido por IA para los criterios cualitativos (adecuación del ecosistema, experiencia de uso real).
+        </p>
+        <p>
+          <strong>Segunda función — chat de dudas finales:</strong> Una vez presentadas las recomendaciones, el usuario puede hacer preguntas concretas sobre cualquier modelo (por ejemplo: «¿este portátil aguanta una jornada de universidad sin cargador?», «¿la cámara de este móvil es buena con poca luz?»). La IA responde basándose en los datos técnicos del producto y en el contexto declarado por el usuario.
+        </p>
+        <p>
+          EasyChoose no modifica el orden de las recomendaciones en función de las consultas al chat. Las posiciones se calculan antes de que el usuario interactúe con el chat IA.
+        </p>
+      </section>
+
+      <section>
+        <h2>Presupuesto y rangos de precio</h2>
+        <p>
+          El presupuesto declarado por el usuario actúa como un filtro duro: ningún producto que supere el límite indicado aparecerá en las recomendaciones. Dentro del rango, el sistema aplica una penalización relativa a los productos que se acercan al límite superior sin ofrecer una mejora proporcional en los criterios de uso.
+        </p>
+        <p>
+          El objetivo es que el usuario no pague más por prestaciones que no va a usar en su contexto concreto. Si un modelo ofrece el mismo rendimiento práctico que uno más caro dentro del mismo rango, el sistema priorizará el de mejor relación valor-precio.
+        </p>
+      </section>
+
+      <section>
+        <h2>Política de afiliados y neutralidad de las recomendaciones</h2>
+        <p>
+          EasyChoose puede recibir comisiones cuando un usuario realiza una compra a través de los enlaces de producto. Los proveedores actuales de afiliación son Amazon, PcComponentes, AliExpress y Miravia.
+        </p>
+        <p>
+          La existencia de estos acuerdos de afiliación <strong>no influye en el orden ni en la selección de los productos recomendados</strong>. Los productos se puntúan y ordenan según los criterios de uso descritos en esta página, con independencia de qué tienda los comercializa o de si EasyChoose tiene un acuerdo de afiliación con ese comerciante.
+        </p>
+        <p>
+          En la práctica, esto significa que si el mejor producto para un usuario concreto está en una tienda sin acuerdo de afiliación, EasyChoose lo recomendará igualmente. La calidad de la recomendación es prioritaria sobre la monetización.
+        </p>
+        <p>
+          Para más información sobre la relación comercial, consulta el <a href="/aviso-legal/">aviso legal</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2>Actualización del catálogo y disponibilidad de stock</h2>
+        <p>
+          El catálogo de productos de EasyChoose se actualiza periódicamente para reflejar cambios de precio, disponibilidad de stock y lanzamiento de nuevos modelos. Los productos agotados o descatalogados se eliminan del sistema de recomendación.
+        </p>
+        <p>
+          Los precios mostrados son orientativos y pueden variar en función de la tienda y el momento de la consulta. EasyChoose no garantiza el precio final de compra, que queda sujeto a las condiciones del comercio en el momento de la transacción.
+        </p>
+      </section>
+
+      <section class="cta-section">
+        <h2>¿Quieres que el sistema encuentre tu próximo dispositivo?</h2>
+        <p>
+          Ahora que conoces cómo funciona el sistema de puntuación de EasyChoose, puedes usarlo con más confianza. El proceso dura menos de 2 minutos y no requiere registro.
+        </p>
+        <a href={appUrl} class="btn btn-primary">Empieza el Asistente Gratis</a>
+      </section>
+
+      <a href="/" class="btn-back">&larr; Volver al inicio</a>
+    </div>
+  </Section>
+</Layout>
+
+<style>
+  .metodologia-content {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 4rem 0;
+  }
+
+  .page-header {
+    margin-bottom: 3rem;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    background: rgba(108, 99, 255, 0.12);
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+    color: var(--color-dark);
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    max-width: 72ch;
+  }
+
+  section {
+    margin-bottom: 3rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+  }
+
+  h3 {
+    font-size: 1.15rem;
+    margin: 1.5rem 0 0.75rem;
+    color: var(--color-dark);
+  }
+
+  p {
+    color: var(--color-text-muted);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  li {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: 0.6rem;
+  }
+
+  a:not(.btn):not(.btn-back) {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  a:not(.btn):not(.btn-back):hover {
+    text-decoration: underline;
+  }
+
+  .cta-section {
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    background: linear-gradient(135deg, rgba(108, 99, 255, 0.08), rgba(255, 211, 105, 0.12));
+    border: 1px solid rgba(108, 99, 255, 0.15);
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-section p {
+    max-width: 56ch;
+    margin: 0 auto 1.5rem;
+  }
+
+  .btn-back {
+    display: inline-block;
+    margin-top: 2rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .btn-back:hover {
+    text-decoration: underline;
+  }
+</style>

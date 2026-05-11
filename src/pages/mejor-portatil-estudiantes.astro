@@ -1,0 +1,570 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+
+const canonical = "https://easychoose.es/mejor-portatil-estudiantes/";
+const appUrl = "https://app.easychoose.es/";
+const today = new Date().toLocaleDateString("es-ES", { day: "numeric", month: "long", year: "numeric" });
+
+const criteria = [
+  {
+    icon: "🔋",
+    title: "Autonomía mínima de 8 horas",
+    description: "Un portátil de universidad tiene que sobrevivir un día de clase sin enchufarlo. Menos de 8 horas de uso real (no el dato del fabricante) es insuficiente para la mayoría de jornadas lectivas.",
+  },
+  {
+    icon: "⚖️",
+    title: "Peso inferior a 1,5 kg",
+    description: "Cargar el portátil todos los días junto a libros, apuntes y material hace que cada gramo cuente. Un ultrabook ligero reduce la fatiga acumulada a lo largo del curso.",
+  },
+  {
+    icon: "⚡",
+    title: "Rendimiento suficiente para ofimática y videoconferencia",
+    description: "Para la mayoría de carreras, no necesitas un procesador de última generación. Lo que sí necesitas es un equipo que abra aplicaciones con fluidez y no se ralentice con el navegador lleno de pestañas.",
+  },
+  {
+    icon: "💶",
+    title: "Presupuesto entre 400€ y 900€",
+    description: "El rango más habitual para portátiles universitarios de calidad. Por debajo de 400€ el rendimiento y la batería suelen decepcionantes; por encima de 900€ pagas por prestaciones que no vas a usar.",
+  },
+  {
+    icon: "💾",
+    title: "Al menos 16 GB de RAM",
+    description: "Con 8 GB notas la diferencia en cuanto abres varios programas a la vez. Con 16 GB el portátil te aguantará bien durante los 4-5 años típicos de una carrera.",
+  },
+  {
+    icon: "🖥️",
+    title: "Pantalla de 14 pulgadas, mínimo Full HD",
+    description: "14 pulgadas es el equilibrio óptimo entre área de trabajo y portabilidad. La resolución Full HD (1920×1080) es el mínimo para leer texto y ver presentaciones con comodidad.",
+  },
+];
+
+const faqs = [
+  {
+    question: "¿Qué portátil comprar para estudiantes universitarios en 2026?",
+    answer: "Para universidad en 2026, busca un portátil con al menos 16 GB de RAM, batería real de 8+ horas, peso inferior a 1,5 kg y pantalla Full HD de 14 pulgadas. EasyChoose filtra las mejores opciones según tu carrera, sistema operativo preferido y presupuesto.",
+  },
+  {
+    question: "¿MacBook o Windows para estudiar?",
+    answer: "Depende de tu carrera. macOS es más eficiente en batería y tiene mejor integración con iPhone y iPad, ideal para diseño o música. Windows ofrece más flexibilidad de software y mejor relación precio-rendimiento para ingeniería, ciencias o humanidades.",
+  },
+  {
+    question: "¿Cuánto debo gastar en un portátil para la universidad?",
+    answer: "El rango óptimo para un portátil universitario es entre 500€ y 800€. Por debajo de 500€ el rendimiento y la batería suelen ser insuficientes para 4-5 años de carrera. Por encima de 900€ pagas por prestaciones que la mayoría de estudiantes no necesita.",
+  },
+  {
+    question: "¿Necesito un portátil gaming para estudiar ingeniería?",
+    answer: "No necesariamente. Un portátil gaming tiene más rendimiento bruto, pero pesa más y dura menos con batería. Para ingeniería, un ultrabook con buena CPU y 16 GB de RAM suele ser más cómodo en el día a día. Si también juegas, entonces sí tiene más sentido.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
+---
+
+<Layout
+  title="Mejor portátil para estudiantes universitarios 2026 | EasyChoose"
+  description="Guía actualizada para elegir el mejor portátil para estudiar en 2026: criterios reales, rangos de precio, MacBook vs Windows y recomendaciones personalizadas con IA según tu carrera y presupuesto."
+  canonical={canonical}
+  keywords={["mejor portatil para estudiantes", "portatil universitario 2026", "que portatil comprar para estudiar", "portatil barato para universidad", "macbook o windows para estudiar"]}
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+
+  <!-- BreadcrumbList -->
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://easychoose.es/" },
+      { "@type": "ListItem", "position": 2, "name": "Mejor portátil para estudiantes", "item": "https://easychoose.es/mejor-portatil-estudiantes/" }
+    ]
+  }
+  </script>
+
+  <Section variant="glass" className="cluster-hero">
+    <div class="cluster-hero-content">
+      <div class="hero-meta">
+        <span class="badge">Guía de compra</span>
+        <span class="last-updated">Actualizado: {today}</span>
+      </div>
+      <h1>Mejor portátil para estudiantes universitarios en 2026</h1>
+      <p class="lead">
+        El mejor portátil para estudiar depende de tu carrera, tu sistema operativo preferido y cuánto quieres gastar. Esta guía explica los criterios que realmente importan y te lleva al asistente IA para que obtengas una recomendación concreta en menos de 2 minutos.
+      </p>
+      <a href={appUrl} class="btn btn-primary btn-large">Encontrar mi portátil ideal</a>
+    </div>
+  </Section>
+
+  <Section variant="light" id="criterios">
+    <div class="section-header">
+      <span class="badge">Criterios</span>
+      <h2>Qué buscar en un portátil universitario</h2>
+      <p>
+        Un portátil para la universidad tiene que cumplir requisitos distintos a un portátil de trabajo o de gaming. EasyChoose pondera estos seis factores para identificar las opciones con mejor equilibrio para estudiantes.
+      </p>
+    </div>
+    <div class="criteria-grid">
+      {criteria.map((item) => (
+        <article class="criteria-card">
+          <div class="criteria-icon" aria-hidden="true">{item.icon}</div>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <Section variant="glass" id="macbook-vs-windows">
+    <div class="section-header">
+      <span class="badge">Comparativa</span>
+      <h2>MacBook vs Windows para estudiar: ¿cuál elegir?</h2>
+      <p>
+        La elección entre macOS y Windows depende principalmente de tu carrera, tus hábitos y los dispositivos que ya tienes. Aquí están los factores decisivos.
+      </p>
+    </div>
+    <div class="table-wrap">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th scope="col">Factor</th>
+            <th scope="col">MacBook (macOS)</th>
+            <th scope="col">Windows</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Autonomía de batería</th>
+            <td>Excepcional (12–18h reales con Apple Silicon)</td>
+            <td>Variable: de 6h a 14h según modelo</td>
+          </tr>
+          <tr>
+            <th scope="row">Relación precio-rendimiento</th>
+            <td>Alto coste de entrada (desde ~1.200€)</td>
+            <td>Más opciones por debajo de 800€</td>
+          </tr>
+          <tr>
+            <th scope="row">Software especializado</th>
+            <td>Ideal para diseño, música, edición de vídeo</td>
+            <td>Más flexibilidad para ingeniería, ciencias, software de laboratorio</td>
+          </tr>
+          <tr>
+            <th scope="row">Integración con otros dispositivos</th>
+            <td>Ecosistema Apple (iPhone, iPad, AirDrop)</td>
+            <td>Compatible con Android y la mayoría de periféricos</td>
+          </tr>
+          <tr>
+            <th scope="row">Gaming</th>
+            <td>Limitado en títulos y rendimiento GPU</td>
+            <td>Mucho mejor catálogo de juegos y opciones</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note">
+      ¿No tienes claro cuál te conviene más? El asistente de EasyChoose tiene en cuenta tu carrera, tus aplicaciones habituales y el ecosistema que ya usas para orientarte hacia la opción más adecuada. <a href={appUrl}>Probarlo gratis →</a>
+    </p>
+  </Section>
+
+  <Section variant="light" id="presupuesto">
+    <div class="section-header">
+      <span class="badge">Por presupuesto</span>
+      <h2>¿Cuánto gastar en un portátil para la universidad?</h2>
+      <p>
+        El rango de precio define las prestaciones que puedes esperar. Estas son las opciones más habituales para estudiantes universitarios en 2026.
+      </p>
+    </div>
+    <div class="budget-grid">
+      <article class="budget-card">
+        <div class="budget-range">400€ – 600€</div>
+        <h3>Ajustado pero suficiente</h3>
+        <p>Portátiles con procesador de gama media, 8-16 GB de RAM y batería de 6-8 horas. Suficientes para ofimática, navegador y videollamadas. Pueden quedarse cortos en 3-4 años si la demanda de software aumenta.</p>
+        <a href={appUrl} class="budget-link">Ver opciones en este rango →</a>
+      </article>
+      <article class="budget-card budget-card-highlight">
+        <div class="budget-badge-top">Rango recomendado</div>
+        <div class="budget-range">600€ – 900€</div>
+        <h3>La opción más equilibrada</h3>
+        <p>Aquí encuentras ultrabooks con 16 GB de RAM, SSD rápido, pantalla Full HD y autonomía real de 8-12 horas. La mayoría aguanta bien 4-5 años de carrera sin quedarse obsoletos.</p>
+        <a href={appUrl} class="budget-link">Ver opciones en este rango →</a>
+      </article>
+      <article class="budget-card">
+        <div class="budget-range">900€ – 1.400€</div>
+        <h3>Para carreras exigentes</h3>
+        <p>Portátiles con pantalla de alta resolución, mayor rendimiento y mejores componentes. Recomendable para diseño, arquitectura, ingeniería de software o cualquier uso que requiera renderizado o simulación.</p>
+        <a href={appUrl} class="budget-link">Ver opciones en este rango →</a>
+      </article>
+    </div>
+  </Section>
+
+  <Section variant="glass" id="faq">
+    <div class="section-header">
+      <span class="badge">FAQ</span>
+      <h2>Preguntas frecuentes sobre portátiles para estudiantes</h2>
+    </div>
+    <div class="faq-list">
+      {faqs.map((faq, index) => (
+        <details class="faq-item" open={index === 0}>
+          <summary>{faq.question}</summary>
+          <p>{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </Section>
+
+  <Section variant="dark" className="cta-final">
+    <div class="cta-content">
+      <span class="badge badge-inverse">Recomendación personalizada</span>
+      <h2>Encuentra tu portátil universitario ideal en 2 minutos</h2>
+      <p>
+        Indica tu carrera, el sistema operativo que prefieres y tu presupuesto. EasyChoose filtra el mercado y te devuelve las opciones que mejor encajan con tu situación concreta.
+      </p>
+      <a href={appUrl} class="btn btn-secondary btn-large">Empezar el Asistente Gratis</a>
+      <ul class="trust-pills">
+        <li>Gratis y sin registro</li>
+        <li>Resultado en menos de 2 minutos</li>
+        <li>Chat IA para la última duda</li>
+      </ul>
+    </div>
+  </Section>
+</Layout>
+
+<style>
+  .cluster-hero-content {
+    max-width: 760px;
+    padding: 5rem 0 4rem;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    background: rgba(108, 99, 255, 0.12);
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .badge-inverse {
+    background: rgba(255, 255, 255, 0.14);
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .last-updated {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+    color: var(--color-dark);
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    max-width: 66ch;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .btn-large {
+    padding: 1rem 2.35rem;
+    font-size: 1.05rem;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+
+  .section-header h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    margin: 0.5rem 0 1rem;
+  }
+
+  .section-header p {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+  }
+
+  .criteria-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .criteria-card {
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.6rem;
+    padding: 1.75rem;
+    box-shadow: 0 18px 40px rgba(46, 46, 46, 0.06);
+  }
+
+  .criteria-icon {
+    font-size: 2.2rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .criteria-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-dark);
+  }
+
+  .criteria-card p {
+    color: var(--color-text-muted);
+    font-size: 0.96rem;
+    line-height: 1.65;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    box-shadow: 0 20px 40px rgba(46, 46, 46, 0.08);
+    background: white;
+    margin-bottom: 1.5rem;
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    text-align: left;
+    padding: 1rem 1.2rem;
+    border-bottom: 1px solid rgba(46, 46, 46, 0.08);
+    vertical-align: top;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+  }
+
+  .comparison-table thead th {
+    background: rgba(108, 99, 255, 0.08);
+    color: var(--color-dark);
+    font-weight: 700;
+  }
+
+  .comparison-table tbody th {
+    width: 22%;
+    color: var(--color-dark);
+    font-weight: 600;
+  }
+
+  .table-note {
+    color: var(--color-text-muted);
+    font-size: 0.96rem;
+    text-align: center;
+  }
+
+  .table-note a {
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+
+  .budget-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .budget-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.6rem;
+    padding: 2rem 1.75rem;
+    box-shadow: 0 18px 40px rgba(46, 46, 46, 0.06);
+  }
+
+  .budget-card-highlight {
+    border-color: rgba(108, 99, 255, 0.7);
+    padding-top: 3rem;
+  }
+
+  .budget-badge-top {
+    position: absolute;
+    top: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    background: var(--color-primary);
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+  }
+
+  .budget-range {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(108, 99, 255, 0.92), rgba(255, 211, 105, 0.92));
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .budget-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-dark);
+  }
+
+  .budget-card p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+
+  .budget-link {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .budget-link:hover {
+    text-decoration: underline;
+  }
+
+  .faq-list {
+    max-width: 860px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .faq-item {
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.4rem;
+    padding: 1.2rem 1.3rem;
+    box-shadow: 0 18px 36px rgba(46, 46, 46, 0.06);
+  }
+
+  .faq-item summary {
+    cursor: pointer;
+    font-weight: 700;
+    list-style: none;
+    padding-right: 2rem;
+    position: relative;
+    color: var(--color-dark);
+  }
+
+  .faq-item summary::-webkit-details-marker { display: none; }
+
+  .faq-item summary::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: -0.1rem;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--color-primary);
+  }
+
+  .faq-item[open] summary::after { content: "−"; }
+
+  .faq-item p {
+    margin-top: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  .cta-final :global(.container) { max-width: 860px; }
+
+  .cta-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-content h2 {
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    max-width: 56ch;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.05rem;
+  }
+
+  .trust-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    list-style: none;
+    margin-top: 1.5rem;
+  }
+
+  .trust-pills li {
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    font-weight: 600;
+  }
+
+  @media (max-width: 1024px) {
+    .criteria-grid,
+    .budget-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .criteria-grid,
+    .budget-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .trust-pills {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .trust-pills li {
+      text-align: center;
+    }
+  }
+</style>

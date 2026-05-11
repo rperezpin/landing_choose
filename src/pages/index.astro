@@ -1,6 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
+import heroImg from "../assets/hero-illustration.png";
 
 const appUrl = "https://app.easychoose.es/";
 const canonical = "https://easychoose.es/";
@@ -88,6 +90,8 @@ const categories = [
     description: "Laptops para trabajo, estudios, gaming, programación y creatividad.",
     priceRange: "€300 – €2.500",
     links: ["Mejor calidad-precio", "Para trabajo o estudios", "Gaming"],
+    guideUrl: "/mejor-portatil-estudiantes/",
+    guideLabel: "Guía para estudiantes →",
   },
   {
     icon: "📱",
@@ -229,34 +233,39 @@ const methodology = [
 
 const faqs = [
   {
-    question: "¿Qué es EasyChoose y cómo funciona?",
+    question: "¿Qué es EasyChoose?",
     answer:
-      "EasyChoose es un asistente gratuito con IA para elegir tecnología. Te hace unas pocas preguntas sobre categoría, uso, presupuesto y preferencias, y te devuelve recomendaciones claras para que compres con más seguridad y menos ruido.",
+      "EasyChoose es un asistente gratuito con IA para elegir tecnología. Responde 4 preguntas sobre categoría, uso, presupuesto y preferencias, y recibe recomendaciones concretas en menos de 2 minutos, sin registro.",
   },
   {
-    question: "¿Sirve aunque no entienda de procesadores, RAM o pantallas?",
+    question: "¿Qué portátil comprar para estudiar en 2026?",
     answer:
-      "Sí. Está pensado precisamente para personas que quieren acertar sin tener que dominar especificaciones técnicas. El sistema traduce esos datos a lenguaje práctico y a impacto real en el uso diario.",
+      "Para estudiar, busca autonomía mínima de 8 horas, peso inferior a 1,5 kg y pantalla de al menos 14 pulgadas. EasyChoose filtra por esos criterios según tu presupuesto y te indica los modelos con mejor relación uso-precio.",
   },
   {
-    question: "¿Qué productos puedo comparar con EasyChoose?",
+    question: "¿Qué móvil comprar con menos de 400 euros?",
     answer:
-      "Actualmente cubre portátiles, smartphones, tablets, ordenadores de sobremesa, accesorios y categorías de movilidad eléctrica como patinetes, bicicletas y scooters.",
+      "Con 400€ o menos existen Android con buena cámara, batería de larga duración y rendimiento fluido. EasyChoose cruza precio, autonomía y cámara para darte la opción más equilibrada dentro de ese rango.",
+  },
+  {
+    question: "¿Sirve aunque no entienda de especificaciones técnicas?",
+    answer:
+      "Sí. EasyChoose traduce RAM, GHz y nits a impacto real: «duración para un día completo», «fluido para editar vídeo», «pantalla sin reflejos en exterior». No necesitas saber de hardware para decidir bien.",
+  },
+  {
+    question: "¿Qué productos cubre EasyChoose?",
+    answer:
+      "Portátiles, smartphones, tablets, ordenadores de sobremesa, accesorios tecnológicos y movilidad eléctrica (patinetes, bicicletas y scooters). Todos los rangos de precio del mercado español.",
   },
   {
     question: "¿Las recomendaciones son gratuitas e imparciales?",
     answer:
-      "Sí. El asistente es gratuito y no exige registro. EasyChoose puede monetizar a través de enlaces de afiliado, pero la selección se orienta a encaje con tus necesidades, no a promocionar una marca concreta.",
+      "El asistente es gratuito y sin registro. EasyChoose puede monetizar con enlaces de afiliado, pero la selección se basa en adecuación a tus necesidades, no en patrocinio de marca. Más detalle en el aviso legal.",
   },
   {
-    question: "¿Puedo preguntar dudas concretas antes de comprar?",
+    question: "¿Puedo preguntar dudas concretas sobre un producto antes de comprar?",
     answer:
-      "Sí. El chat IA permite bajar al detalle y preguntar, por ejemplo, si un portátil aguanta una jornada de universidad, si un móvil prioriza batería frente a cámara o si un accesorio es compatible con tu equipo.",
-  },
-  {
-    question: "¿Para quién es útil: expertos o no expertos?",
-    answer:
-      "Para ambos perfiles. Quien no domina la tecnología gana claridad; quien ya la domina ahorra tiempo filtrando opciones y acelerando la decisión final.",
+      "Sí. El chat IA integrado responde preguntas como «¿aguanta este portátil 8 horas de clase?», «¿este móvil es mejor para batería o cámara?» o «¿es compatible este teclado con mi Mac?» antes de que decidas.",
   },
 ];
 
@@ -342,18 +351,24 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema];
   keywords={keywords}
 >
   {pageSchemas.map((schema) => (
-    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
   ))}
 
   <Section className="hero-section" variant="glass">
     <div class="hero-grid">
       <div class="hero-copy animate-fade-in">
-        <span class="badge">Asistente IA gratuito</span>
+        <div class="hero-meta">
+          <span class="badge">Asistente IA gratuito</span>
+          <span class="last-updated">Precios actualizados: {new Date().toLocaleDateString("es-ES", { day: "numeric", month: "long", year: "numeric" })}</span>
+        </div>
         <h1>
           Qué portátil, móvil o tablet comprar <span class="highlight">sin perder horas comparando</span>
         </h1>
+        <p class="hero-answer-direct">
+          La mejor opción para ti depende de tu uso real y tu presupuesto, no de la marca más anunciada. EasyChoose te da una recomendación concreta en menos de 2 minutos: responde 4 preguntas y el asistente IA filtra el mercado por ti.
+        </p>
         <p class="hero-answer">
-          EasyChoose es un asistente gratuito con IA que te ayuda a elegir tecnología según tu uso real, tu presupuesto y tus preferencias. En lugar de obligarte a interpretar fichas técnicas, resume el mercado en una recomendación clara y accionable.
+          EasyChoose es un asistente gratuito con IA que traduce tus necesidades en tecnología adecuada, sin obligarte a interpretar fichas técnicas ni comparar decenas de modelos similares.
         </p>
         <div class="hero-actions">
           <a href={appUrl} class="btn btn-primary btn-large">Empieza el Asistente Gratis</a>
@@ -372,12 +387,12 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema];
             <span class="emoji-inline" aria-hidden="true">💬</span>
             <span>Te guiamos paso a paso</span>
           </div>
-          <img
-            src="/hero-illustration.png"
+          <Image
+            src={heroImg}
             alt="Ilustración del asistente EasyChoose recomendando tecnología según uso y presupuesto"
             class="hero-image"
-            width="1000"
-            height="1000"
+            width={1000}
+            height={1000}
           />
         </div>
       </div>
@@ -388,6 +403,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema];
     <div class="section-header">
       <span class="badge">Nuestra tecnología</span>
       <h2>Diseñado para la eficiencia</h2>
+      <p>EasyChoose combina un catálogo actualizado con un motor de recomendación basado en uso real y un chat de IA integrado para resolver dudas antes de comprar. Los tres componentes reducen el tiempo de decisión de horas a minutos.</p>
     </div>
     <div class="feature-grid">
       {features.map((feature) => (
@@ -424,7 +440,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema];
       <span class="badge">El problema</span>
       <h2>¿Por qué comprar tecnología abruma tanto?</h2>
       <p>
-        Porque la mayoría de comparativas te enseñan datos, pero no te ayudan a decidir. EasyChoose parte de la pregunta correcta: qué necesitas tú, en qué contexto y cuánto quieres gastar.
+        Comprar tecnología en España es habitual, pero decidir bien sigue siendo difícil. Según la <a href="https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736176741&menu=resultados&idp=1254735976608" target="_blank" rel="noopener noreferrer">Encuesta TIC-Hogares 2023 del INE</a>, el 97,4% de los españoles de 16 a 74 años usa internet, y los dispositivos tecnológicos encabezan el gasto en comercio electrónico. Sin embargo, según el <a href="https://www.ontsi.es/es" target="_blank" rel="noopener noreferrer">informe eSPAIN 2024 del Observatorio Nacional de Tecnología y Sociedad (ONTSI)</a>, la sobrecarga de opciones es uno de los principales frenos en la compra de electrónica: demasiados modelos, demasiadas fichas técnicas y pocas respuestas claras. EasyChoose parte de la pregunta correcta: qué necesitas tú, en qué contexto y cuánto quieres gastar.
       </p>
     </div>
     <div class="problem-grid">
@@ -477,6 +493,9 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema];
               <li><a href={appUrl} class="category-link">{link}</a></li>
             ))}
           </ul>
+          {category.guideUrl && (
+            <a href={category.guideUrl} class="guide-link">{category.guideLabel}</a>
+          )}
         </article>
       ))}
     </div>
@@ -510,7 +529,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema];
       <span class="badge">Comparativa</span>
       <h2>¿Qué cambia frente a buscar por tu cuenta?</h2>
       <p>
-        Los motores generativos y los usuarios valoran las comparativas claras. Aquí la diferencia no es solo velocidad: es reducir ruido para llegar a una decisión defendible.
+        La diferencia principal es el punto de partida: la búsqueda manual empieza por el catálogo, EasyChoose empieza por tu uso real. EasyChoose elimina los modelos que no encajan antes de mostrarte ninguno, y convierte la última duda en una pregunta directa al chat IA.
       </p>
     </div>
     <div class="table-wrap">
@@ -540,7 +559,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema];
       <span class="badge">Nuestra metodología</span>
       <h2>Por qué nuestras recomendaciones son diferentes</h2>
       <p class="answer-first">
-        La recomendación se construye alrededor de uso, presupuesto, prioridades y dudas finales. El objetivo no es enseñarte todo el mercado, sino recortar el mercado hasta que la opción correcta para ti resulte evidente.
+        Las recomendaciones de EasyChoose son diferentes porque se construyen alrededor de tu uso real, tu presupuesto y tus prioridades concretas, no alrededor del catálogo de los fabricantes. El objetivo no es enseñarte todo el mercado: es recortarlo hasta que la opción adecuada para ti resulte evidente.
       </p>
     </div>
     <div class="methodology-list">
@@ -557,9 +576,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema];
     <div class="trust-note">
       <h3>Transparencia y confianza</h3>
       <p>
-        Si compras a través de algunos enlaces, EasyChoose puede recibir una comisión sin coste adicional para ti. Puedes revisar la información legal en
-        <a href="/aviso-legal/"> aviso legal</a> o escribir a
-        <a href="/contacto/"> contacto</a> si necesitas aclaraciones.
+        Si compras a través de algunos enlaces, EasyChoose puede recibir una comisión sin coste adicional para ti. La selección de productos sigue los criterios explicados en la <a href="/metodologia-puntuacion/">metodología de puntuación</a>. Más información legal en el <a href="/aviso-legal/">aviso legal</a> o escríbenos en <a href="/contacto/">contacto</a>.
       </p>
     </div>
   </Section>
@@ -647,6 +664,25 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema];
     min-height: 82vh;
   }
 
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-meta .badge {
+    margin-bottom: 0;
+  }
+
+  .last-updated {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    letter-spacing: 0.02em;
+  }
+
   .hero-copy h1 {
     font-size: clamp(2.5rem, 5vw, 4.6rem);
     line-height: 1.03;
@@ -658,8 +694,17 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema];
     color: var(--color-primary);
   }
 
+  .hero-answer-direct {
+    font-size: 1.22rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    max-width: 58ch;
+    margin-bottom: 0.75rem;
+    line-height: 1.45;
+  }
+
   .hero-answer {
-    font-size: 1.18rem;
+    font-size: 1.08rem;
     color: var(--color-text-muted);
     max-width: 60ch;
     margin-bottom: 2rem;
@@ -990,11 +1035,17 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema];
 
   .category-link,
   .qa-card a,
-  .trust-note a {
+  .trust-note a,
+  .guide-link {
     color: var(--color-primary);
     font-weight: 700;
     position: relative;
     z-index: 1;
+  }
+
+  .guide-link {
+    font-size: 0.88rem;
+    margin-top: 0.25rem;
   }
 
   .category-link:hover,

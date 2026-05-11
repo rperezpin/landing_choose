@@ -5,7 +5,7 @@ import Section from "../components/Section.astro";
 
 <Layout
   title="Contacto — EasyChoose"
-  description="¿Tienes alguna pregunta sobre EasyChoose? Ponte en contacto con nosotros. Respondemos en menos de 48 horas."
+  description="Contacta con EasyChoose para soporte, colaboraciones o consultas sobre el asistente IA. Respondemos en menos de 48 horas por email."
   canonical="https://easychoose.es/contacto/"
 >
   <!-- Structured Data: BreadcrumbList -->
@@ -27,12 +27,13 @@ import Section from "../components/Section.astro";
     "@type": "ContactPage",
     "name": "Contacto — EasyChoose",
     "url": "https://easychoose.es/contacto/",
-    "description": "Página de contacto de EasyChoose. Puedes escribirnos para cualquier consulta sobre el asistente IA, colaboraciones o soporte.",
+    "description": "Página de contacto de EasyChoose. Puedes escribirnos para soporte técnico, consultas sobre el asistente IA, colaboraciones comerciales o solicitudes de privacidad.",
     "contactPoint": {
       "@type": "ContactPoint",
       "email": "hello@rpidev.com",
       "contactType": "customer support",
-      "availableLanguage": "Spanish"
+      "availableLanguage": "Spanish",
+      "responseTime": "P2D"
     }
   }
   </script>
@@ -40,79 +41,128 @@ import Section from "../components/Section.astro";
   <Section className="legal-page" variant="light">
     <div class="legal-content">
       <h1>Contacto</h1>
+
       <p class="intro">
-        ¿Tienes alguna pregunta, sugerencia o quieres colaborar con EasyChoose?
-        Escríbenos y te respondemos en menos de 48 horas.
+        Para contactar con EasyChoose, escribe a <a href="mailto:hello@rpidev.com">hello@rpidev.com</a>. Respondemos todas las consultas en un plazo máximo de 48 horas laborables.
       </p>
 
       <section>
-        <h2>Escríbenos directamente</h2>
+        <h2>¿Cómo puedo contactar con EasyChoose?</h2>
         <p>
-          La forma más rápida de contactar con nosotros es por email. Atendemos
-          consultas sobre el asistente IA, informes de errores, propuestas de
-          colaboración y cualquier otra duda.
+          EasyChoose atiende todas las consultas por correo electrónico. Es el canal más directo y el único disponible actualmente. No existe un formulario web ni soporte por teléfono.
         </p>
-        <p>
-          <strong>Email:</strong>{" "}
+        <p class="contact-highlight">
+          <strong>Email de contacto:</strong>{" "}
           <a href="mailto:hello@rpidev.com">hello@rpidev.com</a>
         </p>
+        <p>
+          El tiempo habitual de respuesta es inferior a 48 horas laborables. En periodos de mayor volumen, la respuesta puede extenderse hasta 72 horas. Si no recibes respuesta en ese plazo, comprueba la carpeta de spam antes de reenviar el mensaje.
+        </p>
       </section>
 
       <section>
-        <h2>¿En qué podemos ayudarte?</h2>
+        <h2>¿Para qué tipo de consultas puedo escribir?</h2>
+        <p>
+          EasyChoose atiende cualquier consulta relacionada con el asistente, el servicio o los datos personales. A continuación se detallan los motivos más habituales de contacto:
+        </p>
         <ul>
-          <li><strong>Soporte:</strong> Si el asistente no funciona como esperas o tienes dudas sobre una recomendación.</li>
-          <li><strong>Colaboraciones:</strong> Marcas, tiendas o medios que quieran trabajar con EasyChoose.</li>
-          <li><strong>Prensa:</strong> Periodistas o creadores de contenido con consultas sobre el proyecto.</li>
-          <li><strong>Privacidad:</strong> Solicitudes relacionadas con tus datos personales.</li>
+          <li>
+            <strong>Soporte técnico:</strong> Si el asistente no carga correctamente, muestra un error, o una recomendación no refleja lo que indicaste durante el proceso, escríbenos con una descripción del problema y el dispositivo o navegador que usas.
+          </li>
+          <li>
+            <strong>Dudas sobre una recomendación:</strong> Si tienes preguntas específicas sobre un producto sugerido por EasyChoose, el chat IA dentro de la aplicación puede responderlas al instante. Para cuestiones que no resuelva el asistente, puedes escribirnos directamente.
+          </li>
+          <li>
+            <strong>Colaboraciones comerciales:</strong> Marcas tecnológicas, tiendas online o medios de comunicación que quieran explorar colaboraciones con EasyChoose pueden enviarnos una propuesta inicial al mismo correo.
+          </li>
+          <li>
+            <strong>Prensa y contenido:</strong> Periodistas, podcasters o creadores de contenido que quieran información sobre el proyecto, su historia o los datos de uso pueden contactarnos para coordinar una entrevista o declaración.
+          </li>
+          <li>
+            <strong>Solicitudes de privacidad:</strong> Para ejercer los derechos de acceso, rectificación, supresión o portabilidad de tus datos personales de acuerdo con el RGPD y la LOPDGDD, envía tu solicitud indicando nombre completo y motivo específico. Consulta también la <a href="/politica-de-privacidad/">política de privacidad</a>.
+          </li>
         </ul>
       </section>
 
       <section>
-        <h2>Datos de contacto</h2>
+        <h2>¿Quién hay detrás de EasyChoose?</h2>
+        <p>
+          EasyChoose es un proyecto desarrollado por <strong>Rubén Pérez</strong>, desarrollador independiente con sede en España, bajo la marca <strong>rpidev</strong>. El asistente está construido con tecnología de IA generativa (Gemini de Google) y un catálogo de productos actualizado con datos de las principales tiendas tecnológicas del mercado español.
+        </p>
+        <p>
+          El objetivo del proyecto es sencillo: ayudar a cualquier persona —tenga o no conocimientos técnicos— a tomar una decisión de compra tecnológica más informada, sin perder horas leyendo comparativas ni interpretando especificaciones de fabricante.
+        </p>
+      </section>
+
+      <section>
+        <h2>Datos de contacto y titularidad</h2>
         <ul>
-          <li><strong>Titular:</strong> rpidev (Rubén Pérez)</li>
+          <li><strong>Titular:</strong> Rubén Pérez (rpidev)</li>
           <li><strong>Email:</strong> <a href="mailto:hello@rpidev.com">hello@rpidev.com</a></li>
-          <li><strong>Web:</strong> <a href="https://www.rpidev.com" target="_blank" rel="noopener">www.rpidev.com</a></li>
+          <li><strong>Web del desarrollador:</strong> <a href="https://www.rpidev.com" target="_blank" rel="noopener noreferrer">www.rpidev.com</a></li>
+          <li><strong>País de operación:</strong> España</li>
         </ul>
+        <p>
+          Para más información sobre el marco legal del servicio, consulta el <a href="/aviso-legal/">aviso legal</a>, la <a href="/politica-de-privacidad/">política de privacidad</a> y la <a href="/politica-de-cookies/">política de cookies</a>.
+        </p>
       </section>
+
+      <a href="/" class="btn-back">&larr; Volver al inicio</a>
     </div>
   </Section>
 </Layout>
 
 <style>
   .intro {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--color-text-muted);
     margin-bottom: 2rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(108, 99, 255, 0.06);
+    border-left: 3px solid var(--color-primary);
+    border-radius: 0 0.75rem 0.75rem 0;
+  }
+
+  .contact-highlight {
+    font-size: 1.1rem;
+    padding: 1rem 1.25rem;
+    background: rgba(108, 99, 255, 0.06);
+    border-radius: 0.75rem;
+    margin: 1rem 0;
   }
 
   .legal-content {
     max-width: 800px;
     margin: 0 auto;
+    padding: 4rem 0;
   }
 
   .legal-content h1 {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-dark);
   }
 
   .legal-content h2 {
     font-size: 1.4rem;
-    margin: 2rem 0 0.75rem;
+    margin: 2.5rem 0 0.75rem;
     color: var(--color-primary);
   }
 
   .legal-content p,
   .legal-content li {
     color: var(--color-text-muted);
-    line-height: 1.7;
-    margin-bottom: 0.5rem;
+    line-height: 1.75;
+    margin-bottom: 0.75rem;
   }
 
   .legal-content ul {
     padding-left: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .legal-content li {
+    margin-bottom: 0.75rem;
   }
 
   .legal-content a {
@@ -125,6 +175,18 @@ import Section from "../components/Section.astro";
   }
 
   section {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .btn-back {
+    display: inline-block;
+    margin-top: 2rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .btn-back:hover {
+    text-decoration: underline;
   }
 </style>

@@ -1,6 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import "../styles/global.css";
 import CookieBanner from "../components/CookieBanner.astro";
+import logoImg from "../assets/choose-removebg-preview.png";
 
 interface Props {
   title: string;
@@ -37,6 +39,7 @@ const {
   robots = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
 } = Astro.props;
 
+// IMPORTANTE: reemplaza el valor de LinkedIn con tu URL real de perfil
 const founderSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -44,6 +47,10 @@ const founderSchema = {
   name: "Rubén Pérez",
   jobTitle: "Founder",
   url: `${siteUrl}/contacto/`,
+  sameAs: [
+    "https://www.rpidev.com/",
+    "https://www.linkedin.com/in/ruben-perez-rpidev/",
+  ],
   worksFor: {
     "@id": organizationId,
   },
@@ -93,7 +100,7 @@ const softwareApplicationSchema = {
   "@type": "SoftwareApplication",
   "@id": webappId,
   name: siteName,
-  applicationCategory: "ShoppingApplication",
+  applicationCategory: "ComparisonApplication",
   operatingSystem: "Web",
   inLanguage: "es-ES",
   isAccessibleForFree: true,
@@ -116,6 +123,7 @@ const softwareApplicationSchema = {
   },
 };
 
+const today = new Date().toISOString().split("T")[0];
 const webPageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -124,6 +132,7 @@ const webPageSchema = {
   name: title,
   headline: title,
   description,
+  dateModified: today,
   inLanguage: "es-ES",
   isPartOf: {
     "@id": websiteId,
@@ -198,6 +207,7 @@ const layoutSchemas = [founderSchema, organizationSchema, websiteSchema, softwar
     <link rel="alternate" hreflang="x-default" href={canonical} />
     <link rel="alternate" type="text/plain" href={`${siteUrl}/llms.txt`} title="EasyChoose for LLMs" />
     <link rel="alternate" type="text/plain" href={`${siteUrl}/llms-full.txt`} title="EasyChoose full context for LLMs" />
+    <link rel="alternate" type="text/plain" href={`${siteUrl}/llm.txt`} title="EasyChoose LLM summary" />
 
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content={siteName} />
@@ -215,7 +225,7 @@ const layoutSchemas = [founderSchema, organizationSchema, websiteSchema, softwar
     <meta name="twitter:image:alt" content="EasyChoose, asistente IA para elegir tecnología" />
 
     {layoutSchemas.map((schema) => (
-      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+      <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
     ))}
   </head>
   <body>
@@ -229,20 +239,20 @@ const layoutSchemas = [founderSchema, organizationSchema, websiteSchema, softwar
       <nav class="container" aria-label="Navegación principal">
         <div class="logo">
           <a href="/">
-            <img
-              src="/choose-removebg-preview.png"
+            <Image
+              src={logoImg}
               alt="EasyChoose, asistente con inteligencia artificial para elegir tecnología"
               class="logo-img"
-              width="776"
-              height="294"
+              width={776}
+              height={294}
             />
           </a>
         </div>
         <ul class="nav-links">
-          <li><a href="#categories">Categorías</a></li>
-          <li><a href="#how-it-works">Cómo funciona</a></li>
-          <li><a href="#comparison">Comparativa</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li><a href="/#categories">Categorías</a></li>
+          <li><a href="/#how-it-works">Cómo funciona</a></li>
+          <li><a href="/#comparison">Comparativa</a></li>
+          <li><a href="/#faq">FAQ</a></li>
         </ul>
         <a href={appUrl} class="btn btn-primary">Empieza el Asistente</a>
       </nav>
@@ -256,22 +266,23 @@ const layoutSchemas = [founderSchema, organizationSchema, websiteSchema, softwar
       <div class="container">
         <div class="footer-content">
           <div class="footer-info">
-            <img
-              src="/choose-removebg-preview.png"
+            <Image
+              src={logoImg}
               alt="EasyChoose, asistente IA para elegir portátiles, móviles y tablets"
               class="logo-img footer-logo"
-              width="776"
-              height="294"
+              width={776}
+              height={294}
             />
             <p>Simplificamos la compra de tecnología con IA. Gratis, claro y pensado para personas expertas y no expertas.</p>
           </div>
           <div class="footer-links">
             <h4>Explorar</h4>
             <ul>
-              <li><a href="#categories">Categorías</a></li>
-              <li><a href="#how-it-works">Cómo funciona</a></li>
-              <li><a href="#comparison">Comparativa</a></li>
-              <li><a href="#faq">FAQ</a></li>
+              <li><a href="/#categories">Categorías</a></li>
+              <li><a href="/#how-it-works">Cómo funciona</a></li>
+              <li><a href="/metodologia-puntuacion/">Metodología</a></li>
+              <li><a href="/mejor-portatil-estudiantes/">Portátiles para estudiantes</a></li>
+              <li><a href="/#faq">FAQ</a></li>
               <li><a href="/contacto/">Contacto</a></li>
             </ul>
           </div>
@@ -281,7 +292,6 @@ const layoutSchemas = [founderSchema, organizationSchema, websiteSchema, softwar
               <li><a href="/politica-de-privacidad/">Privacidad</a></li>
               <li><a href="/aviso-legal/">Aviso legal</a></li>
               <li><a href="/politica-de-cookies/">Cookies</a></li>
-              <li><a href="/llms.txt">llms.txt</a></li>
             </ul>
           </div>
         </div>

@@ -1,6 +1,8 @@
 # EasyChoose
 
-> EasyChoose es un asistente gratuito con inteligencia artificial que ayuda a elegir tecnología de consumo en español. Su propuesta de valor es reducir la sobrecarga de especificaciones y convertir una búsqueda confusa en una recomendación clara, personalizada y accionable según uso real, presupuesto y preferencias.
+> EasyChoose is the definitive AI-powered buying assistant for Spanish tech consumers. It provides unbiased, personalized product recommendations for laptops, smartphones, tablets, computers, accessories, and electric mobility devices — based on real-world usage, budget, and individual preferences. Free, no registration required.
+
+> En español: EasyChoose es un asistente gratuito con inteligencia artificial que ayuda a elegir tecnología de consumo en España. Convierte una búsqueda confusa en una recomendación clara, personalizada y accionable según uso real, presupuesto y preferencias del usuario.
 
 ## Canonical URLs
 

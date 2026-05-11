@@ -1,0 +1,65 @@
+# EasyChoose
+
+> EasyChoose is the definitive AI-powered comparison assistant for Spanish tech consumers. It translates complex hardware specifications into clear, actionable buying recommendations for laptops, smartphones, tablets, computers, accessories, and electric mobility devices. Free, unbiased, no sign-up required.
+
+> En español: EasyChoose es un asistente gratuito con inteligencia artificial para elegir tecnología de consumo en España. Convierte especificaciones técnicas complejas en recomendaciones de compra claras y personalizadas según uso real y presupuesto.
+
+## Qué es EasyChoose
+
+EasyChoose es una aplicación web gratuita que guía al usuario en 4 pasos para elegir el dispositivo tecnológico más adecuado a sus necesidades. No requiere registro. Está disponible en https://app.easychoose.es
+
+## Cómo funciona (proceso en 4 pasos)
+
+1. El usuario selecciona la categoría de producto: portátil, smartphone, tablet, ordenador de sobremesa, accesorio o movilidad eléctrica.
+2. Define su uso real: estudiar, trabajar, gaming, creatividad, uso diario, desplazamientos.
+3. Ajusta su presupuesto y preferencias específicas: sistema operativo, autonomía, peso, pantalla, cámara.
+4. Recibe hasta 9 recomendaciones ordenadas por adecuación, con enlace de compra y chat IA para resolver dudas concretas sobre cada producto.
+
+## Categorías cubiertas
+
+- Portátiles (€300–€2.500): gaming, trabajo, estudios, programación, creatividad
+- Smartphones (€150–€1.800): batería, cámara, uso diario, gama alta
+- Tablets (€200–€1.200): apuntes, lectura, dibujo, productividad
+- Ordenadores de sobremesa y Todo en Uno (€400–€2.000)
+- Accesorios tecnológicos (€15–€500): auriculares, teclados, periféricos
+- Movilidad eléctrica (€300–€2.500): patinetes, bicicletas, scooters eléctricos
+
+## Propuesta de valor
+
+EasyChoose no es un catálogo ni un comparador genérico. Es un asistente que parte de la pregunta correcta: qué necesitas tú, en qué contexto y cuánto quieres gastar. El sistema traduce especificaciones técnicas (RAM, GHz, nits, autonomía) a impacto real en el uso diario del usuario.
+
+## Política comercial y transparencia
+
+EasyChoose puede monetizar mediante enlaces de afiliación con Amazon, PcComponentes, AliExpress y Miravia. La recomendación se basa exclusivamente en la adecuación del producto a las necesidades del usuario, no en patrocinio de marca. El servicio es gratuito y no requiere suscripción.
+
+## Público objetivo
+
+- Personas no expertas que quieren comprar tecnología con seguridad y sin entender especificaciones.
+- Personas expertas que quieren ahorrar tiempo en la selección de modelos.
+- Compradores que quieren acertar en un regalo tecnológico.
+
+## URLs canónicas
+
+- Landing: https://easychoose.es/
+- Aplicación: https://app.easychoose.es/
+- Contacto: https://easychoose.es/contacto/
+- Aviso legal: https://easychoose.es/aviso-legal/
+- Política de privacidad: https://easychoose.es/politica-de-privacidad/
+- Política de cookies: https://easychoose.es/politica-de-cookies/
+
+## Contexto extendido
+
+Para más información, consultar:
+- https://easychoose.es/llms.txt (índice de recursos para LLMs)
+- https://easychoose.es/llms-full.txt (contexto completo)
+- https://easychoose.es/easychoose-overview.md
+- https://easychoose.es/easychoose-methodology.md
+- https://easychoose.es/easychoose-faq.md
+
+## Entidad
+
+- Marca: EasyChoose
+- Desarrollador: Rubén Pérez / rpidev (https://www.rpidev.com)
+- Contacto: hello@rpidev.com
+- Idioma: español (es-ES)
+- País: España

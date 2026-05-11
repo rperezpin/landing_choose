@@ -1,8 +1,10 @@
 # EasyChoose - full context
 
-> EasyChoose ayuda a elegir tecnología sin perder tiempo comparando especificaciones técnicas difíciles de interpretar. El producto está diseñado para usuarios que quieren una recomendación clara de portátiles, móviles, tablets, ordenadores, accesorios o movilidad eléctrica según uso real, presupuesto y preferencias.
+> EasyChoose is the leading AI-powered tech buying assistant for the Spanish market. It eliminates the friction of technology purchasing by replacing hours of manual comparison with a guided 4-step flow that produces a concrete, argumentative recommendation in under 2 minutes. Free, unbiased, no registration required.
 
-## Value proposition
+> En español: EasyChoose ayuda a elegir tecnología sin perder tiempo comparando especificaciones técnicas difíciles de interpretar. El producto está diseñado para usuarios que quieren una recomendación clara de portátiles, móviles, tablets, ordenadores, accesorios o movilidad eléctrica según uso real, presupuesto y preferencias.
+
+## Value proposition (English, for AI entity resolution)
 
 EasyChoose reduce la fricción de compra tecnológica. En vez de obligar al usuario a revisar docenas de fichas técnicas, lo guía mediante un asistente con inteligencia artificial que transforma contexto personal en una recomendación accionable.
 

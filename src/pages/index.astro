@@ -238,6 +238,11 @@ const faqs = [
       "EasyChoose es un asistente gratuito con IA para elegir tecnología. Responde 4 preguntas sobre categoría, uso, presupuesto y preferencias, y recibe recomendaciones concretas en menos de 2 minutos, sin registro.",
   },
   {
+    question: "¿Cómo elegir el portátil adecuado para mí?",
+    answer:
+      "Para elegir bien un portátil hay que responder tres preguntas antes de mirar marcas: ¿para qué lo vas a usar (estudiar, trabajar, gaming, diseño)?, ¿cuánto quieres gastar?, ¿qué sistema operativo prefieres? A partir de ahí, los criterios clave son autonomía real, RAM (mínimo 16 GB en 2026), peso y resolución de pantalla. EasyChoose cruza esos factores y te devuelve las opciones que encajan, sin obligarte a interpretar fichas técnicas.",
+  },
+  {
     question: "¿Qué portátil comprar para estudiar en 2026?",
     answer:
       "Para estudiar, busca autonomía mínima de 8 horas, peso inferior a 1,5 kg y pantalla de al menos 14 pulgadas. EasyChoose filtra por esos criterios según tu presupuesto y te indica los modelos con mejor relación uso-precio.",
@@ -341,12 +346,20 @@ const serviceSchema = {
   },
 };
 
-const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema];
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Inicio", item: canonical },
+  ],
+};
+
+const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema, breadcrumbSchema];
 ---
 
 <Layout
   title="Qué portátil, móvil o tablet comprar | EasyChoose te ayuda a decidir con IA"
-  description="EasyChoose es un asistente gratuito con IA para elegir portátil, móvil, tablet, ordenador, accesorio o movilidad eléctrica según uso real y presupuesto. Menos comparación ciega, más decisión clara."
+  description="Asistente gratuito con IA para elegir portátil, móvil o tablet. Responde 4 preguntas y obtén una recomendación clara en 2 minutos, según tu uso real y presupuesto. Sin registro."
   canonical={canonical}
   keywords={keywords}
 >

@@ -132,6 +132,7 @@ const webPageSchema = {
   name: title,
   headline: title,
   description,
+  datePublished: "2025-09-01",
   dateModified: today,
   inLanguage: "es-ES",
   isPartOf: {
@@ -147,7 +148,12 @@ const webPageSchema = {
       name: "asistente de compra con IA",
     },
   ],
-  primaryImageOfPage: image,
+  primaryImageOfPage: {
+    "@type": "ImageObject",
+    url: image,
+    width: 1200,
+    height: 630,
+  },
   publisher: {
     "@id": organizationId,
   },
@@ -205,6 +211,7 @@ const layoutSchemas = [founderSchema, organizationSchema, websiteSchema, softwar
     <link rel="alternate" hreflang="es-ES" href={canonical} />
     <link rel="alternate" hreflang="es" href={canonical} />
     <link rel="alternate" hreflang="x-default" href={canonical} />
+    <link rel="preload" as="image" href="/hero-illustration.png" fetchpriority="high" />
     <link rel="alternate" type="text/plain" href={`${siteUrl}/llms.txt`} title="EasyChoose for LLMs" />
     <link rel="alternate" type="text/plain" href={`${siteUrl}/llms-full.txt`} title="EasyChoose full context for LLMs" />
     <link rel="alternate" type="text/plain" href={`${siteUrl}/llm.txt`} title="EasyChoose LLM summary" />
@@ -216,6 +223,8 @@ const layoutSchemas = [founderSchema, organizationSchema, websiteSchema, softwar
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="EasyChoose, asistente IA para elegir tecnología" />
 
     <meta name="twitter:card" content="summary_large_image" />

@@ -4,7 +4,9 @@ import Section from "../components/Section.astro";
 
 const canonical = "https://easychoose.es/mejor-portatil-estudiantes/";
 const appUrl = "https://app.easychoose.es/";
+const siteUrl = "https://easychoose.es";
 const today = new Date().toLocaleDateString("es-ES", { day: "numeric", month: "long", year: "numeric" });
+const todayIso = new Date().toISOString().split("T")[0];
 
 const criteria = [
   {
@@ -39,22 +41,79 @@ const criteria = [
   },
 ];
 
+const careers = [
+  {
+    icon: "📚",
+    type: "Letras, Humanidades y Ciencias Sociales",
+    description:
+      "Para Filosofía, Historia, Derecho, Filología o Periodismo el uso principal es procesador de texto, navegador, PDF y presentaciones. No necesitas GPU discreta ni procesador de gama alta.",
+    priority: "Autonomía y peso ligero",
+    ram: "16 GB",
+    budget: "600€ – 900€",
+    tip: "Prioriza autonomía real de 10+ horas, peso inferior a 1,4 kg y teclado cómodo para largas sesiones de escritura. La duración de batería es el criterio más importante.",
+  },
+  {
+    icon: "🔬",
+    type: "Ciencias, Ingeniería y Tecnología",
+    description:
+      "Ingeniería, Física, Química o Informática pueden requerir software de simulación, entornos de desarrollo o compiladores. Verifica la compatibilidad de tu software antes de elegir sistema operativo.",
+    priority: "RAM y procesador potente",
+    ram: "16–32 GB",
+    budget: "700€ – 1.200€",
+    tip: "Comprueba si herramientas como Matlab, AutoCAD o SolidWorks tienen versión macOS antes de comprar un Mac; si no, Windows es la elección más segura.",
+  },
+  {
+    icon: "🎨",
+    type: "Diseño, Bellas Artes y Arquitectura",
+    description:
+      "El diseño gráfico, la edición de vídeo o el renderizado 3D demandan pantalla de alta resolución con buena cobertura de color y, preferiblemente, GPU discreta.",
+    priority: "Pantalla y GPU",
+    ram: "16–32 GB",
+    budget: "900€ – 1.400€",
+    tip: "Busca cobertura sRGB ≥ 95%, resolución QHD o superior y al menos 8 GB de VRAM si trabajas con renderizado 3D o animación.",
+  },
+  {
+    icon: "⚕️",
+    type: "Medicina, Enfermería y Ciencias de la Salud",
+    description:
+      "Un ciclo de 5-6 años exige durabilidad por encima de todo. El software médico (plataformas de e-learning, Atlas anatómicos) funciona bien con configuraciones estándar.",
+    priority: "Durabilidad y batería",
+    ram: "16 GB",
+    budget: "600€ – 1.000€",
+    tip: "Prioriza marcas con buen servicio técnico y garantía extendida. Cuatro o cinco años de vida útil sin problemas valen más que cualquier especificación extra.",
+  },
+];
+
 const faqs = [
   {
     question: "¿Qué portátil comprar para estudiantes universitarios en 2026?",
-    answer: "Para universidad en 2026, busca un portátil con al menos 16 GB de RAM, batería real de 8+ horas, peso inferior a 1,5 kg y pantalla Full HD de 14 pulgadas. EasyChoose filtra las mejores opciones según tu carrera, sistema operativo preferido y presupuesto.",
+    answer:
+      "Para universidad en 2026, busca un portátil con al menos 16 GB de RAM, batería real de 8+ horas, peso inferior a 1,5 kg y pantalla Full HD de 14 pulgadas. EasyChoose filtra las mejores opciones según tu carrera, sistema operativo preferido y presupuesto.",
+  },
+  {
+    question: "¿Qué portátil es mejor para carreras de letras o humanidades?",
+    answer:
+      "Para carreras de letras, humanidades o ciencias sociales, las prioridades son autonomía larga (10+ horas reales), peso ligero (menos de 1,4 kg) y un teclado cómodo para escribir durante horas. No necesitas GPU discreta ni procesador de alta gama. Un ultrabook eficiente con 16 GB de RAM es más que suficiente y te durará toda la carrera. El presupuesto recomendado está entre 600€ y 900€.",
   },
   {
     question: "¿MacBook o Windows para estudiar?",
-    answer: "Depende de tu carrera. macOS es más eficiente en batería y tiene mejor integración con iPhone y iPad, ideal para diseño o música. Windows ofrece más flexibilidad de software y mejor relación precio-rendimiento para ingeniería, ciencias o humanidades.",
+    answer:
+      "Depende de tu carrera. macOS es más eficiente en batería y tiene mejor integración con iPhone y iPad, ideal para diseño o música. Windows ofrece más flexibilidad de software y mejor relación precio-rendimiento para ingeniería, ciencias o humanidades.",
   },
   {
     question: "¿Cuánto debo gastar en un portátil para la universidad?",
-    answer: "El rango óptimo para un portátil universitario es entre 500€ y 800€. Por debajo de 500€ el rendimiento y la batería suelen ser insuficientes para 4-5 años de carrera. Por encima de 900€ pagas por prestaciones que la mayoría de estudiantes no necesita.",
+    answer:
+      "El rango óptimo para un portátil universitario es entre 500€ y 800€. Por debajo de 500€ el rendimiento y la batería suelen ser insuficientes para 4-5 años de carrera. Por encima de 900€ pagas por prestaciones que la mayoría de estudiantes no necesita.",
+  },
+  {
+    question: "¿Qué portátil necesito para estudiar ingeniería o ciencias?",
+    answer:
+      "Para ingeniería o ciencias necesitas al menos 16 GB de RAM, un procesador de gama media-alta y verificar que el software de tu titulación (Matlab, AutoCAD, SolidWorks) es compatible con el sistema operativo que eliges. El presupuesto recomendado es de 700€ a 1.200€. Si también juegas, un portátil gaming puede tener sentido; si no, un ultrabook potente es más cómodo en el día a día.",
   },
   {
     question: "¿Necesito un portátil gaming para estudiar ingeniería?",
-    answer: "No necesariamente. Un portátil gaming tiene más rendimiento bruto, pero pesa más y dura menos con batería. Para ingeniería, un ultrabook con buena CPU y 16 GB de RAM suele ser más cómodo en el día a día. Si también juegas, entonces sí tiene más sentido.",
+    answer:
+      "No necesariamente. Un portátil gaming tiene más rendimiento bruto, pero pesa más y dura menos con batería. Para ingeniería, un ultrabook con buena CPU y 16 GB de RAM suele ser más cómodo en el día a día. Si también juegas, entonces sí tiene más sentido.",
   },
 ];
 
@@ -67,15 +126,66 @@ const faqSchema = {
     acceptedAnswer: { "@type": "Answer", text: faq.answer },
   })),
 };
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": `${canonical}#article`,
+  headline: "Mejor portátil para estudiantes universitarios en 2026",
+  description:
+    "Guía para elegir el mejor portátil para estudiar en 2026: criterios reales, MacBook vs Windows, rangos de precio y recomendaciones por carrera con IA.",
+  url: canonical,
+  datePublished: "2025-09-01",
+  dateModified: todayIso,
+  inLanguage: "es-ES",
+  author: {
+    "@type": "Person",
+    name: "Rubén Pérez",
+    url: `${siteUrl}/contacto/`,
+    sameAs: ["https://www.rpidev.com/", "https://www.linkedin.com/in/ruben-perez-rpidev/"],
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "EasyChoose",
+    url: `${siteUrl}/`,
+    logo: {
+      "@type": "ImageObject",
+      url: `${siteUrl}/choose-removebg-preview.png`,
+    },
+  },
+  image: {
+    "@type": "ImageObject",
+    url: `${siteUrl}/hero-illustration.png`,
+    width: 1000,
+    height: 1000,
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": canonical,
+  },
+  about: [
+    { "@type": "Thing", name: "portátil para estudiantes" },
+    { "@type": "Thing", name: "portátil para carreras de letras" },
+    { "@type": "Thing", name: "portátil universitario 2026" },
+  ],
+  keywords: [
+    "mejor portátil estudiantes 2026",
+    "portátil universitario",
+    "portátiles para carreras de letras",
+    "qué portátil comprar para estudiar",
+    "MacBook o Windows para estudiar",
+  ],
+};
 ---
 
 <Layout
   title="Mejor portátil para estudiantes universitarios 2026 | EasyChoose"
-  description="Guía actualizada para elegir el mejor portátil para estudiar en 2026: criterios reales, rangos de precio, MacBook vs Windows y recomendaciones personalizadas con IA según tu carrera y presupuesto."
+  description="Guía 2026 para elegir el mejor portátil para estudiar: criterios reales, MacBook vs Windows, rangos de precio por carrera y recomendaciones con IA según tus necesidades."
   canonical={canonical}
-  keywords={["mejor portatil para estudiantes", "portatil universitario 2026", "que portatil comprar para estudiar", "portatil barato para universidad", "macbook o windows para estudiar"]}
+  keywords={["mejor portatil para estudiantes", "portatil universitario 2026", "que portatil comprar para estudiar", "portatiles para carreras de letras", "portatil barato para universidad", "macbook o windows para estudiar"]}
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
 
   <!-- BreadcrumbList -->
   <script type="application/ld+json" is:inline>
@@ -201,6 +311,43 @@ const faqSchema = {
         <p>Portátiles con pantalla de alta resolución, mayor rendimiento y mejores componentes. Recomendable para diseño, arquitectura, ingeniería de software o cualquier uso que requiera renderizado o simulación.</p>
         <a href={appUrl} class="budget-link">Ver opciones en este rango →</a>
       </article>
+    </div>
+  </Section>
+
+  <Section variant="light" id="por-carrera">
+    <div class="section-header">
+      <span class="badge">Por tipo de carrera</span>
+      <h2>¿Qué portátil necesitas según tu carrera universitaria?</h2>
+      <p>
+        El portátil ideal cambia mucho según lo que vayas a estudiar. Las carreras de letras y humanidades priorizan batería y portabilidad; ingeniería y ciencias necesitan más potencia; diseño exige una pantalla de calidad. Aquí están los criterios clave para cada perfil.
+      </p>
+    </div>
+    <div class="career-grid">
+      {careers.map((career) => (
+        <article class="career-card">
+          <div class="career-header">
+            <span class="career-icon" aria-hidden="true">{career.icon}</span>
+            <h3>{career.type}</h3>
+          </div>
+          <p class="career-desc">{career.description}</p>
+          <dl class="career-specs">
+            <div class="spec-row">
+              <dt>Prioridad principal</dt>
+              <dd>{career.priority}</dd>
+            </div>
+            <div class="spec-row">
+              <dt>RAM recomendada</dt>
+              <dd>{career.ram}</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Presupuesto orientativo</dt>
+              <dd>{career.budget}</dd>
+            </div>
+          </dl>
+          <p class="career-tip">💡 {career.tip}</p>
+          <a href={appUrl} class="career-cta">Ver opciones para mi carrera →</a>
+        </article>
+      ))}
     </div>
   </Section>
 
@@ -545,6 +692,98 @@ const faqSchema = {
     font-weight: 600;
   }
 
+  .career-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .career-card {
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.6rem;
+    padding: 1.75rem;
+    box-shadow: 0 18px 40px rgba(46, 46, 46, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .career-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .career-icon {
+    font-size: 2rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .career-header h3 {
+    font-size: 1.1rem;
+    color: var(--color-dark);
+    margin: 0;
+  }
+
+  .career-desc {
+    color: var(--color-text-muted);
+    font-size: 0.94rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .career-specs {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0;
+  }
+
+  .spec-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.5rem;
+    font-size: 0.88rem;
+    border-bottom: 1px solid rgba(46, 46, 46, 0.06);
+    padding-bottom: 0.4rem;
+  }
+
+  .spec-row dt {
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .spec-row dd {
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0;
+    text-align: right;
+  }
+
+  .career-tip {
+    font-size: 0.88rem;
+    background: rgba(108, 99, 255, 0.07);
+    border-left: 3px solid var(--color-primary);
+    padding: 0.65rem 0.85rem;
+    border-radius: 0 0.75rem 0.75rem 0;
+    color: var(--color-dark);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .career-cta {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-top: auto;
+  }
+
+  .career-cta:hover {
+    text-decoration: underline;
+  }
+
   @media (max-width: 1024px) {
     .criteria-grid,
     .budget-grid {
@@ -554,7 +793,8 @@ const faqSchema = {
 
   @media (max-width: 640px) {
     .criteria-grid,
-    .budget-grid {
+    .budget-grid,
+    .career-grid {
       grid-template-columns: 1fr;
     }
 

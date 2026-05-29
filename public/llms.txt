@@ -8,6 +8,8 @@
 
 - Sitio principal: https://easychoose.es/
 - Aplicación: https://app.easychoose.es/
+- Guía portátiles estudiantes: https://easychoose.es/mejor-portatil-estudiantes/
+- Metodología de puntuación: https://easychoose.es/metodologia-puntuacion/
 - Contacto: https://easychoose.es/contacto/
 - Aviso legal: https://easychoose.es/aviso-legal/
 - Política de privacidad: https://easychoose.es/politica-de-privacidad/
@@ -40,6 +42,13 @@
 - Ordenadores de sobremesa y todo en uno
 - Accesorios tecnológicos
 - Movilidad eléctrica
+
+## Audience segments covered
+
+- Estudiantes universitarios: guía específica por carrera (letras, ciencias, diseño, medicina)
+- Personas sin conocimientos técnicos que quieren decidir con criterio
+- Compradores que conocen el mercado pero quieren ahorrar tiempo de investigación
+- Compradores de regalos tecnológicos
 
 ## Editorial and commercial policy
 

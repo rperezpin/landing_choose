@@ -1,0 +1,711 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+
+const canonical = "https://easychoose.es/mejor-portatil-teletrabajo/";
+const appUrl = "https://app.easychoose.es/";
+const siteUrl = "https://easychoose.es";
+const today = new Date().toLocaleDateString("es-ES", { day: "numeric", month: "long", year: "numeric" });
+const todayIso = new Date().toISOString().split("T")[0];
+
+const criteria = [
+  {
+    icon: "📷",
+    title: "Cámara y micrófono decentes para videollamadas",
+    description: "Si pasas horas en reuniones, una webcam de baja calidad y un micrófono con eco se notan todos los días. Busca al menos 1080p en cámara y micrófono con cancelación de ruido.",
+  },
+  {
+    icon: "🔋",
+    title: "Batería de 8+ horas para trabajar sin enchufe",
+    description: "Trabajar desde cafeterías, coworkings o distintas salas de casa exige autonomía real, no solo la cifra de marketing. Menos de 8 horas obliga a planificar el día alrededor del cargador.",
+  },
+  {
+    icon: "⌨️",
+    title: "Teclado cómodo para jornadas largas",
+    description: "Si vas a escribir correos, documentos y mensajes durante 8 horas diarias, un teclado con buen recorrido reduce la fatiga frente a teclados planos de portátiles ultraligeros mal optimizados.",
+  },
+  {
+    icon: "💶",
+    title: "Presupuesto entre 600€ y 1.100€",
+    description: "El rango donde se concentra la mejor relación calidad-precio para teletrabajo de oficina. Por debajo de 600€ la cámara y la batería suelen decepcionar; por encima de 1.100€ pagas potencia que la mayoría de perfiles de oficina no necesita.",
+  },
+  {
+    icon: "🔌",
+    title: "Conectividad suficiente para tu setup",
+    description: "Comprueba que tiene los puertos que realmente usas: HDMI para monitor externo, USB-C con carga y suficientes USB-A para periféricos, sin depender de un hub adicional.",
+  },
+  {
+    icon: "🖥️",
+    title: "Pantalla cómoda para 8 horas de uso diario",
+    description: "Una pantalla mate o con tratamiento antirreflejo reduce la fatiga visual frente a brillos en oficinas con mucha luz natural. Full HD de 14-15 pulgadas es el estándar cómodo para trabajo de oficina.",
+  },
+];
+
+const profiles = [
+  {
+    icon: "📊",
+    type: "Oficina y gestión",
+    description:
+      "Para correo, hojas de cálculo, videollamadas y documentos, no necesitas potencia bruta. La fiabilidad, la batería y una buena cámara para reuniones son lo que más se nota en el día a día.",
+    priority: "Batería y cámara",
+    ram: "16 GB",
+    budget: "600€ – 900€",
+    tip: "Prioriza un portátil ligero con buena autonomía sobre uno potente: en perfiles de gestión, la batería se nota más que el procesador.",
+  },
+  {
+    icon: "💻",
+    type: "Desarrollo y programación",
+    description:
+      "Compilar, ejecutar entornos virtuales o ejecutar varios contenedores a la vez exige más RAM y un procesador capaz. Verifica también la duración de batería al trabajar con carga de CPU sostenida.",
+    priority: "RAM y procesador",
+    ram: "16–32 GB",
+    budget: "900€ – 1.400€",
+    tip: "Si usas Docker o máquinas virtuales a diario, no bajes de 16 GB de RAM: notarás la diferencia en fluidez con varias herramientas abiertas.",
+  },
+  {
+    icon: "🎨",
+    type: "Diseño y contenido remoto",
+    description:
+      "Edición de imagen, vídeo ligero o maquetación a distancia necesita una pantalla con buena cobertura de color y suficiente potencia gráfica para no esperar en cada exportación.",
+    priority: "Pantalla y GPU",
+    ram: "16–32 GB",
+    budget: "1.000€ – 1.500€",
+    tip: "Si editas vídeo regularmente, prioriza una GPU discreta aunque sea de gama media: acelera mucho la exportación frente a depender solo de la CPU.",
+  },
+  {
+    icon: "🌍",
+    type: "Trabajo nómada y viajes",
+    description:
+      "Si trabajas desde distintos lugares con conexiones variables, prioriza peso ligero, batería muy larga y robustez frente a golpes y cambios de temperatura en desplazamientos.",
+    priority: "Peso y autonomía",
+    ram: "16 GB",
+    budget: "800€ – 1.300€",
+    tip: "Busca modelos con certificación de resistencia (MIL-STD o similar) si vas a viajar a menudo: la durabilidad importa más que en un uso de oficina fija.",
+  },
+];
+
+const faqs = [
+  {
+    question: "¿Cuál es el mejor portátil para teletrabajar en 2026?",
+    answer:
+      "El mejor portátil para teletrabajar en 2026 cuesta entre 600€ y 1.100€, con batería real de 8+ horas, buena cámara y micrófono para videollamadas, y al menos 16 GB de RAM. El modelo concreto depende de tu perfil: gestión, desarrollo, diseño o trabajo nómada. EasyChoose filtra el mercado según tu uso real en menos de 2 minutos.",
+  },
+  {
+    question: "¿Qué portátil necesito para hacer videollamadas todo el día?",
+    answer:
+      "Para videollamadas constantes prioriza una webcam de al menos 1080p, micrófono con cancelación de ruido y batería que aguante toda la jornada sin cargador. El rendimiento puede ser modesto si solo usas herramientas de oficina y videoconferencia.",
+  },
+  {
+    question: "¿Cuánta RAM necesito para teletrabajar?",
+    answer:
+      "Para tareas de oficina, correo y videollamadas, 16 GB de RAM es suficiente y te durará varios años. Si programas, editas vídeo o usas máquinas virtuales, sube a 32 GB para evitar cuellos de botella con varias herramientas abiertas a la vez.",
+  },
+  {
+    question: "¿Qué portátil comprar para programar en remoto?",
+    answer:
+      "Para programar en remoto necesitas al menos 16 GB de RAM (32 GB si usas Docker o máquinas virtuales), un procesador de gama media-alta y buena batería si trabajas fuera de casa. El presupuesto recomendado es de 900€ a 1.400€ según la exigencia de tu stack.",
+  },
+  {
+    question: "¿Merece la pena un portátil ligero para trabajar fuera de casa?",
+    answer:
+      "Sí, si trabajas a menudo desde cafeterías, coworkings o viajas con frecuencia. Un portátil de menos de 1,4 kg con batería de 10+ horas reduce mucho la fatiga frente a modelos más pesados pensados para uso fijo en una mesa.",
+  },
+  {
+    question: "¿Necesito una GPU dedicada para teletrabajar?",
+    answer:
+      "Solo si editas vídeo, haces renderizado 3D o trabajas con software de diseño exigente. Para oficina, desarrollo web estándar o gestión, una GPU integrada es suficiente y alarga la batería frente a un modelo con GPU discreta.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": `${canonical}#article`,
+  headline: "Mejor portátil para teletrabajo en 2026",
+  description:
+    "Guía para elegir el mejor portátil para teletrabajar en 2026: criterios reales, rangos de presupuesto y recomendaciones por perfil profesional con IA.",
+  url: canonical,
+  datePublished: "2026-06-20",
+  dateModified: todayIso,
+  inLanguage: "es-ES",
+  author: {
+    "@type": "Person",
+    name: "Rubén Pérez",
+    url: `${siteUrl}/contacto/`,
+    sameAs: ["https://www.rpidev.com/", "https://www.linkedin.com/in/ruben-perez-rpidev/"],
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "EasyChoose",
+    url: `${siteUrl}/`,
+    logo: {
+      "@type": "ImageObject",
+      url: `${siteUrl}/choose-removebg-preview.png`,
+    },
+  },
+  image: {
+    "@type": "ImageObject",
+    url: `${siteUrl}/hero-illustration.png`,
+    width: 1000,
+    height: 1000,
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": canonical,
+  },
+  about: [
+    { "@type": "Thing", name: "portátil para teletrabajo" },
+    { "@type": "Thing", name: "portátil para trabajo remoto" },
+    { "@type": "Thing", name: "portátil para programar" },
+  ],
+  keywords: [
+    "mejor portátil teletrabajo 2026",
+    "portátil para trabajo remoto",
+    "qué portátil comprar para teletrabajar",
+    "portátil ligero para trabajar",
+    "portátil para programar",
+  ],
+};
+---
+
+<Layout
+  title="Mejor portátil para teletrabajo 2026 | EasyChoose"
+  description="Guía 2026 para elegir el mejor portátil para teletrabajar: criterios reales, rangos de presupuesto y recomendaciones con IA según tu perfil profesional."
+  canonical={canonical}
+  keywords={["mejor portatil para teletrabajo", "portatil para trabajo remoto", "que portatil comprar para teletrabajar", "portatil ligero para trabajar", "portatil para programar"]}
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
+
+  <!-- BreadcrumbList -->
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://easychoose.es/" },
+      { "@type": "ListItem", "position": 2, "name": "Mejor portátil para teletrabajo", "item": "https://easychoose.es/mejor-portatil-teletrabajo/" }
+    ]
+  }
+  </script>
+
+  <Section variant="glass" className="cluster-hero">
+    <div class="cluster-hero-content">
+      <div class="hero-meta">
+        <span class="badge">Guía de compra</span>
+        <span class="last-updated">Actualizado: {today}</span>
+      </div>
+      <h1>Mejor portátil para teletrabajo en 2026</h1>
+      <p class="lead">
+        El mejor portátil para teletrabajar en 2026 cuesta entre 600€ y 1.100€, aguanta 8+ horas de batería real y tiene cámara y micrófono decentes para videollamadas. Esta guía explica los criterios que realmente importan y te lleva al asistente IA para una recomendación concreta en menos de 2 minutos.
+      </p>
+      <a href={appUrl} class="btn btn-primary btn-large">Encontrar mi portátil ideal</a>
+    </div>
+  </Section>
+
+  <Section variant="light" id="criterios">
+    <div class="section-header">
+      <span class="badge">Criterios</span>
+      <h2>Qué buscar en un portátil para teletrabajo</h2>
+      <p>
+        Un portátil para teletrabajar tiene exigencias distintas a uno de oficina fija: videollamadas, autonomía y comodidad en jornadas largas pesan más que el rendimiento bruto. EasyChoose pondera estos seis factores.
+      </p>
+    </div>
+    <div class="criteria-grid">
+      {criteria.map((item) => (
+        <article class="criteria-card">
+          <div class="criteria-icon" aria-hidden="true">{item.icon}</div>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <Section variant="light" id="presupuesto">
+    <div class="section-header">
+      <span class="badge">Por presupuesto</span>
+      <h2>¿Cuánto gastar en un portátil para teletrabajar?</h2>
+      <p>
+        El rango de precio define qué prestaciones puedes esperar. Estas son las franjas más habituales para teletrabajo en 2026.
+      </p>
+    </div>
+    <div class="budget-grid">
+      <article class="budget-card">
+        <div class="budget-range">500€ – 700€</div>
+        <h3>Para perfiles de gestión básica</h3>
+        <p>Suficiente para correo, ofimática y videollamadas ocasionales. La cámara y la batería pueden quedarse justas si tu jornada exige reuniones constantes.</p>
+        <a href={appUrl} class="budget-link">Ver opciones en este rango →</a>
+      </article>
+      <article class="budget-card budget-card-highlight">
+        <div class="budget-badge-top">Rango recomendado</div>
+        <div class="budget-range">700€ – 1.100€</div>
+        <h3>La opción más equilibrada</h3>
+        <p>Aquí encuentras 16 GB de RAM, buena cámara y micrófono, y autonomía real de 8-10 horas. Cubre bien la mayoría de perfiles de oficina y desarrollo estándar.</p>
+        <a href={appUrl} class="budget-link">Ver opciones en este rango →</a>
+      </article>
+      <article class="budget-card">
+        <div class="budget-range">1.100€ – 1.600€</div>
+        <h3>Para perfiles técnicos exigentes</h3>
+        <p>Más RAM, procesador potente y, en algunos casos, GPU discreta. Recomendable para programación intensiva, diseño o edición de vídeo en remoto.</p>
+        <a href={appUrl} class="budget-link">Ver opciones en este rango →</a>
+      </article>
+    </div>
+  </Section>
+
+  <Section variant="glass" id="por-perfil">
+    <div class="section-header">
+      <span class="badge">Por perfil profesional</span>
+      <h2>¿Qué portátil necesitas según tu trabajo remoto?</h2>
+      <p>
+        El portátil ideal cambia según tu profesión: gestión, desarrollo, diseño o trabajo nómada priorizan factores distintos. Aquí están los criterios clave para cada perfil.
+      </p>
+    </div>
+    <div class="career-grid">
+      {profiles.map((profile) => (
+        <article class="career-card">
+          <div class="career-header">
+            <span class="career-icon" aria-hidden="true">{profile.icon}</span>
+            <h3>{profile.type}</h3>
+          </div>
+          <p class="career-desc">{profile.description}</p>
+          <dl class="career-specs">
+            <div class="spec-row">
+              <dt>Prioridad principal</dt>
+              <dd>{profile.priority}</dd>
+            </div>
+            <div class="spec-row">
+              <dt>RAM recomendada</dt>
+              <dd>{profile.ram}</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Presupuesto orientativo</dt>
+              <dd>{profile.budget}</dd>
+            </div>
+          </dl>
+          <p class="career-tip">💡 {profile.tip}</p>
+          <a href={appUrl} class="career-cta">Ver opciones para mi perfil →</a>
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <Section variant="glass" id="faq">
+    <div class="section-header">
+      <span class="badge">FAQ</span>
+      <h2>Preguntas frecuentes sobre portátiles para teletrabajo</h2>
+    </div>
+    <div class="faq-list">
+      {faqs.map((faq, index) => (
+        <details class="faq-item" open={index === 0}>
+          <summary>{faq.question}</summary>
+          <p>{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </Section>
+
+  <Section variant="dark" className="cta-final">
+    <div class="cta-content">
+      <span class="badge badge-inverse">Recomendación personalizada</span>
+      <h2>Encuentra tu portátil de teletrabajo ideal en 2 minutos</h2>
+      <p>
+        Indica tu perfil profesional, el sistema operativo que prefieres y tu presupuesto. EasyChoose filtra el mercado y te devuelve las opciones que mejor encajan con tu situación concreta.
+      </p>
+      <a href={appUrl} class="btn btn-secondary btn-large">Empezar el Asistente Gratis</a>
+      <ul class="trust-pills">
+        <li>Gratis y sin registro</li>
+        <li>Resultado en menos de 2 minutos</li>
+        <li>Chat IA para la última duda</li>
+      </ul>
+    </div>
+  </Section>
+</Layout>
+
+<style>
+  .cluster-hero-content {
+    max-width: 760px;
+    padding: 5rem 0 4rem;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    background: rgba(108, 99, 255, 0.12);
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .badge-inverse {
+    background: rgba(255, 255, 255, 0.14);
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .last-updated {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+    color: var(--color-dark);
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    max-width: 66ch;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .btn-large {
+    padding: 1rem 2.35rem;
+    font-size: 1.05rem;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+
+  .section-header h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    margin: 0.5rem 0 1rem;
+  }
+
+  .section-header p {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+  }
+
+  .criteria-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .criteria-card {
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.6rem;
+    padding: 1.75rem;
+    box-shadow: 0 18px 40px rgba(46, 46, 46, 0.06);
+  }
+
+  .criteria-icon {
+    font-size: 2.2rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .criteria-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-dark);
+  }
+
+  .criteria-card p {
+    color: var(--color-text-muted);
+    font-size: 0.96rem;
+    line-height: 1.65;
+  }
+
+  .budget-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .budget-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.6rem;
+    padding: 2rem 1.75rem;
+    box-shadow: 0 18px 40px rgba(46, 46, 46, 0.06);
+  }
+
+  .budget-card-highlight {
+    border-color: rgba(108, 99, 255, 0.7);
+    padding-top: 3rem;
+  }
+
+  .budget-badge-top {
+    position: absolute;
+    top: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    background: var(--color-primary);
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+  }
+
+  .budget-range {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(108, 99, 255, 0.92), rgba(255, 211, 105, 0.92));
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .budget-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-dark);
+  }
+
+  .budget-card p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+
+  .budget-link {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .budget-link:hover {
+    text-decoration: underline;
+  }
+
+  .faq-list {
+    max-width: 860px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .faq-item {
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.4rem;
+    padding: 1.2rem 1.3rem;
+    box-shadow: 0 18px 36px rgba(46, 46, 46, 0.06);
+  }
+
+  .faq-item summary {
+    cursor: pointer;
+    font-weight: 700;
+    list-style: none;
+    padding-right: 2rem;
+    position: relative;
+    color: var(--color-dark);
+  }
+
+  .faq-item summary::-webkit-details-marker { display: none; }
+
+  .faq-item summary::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: -0.1rem;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--color-primary);
+  }
+
+  .faq-item[open] summary::after { content: "−"; }
+
+  .faq-item p {
+    margin-top: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  .cta-final :global(.container) { max-width: 860px; }
+
+  .cta-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-content h2 {
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    max-width: 56ch;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.05rem;
+  }
+
+  .trust-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    list-style: none;
+    margin-top: 1.5rem;
+  }
+
+  .trust-pills li {
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    font-weight: 600;
+  }
+
+  .career-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .career-card {
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.6rem;
+    padding: 1.75rem;
+    box-shadow: 0 18px 40px rgba(46, 46, 46, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .career-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .career-icon {
+    font-size: 2rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .career-header h3 {
+    font-size: 1.1rem;
+    color: var(--color-dark);
+    margin: 0;
+  }
+
+  .career-desc {
+    color: var(--color-text-muted);
+    font-size: 0.94rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .career-specs {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0;
+  }
+
+  .spec-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.5rem;
+    font-size: 0.88rem;
+    border-bottom: 1px solid rgba(46, 46, 46, 0.06);
+    padding-bottom: 0.4rem;
+  }
+
+  .spec-row dt {
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .spec-row dd {
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0;
+    text-align: right;
+  }
+
+  .career-tip {
+    font-size: 0.88rem;
+    background: rgba(108, 99, 255, 0.07);
+    border-left: 3px solid var(--color-primary);
+    padding: 0.65rem 0.85rem;
+    border-radius: 0 0.75rem 0.75rem 0;
+    color: var(--color-dark);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .career-cta {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-top: auto;
+  }
+
+  .career-cta:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 1024px) {
+    .criteria-grid,
+    .budget-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .criteria-grid,
+    .budget-grid,
+    .career-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .trust-pills {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .trust-pills li {
+      text-align: center;
+    }
+  }
+</style>

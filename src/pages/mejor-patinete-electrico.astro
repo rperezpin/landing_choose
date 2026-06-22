@@ -1,0 +1,714 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+
+const canonical = "https://easychoose.es/mejor-patinete-electrico/";
+const appUrl = "https://app.easychoose.es/";
+const siteUrl = "https://easychoose.es";
+const today = new Date().toLocaleDateString("es-ES", { day: "numeric", month: "long", year: "numeric" });
+const todayIso = new Date().toISOString().split("T")[0];
+
+const criteria = [
+  {
+    icon: "🔋",
+    title: "Autonomía real para tu trayecto diario",
+    description: "Calcula la distancia de tu trayecto habitual ida y vuelta, y busca al menos un 30-40% más de autonomía que esa cifra: el frío, las cuestas y el peso reducen el rango respecto al dato del fabricante.",
+  },
+  {
+    icon: "⚖️",
+    title: "Peso acorde a cómo lo vas a transportar",
+    description: "Si tienes que subir escaleras o cargarlo en transporte público a diario, un patinete de más de 15 kg se nota mucho. Si lo dejas siempre en el mismo sitio, el peso importa menos que la autonomía o la potencia.",
+  },
+  {
+    icon: "🛞",
+    title: "Tamaño de rueda y suspensión según el firme",
+    description: "Para aceras irregulares o adoquines, ruedas grandes (10 pulgadas o más) y suspensión reducen las vibraciones. Para asfalto liso de ciudad, ruedas más pequeñas son suficientes y el patinete pesa menos.",
+  },
+  {
+    icon: "🛑",
+    title: "Sistema de frenado doble y certificación",
+    description: "Un patinete legal para circular necesita frenos eficaces (idealmente de disco más regenerativo) y cumplir la certificación de la DGT (manual de características VMP). Verifica esto antes de comprar, no después.",
+  },
+  {
+    icon: "💶",
+    title: "Presupuesto entre 300€ y 700€",
+    description: "El rango donde se concentra la mejor relación calidad-precio para uso urbano diario en 2026. Por debajo de 300€ la autonomía y los frenos suelen ser insuficientes para un uso serio; por encima de 700€ pagas extras de potencia que la ciudad no permite aprovechar legalmente.",
+  },
+  {
+    icon: "💧",
+    title: "Resistencia al agua para uso real en calle",
+    description: "Un patinete urbano se moja con lluvia o charcos tarde o temprano. Una certificación IP54 o superior evita averías por humedad que no cubre la garantía si el uso es claramente inadecuado.",
+  },
+];
+
+const profiles = [
+  {
+    icon: "🏙️",
+    type: "Trayecto urbano diario",
+    description:
+      "Para ir al trabajo o a clase todos los días, la fiabilidad y la autonomía constante pesan más que la velocidad máxima. Un patinete robusto con buena batería amortiza mejor el uso intensivo.",
+    priority: "Autonomía y fiabilidad",
+    weight: "12–16 kg",
+    budget: "350€ – 600€",
+    tip: "Suma los kilómetros de tu trayecto semanal y prioriza modelos con baterías reemplazables o con buena reputación de durabilidad a largo plazo.",
+  },
+  {
+    icon: "🎒",
+    type: "Combinación con transporte público",
+    description:
+      "Si necesitas cargarlo en metro, bus o tren, el peso y la facilidad de plegado son la prioridad. Un patinete de menos de 13 kg con plegado rápido hace mucho más cómoda la combinación con transporte público.",
+    priority: "Peso y plegado",
+    weight: "9–13 kg",
+    budget: "300€ – 550€",
+    tip: "Prueba el mecanismo de plegado antes de comprar si puedes: la diferencia entre un plegado de un paso y uno de varios pasos se nota cada día.",
+  },
+  {
+    icon: "🏔️",
+    type: "Cuestas y firmes irregulares",
+    description:
+      "Para zonas con pendientes o calles en mal estado, necesitas más potencia de motor y ruedas grandes con buena suspensión. Sin esto, el rendimiento cae mucho más de lo esperado frente a un uso en llano.",
+    priority: "Potencia de motor y suspensión",
+    weight: "15–20 kg",
+    budget: "500€ – 800€",
+    tip: "Revisa la potencia nominal y pico del motor: en cuestas pronunciadas, un motor infradimensionado pierde mucha velocidad y autonomía.",
+  },
+  {
+    icon: "🌧️",
+    type: "Uso en cualquier condición climática",
+    description:
+      "Si vas a usarlo con lluvia ocasional o en climas húmedos, la resistencia al agua y la calidad de los componentes electrónicos son la prioridad por encima de la velocidad o el diseño.",
+    priority: "Resistencia al agua (IP)",
+    weight: "12–18 kg",
+    budget: "400€ – 700€",
+    tip: "Busca certificación IP54 o superior y evita cargar la batería justo después de circular con lluvia: deja que se seque bien antes.",
+  },
+];
+
+const faqs = [
+  {
+    question: "¿Cuál es el mejor patinete eléctrico calidad-precio en 2026?",
+    answer:
+      "El mejor patinete eléctrico calidad-precio en 2026 cuesta entre 300€ y 700€, con autonomía real ajustada a tu trayecto, frenos dobles certificados y resistencia al agua IP54 o superior. El modelo concreto depende de tu perfil: trayecto diario, combinación con transporte público, cuestas o uso en cualquier clima. EasyChoose filtra el mercado según tu uso real en menos de 2 minutos.",
+  },
+  {
+    question: "¿Qué patinete eléctrico es legal para circular en España?",
+    answer:
+      "Un patinete legal en España necesita el certificado de circulación según el Manual de Características VMP de la DGT, frenos eficaces, luces y, en muchos municipios, seguro de responsabilidad civil. Verifica que el modelo tiene esta certificación antes de comprarlo, no después.",
+  },
+  {
+    question: "¿Cuántos kilómetros de autonomía necesito en un patinete eléctrico?",
+    answer:
+      "Calcula tu trayecto diario ida y vuelta y añade un 30-40% de margen, ya que el frío, las cuestas y tu peso reducen la autonomía real frente al dato del fabricante. Para un trayecto de 10 km diarios, busca al menos 25-30 km de autonomía anunciada.",
+  },
+  {
+    question: "¿Qué patinete eléctrico comprar si tengo que subir escaleras con él?",
+    answer:
+      "Si tienes que cargarlo a diario, prioriza modelos de menos de 13 kg con un mecanismo de plegado rápido y cómodo de transportar. El peso se nota mucho más en el uso diario que unos kilómetros extra de autonomía.",
+  },
+  {
+    question: "¿Merece la pena un patinete con suspensión?",
+    answer:
+      "Sí, si circulas habitualmente por aceras irregulares, adoquines o calles en mal estado: reduce mucho las vibraciones y mejora la comodidad. En asfalto liso de ciudad, la suspensión aporta menos y puedes prescindir de ella sin notar gran diferencia.",
+  },
+  {
+    question: "¿Cuánto dura la batería de un patinete eléctrico?",
+    answer:
+      "La mayoría de baterías de patinete eléctrico mantienen un rendimiento aceptable durante 2-3 años de uso diario antes de notar una pérdida significativa de autonomía. Cargarla de forma habitual entre 20% y 80%, en vez de siempre al 100%, ayuda a alargar su vida útil.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": `${canonical}#article`,
+  headline: "Mejor patinete eléctrico calidad-precio en 2026",
+  description:
+    "Guía para elegir el mejor patinete eléctrico calidad-precio en 2026: criterios reales, legalidad, rangos de presupuesto y recomendaciones por perfil de uso con IA.",
+  url: canonical,
+  datePublished: "2026-06-20",
+  dateModified: todayIso,
+  inLanguage: "es-ES",
+  author: {
+    "@type": "Person",
+    name: "Rubén Pérez",
+    url: `${siteUrl}/contacto/`,
+    sameAs: ["https://www.rpidev.com/", "https://www.linkedin.com/in/ruben-perez-rpidev/"],
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "EasyChoose",
+    url: `${siteUrl}/`,
+    logo: {
+      "@type": "ImageObject",
+      url: `${siteUrl}/choose-removebg-preview.png`,
+    },
+  },
+  image: {
+    "@type": "ImageObject",
+    url: `${siteUrl}/hero-illustration.png`,
+    width: 1000,
+    height: 1000,
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": canonical,
+  },
+  about: [
+    { "@type": "Thing", name: "patinete eléctrico calidad-precio" },
+    { "@type": "Thing", name: "movilidad eléctrica urbana" },
+    { "@type": "Thing", name: "patinete eléctrico legal" },
+  ],
+  keywords: [
+    "mejor patinete eléctrico 2026",
+    "patinete eléctrico calidad precio",
+    "qué patinete eléctrico comprar",
+    "patinete eléctrico legal España",
+    "patinete eléctrico para ciudad",
+  ],
+};
+---
+
+<Layout
+  title="Mejor patinete eléctrico calidad-precio 2026 | EasyChoose"
+  description="Guía 2026 para elegir el mejor patinete eléctrico: criterios reales, legalidad en España, rangos de presupuesto y recomendaciones con IA según tu trayecto."
+  canonical={canonical}
+  keywords={["mejor patinete electrico", "patinete electrico calidad precio", "que patinete electrico comprar", "patinete electrico legal espana", "patinete electrico para ciudad"]}
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
+
+  <!-- BreadcrumbList -->
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://easychoose.es/" },
+      { "@type": "ListItem", "position": 2, "name": "Mejor patinete eléctrico", "item": "https://easychoose.es/mejor-patinete-electrico/" }
+    ]
+  }
+  </script>
+
+  <Section variant="glass" className="cluster-hero">
+    <div class="cluster-hero-content">
+      <div class="hero-meta">
+        <span class="badge">Guía de compra</span>
+        <span class="last-updated">Actualizado: {today}</span>
+      </div>
+      <h1>Mejor patinete eléctrico calidad-precio en 2026</h1>
+      <p class="lead">
+        El mejor patinete eléctrico calidad-precio en 2026 cuesta entre 300€ y 700€, tiene autonomía ajustada a tu trayecto real, frenos dobles certificados y resistencia al agua. Esta guía explica los criterios que realmente importan y te lleva al asistente IA para una recomendación concreta en menos de 2 minutos.
+      </p>
+      <a href={appUrl} class="btn btn-primary btn-large">Encontrar mi patinete ideal</a>
+    </div>
+  </Section>
+
+  <Section variant="light" id="criterios">
+    <div class="section-header">
+      <span class="badge">Criterios</span>
+      <h2>Qué buscar en un patinete eléctrico</h2>
+      <p>
+        Un patinete eléctrico calidad-precio se ajusta a tu trayecto real y a cómo lo vas a transportar, no a la cifra de velocidad máxima del catálogo. EasyChoose pondera estos seis factores.
+      </p>
+    </div>
+    <div class="criteria-grid">
+      {criteria.map((item) => (
+        <article class="criteria-card">
+          <div class="criteria-icon" aria-hidden="true">{item.icon}</div>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </article>
+      ))}
+    </div>
+    <p class="table-note">
+      La certificación de circulación de los patinetes eléctricos (vehículos de movilidad personal, VMP) está regulada por la <a href="https://www.dgt.es/" target="_blank" rel="noopener noreferrer">Dirección General de Tráfico (DGT)</a>. Verifica siempre que el modelo que compras cumple esa normativa antes de circular con él en vía pública.
+    </p>
+  </Section>
+
+  <Section variant="light" id="presupuesto">
+    <div class="section-header">
+      <span class="badge">Por presupuesto</span>
+      <h2>¿Cuánto gastar en un patinete eléctrico?</h2>
+      <p>
+        El rango de precio define qué prestaciones puedes esperar. Estas son las franjas más habituales para patinetes eléctricos urbanos en 2026.
+      </p>
+    </div>
+    <div class="budget-grid">
+      <article class="budget-card">
+        <div class="budget-range">200€ – 350€</div>
+        <h3>Para trayectos cortos y ocasionales</h3>
+        <p>Autonomía y potencia suficientes para distancias cortas en llano. Los frenos y la resistencia al agua pueden quedarse justos para un uso diario intensivo.</p>
+        <a href={appUrl} class="budget-link">Ver opciones en este rango →</a>
+      </article>
+      <article class="budget-card budget-card-highlight">
+        <div class="budget-badge-top">Rango recomendado</div>
+        <div class="budget-range">350€ – 700€</div>
+        <h3>La opción más equilibrada</h3>
+        <p>Aquí encuentras autonomía real para trayectos diarios, frenos dobles certificados, resistencia al agua IP54+ y un peso manejable para combinar con transporte público.</p>
+        <a href={appUrl} class="budget-link">Ver opciones en este rango →</a>
+      </article>
+      <article class="budget-card">
+        <div class="budget-range">Más de 700€</div>
+        <h3>Para trayectos exigentes</h3>
+        <p>Mayor potencia para cuestas, suspensión más completa y autonomía superior. Recomendable si tu trayecto incluye pendientes notables o distancias largas a diario.</p>
+        <a href={appUrl} class="budget-link">Ver opciones en este rango →</a>
+      </article>
+    </div>
+  </Section>
+
+  <Section variant="glass" id="por-perfil">
+    <div class="section-header">
+      <span class="badge">Por tipo de trayecto</span>
+      <h2>¿Qué patinete necesitas según tu trayecto?</h2>
+      <p>
+        El patinete ideal cambia según cómo y dónde lo vayas a usar: trayecto urbano diario, combinación con transporte público, cuestas o climas húmedos. Aquí están los criterios clave para cada perfil.
+      </p>
+    </div>
+    <div class="career-grid">
+      {profiles.map((profile) => (
+        <article class="career-card">
+          <div class="career-header">
+            <span class="career-icon" aria-hidden="true">{profile.icon}</span>
+            <h3>{profile.type}</h3>
+          </div>
+          <p class="career-desc">{profile.description}</p>
+          <dl class="career-specs">
+            <div class="spec-row">
+              <dt>Prioridad principal</dt>
+              <dd>{profile.priority}</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Peso recomendado</dt>
+              <dd>{profile.weight}</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Presupuesto orientativo</dt>
+              <dd>{profile.budget}</dd>
+            </div>
+          </dl>
+          <p class="career-tip">💡 {profile.tip}</p>
+          <a href={appUrl} class="career-cta">Ver opciones para mi perfil →</a>
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <Section variant="glass" id="faq">
+    <div class="section-header">
+      <span class="badge">FAQ</span>
+      <h2>Preguntas frecuentes sobre patinetes eléctricos</h2>
+    </div>
+    <div class="faq-list">
+      {faqs.map((faq, index) => (
+        <details class="faq-item" open={index === 0}>
+          <summary>{faq.question}</summary>
+          <p>{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </Section>
+
+  <Section variant="dark" className="cta-final">
+    <div class="cta-content">
+      <span class="badge badge-inverse">Recomendación personalizada</span>
+      <h2>Encuentra tu patinete eléctrico ideal en 2 minutos</h2>
+      <p>
+        Indica tu trayecto habitual, cómo lo vas a transportar y tu presupuesto. EasyChoose filtra el mercado y te devuelve las opciones que mejor encajan con tu situación concreta.
+      </p>
+      <a href={appUrl} class="btn btn-secondary btn-large">Empezar el Asistente Gratis</a>
+      <ul class="trust-pills">
+        <li>Gratis y sin registro</li>
+        <li>Resultado en menos de 2 minutos</li>
+        <li>Chat IA para la última duda</li>
+      </ul>
+    </div>
+  </Section>
+</Layout>
+
+<style>
+  .cluster-hero-content {
+    max-width: 760px;
+    padding: 5rem 0 4rem;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    background: rgba(108, 99, 255, 0.12);
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .badge-inverse {
+    background: rgba(255, 255, 255, 0.14);
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .last-updated {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+    color: var(--color-dark);
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    max-width: 66ch;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .btn-large {
+    padding: 1rem 2.35rem;
+    font-size: 1.05rem;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+
+  .section-header h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    margin: 0.5rem 0 1rem;
+  }
+
+  .section-header p {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+  }
+
+  .criteria-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .criteria-card {
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.6rem;
+    padding: 1.75rem;
+    box-shadow: 0 18px 40px rgba(46, 46, 46, 0.06);
+  }
+
+  .criteria-icon {
+    font-size: 2.2rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .criteria-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-dark);
+  }
+
+  .criteria-card p {
+    color: var(--color-text-muted);
+    font-size: 0.96rem;
+    line-height: 1.65;
+  }
+
+  .budget-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .budget-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.6rem;
+    padding: 2rem 1.75rem;
+    box-shadow: 0 18px 40px rgba(46, 46, 46, 0.06);
+  }
+
+  .budget-card-highlight {
+    border-color: rgba(108, 99, 255, 0.7);
+    padding-top: 3rem;
+  }
+
+  .budget-badge-top {
+    position: absolute;
+    top: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    background: var(--color-primary);
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+  }
+
+  .budget-range {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(108, 99, 255, 0.92), rgba(255, 211, 105, 0.92));
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .budget-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-dark);
+  }
+
+  .budget-card p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+
+  .budget-link {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .budget-link:hover {
+    text-decoration: underline;
+  }
+
+  .faq-list {
+    max-width: 860px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .faq-item {
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.4rem;
+    padding: 1.2rem 1.3rem;
+    box-shadow: 0 18px 36px rgba(46, 46, 46, 0.06);
+  }
+
+  .faq-item summary {
+    cursor: pointer;
+    font-weight: 700;
+    list-style: none;
+    padding-right: 2rem;
+    position: relative;
+    color: var(--color-dark);
+  }
+
+  .faq-item summary::-webkit-details-marker { display: none; }
+
+  .faq-item summary::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: -0.1rem;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--color-primary);
+  }
+
+  .faq-item[open] summary::after { content: "−"; }
+
+  .faq-item p {
+    margin-top: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  .cta-final :global(.container) { max-width: 860px; }
+
+  .cta-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-content h2 {
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    max-width: 56ch;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.05rem;
+  }
+
+  .trust-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    list-style: none;
+    margin-top: 1.5rem;
+  }
+
+  .trust-pills li {
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    font-weight: 600;
+  }
+
+  .career-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .career-card {
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.6rem;
+    padding: 1.75rem;
+    box-shadow: 0 18px 40px rgba(46, 46, 46, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .career-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .career-icon {
+    font-size: 2rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .career-header h3 {
+    font-size: 1.1rem;
+    color: var(--color-dark);
+    margin: 0;
+  }
+
+  .career-desc {
+    color: var(--color-text-muted);
+    font-size: 0.94rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .career-specs {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0;
+  }
+
+  .spec-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.5rem;
+    font-size: 0.88rem;
+    border-bottom: 1px solid rgba(46, 46, 46, 0.06);
+    padding-bottom: 0.4rem;
+  }
+
+  .spec-row dt {
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .spec-row dd {
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0;
+    text-align: right;
+  }
+
+  .career-tip {
+    font-size: 0.88rem;
+    background: rgba(108, 99, 255, 0.07);
+    border-left: 3px solid var(--color-primary);
+    padding: 0.65rem 0.85rem;
+    border-radius: 0 0.75rem 0.75rem 0;
+    color: var(--color-dark);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .career-cta {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-top: auto;
+  }
+
+  .career-cta:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 1024px) {
+    .criteria-grid,
+    .budget-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .criteria-grid,
+    .budget-grid,
+    .career-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .trust-pills {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .trust-pills li {
+      text-align: center;
+    }
+  }
+</style>

@@ -99,6 +99,8 @@ const categories = [
     description: "Móviles Android y iPhone para batería, cámara, uso diario o gama alta.",
     priceRange: "€150 – €1.800",
     links: ["Menos de 500€", "Cámara profesional", "Android o iPhone"],
+    guideUrl: "/mejor-movil-calidad-precio/",
+    guideLabel: "Guía calidad-precio →",
   },
   {
     icon: "📟",
@@ -106,6 +108,8 @@ const categories = [
     description: "Tablets e iPad para apuntes, lectura, dibujo, contenido multimedia y productividad ligera.",
     priceRange: "€200 – €1.200",
     links: ["Para estudiantes", "Dibujo y diseño", "iPad o Android"],
+    guideUrl: "/mejor-tablet-calidad-precio/",
+    guideLabel: "Guía calidad-precio →",
   },
   {
     icon: "🖥️",
@@ -113,6 +117,8 @@ const categories = [
     description: "Sobremesa y todo en uno para oficina, teletrabajo, gaming y uso doméstico.",
     priceRange: "€400 – €2.000",
     links: ["Para trabajo", "Gaming de sobremesa", "Todo en uno"],
+    guideUrl: "/mejor-pc-sobremesa/",
+    guideLabel: "Guía de sobremesa por presupuesto →",
   },
   {
     icon: "🎧",
@@ -127,6 +133,8 @@ const categories = [
     description: "Patinetes, bicicletas y scooters eléctricos para ciudad, trayectos diarios y ocio.",
     priceRange: "€300 – €2.500",
     links: ["Patinete eléctrico", "Bicicleta eléctrica", "Scooter eléctrico"],
+    guideUrl: "/mejor-patinete-electrico/",
+    guideLabel: "Guía calidad-precio →",
   },
 ];
 
@@ -155,24 +163,48 @@ const quickQuestions = [
     question: "¿Qué portátil comprar para estudiar o trabajar?",
     answer:
       "Depende de autonomía, peso, sistema operativo y tipo de tareas. El asistente descarta modelos sobredimensionados y te enseña los que encajan con tu ritmo real.",
+    guideUrl: "/mejor-portatil-estudiantes/",
+    guideLabel: "Guía completa para elegir portátil de estudiante →",
   },
   {
     icon: "📱",
     question: "¿Qué móvil comprar si buscas buena cámara y batería?",
     answer:
       "No siempre hace falta subir a la gama más cara. EasyChoose cruza cámara, autonomía, tamaño y precio para encontrar el punto de equilibrio.",
+    guideUrl: "/mejor-movil-calidad-precio/",
+    guideLabel: "Guía completa del mejor móvil calidad-precio →",
   },
   {
     icon: "📟",
     question: "¿Qué tablet elegir para apuntes, lectura o diseño?",
     answer:
       "La mejor tablet cambia si priorizas stylus, ecosistema, brillo de pantalla, apps o portabilidad. El asistente te orienta según ese contexto.",
+    guideUrl: "/mejor-tablet-calidad-precio/",
+    guideLabel: "Guía completa de la mejor tablet calidad-precio →",
   },
   {
     icon: "⚡",
     question: "¿Qué accesorio o patinete merece realmente la pena?",
     answer:
       "La IA filtra opciones irrelevantes y se centra en compatibilidad, ergonomía, autonomía, seguridad y valor por precio.",
+    guideUrl: "/mejor-patinete-electrico/",
+    guideLabel: "Guía completa del mejor patinete eléctrico →",
+  },
+  {
+    icon: "🏠",
+    question: "¿Qué portátil comprar para teletrabajar?",
+    answer:
+      "Para teletrabajo importan la batería real, una buena cámara y micrófono para videollamadas, y suficiente RAM para tus herramientas diarias. El asistente filtra por tu perfil profesional.",
+    guideUrl: "/mejor-portatil-teletrabajo/",
+    guideLabel: "Guía completa del mejor portátil para teletrabajo →",
+  },
+  {
+    icon: "🖥️",
+    question: "¿Qué PC de sobremesa comprar según mi presupuesto?",
+    answer:
+      "El equilibrio entre CPU, GPU y RAM debe ajustarse a tu uso real: gaming, oficina o creación de contenido priorizan componentes distintos. El asistente te orienta según tu caso.",
+    guideUrl: "/mejor-pc-sobremesa/",
+    guideLabel: "Guía completa del mejor PC de sobremesa →",
   },
 ];
 
@@ -358,8 +390,8 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema, brea
 ---
 
 <Layout
-  title="Qué portátil, móvil o tablet comprar | EasyChoose te ayuda a decidir con IA"
-  description="Asistente gratuito con IA para elegir portátil, móvil o tablet. Responde 4 preguntas y obtén una recomendación clara en 2 minutos, según tu uso real y presupuesto. Sin registro."
+  title="Qué portátil, móvil o tablet comprar | EasyChoose"
+  description="Asistente gratuito con IA para elegir portátil, móvil o tablet según tu uso real y presupuesto. Recomendación en 2 minutos, sin registro."
   canonical={canonical}
   keywords={keywords}
 >
@@ -378,7 +410,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema, brea
           Qué portátil, móvil o tablet comprar <span class="highlight">sin perder horas comparando</span>
         </h1>
         <p class="hero-answer-direct">
-          La mejor opción para ti depende de tu uso real y tu presupuesto, no de la marca más anunciada. EasyChoose te da una recomendación concreta en menos de 2 minutos: responde 4 preguntas y el asistente IA filtra el mercado por ti.
+          Elegir portátil, móvil o tablet depende de tu uso real y tu presupuesto, no de la marca más anunciada. EasyChoose te da una recomendación concreta en menos de 2 minutos: responde 4 preguntas y el asistente IA filtra el mercado por ti.
         </p>
         <p class="hero-answer">
           EasyChoose es un asistente gratuito con IA que traduce tus necesidades en tecnología adecuada, sin obligarte a interpretar fichas técnicas ni comparar decenas de modelos similares.
@@ -472,7 +504,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema, brea
       <span class="badge">Proceso</span>
       <h2>¿Cómo funciona el asistente para elegir tecnología?</h2>
       <p>
-        La experiencia está diseñada para ser rápida, guiada y accionable. Respondes unas pocas preguntas y obtienes una recomendación que puedes revisar con IA antes de comprar.
+        El asistente funciona en cuatro pasos: eliges la categoría de producto, indicas tu uso real, ajustas presupuesto y preferencias, y recibes hasta 9 recomendaciones con un chat de IA para resolver la última duda antes de decidir. Todo el proceso dura menos de 2 minutos y no requiere registro.
       </p>
     </div>
     <div class="steps-grid">
@@ -491,7 +523,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema, brea
       <span class="badge">Categorías</span>
       <h2>¿Qué tipo de producto puedes elegir con EasyChoose?</h2>
       <p>
-        La plataforma cubre las búsquedas más habituales de compra tecnológica y convierte cada categoría en una conversación guiada, no en un catálogo caótico.
+        EasyChoose cubre seis categorías de compra tecnológica: portátiles, smartphones, tablets, ordenadores de sobremesa, accesorios y movilidad eléctrica. Cada categoría convierte la búsqueda en una conversación guiada por tu uso real y tu presupuesto, en lugar de un catálogo con cientos de modelos sin contexto.
       </p>
     </div>
     <div class="categories-grid">
@@ -519,7 +551,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema, brea
       <span class="badge">Intenciones de búsqueda</span>
       <h2>¿Qué preguntas resuelve mejor esta landing?</h2>
       <p>
-        La página está pensada para responder consultas reales de compra en lenguaje natural y para conducirlas hacia una recomendación más precisa dentro del asistente.
+        Esta página responde las dudas de compra más habituales en lenguaje natural: qué portátil, móvil o tablet comprar según presupuesto y uso, y cuándo merece la pena gastar más. Cada respuesta enlaza con el asistente para convertir la duda en una recomendación concreta.
       </p>
     </div>
     <div class="qa-grid">
@@ -531,7 +563,11 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema, brea
           </div>
           <h3>{item.question}</h3>
           <p>{item.answer}</p>
-          <a href={appUrl}>Resolverlo en EasyChoose</a>
+          {item.guideUrl ? (
+            <a href={item.guideUrl}>{item.guideLabel}</a>
+          ) : (
+            <a href={appUrl}>Resolverlo en EasyChoose</a>
+          )}
         </article>
       ))}
     </div>

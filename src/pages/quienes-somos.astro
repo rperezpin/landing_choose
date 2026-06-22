@@ -1,0 +1,171 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+
+const canonical = "https://easychoose.es/quienes-somos/";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Inicio", item: "https://easychoose.es/" },
+    { "@type": "ListItem", position: 2, name: "Quiénes somos", item: canonical },
+  ],
+};
+
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  url: canonical,
+  name: "Quiénes somos | EasyChoose",
+  description:
+    "EasyChoose es un asistente español de inteligencia artificial que recomienda portátiles, móviles, tablets y otros dispositivos tecnológicos según el uso y presupuesto real de cada persona.",
+  inLanguage: "es-ES",
+  about: {
+    "@id": "https://easychoose.es/#organization",
+  },
+  mainEntity: {
+    "@id": "https://easychoose.es/#organization",
+  },
+};
+---
+
+<Layout
+  title="Quiénes somos | EasyChoose"
+  description="EasyChoose es un asistente español con IA que recomienda tecnología según tu uso y presupuesto. Conoce el proyecto, su fundador y cómo se financia."
+  canonical={canonical}
+  keywords={["quienes somos easychoose", "que es easychoose", "fundador easychoose", "asistente ia tecnologia españa"]}
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(aboutSchema)} />
+
+  <Section className="legal-page" variant="light">
+    <div class="legal-content">
+      <h1>Quiénes somos</h1>
+
+      <p class="intro">
+        EasyChoose es un asistente gratuito con inteligencia artificial que ayuda a personas en España a elegir portátiles, móviles, tablets, ordenadores, accesorios y movilidad eléctrica según su uso real y su presupuesto, sin necesidad de interpretar fichas técnicas.
+      </p>
+
+      <section>
+        <h2>¿Qué es EasyChoose?</h2>
+        <p>
+          EasyChoose traduce una pregunta confusa («¿qué portátil me compro?») en una recomendación concreta en menos de 2 minutos. El usuario responde unas pocas preguntas sobre categoría, uso, presupuesto y preferencias, y el sistema filtra el catálogo disponible para devolver las opciones que mejor encajan, con un chat de IA integrado para resolver dudas concretas antes de comprar.
+        </p>
+        <p>
+          No es un catálogo, ni una tienda, ni un comparador genérico de especificaciones: es un sistema de decisión que parte del contexto de la persona, no del producto. Puedes ver el detalle de cómo puntuamos cada recomendación en la <a href="/metodologia-puntuacion/">página de metodología</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2>¿Quién está detrás del proyecto?</h2>
+        <p>
+          EasyChoose está desarrollado por <strong>Rubén Pérez</strong>, desarrollador de software independiente afincado en España, bajo la marca <strong>rpidev</strong>. Rubén diseña y mantiene tanto la landing como la aplicación del asistente, incluyendo el motor de recomendación y la integración con IA generativa.
+        </p>
+        <p>
+          Puedes conocer más sobre su trabajo en <a href="https://www.rpidev.com/" target="_blank" rel="noopener noreferrer">rpidev.com</a> o en su perfil de <a href="https://www.linkedin.com/in/ruben-perez-rpidev/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2>¿Cómo se financia EasyChoose?</h2>
+        <p>
+          El asistente es gratuito y no requiere registro. EasyChoose puede recibir una comisión de afiliación (Amazon Associates, Awin u otros programas similares) cuando un usuario compra un producto a través de uno de sus enlaces, sin coste adicional para esa persona. La recomendación se calcula siempre según la adecuación al uso y presupuesto indicados, no según qué tienda o marca paga mejor comisión.
+        </p>
+        <p>
+          Más detalle sobre esta política en el <a href="/aviso-legal/">aviso legal</a> y en la <a href="/metodologia-puntuacion/">metodología de puntuación</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2>¿Por qué confiar en las recomendaciones de EasyChoose?</h2>
+        <ul>
+          <li><strong>Transparencia comercial:</strong> el modelo de negocio se basa en afiliación, declarado abiertamente, nunca en publicidad encubierta de marca.</li>
+          <li><strong>Criterios de uso real:</strong> la puntuación prioriza autonomía, peso, rendimiento percibido y presupuesto sobre especificaciones aisladas.</li>
+          <li><strong>Sin registro:</strong> no se exige cuenta ni datos personales para recibir una recomendación.</li>
+          <li><strong>Foco en España:</strong> catálogo y precios orientados al mercado español, con tiendas como Amazon, PcComponentes, AliExpress y Miravia.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>¿Cómo contactar?</h2>
+        <p>
+          Para cualquier consulta, colaboración o solicitud relacionada con tus datos personales, escribe a <a href="mailto:hello@rpidev.com">hello@rpidev.com</a> o visita la <a href="/contacto/">página de contacto</a>.
+        </p>
+      </section>
+
+      <a href="/" class="btn-back">&larr; Volver al inicio</a>
+    </div>
+  </Section>
+</Layout>
+
+<style>
+  .intro {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(108, 99, 255, 0.06);
+    border-left: 3px solid var(--color-primary);
+    border-radius: 0 0.75rem 0.75rem 0;
+  }
+
+  .legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 0;
+  }
+
+  .legal-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-dark);
+  }
+
+  .legal-content h2 {
+    font-size: 1.4rem;
+    margin: 2.5rem 0 0.75rem;
+    color: var(--color-primary);
+  }
+
+  .legal-content p,
+  .legal-content li {
+    color: var(--color-text-muted);
+    line-height: 1.75;
+    margin-bottom: 0.75rem;
+  }
+
+  .legal-content ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .legal-content li {
+    margin-bottom: 0.75rem;
+  }
+
+  .legal-content a {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .legal-content a:hover {
+    text-decoration: underline;
+  }
+
+  section {
+    margin-bottom: 2.5rem;
+  }
+
+  .btn-back {
+    display: inline-block;
+    margin-top: 2rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .btn-back:hover {
+    text-decoration: underline;
+  }
+</style>

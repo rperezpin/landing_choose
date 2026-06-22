@@ -9,11 +9,14 @@
 - Sitio principal: https://easychoose.es/
 - Aplicación: https://app.easychoose.es/
 - Guía portátiles estudiantes: https://easychoose.es/mejor-portatil-estudiantes/
+- Guía mejor móvil calidad-precio: https://easychoose.es/mejor-movil-calidad-precio/
+- Guía mejor tablet calidad-precio: https://easychoose.es/mejor-tablet-calidad-precio/
+- Guía mejor portátil para teletrabajo: https://easychoose.es/mejor-portatil-teletrabajo/
+- Guía mejor PC de sobremesa: https://easychoose.es/mejor-pc-sobremesa/
+- Guía mejor patinete eléctrico: https://easychoose.es/mejor-patinete-electrico/
 - Metodología de puntuación: https://easychoose.es/metodologia-puntuacion/
+- Quiénes somos: https://easychoose.es/quienes-somos/
 - Contacto: https://easychoose.es/contacto/
-- Aviso legal: https://easychoose.es/aviso-legal/
-- Política de privacidad: https://easychoose.es/politica-de-privacidad/
-- Política de cookies: https://easychoose.es/politica-de-cookies/
 
 ## Markdown sources
 
@@ -55,3 +58,9 @@
 - El contenido está orientado a ayudar a decidir, no a mostrar catálogos sin contexto.
 - EasyChoose puede monetizar mediante enlaces de afiliación sin coste adicional para el usuario.
 - La recomendación se basa en ajuste a uso, presupuesto y prioridades prácticas.
+
+## Optional
+
+- Política de privacidad: https://easychoose.es/politica-de-privacidad/
+- Política de cookies: https://easychoose.es/politica-de-cookies/
+- Aviso legal: https://easychoose.es/aviso-legal/

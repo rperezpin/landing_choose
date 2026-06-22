@@ -69,7 +69,7 @@ const organizationSchema = {
   name: siteName,
   url: `${siteUrl}/`,
   logo: `${siteUrl}/choose-removebg-preview.png`,
-  sameAs: [`${appUrl}/`, "https://www.rpidev.com/"],
+  sameAs: [`${appUrl}/`, "https://www.rpidev.com/", "https://www.linkedin.com/in/ruben-perez-rpidev/"],
   founder: {
     "@id": founderId,
   },
@@ -206,11 +206,9 @@ const layoutSchemas = [founderSchema, organizationSchema, websiteSchema, softwar
     <title>{title}</title>
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="alternate" hreflang="es-ES" href={canonical} />
-    <link rel="alternate" hreflang="es" href={canonical} />
-    <link rel="alternate" hreflang="x-default" href={canonical} />
     <link rel="preload" as="image" href="/hero-illustration.png" fetchpriority="high" />
     <link rel="alternate" type="text/plain" href={`${siteUrl}/llms.txt`} title="EasyChoose for LLMs" />
     <link rel="alternate" type="text/plain" href={`${siteUrl}/llms-full.txt`} title="EasyChoose full context for LLMs" />
@@ -291,7 +289,13 @@ const layoutSchemas = [founderSchema, organizationSchema, websiteSchema, softwar
               <li><a href="/#how-it-works">Cómo funciona</a></li>
               <li><a href="/metodologia-puntuacion/">Metodología</a></li>
               <li><a href="/mejor-portatil-estudiantes/">Portátiles para estudiantes</a></li>
+              <li><a href="/mejor-movil-calidad-precio/">Mejor móvil calidad-precio</a></li>
+              <li><a href="/mejor-tablet-calidad-precio/">Mejor tablet calidad-precio</a></li>
+              <li><a href="/mejor-portatil-teletrabajo/">Mejor portátil para teletrabajo</a></li>
+              <li><a href="/mejor-pc-sobremesa/">Mejor PC de sobremesa</a></li>
+              <li><a href="/mejor-patinete-electrico/">Mejor patinete eléctrico</a></li>
               <li><a href="/#faq">FAQ</a></li>
+              <li><a href="/quienes-somos/">Quiénes somos</a></li>
               <li><a href="/contacto/">Contacto</a></li>
             </ul>
           </div>

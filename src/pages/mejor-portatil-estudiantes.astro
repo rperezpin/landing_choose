@@ -84,6 +84,29 @@ const careers = [
   },
 ];
 
+const relatedGuides = [
+  {
+    title: "Portátil para carreras de letras y humanidades",
+    description: "Qué priorizar (batería, peso, teclado) y qué no necesitas si estudias Derecho, Filología, Historia o Periodismo.",
+    url: "/portatil-carreras-letras/",
+  },
+  {
+    title: "Portátil para ingeniería o arquitectura",
+    description: "RAM, GPU y compatibilidad de software (Matlab, AutoCAD, SolidWorks, Revit) antes de elegir sistema operativo.",
+    url: "/portatil-ingenieria-arquitectura/",
+  },
+  {
+    title: "Portátil para universidad por menos de 600€",
+    description: "Qué compromisos aceptar y qué especificaciones nunca debes recortar con presupuesto ajustado.",
+    url: "/portatil-universidad-menos-600-euros/",
+  },
+  {
+    title: "Portátil o tablet: ¿cuál elegir para estudiar?",
+    description: "Comparativa tarea por tarea entre portátil y tablet según tu carrera y tu forma de estudiar.",
+    url: "/portatil-estudiante-vs-tablet/",
+  },
+];
+
 const faqs = [
   {
     question: "¿Qué portátil comprar para estudiantes universitarios en 2026?",
@@ -131,7 +154,7 @@ const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
   "@id": `${canonical}#article`,
-  headline: "Mejor portátil para estudiantes universitarios en 2026",
+  headline: "Qué portátil comprar para la universidad en 2026",
   description:
     "Guía para elegir el mejor portátil para estudiar en 2026: criterios reales, MacBook vs Windows, rangos de precio y recomendaciones por carrera con IA.",
   url: canonical,
@@ -179,7 +202,7 @@ const articleSchema = {
 ---
 
 <Layout
-  title="Mejor portátil para estudiantes universitarios 2026 | EasyChoose"
+  title="Qué portátil comprar para la universidad (2026) | EasyChoose"
   description="Guía 2026 para elegir el mejor portátil para estudiar: criterios reales, MacBook vs Windows, rangos de precio por carrera y recomendaciones con IA según tus necesidades."
   canonical={canonical}
   keywords={["mejor portatil para estudiantes", "portatil universitario 2026", "que portatil comprar para estudiar", "portatiles para carreras de letras", "portatil barato para universidad", "macbook o windows para estudiar"]}
@@ -205,7 +228,7 @@ const articleSchema = {
         <span class="badge">Guía de compra</span>
         <span class="last-updated">Actualizado: {today}</span>
       </div>
-      <h1>Mejor portátil para estudiantes universitarios en 2026</h1>
+      <h1>Qué portátil comprar para la universidad en 2026</h1>
       <p class="lead">
         El mejor portátil para estudiar depende de tu carrera, tu sistema operativo preferido y cuánto quieres gastar. Esta guía explica los criterios que realmente importan y te lleva al asistente IA para que obtengas una recomendación concreta en menos de 2 minutos.
       </p>
@@ -347,6 +370,25 @@ const articleSchema = {
           <p class="career-tip">💡 {career.tip}</p>
           <a href={appUrl} class="career-cta">Ver opciones para mi carrera →</a>
         </article>
+      ))}
+    </div>
+  </Section>
+
+  <Section variant="light" id="guias-relacionadas">
+    <div class="section-header">
+      <span class="badge">Profundiza</span>
+      <h2>Guías específicas según tu situación</h2>
+      <p>
+        Si tu caso concreto necesita más detalle que esta guía general, estas cuatro guías profundizan en escenarios específicos.
+      </p>
+    </div>
+    <div class="career-grid">
+      {relatedGuides.map((guide) => (
+        <a href={guide.url} class="career-card related-guide-card">
+          <h3>{guide.title}</h3>
+          <p class="career-desc">{guide.description}</p>
+          <span class="career-cta">Leer guía →</span>
+        </a>
       ))}
     </div>
   </Section>
@@ -782,6 +824,24 @@ const articleSchema = {
 
   .career-cta:hover {
     text-decoration: underline;
+  }
+
+  .related-guide-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: var(--transition-base, transform 0.2s ease);
+  }
+
+  .related-guide-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(108, 99, 255, 0.5);
+  }
+
+  .related-guide-card h3 {
+    font-size: 1.1rem;
+    color: var(--color-dark);
+    margin: 0 0 0.6rem;
   }
 
   @media (max-width: 1024px) {

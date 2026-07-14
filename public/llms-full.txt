@@ -55,7 +55,7 @@ EasyChoose reduce la fricción de compra tecnológica. En vez de obligar al usua
   - https://easychoose.es/politica-de-cookies/
 - Contacto:
   - https://easychoose.es/contacto/
-  - hello@rpidev.com
+  - info@rpidev.com
 
 ## Canonical URLs
 

@@ -1,0 +1,144 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+
+const canonical = "https://easychoose.es/como-ganamos-dinero/";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Inicio", item: "https://easychoose.es/" },
+    { "@type": "ListItem", position: 2, name: "Cómo ganamos dinero", item: canonical },
+  ],
+};
+
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  url: canonical,
+  name: "Cómo ganamos dinero | EasyChoose",
+  description:
+    "Cómo se financia EasyChoose: enlaces de afiliación, qué proveedores tienen acuerdo y por qué eso no cambia el orden de las recomendaciones.",
+  inLanguage: "es-ES",
+  about: {
+    "@id": "https://easychoose.es/#organization",
+  },
+  mainEntity: {
+    "@id": "https://easychoose.es/#organization",
+  },
+};
+---
+
+<Layout
+  title="Cómo ganamos dinero | EasyChoose"
+  description="EasyChoose es gratis para el usuario y se financia con enlaces de afiliación. Explicamos qué es un enlace de afiliado, cuánto cobramos aproximadamente y por qué no influye en la recomendación."
+  canonical={canonical}
+  keywords={["como gana dinero easychoose", "modelo de negocio easychoose", "enlaces de afiliado easychoose", "transparencia afiliacion"]}
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(aboutSchema)} />
+
+  <Section className="legal-page" variant="light">
+    <div class="legal-content">
+      <h1>Cómo ganamos dinero</h1>
+
+      <p class="intro">
+        <strong>En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.</strong>
+        EasyChoose es gratuito para quien lo usa: no hay suscripción, no hay registro y no vendemos tus datos. El asistente se financia mediante enlaces de afiliación. Esta página explica exactamente cómo funciona eso.
+      </p>
+
+      <section>
+        <h2>¿Qué es un enlace de afiliado?</h2>
+        <p>
+          Cuando recomendamos un producto, el enlace hacia la tienda puede llevar un identificador de afiliado. Si compras a través de ese enlace, la tienda nos paga una pequeña comisión por haberte dirigido allí. <strong>Tú pagas exactamente lo mismo que si hubieras llegado por tu cuenta</strong>: la comisión la asume la tienda, no se añade al precio del producto.
+        </p>
+      </section>
+
+      <section>
+        <h2>¿Cuánto cobramos aproximadamente?</h2>
+        <p>
+          La comisión varía por categoría y por tienda, y normalmente se mueve entre el 1% y el 8% del precio del producto. En electrónica de consumo (portátiles, móviles, tablets) suele estar en el tramo bajo de ese rango; en accesorios y movilidad eléctrica, algo más alto. No mostramos la comisión exacta de cada producto porque cambia con frecuencia y depende de acuerdos comerciales que no dependen de nosotros, pero el orden de magnitud es siempre ese: unos pocos euros por cada compra, nunca un porcentaje que compense priorizar un producto peor.
+        </p>
+      </section>
+
+      <section>
+        <h2>¿Con qué tiendas tenemos acuerdo?</h2>
+        <p>
+          Actualmente participamos en <strong>Amazon Associates</strong> (directo) y, a través de la red de afiliación <strong>Awin</strong>, en comercios como Miravia, El Corte Inglés, PowerPlanet, MSI, iSinwheel y XRshop. La lista completa y actualizada está siempre en el <a href="/aviso-legal/">aviso legal</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2>¿Por qué esto no cambia lo que te recomendamos?</h2>
+        <p>
+          La comisión de afiliación es la misma orden de magnitud entre las tiendas con las que trabajamos, así que no hay ningún incentivo económico real para inclinar la balanza hacia una marca o una tienda concreta. Los productos se puntúan y ordenan según los criterios descritos en la <a href="/metodologia-puntuacion/">metodología de puntuación</a>: uso real, presupuesto y ajuste práctico, no comisión.
+        </p>
+        <p>
+          <strong>Si el producto más adecuado para tu caso está en una tienda sin acuerdo de afiliación, te lo recomendamos igual.</strong> Preferimos que la recomendación sea correcta a que sea rentable.
+        </p>
+      </section>
+
+      <section>
+        <h2>¿Por qué contarlo así, con tanto detalle?</h2>
+        <p>
+          Porque un asistente que te ayuda a gastar 300-2.500€ solo merece tu confianza si sabe explicar cómo se gana la vida. Preferimos que sepas exactamente de dónde viene cada euro que ganamos a que lo descubras por tu cuenta.
+        </p>
+      </section>
+
+      <a href="/" class="btn-back">&larr; Volver al inicio</a>
+    </div>
+  </Section>
+</Layout>
+
+<style>
+  .legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 0;
+  }
+
+  .legal-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-dark);
+  }
+
+  .legal-content h2 {
+    font-size: 1.4rem;
+    margin: 2.5rem 0 0.75rem;
+    color: var(--color-primary);
+  }
+
+  .legal-content p,
+  .legal-content li {
+    color: var(--color-text-muted);
+    line-height: 1.75;
+    margin-bottom: 0.75rem;
+  }
+
+  .legal-content a {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .legal-content a:hover {
+    text-decoration: underline;
+  }
+
+  section {
+    margin-bottom: 2.5rem;
+  }
+
+  .btn-back {
+    display: inline-block;
+    margin-top: 2rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .btn-back:hover {
+    text-decoration: underline;
+  }
+</style>

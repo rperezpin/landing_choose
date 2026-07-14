@@ -1,0 +1,604 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+
+const canonical = "https://easychoose.es/portatil-ingenieria-arquitectura/";
+const appUrl = "https://app.easychoose.es/";
+const siteUrl = "https://easychoose.es";
+const today = new Date().toLocaleDateString("es-ES", { day: "numeric", month: "long", year: "numeric" });
+const todayIso = new Date().toISOString().split("T")[0];
+
+const priorities = [
+  {
+    icon: "💾",
+    title: "16–32 GB de RAM",
+    description: "Entornos de desarrollo, máquinas virtuales, software de simulación o modelado 3D consumen memoria rápido. 16 GB es el mínimo cómodo; 32 GB si usas Docker, CAD pesado o varias herramientas a la vez.",
+  },
+  {
+    icon: "⚙️",
+    title: "Procesador de gama media-alta",
+    description: "Compilar, renderizar o simular necesita más CPU que ofimática. Un procesador de gama media-alta reduce los tiempos de espera que se acumulan durante un cuatrimestre.",
+  },
+  {
+    icon: "🖥️",
+    title: "GPU discreta si haces renderizado o CAD 3D",
+    description: "Arquitectura, diseño industrial o ingeniería con software de modelado 3D se benefician de una GPU discreta con al menos 4-6 GB de VRAM. Para programación pura, no es imprescindible.",
+  },
+  {
+    icon: "🔌",
+    title: "Compatibilidad de software antes que estética",
+    description: "Antes de elegir sistema operativo, comprueba si Matlab, AutoCAD, SolidWorks o Revit tienen versión nativa para él. Es el factor que más arrepentimientos evita.",
+  },
+];
+
+const software = [
+  { name: "Matlab / Simulink", windows: "Soporte completo y nativo", mac: "Soporte nativo (Apple Silicon desde 2023), rendimiento algo inferior en toolboxes pesados" },
+  { name: "AutoCAD", windows: "Versión completa, recomendada", mac: "Versión Mac disponible pero con menos funciones que la de Windows" },
+  { name: "SolidWorks", windows: "Único sistema soportado oficialmente", mac: "No disponible de forma nativa; requiere virtualización" },
+  { name: "Revit (BIM)", windows: "Único sistema soportado oficialmente", mac: "No disponible de forma nativa; requiere virtualización" },
+  { name: "Entornos de programación (VS Code, IntelliJ, etc.)", windows: "Soporte completo", mac: "Soporte completo, muy usado en desarrollo de software" },
+];
+
+const faqs = [
+  {
+    question: "¿Qué portátil necesito para estudiar ingeniería o arquitectura?",
+    answer:
+      "Para ingeniería o arquitectura necesitas al menos 16 GB de RAM (32 GB si usas máquinas virtuales o CAD pesado), un procesador de gama media-alta y, si trabajas con modelado 3D o renderizado, una GPU discreta con 4-6 GB de VRAM o más. El presupuesto recomendado es de 900€ a 1.400€.",
+  },
+  {
+    question: "¿Puedo usar MacBook para estudiar ingeniería?",
+    answer:
+      "Depende del software que necesites. Matlab y los entornos de programación funcionan bien en macOS, pero SolidWorks, Revit y AutoCAD para ingeniería civil o arquitectura BIM no tienen versión nativa para Mac y requieren virtualizar Windows, lo que añade complejidad y reduce el rendimiento. Comprueba el software de tu titulación antes de decidir.",
+  },
+  {
+    question: "¿Necesito tarjeta gráfica dedicada para arquitectura?",
+    answer:
+      "Si trabajas con renderizado 3D, BIM (Revit) o visualización arquitectónica, sí: una GPU discreta acelera mucho el trabajo. Para ingeniería informática o programación pura, la gráfica integrada suele ser suficiente y prescindir de GPU discreta libera presupuesto para más RAM o mejor pantalla.",
+  },
+  {
+    question: "¿Cuánto gastar en un portátil para ingeniería?",
+    answer:
+      "El rango recomendado es 900€–1.400€. Por debajo de 900€ es difícil encontrar 16 GB de RAM más GPU discreta en el mismo equipo; por encima de 1.400€ entras en terreno de estaciones de trabajo profesionales que la mayoría de estudiantes no necesita.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": `${canonical}#article`,
+  headline: "Qué portátil comprar para ingeniería o arquitectura",
+  description:
+    "Guía específica para estudiantes de ingeniería y arquitectura: RAM, GPU y compatibilidad de software (Matlab, AutoCAD, SolidWorks, Revit) antes de elegir portátil.",
+  url: canonical,
+  datePublished: "2026-07-14",
+  dateModified: todayIso,
+  inLanguage: "es-ES",
+  author: {
+    "@type": "Person",
+    name: "Rubén Pérez",
+    url: `${siteUrl}/contacto/`,
+    sameAs: ["https://www.rpidev.com/", "https://www.linkedin.com/in/ruben-perez-rpidev/"],
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "EasyChoose",
+    url: `${siteUrl}/`,
+    logo: { "@type": "ImageObject", url: `${siteUrl}/choose-removebg-preview.png` },
+  },
+  image: { "@type": "ImageObject", url: `${siteUrl}/hero-illustration.png`, width: 1000, height: 1000 },
+  mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+  about: [
+    { "@type": "Thing", name: "portátil para ingeniería" },
+    { "@type": "Thing", name: "portátil para arquitectura" },
+  ],
+  keywords: ["portatil para ingenieria", "portatil para arquitectura", "portatil autocad", "portatil solidworks", "portatil revit"],
+};
+---
+
+<Layout
+  title="Qué portátil comprar para ingeniería o arquitectura | EasyChoose"
+  description="Guía para elegir portátil si estudias ingeniería o arquitectura: RAM, GPU y compatibilidad con Matlab, AutoCAD, SolidWorks y Revit antes de decidir sistema operativo."
+  canonical={canonical}
+  keywords={["portatil para ingenieria", "portatil para arquitectura", "portatil autocad", "portatil solidworks", "portatil revit", "windows o mac para ingenieria"]}
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
+
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://easychoose.es/" },
+      { "@type": "ListItem", "position": 2, "name": "Qué portátil comprar para la universidad", "item": "https://easychoose.es/mejor-portatil-estudiantes/" },
+      { "@type": "ListItem", "position": 3, "name": "Portátil para ingeniería o arquitectura", "item": "https://easychoose.es/portatil-ingenieria-arquitectura/" }
+    ]
+  }
+  </script>
+
+  <Section variant="glass" className="cluster-hero">
+    <div class="cluster-hero-content">
+      <div class="hero-meta">
+        <span class="badge">Guía por carrera</span>
+        <span class="last-updated">Actualizado: {today}</span>
+      </div>
+      <h1>Qué portátil comprar para ingeniería o arquitectura</h1>
+      <p class="lead">
+        Ingeniería y arquitectura son las carreras donde más importa acertar: software de simulación, CAD y renderizado 3D exigen RAM, procesador y, a veces, GPU dedicada. Y algunos programas ni siquiera existen en macOS.
+      </p>
+      <a href={appUrl} class="btn btn-primary btn-large">Encontrar mi portátil ideal</a>
+      <p class="up-link"><a href="/mejor-portatil-estudiantes/">← Ver la guía completa de portátiles para universidad</a></p>
+    </div>
+  </Section>
+
+  <Section variant="light" id="prioridades">
+    <div class="section-header">
+      <span class="badge">Prioridades reales</span>
+      <h2>Qué priorizar si estudias ingeniería o arquitectura</h2>
+      <p>
+        Necesitas al menos 16 GB de RAM, un procesador de gama media-alta y verificar que el software de tu titulación es compatible con el sistema operativo que eliges. La GPU discreta solo es imprescindible si trabajas con modelado 3D.
+      </p>
+    </div>
+    <div class="criteria-grid">
+      {priorities.map((item) => (
+        <article class="criteria-card">
+          <div class="criteria-icon" aria-hidden="true">{item.icon}</div>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <Section variant="glass" id="software">
+    <div class="section-header">
+      <span class="badge">Compatibilidad crítica</span>
+      <h2>¿Windows o Mac? Depende del software de tu titulación</h2>
+      <p>
+        Antes de mirar procesador o RAM, comprueba si el software de tu carrera funciona en el sistema operativo que prefieres. Esta tabla resume los programas más habituales en ingeniería y arquitectura.
+      </p>
+    </div>
+    <div class="table-wrap">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th scope="col">Software</th>
+            <th scope="col">Windows</th>
+            <th scope="col">macOS</th>
+          </tr>
+        </thead>
+        <tbody>
+          {software.map((s) => (
+            <tr>
+              <th scope="row">{s.name}</th>
+              <td>{s.windows}</td>
+              <td>{s.mac}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note">
+      Si tu titulación depende de SolidWorks, Revit o AutoCAD para ingeniería civil, Windows es la elección más segura. Si tu carrera es informática o programación pura, ambos sistemas funcionan bien. <a href={appUrl}>Pregúntale al asistente por tu caso concreto →</a>
+    </p>
+  </Section>
+
+  <Section variant="light" id="presupuesto">
+    <div class="section-header">
+      <span class="badge">Presupuesto</span>
+      <h2>¿Cuánto gastar en un portátil para ingeniería o arquitectura?</h2>
+      <p>
+        El presupuesto recomendado es de 700€ a 1.200€ para ingeniería general, y de 900€ a 1.400€ si necesitas GPU discreta para CAD o renderizado 3D en arquitectura.
+      </p>
+    </div>
+    <div class="budget-grid">
+      <article class="budget-card">
+        <div class="budget-range">700€ – 900€</div>
+        <h3>Ingeniería sin renderizado 3D</h3>
+        <p>16 GB de RAM y procesador de gama media-alta, sin GPU discreta. Suficiente para programación, Matlab y simulaciones ligeras.</p>
+        <a href={appUrl} class="budget-link">Ver opciones en este rango →</a>
+      </article>
+      <article class="budget-card budget-card-highlight">
+        <div class="budget-badge-top">Rango recomendado</div>
+        <div class="budget-range">900€ – 1.400€</div>
+        <h3>Con GPU discreta para CAD o 3D</h3>
+        <p>16-32 GB de RAM y GPU discreta con 4-6 GB de VRAM. Cubre AutoCAD, SolidWorks, Revit y renderizado sin cuellos de botella.</p>
+        <a href={appUrl} class="budget-link">Ver opciones en este rango →</a>
+      </article>
+      <article class="budget-card">
+        <div class="budget-range">Más de 1.400€</div>
+        <h3>Estación de trabajo móvil</h3>
+        <p>Solo si trabajas con simulación pesada, BIM a gran escala o renderizado profesional habitual. La mayoría de estudiantes no lo necesita.</p>
+        <a href={appUrl} class="budget-link">Ver opciones en este rango →</a>
+      </article>
+    </div>
+  </Section>
+
+  <Section variant="light" id="faq">
+    <div class="section-header">
+      <span class="badge">FAQ</span>
+      <h2>Preguntas frecuentes sobre portátiles para ingeniería y arquitectura</h2>
+    </div>
+    <div class="faq-list">
+      {faqs.map((faq, index) => (
+        <details class="faq-item" open={index === 0}>
+          <summary>{faq.question}</summary>
+          <p>{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </Section>
+
+  <Section variant="dark" className="cta-final">
+    <div class="cta-content">
+      <span class="badge badge-inverse">Recomendación personalizada</span>
+      <h2>Encuentra tu portátil de ingeniería o arquitectura en 2 minutos</h2>
+      <p>
+        Indica tu titulación y el software que usas, y EasyChoose filtra el mercado por RAM, GPU y compatibilidad real.
+      </p>
+      <a href={appUrl} class="btn btn-secondary btn-large">Empezar el Asistente Gratis</a>
+      <ul class="trust-pills">
+        <li>Gratis y sin registro</li>
+        <li>Resultado en menos de 2 minutos</li>
+        <li>Chat IA para la última duda</li>
+      </ul>
+    </div>
+  </Section>
+</Layout>
+
+<style>
+  .cluster-hero-content {
+    max-width: 760px;
+    padding: 5rem 0 4rem;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    background: rgba(108, 99, 255, 0.12);
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .badge-inverse {
+    background: rgba(255, 255, 255, 0.14);
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .last-updated {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+    color: var(--color-dark);
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    max-width: 66ch;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .btn-large {
+    padding: 1rem 2.35rem;
+    font-size: 1.05rem;
+  }
+
+  .up-link {
+    margin-top: 1.5rem;
+  }
+
+  .up-link a {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .up-link a:hover {
+    text-decoration: underline;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+
+  .section-header h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    margin: 0.5rem 0 1rem;
+  }
+
+  .section-header p {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+  }
+
+  .criteria-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .criteria-card {
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.6rem;
+    padding: 1.75rem;
+    box-shadow: 0 18px 40px rgba(46, 46, 46, 0.06);
+  }
+
+  .criteria-icon {
+    font-size: 2.2rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .criteria-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-dark);
+  }
+
+  .criteria-card p {
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    box-shadow: 0 20px 40px rgba(46, 46, 46, 0.08);
+    background: white;
+    margin-bottom: 1.5rem;
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    text-align: left;
+    padding: 1rem 1.2rem;
+    border-bottom: 1px solid rgba(46, 46, 46, 0.08);
+    vertical-align: top;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+  }
+
+  .comparison-table thead th {
+    background: rgba(108, 99, 255, 0.08);
+    color: var(--color-dark);
+    font-weight: 700;
+  }
+
+  .comparison-table tbody th {
+    width: 30%;
+    color: var(--color-dark);
+    font-weight: 600;
+  }
+
+  .table-note {
+    color: var(--color-text-muted);
+    font-size: 0.96rem;
+    text-align: center;
+  }
+
+  .table-note a {
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+
+  .budget-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .budget-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.6rem;
+    padding: 2rem 1.75rem;
+    box-shadow: 0 18px 40px rgba(46, 46, 46, 0.06);
+  }
+
+  .budget-card-highlight {
+    border-color: rgba(108, 99, 255, 0.7);
+    padding-top: 3rem;
+  }
+
+  .budget-badge-top {
+    position: absolute;
+    top: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    background: var(--color-primary);
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+  }
+
+  .budget-range {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(108, 99, 255, 0.92), rgba(255, 211, 105, 0.92));
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .budget-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-dark);
+  }
+
+  .budget-card p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+
+  .budget-link {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .budget-link:hover {
+    text-decoration: underline;
+  }
+
+  .faq-list {
+    max-width: 860px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .faq-item {
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.4rem;
+    padding: 1.2rem 1.3rem;
+    box-shadow: 0 18px 36px rgba(46, 46, 46, 0.06);
+  }
+
+  .faq-item summary {
+    cursor: pointer;
+    font-weight: 700;
+    list-style: none;
+    padding-right: 2rem;
+    position: relative;
+    color: var(--color-dark);
+  }
+
+  .faq-item summary::-webkit-details-marker { display: none; }
+
+  .faq-item summary::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: -0.1rem;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--color-primary);
+  }
+
+  .faq-item[open] summary::after { content: "−"; }
+
+  .faq-item p {
+    margin-top: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  .cta-final :global(.container) { max-width: 860px; }
+
+  .cta-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-content h2 {
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    max-width: 56ch;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.05rem;
+  }
+
+  .trust-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    list-style: none;
+    margin-top: 1.5rem;
+  }
+
+  .trust-pills li {
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    font-weight: 600;
+  }
+
+  @media (max-width: 1024px) {
+    .criteria-grid,
+    .budget-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .criteria-grid,
+    .budget-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .trust-pills {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .trust-pills li {
+      text-align: center;
+    }
+  }
+</style>

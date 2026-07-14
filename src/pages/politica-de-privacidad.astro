@@ -23,102 +23,167 @@ import Section from "../components/Section.astro";
     <Section className="legal-page" variant="light">
         <div class="legal-content">
             <h1>Política de Privacidad</h1>
+            <p class="last-updated">Última actualización: {new Date().toLocaleDateString("es-ES", { day: "numeric", month: "long", year: "numeric" })}</p>
 
             <section>
-                <h2>1. Introducción</h2>
-                <p>
-                    La presente Política de Privacidad describe cómo se recogen,
-                    utilizan y comparten sus datos personales cuando visita el
-                    sitio web <strong>choose</strong>.
-                </p>
+                <h2>1. Responsable del tratamiento</h2>
+                <ul>
+                    <li><strong>Titular:</strong> Rubén Pérez, que opera bajo la marca comercial rpidev</li>
+                    <li><strong>NIF:</strong> 78776284L</li>
+                    <li><strong>Domicilio:</strong> C/ Ermita 42, 18198, Huétor Vega (Granada)</li>
+                    <li><strong>Email:</strong> info@rpidev.com</li>
+                    <li><strong>Sitio web:</strong> https://easychoose.es</li>
+                </ul>
             </section>
 
             <section>
-                <h2>2. Datos Personales que Recogemos</h2>
+                <h2>2. Qué datos tratamos y con qué base jurídica</h2>
+                <h3>2.1. Datos de navegación (analítica)</h3>
                 <p>
-                    Cuando visita el sitio, recogemos automáticamente cierta
-                    información sobre su dispositivo, incluyendo información
-                    sobre su navegador web, dirección IP, zona horaria y algunas
-                    de las cookies que están instaladas en su dispositivo.
-                </p>
-                <p>
-                    Además, a medida que navega por el sitio, recogemos
-                    información sobre las páginas web individuales o los
-                    productos que ve, qué sitios web o términos de búsqueda le
-                    remitieron al sitio e información sobre cómo interactúa con
-                    el sitio.
-                </p>
-            </section>
-
-            <section>
-                <h2>3. Cómo Utilizamos su Información Personal</h2>
-                <p>
-                    Utilizamos la información de dispositivo que recogemos para
-                    ayudarnos a detectar posibles riesgos y fraudes (en
-                    particular, su dirección IP) y, de forma más general, para
-                    mejorar y optimizar nuestro sitio (por ejemplo, generando
-                    análisis sobre cómo nuestros clientes navegan e interactúan
-                    con él).
-                </p>
-            </section>
-
-            <section>
-                <h2>4. Compartir su Información Personal</h2>
-                <p>
-                    Compartimos su información personal con terceros para
-                    ayudarnos a utilizar su información personal, tal como se ha
-                    descrito anteriormente. Por ejemplo, utilizamos Google
-                    Analytics para ayudarnos a entender cómo nuestros clientes
-                    utilizan el sitio.
-                </p>
-                <p>
-                    Asimismo, este sitio web participa en programas de afiliación
-                    con los siguientes proveedores, con quienes pueden compartirse
-                    datos de navegación y clics cuando el usuario accede a sus
-                    plataformas a través de nuestros enlaces:
+                    Recogemos dirección IP (anonimizada), tipo de navegador y
+                    dispositivo, páginas visitadas, origen del tráfico y eventos
+                    de interacción, mediante Google Tag Manager y Google
+                    Analytics 4.
                 </p>
                 <ul>
-                    <li><strong>Amazon Associates</strong> — <a href="https://www.amazon.es/gp/help/customer/display.html?nodeId=GX7NJQ4ZB8MHFRNJ" target="_blank" rel="noopener noreferrer">Política de privacidad de Amazon</a></li>
-                    <li><strong>PcComponentes</strong> — <a href="https://www.pccomponentes.com/privacidad" target="_blank" rel="noopener noreferrer">Política de privacidad de PcComponentes</a></li>
-                    <li><strong>AliExpress</strong> — <a href="https://www.aliexpress.com/p/privacy-policy/index.html" target="_blank" rel="noopener noreferrer">Política de privacidad de AliExpress</a></li>
-                    <li><strong>Miravia</strong> — <a href="https://www.miravia.es/privacy" target="_blank" rel="noopener noreferrer">Política de privacidad de Miravia</a></li>
+                    <li><em>Finalidad:</em> medir el uso del sitio y mejorar el servicio.</li>
+                    <li><em>Base jurídica:</em> tu consentimiento (art. 6.1.a RGPD), recabado mediante el banner de cookies.</li>
+                    <li><em>Conservación:</em> 14 meses.</li>
+                </ul>
+
+                <h3>2.2. Respuestas al asistente de recomendación</h3>
+                <p>
+                    Cuando usas el asistente, introduces información sobre uso
+                    previsto, presupuesto y preferencias. Estos datos se
+                    procesan para generar la recomendación.
+                </p>
+                <ul>
+                    <li><em>Finalidad:</em> prestar el servicio de recomendación solicitado.</li>
+                    <li><em>Base jurídica:</em> ejecución de la relación a petición del interesado (art. 6.1.b RGPD).</li>
+                    <li><em>Conservación:</em> las respuestas no se asocian a una cuenta ni a una identidad. Se conservan de forma agregada y anonimizada para mejorar el sistema.</li>
                 </ul>
                 <p>
-                    EasyChoose no almacena ni controla los datos que dichos
-                    proveedores puedan recopilar en sus propias plataformas.
-                    Consulte las políticas de privacidad de cada proveedor para
-                    más información.
+                    No solicitamos ni necesitamos datos identificativos. No
+                    pedimos registro, nombre, email ni teléfono para usar el
+                    asistente.
+                </p>
+
+                <h3>2.3. Consultas por email</h3>
+                <ul>
+                    <li><em>Finalidad:</em> atender tu consulta.</li>
+                    <li><em>Base jurídica:</em> consentimiento / interés legítimo.</li>
+                    <li><em>Conservación:</em> 1 año desde la última comunicación.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>3. Uso de inteligencia artificial</h2>
+                <p>
+                    EasyChoose utiliza un modelo de inteligencia artificial
+                    generativa (Google Gemini, de Google Ireland Limited) para
+                    dos funciones: puntuar la adecuación de los productos a tu
+                    contexto y responder tus preguntas en el chat.
+                </p>
+                <p>
+                    <strong>Estás interactuando con un sistema de inteligencia
+                    artificial, no con una persona.</strong> Las respuestas del
+                    chat se generan automáticamente y pueden contener errores.
+                    No sustituyen el asesoramiento de un profesional ni las
+                    especificaciones oficiales del fabricante.
+                </p>
+                <p>
+                    Las respuestas que introduces en el asistente se transmiten
+                    a Google como encargado del tratamiento para generar la
+                    recomendación. No se utilizan para entrenar modelos de
+                    terceros.
                 </p>
             </section>
 
             <section>
-                <h2>5. Sus Derechos</h2>
+                <h2>4. Destinatarios de los datos</h2>
+                <table class="privacy-table">
+                    <thead>
+                        <tr>
+                            <th>Destinatario</th>
+                            <th>Finalidad</th>
+                            <th>Garantías</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Google Ireland Ltd. (GA4, GTM, Gemini)</td>
+                            <td>Analítica y generación de recomendaciones</td>
+                            <td>Cláusulas Contractuales Tipo + Data Privacy Framework</td>
+                        </tr>
+                        <tr>
+                            <td>Amazon Services Europe S.à r.l.</td>
+                            <td>Afiliación</td>
+                            <td>Solo si haces clic en un enlace saliente</td>
+                        </tr>
+                        <tr>
+                            <td>Awin AG y merchants asociados</td>
+                            <td>Afiliación</td>
+                            <td>Solo si haces clic en un enlace saliente</td>
+                        </tr>
+                        <tr>
+                            <td>Proveedor de hosting (VPS privado, infraestructura gestionada bajo Plesk)</td>
+                            <td>Alojamiento</td>
+                            <td>Encargado del tratamiento</td>
+                        </tr>
+                    </tbody>
+                </table>
                 <p>
-                    Si usted es un residente europeo, tiene derecho a acceder a
-                    la información personal que tenemos sobre usted y a
-                    solicitar que su información personal sea corregida,
-                    actualizada o eliminada. Si desea ejercer este derecho,
-                    póngase en contacto con nosotros a través de la información
-                    de contacto que figura a continuación.
+                    Cuando haces clic en un enlace de afiliado, abandonas
+                    EasyChoose y pasas a la web del comercio, que aplicará su
+                    propia política de privacidad y sus propias cookies.
+                    EasyChoose no controla ni almacena los datos que dichos
+                    comercios recojan en sus plataformas.
                 </p>
             </section>
 
             <section>
-                <h2>6. Retención de Datos</h2>
+                <h2>5. Transferencias internacionales</h2>
                 <p>
-                    Cuando usted rellena un formulario en el sitio, mantendremos
-                    su información para nuestros registros, a menos y hasta que
-                    nos pida que eliminemos esta información.
+                    Algunos proveedores (Google) pueden tratar datos fuera del
+                    Espacio Económico Europeo. Dichas transferencias se amparan
+                    en Cláusulas Contractuales Tipo aprobadas por la Comisión
+                    Europea y/o en la Decisión de Adecuación del EU–US Data
+                    Privacy Framework.
                 </p>
             </section>
 
             <section>
-                <h2>7. Contacto</h2>
+                <h2>6. Tus derechos</h2>
                 <p>
-                    Para obtener más información sobre nuestras prácticas de
-                    privacidad, si tiene alguna pregunta o si desea presentar
-                    una queja, póngase en contacto con nosotros por correo
-                    electrónico en <strong>hello@rpidev.com</strong>.
+                    Puedes ejercer los derechos de <strong>acceso,
+                    rectificación, supresión, oposición, limitación del
+                    tratamiento y portabilidad</strong>, así como retirar tu
+                    consentimiento en cualquier momento, escribiendo a
+                    <strong>info@rpidev.com</strong> e indicando el derecho que
+                    deseas ejercer.
+                </p>
+                <p>
+                    Si consideras que el tratamiento no se ajusta a la
+                    normativa, puedes presentar una reclamación ante la
+                    <strong>Agencia Española de Protección de Datos
+                    (AEPD)</strong>, C/ Jorge Juan 6, 28001 Madrid —
+                    <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">www.aepd.es</a>.
+                </p>
+            </section>
+
+            <section>
+                <h2>7. Menores</h2>
+                <p>
+                    EasyChoose no está dirigido a menores de 14 años y no
+                    recoge conscientemente datos de menores de esa edad.
+                </p>
+            </section>
+
+            <section>
+                <h2>8. Cambios en esta política</h2>
+                <p>
+                    Cualquier modificación se publicará en esta misma página
+                    con su fecha de actualización.
                 </p>
             </section>
 
@@ -150,10 +215,66 @@ import Section from "../components/Section.astro";
         color: var(--color-primary);
     }
 
+    h3 {
+        font-size: 1.15rem;
+        margin: 1.5rem 0 0.75rem;
+        color: var(--color-dark);
+    }
+
+    .last-updated {
+        font-size: 0.9rem;
+        color: var(--color-text-muted);
+        margin-top: -1rem;
+        margin-bottom: 2rem;
+    }
+
     p {
         line-height: 1.6;
         color: var(--color-text-muted);
         margin-bottom: 1rem;
+    }
+
+    ul {
+        list-style: disc;
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--color-text-muted);
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+    }
+
+    .privacy-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .privacy-table th,
+    .privacy-table td {
+        border: 1px solid #e5e7eb;
+        padding: 0.75rem 1rem;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    .privacy-table th {
+        background-color: rgba(108, 99, 255, 0.08);
+        color: var(--color-dark);
+        font-weight: 600;
+    }
+
+    .privacy-table td {
+        color: var(--color-text-muted);
+    }
+
+    @media (max-width: 640px) {
+        .privacy-table {
+            display: block;
+            overflow-x: auto;
+        }
     }
 
     .btn-back {

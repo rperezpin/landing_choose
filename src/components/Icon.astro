@@ -1,0 +1,45 @@
+---
+interface Props {
+  name: string;
+  class?: string;
+}
+
+const { name, class: className } = Astro.props;
+
+// Minimal inline icon set (MIT-style outline icons, 24x24, stroke-based).
+const icons: Record<string, string> = {
+  bolt: '<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />',
+  "shopping-bag": '<path stroke-linecap="round" stroke-linejoin="round" d="M6 6.75V5.25a3 3 0 013-3h0a3 3 0 013 3v1.5M3.75 6.75h12.5l-.9 12.13a2.25 2.25 0 01-2.244 2.12H6.894a2.25 2.25 0 01-2.244-2.12L3.75 6.75z" />',
+  "cpu-chip": '<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v2.25M15.75 3v2.25M8.25 18.75V21M15.75 18.75V21M3 8.25h2.25M3 15.75h2.25M18.75 8.25H21M18.75 15.75H21M6.75 6.75h10.5v10.5H6.75V6.75z" />',
+  brain: '<path stroke-linecap="round" stroke-linejoin="round" d="M9 4.5a3 3 0 00-2.9 3.75A3 3 0 004.5 11.25a3 3 0 001.72 5.47 3 3 0 003.03 2.53c.28 0 .55-.04.81-.11M9 4.5c1.1 0 2.06.6 2.6 1.5M9 4.5v14.64m5.9-14.64a3 3 0 012.9 3.75 3 3 0 011.6 2.75 3 3 0 01-1.72 5.47 3 3 0 01-3.03 2.53c-.28 0-.55-.04-.81-.11M14.9 4.5c-1.1 0-2.06.6-2.6 1.5" />',
+  compass: '<path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15.5 8.5l-2.2 5.3-5.3 2.2 2.2-5.3 5.3-2.2z" />',
+  gift: '<path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25v13.5M4.5 21.75h15a1.5 1.5 0 001.5-1.5v-8.25a1.5 1.5 0 00-1.5-1.5h-15a1.5 1.5 0 00-1.5 1.5v8.25a1.5 1.5 0 001.5 1.5zM3.75 10.5h16.5v-2.25a1.5 1.5 0 00-1.5-1.5h-13.5a1.5 1.5 0 00-1.5 1.5v2.25zM12 8.25C12 6.5 10.5 4.5 8.5 4.5S6 6 7.2 7.4c.7.8 2.2 1 4.8.85zM12 8.25c0-1.75 1.5-3.75 3.5-3.75S18 6 16.8 7.4c-.7.8-2.2 1-4.8.85z" />',
+  "face-frown": '<path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 15.75c-.68-.9-1.78-1.5-3-1.5s-2.32.6-3 1.5M9 9.75h.008M15 9.75h.008" />',
+  clock: '<path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5V12l3 1.5" />',
+  banknotes: '<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 8.25v9a1.5 1.5 0 001.5 1.5h16.5a1.5 1.5 0 001.5-1.5v-9M2.25 8.25l2.4-3.6a1.5 1.5 0 011.25-.66h12.2a1.5 1.5 0 011.25.66l2.4 3.6M12 15a2.25 2.25 0 100-4.5 2.25 2.25 0 000 4.5z" />',
+  target: '<path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5a4.5 4.5 0 100-9 4.5 4.5 0 000 9z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 13.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />',
+  "magnifying-glass": '<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75L20.25 20.25M18 10.5a7.5 7.5 0 11-15 0 7.5 7.5 0 0115 0z" />',
+  "chat-bubble": '<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 10.5h7.5M8.25 13.5h4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />',
+  laptop: '<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5v9.75H3.75V6.75zM2.25 19.5h19.5M9 19.5v-3M15 19.5v-3" />',
+  "device-phone": '<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3.75h7.5a1.5 1.5 0 011.5 1.5v13.5a1.5 1.5 0 01-1.5 1.5h-7.5a1.5 1.5 0 01-1.5-1.5V5.25a1.5 1.5 0 011.5-1.5zM11.25 18h1.5" />',
+  "device-tablet": '<path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3.75h10.5a1.5 1.5 0 011.5 1.5v13.5a1.5 1.5 0 01-1.5 1.5H6.75a1.5 1.5 0 01-1.5-1.5V5.25a1.5 1.5 0 011.5-1.5zM11.25 18h1.5" />',
+  desktop: '<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.5h16.5v11.25H3.75V4.5zM8.25 20.25h7.5M12 15.75v4.5" />',
+  headphones: '<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 15.75V12a8.25 8.25 0 0116.5 0v3.75M3.75 15.75a1.5 1.5 0 011.5-1.5h1.5a1.5 1.5 0 011.5 1.5v3a1.5 1.5 0 01-1.5 1.5h-1.5a1.5 1.5 0 01-1.5-1.5v-3zM17.25 15.75a1.5 1.5 0 011.5-1.5h1.5a1.5 1.5 0 011.5 1.5v3a1.5 1.5 0 01-1.5 1.5h-1.5a1.5 1.5 0 01-1.5-1.5v-3z" />',
+  "building-storefront": '<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9.75l1.5-5.25h13.5l1.5 5.25M3.75 9.75a2.25 2.25 0 004.5 0 2.25 2.25 0 004.5 0 2.25 2.25 0 004.5 0 2.25 2.25 0 004.5 0M4.5 9.75V19.5a.75.75 0 00.75.75h13.5a.75.75 0 00.75-.75V9.75M9.75 20.25v-5.25a1.5 1.5 0 011.5-1.5h1.5a1.5 1.5 0 011.5 1.5v5.25" />',
+  "game-controller": '<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 10.5v3M6.75 12h3M14.625 12h.008M17.25 10.5h.008M5.25 8.25h13.5a3 3 0 013 3v3.4a2.35 2.35 0 01-4.3 1.32l-.6-.87a2.25 2.25 0 00-1.86-.99H9.51a2.25 2.25 0 00-1.86.99l-.6.87A2.35 2.35 0 012.25 14.65v-3.4a3 3 0 013-3z" />',
+  scooter: '<path stroke-linecap="round" stroke-linejoin="round" d="M5.25 19.5a2.25 2.25 0 100-4.5 2.25 2.25 0 000 4.5zM17.25 19.5a2.25 2.25 0 100-4.5 2.25 2.25 0 000 4.5zM5.25 17.25h9l3-8.25h2.25M14.25 9h-4.5l-1.5 3M9.75 4.5h3v3" />',
+  home: '<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.95-8.95a1.5 1.5 0 012.12 0L21.75 12M4.5 9.75V21a.75.75 0 00.75.75h4.5v-6a1.5 1.5 0 011.5-1.5h1.5a1.5 1.5 0 011.5 1.5v6h4.5a.75.75 0 00.75-.75V9.75" />',
+};
+
+const path = icons[name] ?? icons["target"];
+---
+
+<svg
+  class={className ?? "icon-svg"}
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  aria-hidden="true"
+  set:html={path}
+/>

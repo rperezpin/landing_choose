@@ -60,6 +60,6 @@ Para más información, consultar:
 
 - Marca: EasyChoose
 - Desarrollador: Rubén Pérez / rpidev (https://www.rpidev.com)
-- Contacto: hello@rpidev.com
+- Contacto: info@rpidev.com
 - Idioma: español (es-ES)
 - País: España

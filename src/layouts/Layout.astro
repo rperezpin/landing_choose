@@ -11,6 +11,7 @@ interface Props {
   keywords?: string[];
   image?: string;
   robots?: string;
+  preloadImage?: string;
 }
 
 const siteName = "EasyChoose";
@@ -37,6 +38,7 @@ const {
   ],
   image = `${siteUrl}/hero-illustration.png`,
   robots = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  preloadImage,
 } = Astro.props;
 
 // IMPORTANTE: reemplaza el valor de LinkedIn con tu URL real de perfil
@@ -76,7 +78,7 @@ const organizationSchema = {
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "customer support",
-    email: "hello@rpidev.com",
+    email: "info@rpidev.com",
     availableLanguage: ["es-ES"],
     url: `${siteUrl}/contacto/`,
   },
@@ -209,7 +211,8 @@ const layoutSchemas = [founderSchema, organizationSchema, websiteSchema, softwar
     <link rel="apple-touch-icon" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="image" href="/hero-illustration.png" fetchpriority="high" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" />
+    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
     <link rel="alternate" type="text/plain" href={`${siteUrl}/llms.txt`} title="EasyChoose for LLMs" />
     <link rel="alternate" type="text/plain" href={`${siteUrl}/llms-full.txt`} title="EasyChoose full context for LLMs" />
     <link rel="alternate" type="text/plain" href={`${siteUrl}/llm.txt`} title="EasyChoose LLM summary" />
@@ -252,6 +255,7 @@ const layoutSchemas = [founderSchema, organizationSchema, websiteSchema, softwar
               class="logo-img"
               width={776}
               height={294}
+              loading="eager"
             />
           </a>
         </div>
@@ -281,21 +285,33 @@ const layoutSchemas = [founderSchema, organizationSchema, websiteSchema, softwar
               height={294}
             />
             <p>Simplificamos la compra de tecnología con IA. Gratis, claro y pensado para personas expertas y no expertas.</p>
+            <p class="affiliate-disclosure">En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.</p>
           </div>
           <div class="footer-links">
-            <h4>Explorar</h4>
+            <h4>Producto</h4>
             <ul>
               <li><a href="/#categories">Categorías</a></li>
               <li><a href="/#how-it-works">Cómo funciona</a></li>
               <li><a href="/metodologia-puntuacion/">Metodología</a></li>
+              <li><a href="/#faq">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Guías de compra</h4>
+            <ul>
               <li><a href="/mejor-portatil-estudiantes/">Portátiles para estudiantes</a></li>
               <li><a href="/mejor-movil-calidad-precio/">Mejor móvil calidad-precio</a></li>
               <li><a href="/mejor-tablet-calidad-precio/">Mejor tablet calidad-precio</a></li>
               <li><a href="/mejor-portatil-teletrabajo/">Mejor portátil para teletrabajo</a></li>
               <li><a href="/mejor-pc-sobremesa/">Mejor PC de sobremesa</a></li>
               <li><a href="/mejor-patinete-electrico/">Mejor patinete eléctrico</a></li>
-              <li><a href="/#faq">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Empresa</h4>
+            <ul>
               <li><a href="/quienes-somos/">Quiénes somos</a></li>
+              <li><a href="/como-ganamos-dinero/">Cómo ganamos dinero</a></li>
               <li><a href="/contacto/">Contacto</a></li>
             </ul>
           </div>
@@ -305,6 +321,7 @@ const layoutSchemas = [founderSchema, organizationSchema, websiteSchema, softwar
               <li><a href="/politica-de-privacidad/">Privacidad</a></li>
               <li><a href="/aviso-legal/">Aviso legal</a></li>
               <li><a href="/politica-de-cookies/">Cookies</a></li>
+              <li><button type="button" id="footer-cookie-settings" class="footer-link-button">Configurar cookies</button></li>
             </ul>
           </div>
         </div>
@@ -313,7 +330,7 @@ const layoutSchemas = [founderSchema, organizationSchema, websiteSchema, softwar
             &copy; {new Date().getFullYear()} EasyChoose. Todos los derechos reservados.
           </p>
           <p class="credits">
-            Desarrollado por <a
+            Made with <span class="heart" aria-hidden="true">💙</span> by <a
               href="https://www.rpidev.com/"
               target="_blank"
               rel="noopener noreferrer">rpidev</a
@@ -322,6 +339,18 @@ const layoutSchemas = [founderSchema, organizationSchema, websiteSchema, softwar
         </div>
       </div>
     </footer>
+
+    <script is:inline>
+      (function () {
+        var settingsBtn = document.getElementById('footer-cookie-settings');
+        if (!settingsBtn) return;
+        settingsBtn.addEventListener('click', function () {
+          localStorage.removeItem('cookie_consent');
+          var banner = document.getElementById('cookie-banner');
+          if (banner) banner.style.display = 'flex';
+        });
+      })();
+    </script>
 
     <style>
       .skip-link {
@@ -390,19 +419,39 @@ const layoutSchemas = [founderSchema, organizationSchema, websiteSchema, softwar
       }
 
       .footer-content {
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: 1.4fr repeat(4, 1fr);
         gap: 2rem;
         margin-bottom: 3rem;
       }
 
       .footer-info {
-        max-width: 420px;
+        max-width: 320px;
       }
 
       .footer-info p {
         margin-top: 1rem;
         color: #aaa;
+      }
+
+      .affiliate-disclosure {
+        font-size: 0.85rem;
+        color: #888;
+      }
+
+      .footer-link-button {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        font: inherit;
+        color: #aaa;
+        cursor: pointer;
+        text-align: left;
+      }
+
+      .footer-link-button:hover {
+        color: var(--color-secondary);
       }
 
       .footer-links h4 {
@@ -456,13 +505,26 @@ const layoutSchemas = [founderSchema, organizationSchema, websiteSchema, softwar
         }
       }
 
+      @media (max-width: 900px) {
+        .footer-content {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .footer-info {
+          grid-column: 1 / -1;
+          max-width: none;
+        }
+      }
+
       @media (max-width: 768px) {
         .logo-img {
           height: 52px;
         }
+      }
 
+      @media (max-width: 560px) {
         .footer-content {
-          flex-direction: column;
+          grid-template-columns: 1fr;
         }
       }
 

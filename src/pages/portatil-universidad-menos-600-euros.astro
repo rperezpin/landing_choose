@@ -1,0 +1,464 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+
+const canonical = "https://easychoose.es/portatil-universidad-menos-600-euros/";
+const appUrl = "https://app.easychoose.es/";
+const siteUrl = "https://easychoose.es";
+const today = new Date().toLocaleDateString("es-ES", { day: "numeric", month: "long", year: "numeric" });
+const todayIso = new Date().toISOString().split("T")[0];
+
+const tradeoffs = [
+  {
+    icon: "🔋",
+    title: "Batería: el compromiso más habitual",
+    description: "Por debajo de 600€ es difícil superar las 6-7 horas de uso real. Si tu día implica clases seguidas sin enchufe, es el punto que más notarás.",
+  },
+  {
+    icon: "💾",
+    title: "RAM: exige 16 GB, no aceptes 8 GB",
+    description: "Con 8 GB de RAM el portátil se queda corto en 1-2 años con el navegador lleno de pestañas. Prioriza 16 GB aunque tengas que ceder en otra especificación.",
+  },
+  {
+    icon: "💽",
+    title: "Almacenamiento: SSD es innegociable",
+    description: "Un disco duro mecánico (HDD) hace que todo el equipo se sienta lento, aunque el resto de specs sean decentes. Nunca compres un portátil de 2026 sin SSD.",
+  },
+  {
+    icon: "🖥️",
+    title: "Pantalla: vigila la resolución",
+    description: "Algunos modelos baratos aún usan resolución HD (1366×768). Exige al menos Full HD (1920×1080) para que texto y presentaciones se vean nítidos.",
+  },
+];
+
+const checklist = [
+  "16 GB de RAM (no 8 GB, aunque el resto de specs parezcan mejores)",
+  "SSD de al menos 256 GB (nunca HDD mecánico)",
+  "Pantalla Full HD (1920×1080), no HD (1366×768)",
+  "Batería anunciada de 8+ horas (espera 5-6 horas de uso real)",
+  "Peso por debajo de 1,8 kg si lo vas a llevar a diario",
+  "Al menos un puerto USB-C y garantía oficial en España",
+];
+
+const faqs = [
+  {
+    question: "¿Se puede comprar un buen portátil para la universidad por menos de 600€?",
+    answer:
+      "Sí, con matices: puedes conseguir 16 GB de RAM, SSD y pantalla Full HD por debajo de 600€, pero es habitual ceder en batería (6-7 horas reales en lugar de 10+) o en la calidad de materiales. Para la mayoría de carreras de letras u ofimática, es un compromiso razonable.",
+  },
+  {
+    question: "¿Qué es lo primero que hay que recortar y lo que nunca hay que recortar en este presupuesto?",
+    answer:
+      "Nunca recortes en RAM (exige 16 GB) ni en tipo de almacenamiento (SSD, nunca HDD). Es más aceptable ceder en autonomía de batería, en la calidad de los materiales de la carcasa o en el brillo máximo de la pantalla.",
+  },
+  {
+    question: "¿Un portátil de menos de 600€ aguanta toda la carrera?",
+    answer:
+      "Con 16 GB de RAM y SSD, sí, siempre que tu uso sea ofimática, navegador y videollamadas. Si tu carrera empieza a exigir software más pesado (CAD, programación con máquinas virtuales, edición de vídeo), es probable que necesites más presupuesto a partir de segundo o tercer curso.",
+  },
+  {
+    question: "¿Merece la pena esperar y ahorrar un poco más?",
+    answer:
+      "Si puedes llegar a 600-700€, sí: es el punto donde empiezan a aparecer autonomías de 8-10 horas reales sin sacrificar RAM ni almacenamiento. Si tu presupuesto es firme y no puedes subir, un portátil bien elegido por debajo de 600€ sigue siendo una opción válida para la mayoría de carreras.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": `${canonical}#article`,
+  headline: "Portátil para universidad por menos de 600€: qué esperar y qué evitar",
+  description:
+    "Guía honesta sobre qué se puede conseguir y qué compromisos aceptar al comprar un portátil universitario con presupuesto ajustado, por debajo de 600€.",
+  url: canonical,
+  datePublished: "2026-07-14",
+  dateModified: todayIso,
+  inLanguage: "es-ES",
+  author: {
+    "@type": "Person",
+    name: "Rubén Pérez",
+    url: `${siteUrl}/contacto/`,
+    sameAs: ["https://www.rpidev.com/", "https://www.linkedin.com/in/ruben-perez-rpidev/"],
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "EasyChoose",
+    url: `${siteUrl}/`,
+    logo: { "@type": "ImageObject", url: `${siteUrl}/choose-removebg-preview.png` },
+  },
+  image: { "@type": "ImageObject", url: `${siteUrl}/hero-illustration.png`, width: 1000, height: 1000 },
+  mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+  about: [
+    { "@type": "Thing", name: "portátil universidad menos de 600 euros" },
+    { "@type": "Thing", name: "portátil económico estudiante" },
+  ],
+  keywords: ["portatil universidad menos de 600 euros", "portatil barato universidad", "portatil economico estudiante"],
+};
+---
+
+<Layout
+  title="Portátil para universidad por menos de 600€: qué esperar | EasyChoose"
+  description="Guía honesta sobre qué conseguir y qué evitar al comprar un portátil para universidad con presupuesto ajustado: qué recortar y qué es innegociable."
+  canonical={canonical}
+  keywords={["portatil universidad menos de 600 euros", "portatil barato universidad", "portatil economico estudiante", "mejor portatil por 500 euros"]}
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
+
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://easychoose.es/" },
+      { "@type": "ListItem", "position": 2, "name": "Qué portátil comprar para la universidad", "item": "https://easychoose.es/mejor-portatil-estudiantes/" },
+      { "@type": "ListItem", "position": 3, "name": "Portátil universidad menos de 600€", "item": "https://easychoose.es/portatil-universidad-menos-600-euros/" }
+    ]
+  }
+  </script>
+
+  <Section variant="glass" className="cluster-hero">
+    <div class="cluster-hero-content">
+      <div class="hero-meta">
+        <span class="badge">Guía por presupuesto</span>
+        <span class="last-updated">Actualizado: {today}</span>
+      </div>
+      <h1>Portátil para universidad por menos de 600€: qué esperar y qué evitar</h1>
+      <p class="lead">
+        Sí, se puede comprar un portátil válido para la universidad por menos de 600€. La clave está en saber qué especificación nunca debes recortar (RAM y SSD) y en qué sí puedes ceder sin arrepentirte (batería, materiales).
+      </p>
+      <a href={appUrl} class="btn btn-primary btn-large">Encontrar mi portátil ideal</a>
+      <p class="up-link"><a href="/mejor-portatil-estudiantes/">← Ver la guía completa de portátiles para universidad</a></p>
+    </div>
+  </Section>
+
+  <Section variant="light" id="compromisos">
+    <div class="section-header">
+      <span class="badge">Qué esperar</span>
+      <h2>Los compromisos reales de este presupuesto</h2>
+      <p>
+        Por debajo de 600€ no todo es igual de recortable. Estos son los cuatro puntos donde vas a notar el ajuste de presupuesto, y cómo priorizarlos.
+      </p>
+    </div>
+    <div class="criteria-grid">
+      {tradeoffs.map((item) => (
+        <article class="criteria-card">
+          <div class="criteria-icon" aria-hidden="true">{item.icon}</div>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <Section variant="glass" id="checklist">
+    <div class="section-header">
+      <span class="badge">Checklist</span>
+      <h2>Lo que no debes aceptar por debajo de 600€</h2>
+      <p>
+        Antes de comprar, verifica esta lista. Si un modelo falla en alguno de estos puntos, sigue buscando: son la diferencia entre un portátil que aguanta la carrera y uno que se queda corto en un año.
+      </p>
+    </div>
+    <ul class="checklist">
+      {checklist.map((item) => (
+        <li>{item}</li>
+      ))}
+    </ul>
+  </Section>
+
+  <Section variant="light" id="faq">
+    <div class="section-header">
+      <span class="badge">FAQ</span>
+      <h2>Preguntas frecuentes sobre portátiles económicos para universidad</h2>
+    </div>
+    <div class="faq-list">
+      {faqs.map((faq, index) => (
+        <details class="faq-item" open={index === 0}>
+          <summary>{faq.question}</summary>
+          <p>{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </Section>
+
+  <Section variant="dark" className="cta-final">
+    <div class="cta-content">
+      <span class="badge badge-inverse">Recomendación personalizada</span>
+      <h2>Encuentra el mejor portátil dentro de tu presupuesto</h2>
+      <p>
+        Indica tu presupuesto máximo y tu uso real. EasyChoose descarta los modelos con compromisos que no te convienen y te muestra los que sí valen la pena.
+      </p>
+      <a href={appUrl} class="btn btn-secondary btn-large">Empezar el Asistente Gratis</a>
+      <ul class="trust-pills">
+        <li>Gratis y sin registro</li>
+        <li>Resultado en menos de 2 minutos</li>
+        <li>Chat IA para la última duda</li>
+      </ul>
+    </div>
+  </Section>
+</Layout>
+
+<style>
+  .cluster-hero-content {
+    max-width: 760px;
+    padding: 5rem 0 4rem;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    background: rgba(108, 99, 255, 0.12);
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .badge-inverse {
+    background: rgba(255, 255, 255, 0.14);
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .last-updated {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+    color: var(--color-dark);
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    max-width: 66ch;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .btn-large {
+    padding: 1rem 2.35rem;
+    font-size: 1.05rem;
+  }
+
+  .up-link {
+    margin-top: 1.5rem;
+  }
+
+  .up-link a {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .up-link a:hover {
+    text-decoration: underline;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+
+  .section-header h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    margin: 0.5rem 0 1rem;
+  }
+
+  .section-header p {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+  }
+
+  .criteria-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .criteria-card {
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.6rem;
+    padding: 1.75rem;
+    box-shadow: 0 18px 40px rgba(46, 46, 46, 0.06);
+  }
+
+  .criteria-icon {
+    font-size: 2.2rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .criteria-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-dark);
+  }
+
+  .criteria-card p {
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  .checklist {
+    max-width: 700px;
+    margin: 0 auto;
+    display: grid;
+    gap: 0.9rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  .checklist li {
+    position: relative;
+    padding: 1rem 1.25rem 1rem 3rem;
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1rem;
+    color: var(--color-dark);
+    font-weight: 500;
+    box-shadow: 0 12px 28px rgba(46, 46, 46, 0.05);
+  }
+
+  .checklist li::before {
+    content: "✓";
+    position: absolute;
+    left: 1.1rem;
+    top: 1rem;
+    color: var(--color-primary);
+    font-weight: 800;
+  }
+
+  .faq-list {
+    max-width: 860px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .faq-item {
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.4rem;
+    padding: 1.2rem 1.3rem;
+    box-shadow: 0 18px 36px rgba(46, 46, 46, 0.06);
+  }
+
+  .faq-item summary {
+    cursor: pointer;
+    font-weight: 700;
+    list-style: none;
+    padding-right: 2rem;
+    position: relative;
+    color: var(--color-dark);
+  }
+
+  .faq-item summary::-webkit-details-marker { display: none; }
+
+  .faq-item summary::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: -0.1rem;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--color-primary);
+  }
+
+  .faq-item[open] summary::after { content: "−"; }
+
+  .faq-item p {
+    margin-top: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  .cta-final :global(.container) { max-width: 860px; }
+
+  .cta-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-content h2 {
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    max-width: 56ch;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.05rem;
+  }
+
+  .trust-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    list-style: none;
+    margin-top: 1.5rem;
+  }
+
+  .trust-pills li {
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    font-weight: 600;
+  }
+
+  @media (max-width: 1024px) {
+    .criteria-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .criteria-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .trust-pills {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .trust-pills li {
+      text-align: center;
+    }
+  }
+</style>

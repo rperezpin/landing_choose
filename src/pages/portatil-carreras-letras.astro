@@ -1,0 +1,652 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+
+const canonical = "https://easychoose.es/portatil-carreras-letras/";
+const appUrl = "https://app.easychoose.es/";
+const siteUrl = "https://easychoose.es";
+const today = new Date().toLocaleDateString("es-ES", { day: "numeric", month: "long", year: "numeric" });
+const todayIso = new Date().toISOString().split("T")[0];
+
+const priorities = [
+  {
+    icon: "🔋",
+    title: "Autonomía real de 10+ horas",
+    description: "En carreras de letras pasas el día entre clases, biblioteca y casa sin enchufe cerca. Es el criterio que más marca la diferencia en el día a día, por encima de cualquier especificación de procesador.",
+  },
+  {
+    icon: "⚖️",
+    title: "Peso por debajo de 1,4 kg",
+    description: "Lo llevas a diario junto a libros, apuntes impresos y material de biblioteca. Un portátil de 2 kg se nota en la mochila después de un cuatrimestre entero.",
+  },
+  {
+    icon: "⌨️",
+    title: "Teclado cómodo para escribir mucho",
+    description: "Trabajos, ensayos, apuntes y bibliografía significan escribir horas seguidas. Un recorrido de tecla insuficiente o un teclado que da fatiga se nota en la productividad real.",
+  },
+  {
+    icon: "📖",
+    title: "Pantalla legible para leer PDF y texto largo",
+    description: "Full HD (1920×1080) mínimo, con buen brillo y sin reflejos molestos, para sesiones largas de lectura de artículos académicos y bibliografía en PDF.",
+  },
+];
+
+const notNeeded = [
+  {
+    title: "GPU discreta",
+    reason: "Procesador de texto, navegador y presentaciones no usan tarjeta gráfica dedicada. Es dinero que se puede invertir en más batería o mejor pantalla.",
+  },
+  {
+    title: "Procesador de gama alta",
+    reason: "Un procesador de gama media eficiente rinde igual de bien para las tareas de letras y consume menos batería, que es justo lo que importa aquí.",
+  },
+  {
+    title: "Almacenamiento masivo",
+    reason: "256 GB de SSD suele ser suficiente si trabajas con documentos y PDF en la nube. Más almacenamiento solo aporta si guardas mucho material multimedia local.",
+  },
+];
+
+const disciplines = [
+  { name: "Derecho", detail: "Mucha lectura de jurisprudencia y normativa en PDF; prioriza pantalla y autonomía." },
+  { name: "Filología y Traducción", detail: "Escritura intensiva y, a veces, software de análisis lingüístico ligero; el teclado importa más que la potencia." },
+  { name: "Historia y Humanidades", detail: "Trabajo de archivo y redacción; portabilidad para moverte entre biblioteca y casa." },
+  { name: "Periodismo y Comunicación", detail: "Puede sumar edición básica de audio o vídeo; conviene algo más de RAM (16 GB) por si acaso." },
+  { name: "Trabajo Social y Educación", detail: "Uso mixto de ofimática y videollamadas para prácticas; prioriza cámara y micrófono decentes." },
+];
+
+const faqs = [
+  {
+    question: "¿Qué portátil comprar para una carrera de letras o humanidades?",
+    answer:
+      "Para letras, humanidades o ciencias sociales, prioriza autonomía real de 10+ horas, peso inferior a 1,4 kg y un teclado cómodo para escribir mucho. No necesitas GPU discreta ni procesador de gama alta: con 16 GB de RAM y un procesador eficiente es más que suficiente. El presupuesto recomendado está entre 600€ y 900€.",
+  },
+  {
+    question: "¿Necesito un portátil potente para Derecho o Filología?",
+    answer:
+      "No. Derecho, Filología, Historia o Periodismo no exigen procesadores de gama alta ni tarjeta gráfica: el uso principal es lectura de PDF, procesador de texto, navegador y presentaciones. Es preferible invertir el presupuesto en batería y en un buen teclado antes que en rendimiento que no vas a usar.",
+  },
+  {
+    question: "¿Cuánto gastar en un portátil para carreras de letras?",
+    answer:
+      "El rango más habitual y con mejor relación calidad-precio es 600€–900€. Por debajo de 600€ suele haber compromisos serios en batería; por encima de 900€ estás pagando prestaciones que la mayoría de perfiles de letras no aprovecha.",
+  },
+  {
+    question: "¿MacBook Air o portátil Windows para estudiar letras?",
+    answer:
+      "Un MacBook Air destaca en autonomía y ligereza, ideales para este perfil, pero su coste de entrada (desde ~1.200€) supera el presupuesto recomendado. Un ultrabook Windows bien elegido en el rango de 600€–900€ cubre las mismas necesidades sin ese sobrecoste.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": `${canonical}#article`,
+  headline: "Qué portátil comprar para carreras de letras y humanidades",
+  description:
+    "Guía específica para elegir portátil si estudias Derecho, Filología, Historia, Periodismo u otra carrera de letras: qué priorizar, qué no necesitas y cuánto gastar.",
+  url: canonical,
+  datePublished: "2026-07-14",
+  dateModified: todayIso,
+  inLanguage: "es-ES",
+  author: {
+    "@type": "Person",
+    name: "Rubén Pérez",
+    url: `${siteUrl}/contacto/`,
+    sameAs: ["https://www.rpidev.com/", "https://www.linkedin.com/in/ruben-perez-rpidev/"],
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "EasyChoose",
+    url: `${siteUrl}/`,
+    logo: { "@type": "ImageObject", url: `${siteUrl}/choose-removebg-preview.png` },
+  },
+  image: { "@type": "ImageObject", url: `${siteUrl}/hero-illustration.png`, width: 1000, height: 1000 },
+  mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+  about: [
+    { "@type": "Thing", name: "portátil para carreras de letras" },
+    { "@type": "Thing", name: "portátil para humanidades" },
+  ],
+  keywords: ["portatiles para carreras de letras", "portatil para humanidades", "portatil derecho", "portatil filologia"],
+};
+---
+
+<Layout
+  title="Qué portátil comprar para carreras de letras y humanidades | EasyChoose"
+  description="Guía para elegir portátil si estudias Derecho, Filología, Historia, Periodismo o cualquier carrera de letras: qué priorizar, qué no necesitas y cuánto gastar."
+  canonical={canonical}
+  keywords={["portatiles para carreras de letras", "portatil para humanidades", "portatil derecho", "portatil filologia", "portatil para historia"]}
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
+
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://easychoose.es/" },
+      { "@type": "ListItem", "position": 2, "name": "Qué portátil comprar para la universidad", "item": "https://easychoose.es/mejor-portatil-estudiantes/" },
+      { "@type": "ListItem", "position": 3, "name": "Portátil para carreras de letras", "item": "https://easychoose.es/portatil-carreras-letras/" }
+    ]
+  }
+  </script>
+
+  <Section variant="glass" className="cluster-hero">
+    <div class="cluster-hero-content">
+      <div class="hero-meta">
+        <span class="badge">Guía por carrera</span>
+        <span class="last-updated">Actualizado: {today}</span>
+      </div>
+      <h1>Qué portátil comprar para carreras de letras y humanidades</h1>
+      <p class="lead">
+        Para estudiar Derecho, Filología, Historia, Periodismo o cualquier carrera de letras, la batería y el peso importan mucho más que la potencia. Esta guía explica exactamente qué priorizar y en qué no merece la pena gastar de más.
+      </p>
+      <a href={appUrl} class="btn btn-primary btn-large">Encontrar mi portátil ideal</a>
+      <p class="up-link"><a href="/mejor-portatil-estudiantes/">← Ver la guía completa de portátiles para universidad</a></p>
+    </div>
+  </Section>
+
+  <Section variant="light" id="prioridades">
+    <div class="section-header">
+      <span class="badge">Prioridades reales</span>
+      <h2>Qué priorizar si estudias letras o humanidades</h2>
+      <p>
+        Para estudiar, busca autonomía mínima de 10 horas, peso inferior a 1,4 kg y un teclado cómodo para escribir mucho. Estos cuatro factores marcan más la diferencia diaria que cualquier especificación de procesador.
+      </p>
+    </div>
+    <div class="criteria-grid">
+      {priorities.map((item) => (
+        <article class="criteria-card">
+          <div class="criteria-icon" aria-hidden="true">{item.icon}</div>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <Section variant="glass" id="no-necesitas">
+    <div class="section-header">
+      <span class="badge">Ahorra aquí</span>
+      <h2>Lo que NO necesitas (y por qué)</h2>
+      <p>
+        Pagar de más por prestaciones que no vas a usar es el error más común al comprar portátil para letras. Estos son los tres sitios donde puedes ahorrar sin perder nada relevante.
+      </p>
+    </div>
+    <div class="career-grid">
+      {notNeeded.map((item) => (
+        <article class="career-card">
+          <h3>{item.title}</h3>
+          <p class="career-desc">{item.reason}</p>
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <Section variant="light" id="disciplinas">
+    <div class="section-header">
+      <span class="badge">Por disciplina</span>
+      <h2>Matices según tu disciplina concreta</h2>
+      <p>
+        Dentro de "letras" hay diferencias. Estos son los ajustes que merece la pena tener en cuenta según tu titulación.
+      </p>
+    </div>
+    <div class="table-wrap">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th scope="col">Disciplina</th>
+            <th scope="col">Qué tener en cuenta</th>
+          </tr>
+        </thead>
+        <tbody>
+          {disciplines.map((d) => (
+            <tr>
+              <th scope="row">{d.name}</th>
+              <td>{d.detail}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </Section>
+
+  <Section variant="glass" id="presupuesto">
+    <div class="section-header">
+      <span class="badge">Presupuesto</span>
+      <h2>¿Cuánto gastar en un portátil para letras?</h2>
+      <p>
+        El presupuesto recomendado está entre 600€ y 900€. Es el rango donde se encuentran ultrabooks con 16 GB de RAM, batería real de 10+ horas y menos de 1,4 kg, sin pagar por potencia que no vas a aprovechar.
+      </p>
+    </div>
+    <div class="budget-grid">
+      <article class="budget-card">
+        <div class="budget-range">Menos de 600€</div>
+        <h3>Compromiso en batería</h3>
+        <p>Puedes encontrar peso ligero, pero la autonomía real suele quedarse en 5-7 horas. Aceptable si cargas el portátil a mitad del día.</p>
+        <a href={appUrl} class="budget-link">Ver opciones en este rango →</a>
+      </article>
+      <article class="budget-card budget-card-highlight">
+        <div class="budget-badge-top">Rango recomendado</div>
+        <div class="budget-range">600€ – 900€</div>
+        <h3>El equilibrio ideal para letras</h3>
+        <p>Ultrabooks ligeros, con 16 GB de RAM, batería de 10+ horas reales y teclados cómodos para escribir durante horas. Cubre toda la carrera sin quedarse corto.</p>
+        <a href={appUrl} class="budget-link">Ver opciones en este rango →</a>
+      </article>
+      <article class="budget-card">
+        <div class="budget-range">Más de 900€</div>
+        <h3>Solo si buscas marca o diseño premium</h3>
+        <p>Por encima de 900€ pagas materiales, pantalla o marca, no rendimiento que vayas a notar en tareas de letras. Solo tiene sentido si valoras esos extras.</p>
+        <a href={appUrl} class="budget-link">Ver opciones en este rango →</a>
+      </article>
+    </div>
+  </Section>
+
+  <Section variant="light" id="faq">
+    <div class="section-header">
+      <span class="badge">FAQ</span>
+      <h2>Preguntas frecuentes sobre portátiles para letras</h2>
+    </div>
+    <div class="faq-list">
+      {faqs.map((faq, index) => (
+        <details class="faq-item" open={index === 0}>
+          <summary>{faq.question}</summary>
+          <p>{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </Section>
+
+  <Section variant="dark" className="cta-final">
+    <div class="cta-content">
+      <span class="badge badge-inverse">Recomendación personalizada</span>
+      <h2>Encuentra tu portátil para letras en 2 minutos</h2>
+      <p>
+        Indica tu carrera y tu presupuesto y EasyChoose filtra el mercado por autonomía, peso y las prestaciones que sí importan para tu caso.
+      </p>
+      <a href={appUrl} class="btn btn-secondary btn-large">Empezar el Asistente Gratis</a>
+      <ul class="trust-pills">
+        <li>Gratis y sin registro</li>
+        <li>Resultado en menos de 2 minutos</li>
+        <li>Chat IA para la última duda</li>
+      </ul>
+    </div>
+  </Section>
+</Layout>
+
+<style>
+  .cluster-hero-content {
+    max-width: 760px;
+    padding: 5rem 0 4rem;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    background: rgba(108, 99, 255, 0.12);
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .badge-inverse {
+    background: rgba(255, 255, 255, 0.14);
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .last-updated {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+    color: var(--color-dark);
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    max-width: 66ch;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .btn-large {
+    padding: 1rem 2.35rem;
+    font-size: 1.05rem;
+  }
+
+  .up-link {
+    margin-top: 1.5rem;
+  }
+
+  .up-link a {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .up-link a:hover {
+    text-decoration: underline;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+
+  .section-header h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    margin: 0.5rem 0 1rem;
+  }
+
+  .section-header p {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+  }
+
+  .criteria-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .criteria-card {
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.6rem;
+    padding: 1.75rem;
+    box-shadow: 0 18px 40px rgba(46, 46, 46, 0.06);
+  }
+
+  .criteria-icon {
+    font-size: 2.2rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .criteria-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-dark);
+  }
+
+  .criteria-card p {
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  .career-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .career-card {
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.6rem;
+    padding: 1.75rem;
+    box-shadow: 0 18px 40px rgba(46, 46, 46, 0.06);
+  }
+
+  .career-card h3 {
+    font-size: 1.1rem;
+    color: var(--color-dark);
+    margin-bottom: 0.6rem;
+  }
+
+  .career-desc {
+    color: var(--color-text-muted);
+    font-size: 0.94rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    box-shadow: 0 20px 40px rgba(46, 46, 46, 0.08);
+    background: white;
+    margin-bottom: 1.5rem;
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 480px;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    text-align: left;
+    padding: 1rem 1.2rem;
+    border-bottom: 1px solid rgba(46, 46, 46, 0.08);
+    vertical-align: top;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+  }
+
+  .comparison-table thead th {
+    background: rgba(108, 99, 255, 0.08);
+    color: var(--color-dark);
+    font-weight: 700;
+  }
+
+  .comparison-table tbody th {
+    width: 24%;
+    color: var(--color-dark);
+    font-weight: 600;
+  }
+
+  .budget-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .budget-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.6rem;
+    padding: 2rem 1.75rem;
+    box-shadow: 0 18px 40px rgba(46, 46, 46, 0.06);
+  }
+
+  .budget-card-highlight {
+    border-color: rgba(108, 99, 255, 0.7);
+    padding-top: 3rem;
+  }
+
+  .budget-badge-top {
+    position: absolute;
+    top: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    background: var(--color-primary);
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+  }
+
+  .budget-range {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(108, 99, 255, 0.92), rgba(255, 211, 105, 0.92));
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .budget-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-dark);
+  }
+
+  .budget-card p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+
+  .budget-link {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .budget-link:hover {
+    text-decoration: underline;
+  }
+
+  .faq-list {
+    max-width: 860px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .faq-item {
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.4rem;
+    padding: 1.2rem 1.3rem;
+    box-shadow: 0 18px 36px rgba(46, 46, 46, 0.06);
+  }
+
+  .faq-item summary {
+    cursor: pointer;
+    font-weight: 700;
+    list-style: none;
+    padding-right: 2rem;
+    position: relative;
+    color: var(--color-dark);
+  }
+
+  .faq-item summary::-webkit-details-marker { display: none; }
+
+  .faq-item summary::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: -0.1rem;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--color-primary);
+  }
+
+  .faq-item[open] summary::after { content: "−"; }
+
+  .faq-item p {
+    margin-top: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  .cta-final :global(.container) { max-width: 860px; }
+
+  .cta-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-content h2 {
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    max-width: 56ch;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.05rem;
+  }
+
+  .trust-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    list-style: none;
+    margin-top: 1.5rem;
+  }
+
+  .trust-pills li {
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    font-weight: 600;
+  }
+
+  @media (max-width: 1024px) {
+    .criteria-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .career-grid,
+    .budget-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .criteria-grid,
+    .career-grid,
+    .budget-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .trust-pills {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .trust-pills li {
+      text-align: center;
+    }
+  }
+</style>

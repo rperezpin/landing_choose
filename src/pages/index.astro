@@ -1,11 +1,14 @@
 ---
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
+import Icon from "../components/Icon.astro";
 import heroImg from "../assets/hero-illustration.png";
 
 const appUrl = "https://app.easychoose.es/";
 const canonical = "https://easychoose.es/";
+
+const optimizedHero = await getImage({ src: heroImg, width: 1000, height: 1000, format: "webp" });
 
 const keywords = [
   "que portatil comprar",
@@ -43,19 +46,19 @@ const steps = [
 
 const useCases = [
   {
-    icon: "🧠",
+    icon: "brain",
     title: "No sabes de tecnología",
     description:
       "EasyChoose traduce especificaciones complejas a recomendaciones claras para que compres con criterio aunque no seas experto.",
   },
   {
-    icon: "🧭",
+    icon: "compass",
     title: "Sabes lo que quieres, pero no quieres perder tiempo",
     description:
       "Si ya conoces el mercado, el asistente te ahorra horas cribando modelos y te lleva directo a las opciones que encajan.",
   },
   {
-    icon: "🎁",
+    icon: "gift",
     title: "Quieres acertar con un regalo o una compra importante",
     description:
       "La IA te ayuda a priorizar uso real, presupuesto y necesidades prácticas para reducir el riesgo de equivocarte.",
@@ -64,19 +67,19 @@ const useCases = [
 
 const problems = [
   {
-    icon: "😩",
+    icon: "face-frown",
     title: "Horas comparando lo mismo",
     description:
       "Decenas de modelos parecen equivalentes, pero cambian en lo que sí importa para tu uso diario.",
   },
   {
-    icon: "⏳",
+    icon: "clock",
     title: "Especificaciones difíciles de interpretar",
     description:
       "RAM, núcleos, nits, refresco, autonomía o latencia no siempre se traducen en una decisión clara.",
   },
   {
-    icon: "💸",
+    icon: "banknotes",
     title: "Miedo a pagar de más o a quedarte corto",
     description:
       "La compra tecnológica duele cuando inviertes sin saber si el producto encaja de verdad con tu caso.",
@@ -85,7 +88,7 @@ const problems = [
 
 const categories = [
   {
-    icon: "💻",
+    icon: "laptop",
     title: "Portátiles",
     description: "Laptops para trabajo, estudios, gaming, programación y creatividad.",
     priceRange: "€300 – €2.500",
@@ -94,7 +97,7 @@ const categories = [
     guideLabel: "Guía para estudiantes →",
   },
   {
-    icon: "📱",
+    icon: "device-phone",
     title: "Smartphones",
     description: "Móviles Android y iPhone para batería, cámara, uso diario o gama alta.",
     priceRange: "€150 – €1.800",
@@ -103,7 +106,7 @@ const categories = [
     guideLabel: "Guía calidad-precio →",
   },
   {
-    icon: "📟",
+    icon: "device-tablet",
     title: "Tablets",
     description: "Tablets e iPad para apuntes, lectura, dibujo, contenido multimedia y productividad ligera.",
     priceRange: "€200 – €1.200",
@@ -112,7 +115,7 @@ const categories = [
     guideLabel: "Guía calidad-precio →",
   },
   {
-    icon: "🖥️",
+    icon: "desktop",
     title: "Ordenadores",
     description: "Sobremesa y todo en uno para oficina, teletrabajo, gaming y uso doméstico.",
     priceRange: "€400 – €2.000",
@@ -121,14 +124,14 @@ const categories = [
     guideLabel: "Guía de sobremesa por presupuesto →",
   },
   {
-    icon: "🎧",
+    icon: "headphones",
     title: "Accesorios",
     description: "Auriculares, teclados, ratones, periféricos y complementos para mejorar tu setup.",
     priceRange: "€15 – €500",
     links: ["Auriculares", "Teclado y ratón", "Periféricos gaming"],
   },
   {
-    icon: "⚡",
+    icon: "bolt",
     title: "Movilidad eléctrica",
     description: "Patinetes, bicicletas y scooters eléctricos para ciudad, trayectos diarios y ocio.",
     priceRange: "€300 – €2.500",
@@ -138,20 +141,47 @@ const categories = [
   },
 ];
 
+const catalogSources = [
+  {
+    icon: "building-storefront",
+    title: "Catálogo generalista",
+    description:
+      "Portátiles, móviles, tablets y accesorios con garantía y servicio postventa nacional.",
+  },
+  {
+    icon: "bolt",
+    title: "Movilidad eléctrica homologada",
+    description:
+      "Patinetes, bicicletas y scooters eléctricos con ficha técnica homologada y autonomía verificada.",
+  },
+  {
+    icon: "game-controller",
+    title: "Gaming de alto rendimiento",
+    description:
+      "Portátiles y componentes gaming pensados para quienes priorizan potencia gráfica.",
+  },
+  {
+    icon: "scooter",
+    title: "Micromovilidad urbana",
+    description:
+      "Patinetes y monociclos eléctricos orientados a autonomía y trayectos urbanos diarios.",
+  },
+];
+
 const features = [
   {
-    icon: "⚡",
-    title: "Velocidad Extrema",
+    icon: "bolt",
+    title: "Recomendación en menos de 2 minutos",
     text: "Resultados instantáneos para que no pierdas ni un segundo.",
   },
   {
-    icon: "🛍️",
-    title: "Catálogo Inteligente",
+    icon: "shopping-bag",
+    title: "Catálogo actualizado del mercado español",
     text: "Selección curada de portátiles, móviles, tablets, ordenadores y accesorios.",
   },
   {
-    icon: "🤖",
-    title: "Asistente IA Dedicado",
+    icon: "cpu-chip",
+    title: "Chat para tu última duda",
     text: "Respuestas personalizadas basadas en tu contexto, necesidades y dudas finales.",
     highlight: true,
   },
@@ -159,7 +189,7 @@ const features = [
 
 const quickQuestions = [
   {
-    icon: "💻",
+    icon: "laptop",
     question: "¿Qué portátil comprar para estudiar o trabajar?",
     answer:
       "Depende de autonomía, peso, sistema operativo y tipo de tareas. El asistente descarta modelos sobredimensionados y te enseña los que encajan con tu ritmo real.",
@@ -167,7 +197,7 @@ const quickQuestions = [
     guideLabel: "Guía completa para elegir portátil de estudiante →",
   },
   {
-    icon: "📱",
+    icon: "device-phone",
     question: "¿Qué móvil comprar si buscas buena cámara y batería?",
     answer:
       "No siempre hace falta subir a la gama más cara. EasyChoose cruza cámara, autonomía, tamaño y precio para encontrar el punto de equilibrio.",
@@ -175,7 +205,7 @@ const quickQuestions = [
     guideLabel: "Guía completa del mejor móvil calidad-precio →",
   },
   {
-    icon: "📟",
+    icon: "device-tablet",
     question: "¿Qué tablet elegir para apuntes, lectura o diseño?",
     answer:
       "La mejor tablet cambia si priorizas stylus, ecosistema, brillo de pantalla, apps o portabilidad. El asistente te orienta según ese contexto.",
@@ -183,7 +213,7 @@ const quickQuestions = [
     guideLabel: "Guía completa de la mejor tablet calidad-precio →",
   },
   {
-    icon: "⚡",
+    icon: "scooter",
     question: "¿Qué accesorio o patinete merece realmente la pena?",
     answer:
       "La IA filtra opciones irrelevantes y se centra en compatibilidad, ergonomía, autonomía, seguridad y valor por precio.",
@@ -191,7 +221,7 @@ const quickQuestions = [
     guideLabel: "Guía completa del mejor patinete eléctrico →",
   },
   {
-    icon: "🏠",
+    icon: "home",
     question: "¿Qué portátil comprar para teletrabajar?",
     answer:
       "Para teletrabajo importan la batería real, una buena cámara y micrófono para videollamadas, y suficiente RAM para tus herramientas diarias. El asistente filtra por tu perfil profesional.",
@@ -199,7 +229,7 @@ const quickQuestions = [
     guideLabel: "Guía completa del mejor portátil para teletrabajo →",
   },
   {
-    icon: "🖥️",
+    icon: "desktop",
     question: "¿Qué PC de sobremesa comprar según mi presupuesto?",
     answer:
       "El equilibrio entre CPU, GPU y RAM debe ajustarse a tu uso real: gaming, oficina o creación de contenido priorizan componentes distintos. El asistente te orienta según tu caso.",
@@ -238,25 +268,25 @@ const comparisonRows = [
 
 const methodology = [
   {
-    icon: "🎯",
+    icon: "target",
     title: "Uso real antes que ficha técnica",
     description:
       "El asistente parte de lo que vas a hacer con el producto, no de una lista de especificaciones aisladas.",
   },
   {
-    icon: "💰",
+    icon: "banknotes",
     title: "Valor por precio",
     description:
       "Compara opciones dentro de tu rango para evitar pagar de más o quedarte corto donde sí importa.",
   },
   {
-    icon: "🔍",
+    icon: "magnifying-glass",
     title: "Resultados que puedes interrogar",
     description:
       "Cada recomendación se puede revisar con el chat IA para convertir la duda final en una decisión informada.",
   },
   {
-    icon: "🤖",
+    icon: "cpu-chip",
     title: "Transparencia comercial",
     description:
       "EasyChoose puede recibir comisiones de afiliación, pero la recomendación se formula según adecuación al uso, no por patrocinio de marca.",
@@ -352,6 +382,19 @@ const itemListSchema = {
   })),
 };
 
+const catalogSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Segmentos del catálogo de EasyChoose",
+  itemListElement: catalogSources.map((source, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: source.title,
+    description: source.description,
+    url: appUrl,
+  })),
+};
+
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
@@ -386,7 +429,7 @@ const breadcrumbSchema = {
   ],
 };
 
-const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema, breadcrumbSchema];
+const pageSchemas = [faqSchema, howToSchema, itemListSchema, catalogSchema, serviceSchema, breadcrumbSchema];
 ---
 
 <Layout
@@ -394,6 +437,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema, brea
   description="Asistente gratuito con IA para elegir portátil, móvil o tablet según tu uso real y presupuesto. Recomendación en 2 minutos, sin registro."
   canonical={canonical}
   keywords={keywords}
+  preloadImage={optimizedHero.src}
 >
   {pageSchemas.map((schema) => (
     <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
@@ -404,7 +448,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema, brea
       <div class="hero-copy animate-fade-in">
         <div class="hero-meta">
           <span class="badge">Asistente IA gratuito</span>
-          <span class="last-updated">Precios actualizados: {new Date().toLocaleDateString("es-ES", { day: "numeric", month: "long", year: "numeric" })}</span>
+          <span class="last-updated">Catálogo revisado mensualmente · Última revisión: {new Date().toLocaleDateString("es-ES", { month: "long", year: "numeric" })}</span>
         </div>
         <h1>
           Qué portátil, móvil o tablet comprar <span class="highlight">sin perder horas comparando</span>
@@ -429,7 +473,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema, brea
       <div class="hero-visual">
         <div class="hero-illustration-wrap" aria-label="Ilustración del asistente EasyChoose">
           <div class="hero-floating hero-floating-top hero-floating-outside">
-            <span class="emoji-inline" aria-hidden="true">💬</span>
+            <span class="emoji-inline" aria-hidden="true"><Icon name="chat-bubble" class="icon-svg icon-svg-inline" /></span>
             <span>Te guiamos paso a paso</span>
           </div>
           <Image
@@ -438,6 +482,9 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema, brea
             class="hero-image"
             width={1000}
             height={1000}
+            format="webp"
+            loading="eager"
+            fetchpriority="high"
           />
         </div>
       </div>
@@ -453,7 +500,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema, brea
     <div class="feature-grid">
       {features.map((feature) => (
         <article class={`feature-card ${feature.highlight ? "feature-card-highlight" : ""}`}>
-          <div class="emoji-feature" aria-hidden="true">{feature.icon}</div>
+          <div class="emoji-feature" aria-hidden="true"><Icon name={feature.icon} class="icon-svg" /></div>
           <h3>{feature.title}</h3>
           <p>{feature.text}</p>
         </article>
@@ -472,7 +519,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema, brea
     <div class="use-cases-grid">
       {useCases.map((useCase) => (
         <article class="info-card friendly-card friendly-centered">
-          <div class="emoji-card" aria-hidden="true">{useCase.icon}</div>
+          <div class="emoji-card" aria-hidden="true"><Icon name={useCase.icon} class="icon-svg" /></div>
           <h3>{useCase.title}</h3>
           <p>{useCase.description}</p>
         </article>
@@ -491,7 +538,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema, brea
     <div class="problem-grid">
       {problems.map((problem) => (
         <article class="problem-item plain-problem">
-          <div class="problem-icon plain-emoji" aria-hidden="true">{problem.icon}</div>
+          <div class="problem-icon plain-emoji" aria-hidden="true"><Icon name={problem.icon} class="icon-svg" /></div>
           <h3>{problem.title}</h3>
           <p>{problem.description}</p>
         </article>
@@ -529,7 +576,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema, brea
     <div class="categories-grid">
       {categories.map((category) => (
         <article class="category-card">
-          <div class="category-icon category-emoji" aria-hidden="true">{category.icon}</div>
+          <div class="category-icon category-emoji" aria-hidden="true"><Icon name={category.icon} class="icon-svg" /></div>
           <h3>{category.title}</h3>
           <p>{category.description}</p>
           <div class="price-range">{category.priceRange}</div>
@@ -546,6 +593,31 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema, brea
     </div>
   </Section>
 
+  <Section id="catalog" variant="light">
+    <div class="section-header">
+      <span class="badge">Catálogo ampliado</span>
+      <h2>El catálogo de EasyChoose crece: más fuentes, más comparativa real</h2>
+      <p>
+        El catálogo inteligente de EasyChoose incorpora ahora más fuentes de datos de referencia en España, cubriendo desde tecnología generalista hasta gaming de alto rendimiento y movilidad eléctrica homologada. Más fuentes de datos significan comparativas más completas y recomendaciones más precisas cuando pides al asistente qué portátil, móvil, tablet, patinete eléctrico o accesorio comprar.
+      </p>
+    </div>
+    <div class="catalog-grid">
+      {catalogSources.map((source) => (
+        <article class="info-card friendly-card friendly-centered">
+          <div class="emoji-card" aria-hidden="true"><Icon name={source.icon} class="icon-svg" /></div>
+          <h3>{source.title}</h3>
+          <p>{source.description}</p>
+        </article>
+      ))}
+    </div>
+    <div class="catalog-cta">
+      <p>
+        Prueba ahora el <a href={appUrl}>catálogo actualizado de EasyChoose</a> y compara productos de múltiples tiendas en un mismo asistente. Si buscas movilidad eléctrica, entra directamente al <a href={appUrl}>comparador de patinetes y bicicletas eléctricas de EasyChoose</a>; para tecnología de gama alta, el <a href={appUrl}>catálogo gaming de EasyChoose</a> incluye los portátiles de mayor rendimiento del mercado.
+      </p>
+      <a href={appUrl} class="btn btn-primary">Explorar el catálogo de EasyChoose</a>
+    </div>
+  </Section>
+
   <Section id="questions" variant="light">
     <div class="section-header">
       <span class="badge">Intenciones de búsqueda</span>
@@ -558,7 +630,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema, brea
       {quickQuestions.map((item) => (
         <article class="qa-card friendly-card improved-question-card">
           <div class="question-top">
-            <div class="emoji-card emoji-card-small question-emoji" aria-hidden="true">{item.icon}</div>
+            <div class="emoji-card emoji-card-small question-emoji" aria-hidden="true"><Icon name={item.icon} class="icon-svg" /></div>
             <span class="question-tag">Búsqueda frecuente</span>
           </div>
           <h3>{item.question}</h3>
@@ -614,7 +686,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema, brea
     <div class="methodology-list">
       {methodology.map((item) => (
         <article class="method-item">
-          <div class="method-emoji" aria-hidden="true">{item.icon}</div>
+          <div class="method-emoji" aria-hidden="true"><Icon name={item.icon} class="icon-svg" /></div>
           <div class="method-copy">
             <h3>{item.title}</h3>
             <p>{item.description}</p>
@@ -689,6 +761,19 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema, brea
   .badge-inverse {
     background: rgba(255, 255, 255, 0.14);
     color: white;
+  }
+
+  .icon-svg {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    color: var(--color-primary);
+  }
+
+  .icon-svg-inline {
+    width: 1.1em;
+    height: 1.1em;
   }
 
   .section-header h2 {
@@ -897,6 +982,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema, brea
   .problem-grid,
   .steps-grid,
   .categories-grid,
+  .catalog-grid,
   .qa-grid,
   .methodology-list {
     display: grid;
@@ -905,9 +991,35 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema, brea
 
   .use-cases-grid,
   .problem-grid,
+  .catalog-grid,
   .qa-grid,
   .methodology-list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-bottom: 2.5rem;
+  }
+
+  .catalog-cta {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .catalog-cta p {
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .catalog-cta a:not(.btn) {
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+
+  .catalog-cta a:not(.btn):hover {
+    text-decoration: underline;
   }
 
   .steps-grid {
@@ -1278,7 +1390,8 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema, brea
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .categories-grid {
+    .categories-grid,
+    .catalog-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
@@ -1292,6 +1405,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema, brea
     .use-cases-grid,
     .problem-grid,
     .feature-grid,
+    .catalog-grid,
     .qa-grid,
     .methodology-list {
       grid-template-columns: 1fr;
@@ -1332,7 +1446,8 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, serviceSchema, brea
 
   @media (max-width: 768px) {
     .steps-grid,
-    .categories-grid {
+    .categories-grid,
+    .catalog-grid {
       grid-template-columns: 1fr;
     }
 

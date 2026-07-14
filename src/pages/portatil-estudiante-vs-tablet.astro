@@ -1,0 +1,495 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+
+const canonical = "https://easychoose.es/portatil-estudiante-vs-tablet/";
+const appUrl = "https://app.easychoose.es/";
+const siteUrl = "https://easychoose.es";
+const today = new Date().toLocaleDateString("es-ES", { day: "numeric", month: "long", year: "numeric" });
+const todayIso = new Date().toISOString().split("T")[0];
+
+const comparisonRows = [
+  { factor: "Escribir trabajos y ensayos largos", laptop: "Mejor: teclado físico, multitarea real", tablet: "Aceptable con teclado externo, más incómodo en sesiones largas" },
+  { factor: "Tomar apuntes a mano en clase", laptop: "Limitado, requiere teclear todo", tablet: "Mejor: stylus y apps de notas manuscritas" },
+  { factor: "Software específico de carrera (CAD, Matlab, programación)", laptop: "Mejor: la mayoría del software no existe en tablet", tablet: "Muy limitado o inexistente" },
+  { factor: "Leer PDF y bibliografía académica", laptop: "Bien, pero menos cómodo sujetándolo", tablet: "Mejor: más ligera y natural para sujetar y anotar" },
+  { factor: "Peso y portabilidad", laptop: "Bueno si es un ultrabook (1-1,4 kg)", tablet: "Mejor: normalmente por debajo de 600 g" },
+  { factor: "Autonomía de batería", laptop: "8-14 horas según modelo", tablet: "Mejor: 10-15 horas es habitual" },
+  { factor: "Multitarea (varias ventanas a la vez)", laptop: "Mejor: pensado para multitarea real", tablet: "Limitado, aunque mejora en modelos recientes" },
+];
+
+const profiles = [
+  {
+    icon: "💻",
+    title: "Solo portátil, si...",
+    description: "Estudias ingeniería, informática, arquitectura o cualquier carrera con software específico. También si escribes mucho y prefieres teclado físico siempre disponible.",
+  },
+  {
+    icon: "📱",
+    title: "Solo tablet, si...",
+    description: "Tu carrera es principalmente lectura y toma de apuntes a mano (medicina, algunas humanidades), y ya tienes acceso a un ordenador de sobremesa en casa para trabajos largos.",
+  },
+  {
+    icon: "🔄",
+    title: "Los dos, si tu presupuesto lo permite",
+    description: "El combo más completo: portátil ligero para trabajos y software, tablet con stylus para apuntes y lectura. Tiene sentido en carreras de diseño o cuando el presupuesto no es la principal limitación.",
+  },
+];
+
+const faqs = [
+  {
+    question: "¿Portátil o tablet para la universidad?",
+    answer:
+      "Depende de tu carrera. Si necesitas software específico (CAD, programación, Matlab) o escribes trabajos largos con frecuencia, el portátil es imprescindible. Si tu uso principal es tomar apuntes a mano y leer bibliografía, una tablet con stylus puede ser suficiente, sobre todo si ya tienes un ordenador en casa para el resto.",
+  },
+  {
+    question: "¿Puedo usar solo una tablet en la universidad?",
+    answer:
+      "Es posible en carreras donde el uso principal es lectura y toma de apuntes, especialmente con un teclado externo para escribir trabajos ocasionales. No es viable si tu titulación requiere software de escritorio como AutoCAD, SolidWorks o entornos de programación completos.",
+  },
+  {
+    question: "¿Una tablet con teclado sustituye a un portátil?",
+    answer:
+      "Para uso ligero, sí puede sustituirlo. Pero el software de tablet (iPadOS, Android) es más limitado que un sistema de escritorio: no todos los programas de tu carrera tendrán versión para tablet, y la multitarea real sigue siendo mejor en un portátil.",
+  },
+  {
+    question: "¿Qué es mejor para tomar apuntes: portátil o tablet?",
+    answer:
+      "Para apuntes manuscritos con diagramas, fórmulas o dibujos, la tablet con stylus es claramente mejor. Para apuntes en texto que luego quieres buscar y editar fácilmente, el portátil con teclado físico es más rápido y cómodo.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": `${canonical}#article`,
+  headline: "Portátil o tablet para estudiar: cuál elegir según tu carrera",
+  description:
+    "Comparativa práctica entre portátil y tablet para la universidad: cuándo elegir cada uno, cuándo combinarlos y qué carreras necesitan software que solo corre en portátil.",
+  url: canonical,
+  datePublished: "2026-07-14",
+  dateModified: todayIso,
+  inLanguage: "es-ES",
+  author: {
+    "@type": "Person",
+    name: "Rubén Pérez",
+    url: `${siteUrl}/contacto/`,
+    sameAs: ["https://www.rpidev.com/", "https://www.linkedin.com/in/ruben-perez-rpidev/"],
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "EasyChoose",
+    url: `${siteUrl}/`,
+    logo: { "@type": "ImageObject", url: `${siteUrl}/choose-removebg-preview.png` },
+  },
+  image: { "@type": "ImageObject", url: `${siteUrl}/hero-illustration.png`, width: 1000, height: 1000 },
+  mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+  about: [
+    { "@type": "Thing", name: "portátil vs tablet estudiante" },
+    { "@type": "Thing", name: "qué comprar para estudiar" },
+  ],
+  keywords: ["portatil o tablet para estudiar", "portatil vs tablet universidad", "que comprar para la universidad"],
+};
+---
+
+<Layout
+  title="Portátil o tablet para estudiar: cuál elegir según tu carrera | EasyChoose"
+  description="Comparativa práctica entre portátil y tablet para la universidad: cuándo elegir cada uno, cuándo combinarlos y qué carreras necesitan software que solo corre en portátil."
+  canonical={canonical}
+  keywords={["portatil o tablet para estudiar", "portatil vs tablet universidad", "que comprar para la universidad", "tablet o portatil para apuntes"]}
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
+
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://easychoose.es/" },
+      { "@type": "ListItem", "position": 2, "name": "Qué portátil comprar para la universidad", "item": "https://easychoose.es/mejor-portatil-estudiantes/" },
+      { "@type": "ListItem", "position": 3, "name": "Portátil o tablet para estudiar", "item": "https://easychoose.es/portatil-estudiante-vs-tablet/" }
+    ]
+  }
+  </script>
+
+  <Section variant="glass" className="cluster-hero">
+    <div class="cluster-hero-content">
+      <div class="hero-meta">
+        <span class="badge">Comparativa</span>
+        <span class="last-updated">Actualizado: {today}</span>
+      </div>
+      <h1>Portátil o tablet para estudiar: cuál elegir según tu carrera</h1>
+      <p class="lead">
+        No hay una respuesta única: depende de si tu carrera exige software de escritorio, de cuánto escribes y de si prefieres tomar apuntes a mano. Esta guía compara ambos por tarea real, no por especificaciones.
+      </p>
+      <a href={appUrl} class="btn btn-primary btn-large">Encontrar mi dispositivo ideal</a>
+      <p class="up-link"><a href="/mejor-portatil-estudiantes/">← Ver la guía completa de portátiles para universidad</a></p>
+    </div>
+  </Section>
+
+  <Section variant="light" id="comparativa">
+    <div class="section-header">
+      <span class="badge">Tarea por tarea</span>
+      <h2>Portátil vs tablet, según lo que vayas a hacer</h2>
+      <p>
+        La respuesta correcta cambia según la tarea. Esta tabla compara ambos dispositivos en las situaciones más habituales del día a día universitario.
+      </p>
+    </div>
+    <div class="table-wrap">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th scope="col">Tarea</th>
+            <th scope="col">Portátil</th>
+            <th scope="col">Tablet</th>
+          </tr>
+        </thead>
+        <tbody>
+          {comparisonRows.map((row) => (
+            <tr>
+              <th scope="row">{row.factor}</th>
+              <td>{row.laptop}</td>
+              <td>{row.tablet}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </Section>
+
+  <Section variant="glass" id="perfiles">
+    <div class="section-header">
+      <span class="badge">Según tu perfil</span>
+      <h2>¿Cuál te conviene a ti?</h2>
+      <p>
+        La decisión depende sobre todo de tu carrera y de tu presupuesto disponible. Estos son los tres escenarios más habituales.
+      </p>
+    </div>
+    <div class="career-grid">
+      {profiles.map((profile) => (
+        <article class="career-card">
+          <div class="career-header">
+            <span class="career-icon" aria-hidden="true">{profile.icon}</span>
+            <h3>{profile.title}</h3>
+          </div>
+          <p class="career-desc">{profile.description}</p>
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <Section variant="light" id="faq">
+    <div class="section-header">
+      <span class="badge">FAQ</span>
+      <h2>Preguntas frecuentes sobre portátil o tablet para estudiar</h2>
+    </div>
+    <div class="faq-list">
+      {faqs.map((faq, index) => (
+        <details class="faq-item" open={index === 0}>
+          <summary>{faq.question}</summary>
+          <p>{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </Section>
+
+  <Section variant="dark" className="cta-final">
+    <div class="cta-content">
+      <span class="badge badge-inverse">Recomendación personalizada</span>
+      <h2>Descubre si necesitas portátil, tablet o los dos</h2>
+      <p>
+        Indica tu carrera y cómo estudias habitualmente. EasyChoose te dice qué dispositivo encaja mejor con tu caso concreto, sin presuponer nada.
+      </p>
+      <a href={appUrl} class="btn btn-secondary btn-large">Empezar el Asistente Gratis</a>
+      <ul class="trust-pills">
+        <li>Gratis y sin registro</li>
+        <li>Resultado en menos de 2 minutos</li>
+        <li>Chat IA para la última duda</li>
+      </ul>
+    </div>
+  </Section>
+</Layout>
+
+<style>
+  .cluster-hero-content {
+    max-width: 760px;
+    padding: 5rem 0 4rem;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    background: rgba(108, 99, 255, 0.12);
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .badge-inverse {
+    background: rgba(255, 255, 255, 0.14);
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .last-updated {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+    color: var(--color-dark);
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    max-width: 66ch;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .btn-large {
+    padding: 1rem 2.35rem;
+    font-size: 1.05rem;
+  }
+
+  .up-link {
+    margin-top: 1.5rem;
+  }
+
+  .up-link a {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .up-link a:hover {
+    text-decoration: underline;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+
+  .section-header h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    margin: 0.5rem 0 1rem;
+  }
+
+  .section-header p {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    box-shadow: 0 20px 40px rgba(46, 46, 46, 0.08);
+    background: white;
+    margin-bottom: 1.5rem;
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 720px;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    text-align: left;
+    padding: 1rem 1.2rem;
+    border-bottom: 1px solid rgba(46, 46, 46, 0.08);
+    vertical-align: top;
+    color: var(--color-text-muted);
+    font-size: 0.94rem;
+  }
+
+  .comparison-table thead th {
+    background: rgba(108, 99, 255, 0.08);
+    color: var(--color-dark);
+    font-weight: 700;
+  }
+
+  .comparison-table tbody th {
+    width: 34%;
+    color: var(--color-dark);
+    font-weight: 600;
+  }
+
+  .career-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .career-card {
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.6rem;
+    padding: 1.75rem;
+    box-shadow: 0 18px 40px rgba(46, 46, 46, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .career-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .career-icon {
+    font-size: 2rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .career-header h3 {
+    font-size: 1.1rem;
+    color: var(--color-dark);
+    margin: 0;
+  }
+
+  .career-desc {
+    color: var(--color-text-muted);
+    font-size: 0.94rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .faq-list {
+    max-width: 860px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .faq-item {
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.4rem;
+    padding: 1.2rem 1.3rem;
+    box-shadow: 0 18px 36px rgba(46, 46, 46, 0.06);
+  }
+
+  .faq-item summary {
+    cursor: pointer;
+    font-weight: 700;
+    list-style: none;
+    padding-right: 2rem;
+    position: relative;
+    color: var(--color-dark);
+  }
+
+  .faq-item summary::-webkit-details-marker { display: none; }
+
+  .faq-item summary::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: -0.1rem;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--color-primary);
+  }
+
+  .faq-item[open] summary::after { content: "−"; }
+
+  .faq-item p {
+    margin-top: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  .cta-final :global(.container) { max-width: 860px; }
+
+  .cta-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-content h2 {
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    max-width: 56ch;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.05rem;
+  }
+
+  .trust-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    list-style: none;
+    margin-top: 1.5rem;
+  }
+
+  .trust-pills li {
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    font-weight: 600;
+  }
+
+  @media (max-width: 1024px) {
+    .career-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .career-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .trust-pills {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .trust-pills li {
+      text-align: center;
+    }
+  }
+</style>

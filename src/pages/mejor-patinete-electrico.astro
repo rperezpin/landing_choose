@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
+import vmpData from "../data/patinetes-homologados-dgt.json";
 
 const canonical = "https://easychoose.es/mejor-patinete-electrico/";
 const appUrl = "https://app.easychoose.es/";
@@ -26,8 +27,13 @@ const criteria = [
   },
   {
     icon: "🛑",
-    title: "Sistema de frenado doble y certificación",
-    description: "Un patinete legal para circular necesita frenos eficaces (idealmente de disco más regenerativo) y cumplir la certificación de la DGT (manual de características VMP). Verifica esto antes de comprar, no después.",
+    title: "Sistema de frenado doble",
+    description: "Un patinete legal para circular necesita frenos eficaces, idealmente de disco más regenerativo. Compleméntalo siempre con la certificación VMP del punto siguiente.",
+  },
+  {
+    icon: "🪪",
+    title: "Certificado VMP vigente",
+    description: "Desde el 22 de enero de 2027 solo podrán circular los patinetes con certificado VMP de la DGT. Si compras ahora, elegir directamente un modelo certificado te evita tener que cambiarlo en menos de dos años. El asistente te muestra qué modelos están certificados dentro de tu presupuesto.",
   },
   {
     icon: "💶",
@@ -93,7 +99,17 @@ const faqs = [
   {
     question: "¿Qué patinete eléctrico es legal para circular en España?",
     answer:
-      "Un patinete legal en España necesita el certificado de circulación según el Manual de Características VMP de la DGT, frenos eficaces, luces y, en muchos municipios, seguro de responsabilidad civil. Verifica que el modelo tiene esta certificación antes de comprarlo, no después.",
+      "Todos los patinetes vendidos hoy en España pueden circular, pero desde el 22 de enero de 2027 solo lo podrán hacer los modelos con certificado VMP de la DGT. Comprarlo ya certificado evita tener que cambiarlo antes de esa fecha. El asistente filtra automáticamente esta información en cada recomendación.",
+  },
+  {
+    question: "¿Qué pasa si mi patinete actual no está certificado?",
+    answer:
+      "Puedes seguir usándolo hasta el 22 de enero de 2027 si lo inscribes en el Registro de Vehículos Personales Ligeros de la DGT. A partir de esa fecha necesitarás un modelo certificado. Si quieres comprobar tu modelo actual, tienes una herramienta de verificación gratuita en circulalegal.es.",
+  },
+  {
+    question: "¿Cómo sé si un patinete concreto está certificado por la DGT?",
+    answer:
+      "El fabricante debe indicarlo en la ficha del producto y el patinete debe llevar una placa de marcaje remachada en el chasis con el número de certificado. En las recomendaciones de EasyChoose, los modelos certificados llevan la etiqueta ✅ Homologado DGT.",
   },
   {
     question: "¿Cuántos kilómetros de autonomía necesito en un patinete eléctrico?",
@@ -233,6 +249,76 @@ const articleSchema = {
     <p class="table-note">
       La certificación de circulación de los patinetes eléctricos (vehículos de movilidad personal, VMP) está regulada por la <a href="https://www.dgt.es/" target="_blank" rel="noopener noreferrer">Dirección General de Tráfico (DGT)</a>. Verifica siempre que el modelo que compras cumple esa normativa antes de circular con él en vía pública.
     </p>
+  </Section>
+
+  <Section variant="glass" id="verificador">
+    <div class="verifier-card">
+      <h2>¿Ya tienes patinete? Comprueba si está homologado</h2>
+      <p>
+        Escribe la marca y el modelo para consultar el listado oficial de certificados VMP de la DGT (actualizado {new Date(vmpData.fecha_actualizacion_dgt).toLocaleDateString("es-ES", { day: "numeric", month: "long", year: "numeric" })}).
+      </p>
+      <form id="verificador-form" class="verifier-form">
+        <input type="text" id="verificador-input" placeholder="Marca y modelo, ej. Xiaomi 4 Pro" autocomplete="off" />
+        <button type="submit" class="btn btn-primary">Comprobar</button>
+      </form>
+      <div id="verificador-resultado" class="verifier-result" role="status"></div>
+      <p class="verifier-note">
+        Consulta orientativa sobre marca y modelo declarados por el fabricante ante la DGT. La certificación se concede por modelo y versión concretos: confirma siempre la placa de marcaje remachada en el chasis de tu unidad. Listado completo y descodificadores de código en <a href="https://circulalegal.es/" target="_blank" rel="noopener noreferrer">circulalegal.es</a>. Más sobre qué significa la homologación en <a href="/patinete-electrico-homologado-dgt/">patinete eléctrico homologado DGT</a>.
+      </p>
+    </div>
+    <script type="application/json" id="vmp-data" set:html={JSON.stringify(vmpData.modelos)} />
+    <script is:inline>
+      const form = document.getElementById("verificador-form");
+      const input = document.getElementById("verificador-input");
+      const resultado = document.getElementById("verificador-resultado");
+      const dataEl = document.getElementById("vmp-data");
+
+      if (form && input && resultado && dataEl) {
+        const modelos = JSON.parse(dataEl.textContent || "[]");
+
+        const normalizar = (texto) =>
+          texto
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[̀-ͯ]/g, "")
+            .trim();
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const consulta = normalizar(input.value);
+          resultado.className = "verifier-result";
+
+          if (consulta.length < 2) {
+            resultado.textContent = "Escribe al menos marca y modelo para buscar.";
+            resultado.classList.add("verifier-result-empty");
+            return;
+          }
+
+          const terminos = consulta.split(/\s+/).filter(Boolean);
+          const coincidencias = modelos.filter((item) => {
+            const texto = normalizar(`${item.marca} ${item.modelo}`);
+            return terminos.every((termino) => texto.includes(termino));
+          });
+
+          if (coincidencias.length === 0) {
+            resultado.classList.add("verifier-result-no");
+            resultado.innerHTML = `⏳ No encontramos ese modelo en el listado de certificados VMP. Puede que no esté homologado, o que el nombre no coincida exactamente. <a href="https://circulalegal.es/verificar/" target="_blank" rel="noopener noreferrer">Verifica el código completo en circulalegal.es</a>.`;
+            return;
+          }
+
+          resultado.classList.add("verifier-result-yes");
+          const lista = coincidencias
+            .slice(0, 5)
+            .map((item) => `<li>✅ <strong>${item.marca} ${item.modelo}</strong> · Certificado ${item.certificado}</li>`)
+            .join("");
+          resultado.innerHTML = `
+            <ul class="verifier-matches">${lista}</ul>
+            ${coincidencias.length > 5 ? `<p class="verifier-more">Y ${coincidencias.length - 5} coincidencias más.</p>` : ""}
+            <a href="https://app.easychoose.es/?homologado_dgt=true" class="verifier-cta">Ver alternativas certificadas →</a>
+          `;
+        });
+      }
+    </script>
   </Section>
 
   <Section variant="light" id="presupuesto">
@@ -440,6 +526,101 @@ const articleSchema = {
     color: var(--color-text-muted);
     font-size: 0.96rem;
     line-height: 1.65;
+  }
+
+  .verifier-card {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(46, 46, 46, 0.08);
+    border-radius: 1.6rem;
+    padding: 2.25rem 2rem;
+    box-shadow: 0 18px 40px rgba(46, 46, 46, 0.06);
+  }
+
+  .verifier-card h2 {
+    font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+    margin-bottom: 0.75rem;
+    color: var(--color-dark);
+  }
+
+  .verifier-card > p {
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .verifier-form {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .verifier-form input {
+    flex: 1 1 260px;
+    padding: 0.8rem 1.1rem;
+    border-radius: 999px;
+    border: 1px solid rgba(46, 46, 46, 0.16);
+    font-size: 1rem;
+  }
+
+  .verifier-result {
+    margin-top: 1.5rem;
+    text-align: left;
+  }
+
+  .verifier-result:empty {
+    margin-top: 0;
+  }
+
+  .verifier-result-empty {
+    color: var(--color-text-muted);
+    text-align: center;
+  }
+
+  .verifier-result-no {
+    background: rgba(255, 211, 105, 0.14);
+    border-radius: 1rem;
+    padding: 1rem 1.25rem;
+    color: var(--color-dark);
+  }
+
+  .verifier-matches {
+    list-style: none;
+    margin: 0 0 1rem;
+    padding: 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .verifier-matches li {
+    background: rgba(108, 99, 255, 0.08);
+    border-radius: 0.85rem;
+    padding: 0.75rem 1rem;
+    color: var(--color-dark);
+  }
+
+  .verifier-more {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .verifier-cta {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .verifier-cta:hover {
+    text-decoration: underline;
+  }
+
+  .verifier-note {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
   }
 
   .budget-grid {

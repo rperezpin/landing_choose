@@ -138,6 +138,8 @@ const categories = [
     links: ["Patinete eléctrico", "Bicicleta eléctrica", "Scooter eléctrico"],
     guideUrl: "/mejor-patinete-electrico/",
     guideLabel: "Guía calidad-precio →",
+    secondaryGuideUrl: "/patinete-electrico-homologado-dgt/",
+    secondaryGuideLabel: "Patinete homologado DGT →",
   },
 ];
 
@@ -473,7 +475,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, catalogSchema, serv
       <div class="hero-visual">
         <div class="hero-illustration-wrap" aria-label="Ilustración del asistente EasyChoose">
           <div class="hero-floating hero-floating-top hero-floating-outside">
-            <span class="emoji-inline" aria-hidden="true"><Icon name="chat-bubble" class="icon-svg icon-svg-inline" /></span>
+            <span class="emoji-inline" aria-hidden="true"><Icon name="chat-bubble" /></span>
             <span>Te guiamos paso a paso</span>
           </div>
           <Image
@@ -500,7 +502,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, catalogSchema, serv
     <div class="feature-grid">
       {features.map((feature) => (
         <article class={`feature-card ${feature.highlight ? "feature-card-highlight" : ""}`}>
-          <div class="emoji-feature" aria-hidden="true"><Icon name={feature.icon} class="icon-svg" /></div>
+          <div class="icon-badge icon-badge-lg" aria-hidden="true"><Icon name={feature.icon} /></div>
           <h3>{feature.title}</h3>
           <p>{feature.text}</p>
         </article>
@@ -519,7 +521,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, catalogSchema, serv
     <div class="use-cases-grid">
       {useCases.map((useCase) => (
         <article class="info-card friendly-card friendly-centered">
-          <div class="emoji-card" aria-hidden="true"><Icon name={useCase.icon} class="icon-svg" /></div>
+          <div class="icon-badge" aria-hidden="true"><Icon name={useCase.icon} /></div>
           <h3>{useCase.title}</h3>
           <p>{useCase.description}</p>
         </article>
@@ -538,7 +540,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, catalogSchema, serv
     <div class="problem-grid">
       {problems.map((problem) => (
         <article class="problem-item plain-problem">
-          <div class="problem-icon plain-emoji" aria-hidden="true"><Icon name={problem.icon} class="icon-svg" /></div>
+          <div class="icon-badge" aria-hidden="true"><Icon name={problem.icon} /></div>
           <h3>{problem.title}</h3>
           <p>{problem.description}</p>
         </article>
@@ -576,7 +578,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, catalogSchema, serv
     <div class="categories-grid">
       {categories.map((category) => (
         <article class="category-card">
-          <div class="category-icon category-emoji" aria-hidden="true"><Icon name={category.icon} class="icon-svg" /></div>
+          <div class="icon-badge icon-badge-lg" aria-hidden="true"><Icon name={category.icon} /></div>
           <h3>{category.title}</h3>
           <p>{category.description}</p>
           <div class="price-range">{category.priceRange}</div>
@@ -587,6 +589,9 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, catalogSchema, serv
           </ul>
           {category.guideUrl && (
             <a href={category.guideUrl} class="guide-link">{category.guideLabel}</a>
+          )}
+          {category.secondaryGuideUrl && (
+            <a href={category.secondaryGuideUrl} class="guide-link">{category.secondaryGuideLabel}</a>
           )}
         </article>
       ))}
@@ -604,7 +609,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, catalogSchema, serv
     <div class="catalog-grid">
       {catalogSources.map((source) => (
         <article class="info-card friendly-card friendly-centered">
-          <div class="emoji-card" aria-hidden="true"><Icon name={source.icon} class="icon-svg" /></div>
+          <div class="icon-badge" aria-hidden="true"><Icon name={source.icon} /></div>
           <h3>{source.title}</h3>
           <p>{source.description}</p>
         </article>
@@ -630,7 +635,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, catalogSchema, serv
       {quickQuestions.map((item) => (
         <article class="qa-card friendly-card improved-question-card">
           <div class="question-top">
-            <div class="emoji-card emoji-card-small question-emoji" aria-hidden="true"><Icon name={item.icon} class="icon-svg" /></div>
+            <div class="icon-badge icon-badge-sm" aria-hidden="true"><Icon name={item.icon} /></div>
             <span class="question-tag">Búsqueda frecuente</span>
           </div>
           <h3>{item.question}</h3>
@@ -686,7 +691,7 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, catalogSchema, serv
     <div class="methodology-list">
       {methodology.map((item) => (
         <article class="method-item">
-          <div class="method-emoji" aria-hidden="true"><Icon name={item.icon} class="icon-svg" /></div>
+          <div class="icon-badge" aria-hidden="true"><Icon name={item.icon} /></div>
           <div class="method-copy">
             <h3>{item.title}</h3>
             <p>{item.description}</p>
@@ -763,17 +768,33 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, catalogSchema, serv
     color: white;
   }
 
-  .icon-svg {
-    width: 1em;
-    height: 1em;
-    display: inline-block;
-    vertical-align: middle;
+  .icon-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 1.1rem;
+    background: rgba(108, 99, 255, 0.12);
     color: var(--color-primary);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
   }
 
-  .icon-svg-inline {
-    width: 1.1em;
-    height: 1.1em;
+  .icon-badge-sm {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.9rem;
+    font-size: 1.25rem;
+    margin-bottom: 0;
+  }
+
+  .icon-badge-lg {
+    width: 3.75rem;
+    height: 3.75rem;
+    border-radius: 1.25rem;
+    font-size: 1.7rem;
   }
 
   .section-header h2 {
@@ -972,12 +993,6 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, catalogSchema, serv
     margin: 0 auto;
   }
 
-  .emoji-feature {
-    font-size: 3rem;
-    line-height: 1;
-    margin-bottom: 1rem;
-  }
-
   .use-cases-grid,
   .problem-grid,
   .steps-grid,
@@ -1078,25 +1093,11 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, catalogSchema, serv
     text-align: center;
   }
 
-  .emoji-card {
-    font-size: 2.3rem;
-    line-height: 1;
-    margin-bottom: 1rem;
-  }
-
-  .emoji-card-small {
-    font-size: 2rem;
-  }
-
   .question-top {
     display: flex;
     align-items: center;
     gap: 0.8rem;
     margin-bottom: 0.8rem;
-  }
-
-  .question-emoji {
-    margin-bottom: 0;
   }
 
   .question-tag {
@@ -1136,12 +1137,6 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, catalogSchema, serv
     padding: 1rem 1.25rem;
   }
 
-  .plain-emoji {
-    font-size: 3rem;
-    line-height: 1;
-    margin-bottom: 1.2rem;
-  }
-
   .step-card {
     position: relative;
     padding-top: 4.25rem;
@@ -1169,12 +1164,6 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, catalogSchema, serv
     overflow: hidden;
     text-align: center;
     align-items: center;
-  }
-
-  .category-emoji {
-    font-size: 2.9rem;
-    line-height: 1;
-    margin-bottom: 0.35rem;
   }
 
   .price-range {
@@ -1260,12 +1249,6 @@ const pageSchemas = [faqSchema, howToSchema, itemListSchema, catalogSchema, serv
     gap: 1.1rem;
   }
 
-  .method-emoji {
-    flex: 0 0 auto;
-    font-size: 2.5rem;
-    line-height: 1;
-    margin-top: 0.1rem;
-  }
 
   .method-copy h3 {
     font-size: 1.15rem;

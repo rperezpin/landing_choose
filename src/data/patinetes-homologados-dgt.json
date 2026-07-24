@@ -1,0 +1,1936 @@
+{
+  "fecha_actualizacion_dgt": "2026-07-16",
+  "fuente": "https://www.dgt.es/nuestros-servicios/tu-vehiculo/vehiculos-de-movilidad-personal-vmp/",
+  "modelos": [
+    {
+      "marca": "ACER",
+      "modelo": "AES025 - Version ACER SERIES 5 ADVANCE",
+      "certificado": "A1158"
+    },
+    {
+      "marca": "ACER",
+      "modelo": "AES023 - Version ACER SERIES 3 ADVANCE",
+      "certificado": "A1173"
+    },
+    {
+      "marca": "Adasmart",
+      "modelo": "ADASMART X",
+      "certificado": "B1067"
+    },
+    {
+      "marca": "Adasmart",
+      "modelo": "ADASMART XE",
+      "certificado": "B1077"
+    },
+    {
+      "marca": "Adasmart",
+      "modelo": "ADASMART Tank",
+      "certificado": "B1087"
+    },
+    {
+      "marca": "AUSOM",
+      "modelo": "K20",
+      "certificado": "B1155"
+    },
+    {
+      "marca": "AUSOM",
+      "modelo": "K30",
+      "certificado": "B1156"
+    },
+    {
+      "marca": "BIRD",
+      "modelo": "ES-400D",
+      "certificado": "A1009"
+    },
+    {
+      "marca": "BIRD",
+      "modelo": "SMART PLUS - Version VA00005",
+      "certificado": "A1103"
+    },
+    {
+      "marca": "BIRD",
+      "modelo": "BS+V2 - Version ES410V",
+      "certificado": "A1139"
+    },
+    {
+      "marca": "BMOV",
+      "modelo": "5.0",
+      "certificado": "A1104"
+    },
+    {
+      "marca": "BMOV",
+      "modelo": "4.0",
+      "certificado": "A1106"
+    },
+    {
+      "marca": "BMOV",
+      "modelo": "6.0 - Version 1.0",
+      "certificado": "A1112"
+    },
+    {
+      "marca": "BMOV",
+      "modelo": "XM25 - Version V01",
+      "certificado": "B1138"
+    },
+    {
+      "marca": "BOLT",
+      "modelo": "ES600",
+      "certificado": "A1012"
+    },
+    {
+      "marca": "BOLT",
+      "modelo": "BOLT 4+ - Version COBRA 1 (C1)",
+      "certificado": "A1044"
+    },
+    {
+      "marca": "BOLT",
+      "modelo": "D1 - Version 1.1",
+      "certificado": "A1161"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "7303",
+      "certificado": "A1000"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "7302",
+      "certificado": "A1001"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "7304",
+      "certificado": "A1002"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "7305",
+      "certificado": "A1003"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "7104",
+      "certificado": "A1014"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "7311 - Version 7324",
+      "certificado": "A1015"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "7106",
+      "certificado": "A1016"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "7105",
+      "certificado": "A1017"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "7109",
+      "certificado": "A1018"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "7107",
+      "certificado": "A1019"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "Z - Versiones City y Mountain",
+      "certificado": "A1023"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "7318",
+      "certificado": "A1048"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "7108",
+      "certificado": "A1049"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "Z POWER",
+      "certificado": "A1050"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "DOBLE Z 75",
+      "certificado": "A1052"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "DOBLE Z 85",
+      "certificado": "A1053"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "7325",
+      "certificado": "A1054"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "Y45",
+      "certificado": "A1055"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "Y65",
+      "certificado": "A1056"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "7112",
+      "certificado": "A1062"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "7113",
+      "certificado": "A1063"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "7114",
+      "certificado": "A1064"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "7356 / Bongo D20 XL Connected",
+      "certificado": "A1099"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "Bongo D30 XL Connected",
+      "certificado": "A1100"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "Bongo D40 XL Connected",
+      "certificado": "A1101"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "D40 XL Suspension Connected",
+      "certificado": "A1102"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "Bongo V70 Connected",
+      "certificado": "A1127"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "Bongo V55 2X2 Connected",
+      "certificado": "A1128"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "Bongo Y45 Connected",
+      "certificado": "A1129"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "Bongo Y65 Connected",
+      "certificado": "A1130"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "Y85 2X2 XXL Connected",
+      "certificado": "A1131"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "Bongo G40XXL Ultrawide Connected",
+      "certificado": "A1137"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "GS50 XXL Ultrawide Suspension Connected",
+      "certificado": "A1138"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "D20E Connected",
+      "certificado": "A1169"
+    },
+    {
+      "marca": "Cecotec",
+      "modelo": "GS65 2x2 XXL Connected",
+      "certificado": "A1181"
+    },
+    {
+      "marca": "CITY WHEEL",
+      "modelo": "T8 - Version 2026",
+      "certificado": "A1232"
+    },
+    {
+      "marca": "Coyote",
+      "modelo": "ES400A",
+      "certificado": "B1068"
+    },
+    {
+      "marca": "D-FLY",
+      "modelo": "DF - Version 1",
+      "certificado": "B1116"
+    },
+    {
+      "marca": "DUALTRON",
+      "modelo": "POPULAR - Versiones 52v14ah, 52v20ah, 52v25ah",
+      "certificado": "B1037"
+    },
+    {
+      "marca": "DUALTRON",
+      "modelo": "POPULAR DUAL - Versiones 52v14ah, 52v20ah, 52v25ah",
+      "certificado": "B1038"
+    },
+    {
+      "marca": "DUALTRON",
+      "modelo": "TOGO PLUS - Versiones 36v12ah, 48v12ah, 48v15ah",
+      "certificado": "B1039"
+    },
+    {
+      "marca": "DUALTRON",
+      "modelo": "FOREVER - Version 60V",
+      "certificado": "B1057"
+    },
+    {
+      "marca": "DUALTRON",
+      "modelo": "VICTOR - Version 60V",
+      "certificado": "B1058"
+    },
+    {
+      "marca": "DUALTRON",
+      "modelo": "VICTOR - Version LIMITED",
+      "certificado": "B1059"
+    },
+    {
+      "marca": "DUALTRON",
+      "modelo": "VICTOR - Version LUXURY PLUS",
+      "certificado": "B1060"
+    },
+    {
+      "marca": "DUALTRON",
+      "modelo": "TOGO LIMITED - Version 60v12ah",
+      "certificado": "B1061"
+    },
+    {
+      "marca": "DUALTRON",
+      "modelo": "TOGO LIMITED - Version 60v15ah",
+      "certificado": "B1062"
+    },
+    {
+      "marca": "DUALTRON",
+      "modelo": "VICTOR - Version LUXURY",
+      "certificado": "B1066"
+    },
+    {
+      "marca": "DUALTRON",
+      "modelo": "AMINIA SPECIAL - Version 52V",
+      "certificado": "B1094"
+    },
+    {
+      "marca": "DUALTRON",
+      "modelo": "AMINIA SPECIAL LONG BODY - Version 52V",
+      "certificado": "B1095"
+    },
+    {
+      "marca": "DUALTRON",
+      "modelo": "THUNDER III - Version 72V",
+      "certificado": "B1101"
+    },
+    {
+      "marca": "DUALTRON",
+      "modelo": "FOREVER LIMITED - Version 24ah",
+      "certificado": "B1107"
+    },
+    {
+      "marca": "DUALTRON",
+      "modelo": "SONIC ALIEN - Version 40Ah",
+      "certificado": "B1136"
+    },
+    {
+      "marca": "E-TWOW",
+      "modelo": "TK5",
+      "certificado": "B1106"
+    },
+    {
+      "marca": "E-TWOW",
+      "modelo": "GTS - Version GTS",
+      "certificado": "A1210"
+    },
+    {
+      "marca": "Ecoxtrem",
+      "modelo": "Bison",
+      "certificado": "A1085"
+    },
+    {
+      "marca": "Ecoxtrem",
+      "modelo": "M41 TANK",
+      "certificado": "A1143"
+    },
+    {
+      "marca": "Ecoxtrem",
+      "modelo": "BOOP - Version 1.0",
+      "certificado": "A1144"
+    },
+    {
+      "marca": "Ecoxtrem",
+      "modelo": "LINEAR",
+      "certificado": "A1157"
+    },
+    {
+      "marca": "Ecoxtrem",
+      "modelo": "M41 Tank Dual - Version 52V 16Ah",
+      "certificado": "A1182"
+    },
+    {
+      "marca": "Ecoxtrem",
+      "modelo": "M41 Tank Dual - Version 52V 20Ah",
+      "certificado": "A1183"
+    },
+    {
+      "marca": "Ecoxtrem",
+      "modelo": "XANZER",
+      "certificado": "A1221"
+    },
+    {
+      "marca": "Ecoxtrem",
+      "modelo": "M41 ARMORED",
+      "certificado": "A1224"
+    },
+    {
+      "marca": "Ecoxtrem",
+      "modelo": "DEIMOS DUAL",
+      "certificado": "A1228"
+    },
+    {
+      "marca": "Ecoxtrem",
+      "modelo": "DEIMOS",
+      "certificado": "A1229"
+    },
+    {
+      "marca": "EmTransit B.V",
+      "modelo": "SO-03",
+      "certificado": "A1010"
+    },
+    {
+      "marca": "EmTransit B.V",
+      "modelo": "SO-03-2",
+      "certificado": "A1037"
+    },
+    {
+      "marca": "ENGWE",
+      "modelo": "Y1000",
+      "certificado": "B1151"
+    },
+    {
+      "marca": "ETRiC",
+      "modelo": "VORTEX",
+      "certificado": "A1109"
+    },
+    {
+      "marca": "EVERCROSS, RCB",
+      "modelo": "EV10K PRO",
+      "certificado": "B1055"
+    },
+    {
+      "marca": "EVERCROSS, RCB",
+      "modelo": "EV85F",
+      "certificado": "B1056"
+    },
+    {
+      "marca": "EVERCROSS",
+      "modelo": "EV10K PRO",
+      "certificado": "B1114"
+    },
+    {
+      "marca": "EVERCROSS",
+      "modelo": "EV85F",
+      "certificado": "B1115"
+    },
+    {
+      "marca": "EVERCROSS",
+      "modelo": "EV10S MAX",
+      "certificado": "C1012"
+    },
+    {
+      "marca": "HIKERBOY",
+      "modelo": "CURTIS",
+      "certificado": "B1112"
+    },
+    {
+      "marca": "HIKERBOY",
+      "modelo": "CURTIS DUAL",
+      "certificado": "C1015"
+    },
+    {
+      "marca": "HIKERBOY",
+      "modelo": "CURTIS DUAL PRO",
+      "certificado": "C1016"
+    },
+    {
+      "marca": "HIKERBOY",
+      "modelo": "CURTIS PLUS",
+      "certificado": "C1017"
+    },
+    {
+      "marca": "HILEY",
+      "modelo": "TIGER EVO",
+      "certificado": "B1142"
+    },
+    {
+      "marca": "HITWAY",
+      "modelo": "Electric Scooter H9",
+      "certificado": "B1072, B1113"
+    },
+    {
+      "marca": "HOPP",
+      "modelo": "ES400A",
+      "certificado": "A1186"
+    },
+    {
+      "marca": "HOPPY",
+      "modelo": "S90L - Version P8S2",
+      "certificado": "A1171"
+    },
+    {
+      "marca": "ICe",
+      "modelo": "M5 - Version 1.0",
+      "certificado": "A1013"
+    },
+    {
+      "marca": "ICe",
+      "modelo": "Q3 EVOLUTION - Version 1.0",
+      "certificado": "A1065"
+    },
+    {
+      "marca": "ICe",
+      "modelo": "Q3 EVOLUTION ONE - Version 1.0",
+      "certificado": "A1066"
+    },
+    {
+      "marca": "ICe",
+      "modelo": "Q5 EVOLUTION - Version 1.0",
+      "certificado": "A1067"
+    },
+    {
+      "marca": "ICe",
+      "modelo": "Q5 EVOLUTION - Version MAX",
+      "certificado": "A1203"
+    },
+    {
+      "marca": "INFINITON",
+      "modelo": "BIGCITY PRO",
+      "certificado": "A1140"
+    },
+    {
+      "marca": "INMOTION",
+      "modelo": "CLIMBER",
+      "certificado": "A1108"
+    },
+    {
+      "marca": "iScooter",
+      "modelo": "i9MAX",
+      "certificado": "B1086"
+    },
+    {
+      "marca": "iScooter",
+      "modelo": "i9M",
+      "certificado": "C1018"
+    },
+    {
+      "marca": "iScooter",
+      "modelo": "iX7 Pro",
+      "certificado": "C1019"
+    },
+    {
+      "marca": "iScooter",
+      "modelo": "i8M",
+      "certificado": "C1020"
+    },
+    {
+      "marca": "iSinwheel",
+      "modelo": "GT2",
+      "certificado": "B1096"
+    },
+    {
+      "marca": "JOYOR",
+      "modelo": "LiteGo",
+      "certificado": "A1089"
+    },
+    {
+      "marca": "JOYOR",
+      "modelo": "S-PRO",
+      "certificado": "A1113"
+    },
+    {
+      "marca": "JOYOR",
+      "modelo": "Y10",
+      "certificado": "A1114"
+    },
+    {
+      "marca": "JOYOR",
+      "modelo": "C10",
+      "certificado": "A1153"
+    },
+    {
+      "marca": "JOYOR",
+      "modelo": "T-Pro",
+      "certificado": "A1219"
+    },
+    {
+      "marca": "JOYOR",
+      "modelo": "T6D",
+      "certificado": "A1227"
+    },
+    {
+      "marca": "KAABO",
+      "modelo": "Mantis King - Version GT",
+      "certificado": "A1098"
+    },
+    {
+      "marca": "KAMIKAZE",
+      "modelo": "Kl - Version 1",
+      "certificado": "A1202"
+    },
+    {
+      "marca": "KAMIKAZE",
+      "modelo": "Kl LITE - Version 1",
+      "certificado": "A1206"
+    },
+    {
+      "marca": "KAMIKAZE",
+      "modelo": "Kl MAX - Version 1",
+      "certificado": "A1207"
+    },
+    {
+      "marca": "KAMIKAZE",
+      "modelo": "Kl PLUS - Version 1",
+      "certificado": "A1208"
+    },
+    {
+      "marca": "KUICKWHEEL",
+      "modelo": "S1-C Pro - Versiones 13AH, 16AH",
+      "certificado": "B1023"
+    },
+    {
+      "marca": "KUICKWHEEL",
+      "modelo": "M16 Pro - Version 10,4AH",
+      "certificado": "B1024"
+    },
+    {
+      "marca": "KUICKWHEEL",
+      "modelo": "S9 - Version 15,6AH",
+      "certificado": "B1035"
+    },
+    {
+      "marca": "KUKIRIN",
+      "modelo": "G2 Pro",
+      "certificado": "A1156"
+    },
+    {
+      "marca": "KUKIRIN",
+      "modelo": "G2",
+      "certificado": "C1011"
+    },
+    {
+      "marca": "LIME",
+      "modelo": "Gen 4.0",
+      "certificado": "A1008"
+    },
+    {
+      "marca": "LIME",
+      "modelo": "S4.1",
+      "certificado": "A1160"
+    },
+    {
+      "marca": "MASSCITY",
+      "modelo": "BLADE M10 PRO",
+      "certificado": "A1086"
+    },
+    {
+      "marca": "MASSCITY",
+      "modelo": "BLADE GT II+",
+      "certificado": "A1087"
+    },
+    {
+      "marca": "MASSCITY",
+      "modelo": "BLADE M10",
+      "certificado": "A1088"
+    },
+    {
+      "marca": "MINIMOTORS",
+      "modelo": "DT TOGO 12 - Version 12AH",
+      "certificado": "A1132"
+    },
+    {
+      "marca": "MINIMOTORS",
+      "modelo": "DT TOGO PLUS 12 - Version 12AH",
+      "certificado": "A1133"
+    },
+    {
+      "marca": "MINIMOTORS",
+      "modelo": "DT TOGO PLUS 15 - Version 15AH",
+      "certificado": "A1134"
+    },
+    {
+      "marca": "MINIMOTORS",
+      "modelo": "MINI SPECIAL - Version 13AH",
+      "certificado": "A1145"
+    },
+    {
+      "marca": "MINIMOTORS",
+      "modelo": "MINI SPECIAL - Version 17.5AH",
+      "certificado": "A1146"
+    },
+    {
+      "marca": "MINIMOTORS",
+      "modelo": "MINI SPECIAL - Version 21AH",
+      "certificado": "A1147"
+    },
+    {
+      "marca": "MINIMOTORS",
+      "modelo": "MINI SPECIAL - Version 12AH",
+      "certificado": "A1148"
+    },
+    {
+      "marca": "MINIMOTORS",
+      "modelo": "MINI SPECIAL - Version 15.6AH",
+      "certificado": "A1149"
+    },
+    {
+      "marca": "MINIMOTORS",
+      "modelo": "MINI SPECIAL - Version 21AH (2)",
+      "certificado": "A1150"
+    },
+    {
+      "marca": "MINIMOTORS",
+      "modelo": "Dualtron Forever - Version 27AH",
+      "certificado": "A1191"
+    },
+    {
+      "marca": "MINIMOTORS",
+      "modelo": "Dualtron Forever - Version 18.2AH",
+      "certificado": "A1192"
+    },
+    {
+      "marca": "MINIMOTORS",
+      "modelo": "Dualtron Victor - Version 27AH",
+      "certificado": "A1193"
+    },
+    {
+      "marca": "MINIMOTORS",
+      "modelo": "Dualtron Victor - Version 30AH",
+      "certificado": "A1194"
+    },
+    {
+      "marca": "MINIMOTORS",
+      "modelo": "Dualtron Victor Limited - Version 31.5AH",
+      "certificado": "A1195"
+    },
+    {
+      "marca": "MINIMOTORS",
+      "modelo": "Dualtron Victor Limited - Version 35AH",
+      "certificado": "A1196"
+    },
+    {
+      "marca": "MINIMOTORS",
+      "modelo": "Dualtron Victor Luxury Plus - Version 31.5AH",
+      "certificado": "A1197"
+    },
+    {
+      "marca": "MINIMOTORS",
+      "modelo": "Dualtron Victor Luxury Plus - Version 35AH",
+      "certificado": "A1198"
+    },
+    {
+      "marca": "MTR BIKES",
+      "modelo": "XIAO - Version 1",
+      "certificado": "A1172"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "NKT2214-E25 - Versiones 01, 02",
+      "certificado": "B1018"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "V25-E - Versiones 01, 02, 03, 04",
+      "certificado": "B1021, B1044"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "VDF - Versiones 01 (V40i-E), 02 (V40i-E), 03 (V50i-E), 04 (V50i-E)",
+      "certificado": "B1019, B1047"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "NDF - Version N65i-E",
+      "certificado": "B1020, B1048"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "S40-E",
+      "certificado": "B1045"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "S60-E",
+      "certificado": "B1046"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "V60i Pro-E",
+      "certificado": "B1049"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "V40i-E - Versiones 01, 02",
+      "certificado": "B1070"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "V25i-E - Versiones 01, 02",
+      "certificado": "B1071"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "ST5 Max EU",
+      "certificado": "B1122"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "ST5 Pro EU",
+      "certificado": "B1123"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "G5 EU",
+      "certificado": "B1124"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "G5 Pro EU",
+      "certificado": "B1125"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "G5 Max EU",
+      "certificado": "B1126"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "N65i II EU",
+      "certificado": "B1127"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "UT5 Max EU",
+      "certificado": "B1139"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "GT5 Pro EU",
+      "certificado": "B1140"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "GT5 Max EU",
+      "certificado": "B1141"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "V45i EU",
+      "certificado": "B1147"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "V1",
+      "certificado": "B1161"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "GT3-E",
+      "certificado": "C1001"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "GT3 Pro-E",
+      "certificado": "C1002"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "GT3 Max-E",
+      "certificado": "C1003"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "ST3-E",
+      "certificado": "C1004"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "ST3 Pro-E",
+      "certificado": "C1005"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "V25-P",
+      "certificado": "C1006"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "V50i Pro II-E",
+      "certificado": "C1007"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "XT5 Max EU",
+      "certificado": "C1008"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "XT5 Pro EU",
+      "certificado": "C1009"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "XT5 Ultra EU",
+      "certificado": "C1010"
+    },
+    {
+      "marca": "NAVEE",
+      "modelo": "NT5 Max EU",
+      "certificado": "C1021"
+    },
+    {
+      "marca": "Ninebot",
+      "modelo": "051201E",
+      "certificado": "B1002"
+    },
+    {
+      "marca": "Ninebot",
+      "modelo": "051202E",
+      "certificado": "B1003"
+    },
+    {
+      "marca": "Ninebot",
+      "modelo": "051203E",
+      "certificado": "B1004"
+    },
+    {
+      "marca": "Ninebot",
+      "modelo": "051401E",
+      "certificado": "B1005"
+    },
+    {
+      "marca": "Ninebot",
+      "modelo": "051402E",
+      "certificado": "B1006"
+    },
+    {
+      "marca": "Ninebot",
+      "modelo": "051405E",
+      "certificado": "B1016"
+    },
+    {
+      "marca": "Ninebot",
+      "modelo": "051501E",
+      "certificado": "B1007"
+    },
+    {
+      "marca": "Ninebot",
+      "modelo": "051402EE",
+      "certificado": "B1052"
+    },
+    {
+      "marca": "Ninebot",
+      "modelo": "051401EE",
+      "certificado": "B1099"
+    },
+    {
+      "marca": "Ninebot",
+      "modelo": "051201EE",
+      "certificado": "B1103"
+    },
+    {
+      "marca": "Ninebot",
+      "modelo": "051203EE",
+      "certificado": "B1104"
+    },
+    {
+      "marca": "NIU",
+      "modelo": "KQi1 Pro",
+      "certificado": "B1034"
+    },
+    {
+      "marca": "NIU",
+      "modelo": "KQi2 Pro",
+      "certificado": "B1041"
+    },
+    {
+      "marca": "NIU",
+      "modelo": "KQi Air",
+      "certificado": "B1042"
+    },
+    {
+      "marca": "NIU",
+      "modelo": "KQi Air X",
+      "certificado": "B1043"
+    },
+    {
+      "marca": "NIU",
+      "modelo": "KQi 300P",
+      "certificado": "B1053"
+    },
+    {
+      "marca": "NIU",
+      "modelo": "KQi 300X",
+      "certificado": "B1054"
+    },
+    {
+      "marca": "NIU",
+      "modelo": "KQi 100 - Version KQi 100P",
+      "certificado": "B1082"
+    },
+    {
+      "marca": "NIU",
+      "modelo": "KQi 100 - Version KQi 100F",
+      "certificado": "B1083"
+    },
+    {
+      "marca": "NIU",
+      "modelo": "KQi 200 - Version KQi 200P",
+      "certificado": "B1110"
+    },
+    {
+      "marca": "NIU",
+      "modelo": "KQi 200 - Version KQi 200F",
+      "certificado": "B1111"
+    },
+    {
+      "marca": "NIU",
+      "modelo": "KQi 300X (2)",
+      "certificado": "B1128"
+    },
+    {
+      "marca": "NIU",
+      "modelo": "KQi 300P (2)",
+      "certificado": "B1129"
+    },
+    {
+      "marca": "NUWA AVATAR EXCELLENCE",
+      "modelo": "AVATAR EXCELLENCE",
+      "certificado": "A1168"
+    },
+    {
+      "marca": "NUXCO",
+      "modelo": "EMANBA",
+      "certificado": "A1083"
+    },
+    {
+      "marca": "NUXCO",
+      "modelo": "EMANBA DUAL",
+      "certificado": "A1122"
+    },
+    {
+      "marca": "ODYSSR",
+      "modelo": "RODEO - Version 52V",
+      "certificado": "B1144"
+    },
+    {
+      "marca": "ODYSSR",
+      "modelo": "DRIFT - Version 60V",
+      "certificado": "B1145"
+    },
+    {
+      "marca": "OLSSON",
+      "modelo": "FRESH - Versiones RED, NEON, PULSE, AZUR, NATURE",
+      "certificado": "A1047"
+    },
+    {
+      "marca": "OLSSON",
+      "modelo": "ADVANCED - Versiones BN2, AM3, V3, G5, AN5, A4, NG4, A6, N6, GN7, GA7, M8, R8",
+      "certificado": "A1069"
+    },
+    {
+      "marca": "OLSSON",
+      "modelo": "MAMBA LITE - Versiones VN1, VN2, VN3, AL1, BN1, AL2, GL1, GVF1, AL3",
+      "certificado": "A1071"
+    },
+    {
+      "marca": "OLSSON",
+      "modelo": "FRESH SLIM",
+      "certificado": "A1117"
+    },
+    {
+      "marca": "OLSSON",
+      "modelo": "MAMBA X-TREM DUAL - Versiones NV01, GV02, AV03, AN04, GA05, NN06, BR07, VA08, NB09",
+      "certificado": "A1180"
+    },
+    {
+      "marca": "OLSSON",
+      "modelo": "QUANTUM - Versiones AN01, GL02, NN03, GA04, NA05, NR06, BR07, GN08, VA09",
+      "certificado": "A1184"
+    },
+    {
+      "marca": "OXELO",
+      "modelo": "SD500E - Version 1.0",
+      "certificado": "A1154"
+    },
+    {
+      "marca": "OXELO",
+      "modelo": "MD500E - Version 1.0",
+      "certificado": "A1155"
+    },
+    {
+      "marca": "OXELO",
+      "modelo": "XLD900e - Version 1.0",
+      "certificado": "A1185"
+    },
+    {
+      "marca": "OXELO",
+      "modelo": "LD900e - Version 1.0",
+      "certificado": "A1187"
+    },
+    {
+      "marca": "PLATUM",
+      "modelo": "Ducati - Versiones PRO-II EVO Advanced Safety, PRO-II EVO Advanced Safety m-bell",
+      "certificado": "B1014"
+    },
+    {
+      "marca": "PLATUM",
+      "modelo": "DUCATI - Version PRO-II PLUS Advanced Safety",
+      "certificado": "B1027, B1050"
+    },
+    {
+      "marca": "PLATUM",
+      "modelo": "JEEP - Version JAD Advanced Safety",
+      "certificado": "B1028, B1051, B1074"
+    },
+    {
+      "marca": "PLATUM",
+      "modelo": "DUCATI - Version PRO-I Evo Advanced Safety",
+      "certificado": "B1040"
+    },
+    {
+      "marca": "PLATUM",
+      "modelo": "DUCATI - Versiones PRO-II Evo Advanced Safety, PRO-II Evo Advanced Safety m-bell",
+      "certificado": "B1073, B1091"
+    },
+    {
+      "marca": "PLATUM",
+      "modelo": "AUTOMOBILI LAMBORGHINI - Versiones ALext Bronze, ALext Green",
+      "certificado": "B1075"
+    },
+    {
+      "marca": "PLATUM",
+      "modelo": "DUCATI - Version PRO-I",
+      "certificado": "B1076, B1121"
+    },
+    {
+      "marca": "PLATUM",
+      "modelo": "DUCATI - Version PRO-I Max",
+      "certificado": "B1102, B1120"
+    },
+    {
+      "marca": "PLATUM",
+      "modelo": "JEEP - Version JAD",
+      "certificado": "B1105"
+    },
+    {
+      "marca": "PRIXTON",
+      "modelo": "SCO850M - Version Patinete Eco Move Scooter 8,5\"",
+      "certificado": "A1188"
+    },
+    {
+      "marca": "Pure Electric",
+      "modelo": "Air 3 - Version Negro",
+      "certificado": "A1073"
+    },
+    {
+      "marca": "Pure Electric",
+      "modelo": "Air 3 Pro - Versiones Negro / Gris Claro",
+      "certificado": "A1074"
+    },
+    {
+      "marca": "Pure Electric",
+      "modelo": "Air 3 Pro + - Versiones Gris Mercurio Metalico / Plata Platino Metalico",
+      "certificado": "A1075"
+    },
+    {
+      "marca": "Pure Electric",
+      "modelo": "Advance - Versiones Negro / Gris claro",
+      "certificado": "A1076"
+    },
+    {
+      "marca": "Pure Electric",
+      "modelo": "Advance Flex - Versiones Gris Mercurio Metalico / Plata Platino Metalico",
+      "certificado": "A1077"
+    },
+    {
+      "marca": "Pure Electric",
+      "modelo": "Advance + - Versiones Gris Mercurio Metalico / Plata Platino Metalico",
+      "certificado": "A1078"
+    },
+    {
+      "marca": "RCB",
+      "modelo": "R17",
+      "certificado": "B1119"
+    },
+    {
+      "marca": "RCB",
+      "modelo": "R16",
+      "certificado": "C1013"
+    },
+    {
+      "marca": "RED BULL RACING",
+      "modelo": "RB-RTEEN85-75-ES - Version Race Teen 8.5",
+      "certificado": "A1024"
+    },
+    {
+      "marca": "RED BULL RACING",
+      "modelo": "RB-RTENTAKEUP10-10-ES - Version Race Take Up 10\"",
+      "certificado": "A1035"
+    },
+    {
+      "marca": "RED BULL RACING",
+      "modelo": "RB-RTEEN10-75-ES - Version Race Teen 10\"",
+      "certificado": "A1036"
+    },
+    {
+      "marca": "RED BULL RACING",
+      "modelo": "RB-2RTEEN10-78-ES - Version Race Teen.2",
+      "certificado": "A1041"
+    },
+    {
+      "marca": "RED BULL RACING",
+      "modelo": "RB-RTENTURBO10-75-ES - Versiones Race Ten Turbo 75 y Race Ten Turbo 75 Special",
+      "certificado": "A1042"
+    },
+    {
+      "marca": "RED BULL RACING",
+      "modelo": "RB-RTENTURBO10-12-ES - Versiones Race Ten Turbo 12 y Race Ten Turbo 12 Special",
+      "certificado": "A1043"
+    },
+    {
+      "marca": "RED BULL RACING",
+      "modelo": "RB-2RTENOR10-78-ES",
+      "certificado": "A1216"
+    },
+    {
+      "marca": "RED BULL RACING",
+      "modelo": "RB-2RTENOR10-10-ES",
+      "certificado": "A1217"
+    },
+    {
+      "marca": "RED BULL RACING",
+      "modelo": "RB-RSTREETOR85-6-ES",
+      "certificado": "A1218"
+    },
+    {
+      "marca": "REEBOK",
+      "modelo": "URBAN",
+      "certificado": "A1110"
+    },
+    {
+      "marca": "REEBOK",
+      "modelo": "DELTA URBAN",
+      "certificado": "A1111"
+    },
+    {
+      "marca": "Ridemovi",
+      "modelo": "ES410",
+      "certificado": "B1015"
+    },
+    {
+      "marca": "ROVORON",
+      "modelo": "R7 - Version 60V",
+      "certificado": "B1137"
+    },
+    {
+      "marca": "ROVORON",
+      "modelo": "S7 - Version 84V",
+      "certificado": "B1146"
+    },
+    {
+      "marca": "ROVORON",
+      "modelo": "R7 PRO - Version 60V",
+      "certificado": "B1148"
+    },
+    {
+      "marca": "SABWAY",
+      "modelo": "MI SABWAY PRO",
+      "certificado": "A1123"
+    },
+    {
+      "marca": "SABWAY",
+      "modelo": "DYNAMIC PRO",
+      "certificado": "A1124"
+    },
+    {
+      "marca": "SEGWAY",
+      "modelo": "051801E",
+      "certificado": "B1078"
+    },
+    {
+      "marca": "SEGWAY",
+      "modelo": "060202E",
+      "certificado": "B1085"
+    },
+    {
+      "marca": "SEGWAY",
+      "modelo": "051601E",
+      "certificado": "B1093"
+    },
+    {
+      "marca": "SEGWAY",
+      "modelo": "051701E",
+      "certificado": "B1097"
+    },
+    {
+      "marca": "SEGWAY",
+      "modelo": "051702E",
+      "certificado": "B1098"
+    },
+    {
+      "marca": "SEGWAY",
+      "modelo": "051901E",
+      "certificado": "B1108"
+    },
+    {
+      "marca": "SEGWAY",
+      "modelo": "051902E",
+      "certificado": "B1109"
+    },
+    {
+      "marca": "SEGWAY",
+      "modelo": "S100",
+      "certificado": "B1143"
+    },
+    {
+      "marca": "SEGWAY",
+      "modelo": "052001E",
+      "certificado": "B1162"
+    },
+    {
+      "marca": "SEGWAY",
+      "modelo": "051903E",
+      "certificado": "B1164"
+    },
+    {
+      "marca": "SEGWAY",
+      "modelo": "051904E",
+      "certificado": "B1165"
+    },
+    {
+      "marca": "SEGWAY",
+      "modelo": "051801E (2)",
+      "certificado": "B1169"
+    },
+    {
+      "marca": "SkateFlash",
+      "modelo": "Model US",
+      "certificado": "A1081"
+    },
+    {
+      "marca": "SkateFlash",
+      "modelo": "Spirex",
+      "certificado": "B1088"
+    },
+    {
+      "marca": "SkateFlash",
+      "modelo": "Urban",
+      "certificado": "A1092"
+    },
+    {
+      "marca": "SkateFlash",
+      "modelo": "Urban Pro",
+      "certificado": "A1093"
+    },
+    {
+      "marca": "SkateFlash",
+      "modelo": "Urban Dual Pro",
+      "certificado": "A1094"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "SG27297-X",
+      "certificado": "A1022"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "SG27245-13",
+      "certificado": "A1032"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "SG27245-18",
+      "certificado": "A1033"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "SG27245-23",
+      "certificado": "A1034"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "Z-ONE",
+      "certificado": "A1045"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "Z-PRO",
+      "certificado": "A1046"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "CROSSOVER",
+      "certificado": "A1057"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "CROSSOVER-LR",
+      "certificado": "A1058"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "SW-RW",
+      "certificado": "A1059"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "SW-RW PRO",
+      "certificado": "A1060"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "K2-PRO",
+      "certificado": "A1061"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "K2-PRO XL",
+      "certificado": "A1090"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "RYDER",
+      "certificado": "A1105"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "RYDER 17.5",
+      "certificado": "A1118"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "SX300",
+      "certificado": "A1151"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "ROCKWAY PRO EVO",
+      "certificado": "A1162"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "SW-RW EVO",
+      "certificado": "A1163"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "RAPTOR EVO LR",
+      "certificado": "A1164"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "RAPTOR EVO",
+      "certificado": "A1165"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "RAPTOR EVO D20",
+      "certificado": "A1166"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "RAPTOR EVO D15",
+      "certificado": "A1167"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "CROSSOVER DUAL MAX 2 LR",
+      "certificado": "A1175"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "CROSSOVER DUAL MAX 2",
+      "certificado": "A1176"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "ROCKWAY GTS",
+      "certificado": "A1189"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "ROCKWAY GT",
+      "certificado": "A1190"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "CROSSOVER DUAL XT",
+      "certificado": "A1205"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "K1",
+      "certificado": "A1209"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "K5 PRO",
+      "certificado": "A1213"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "K5 PRO LR",
+      "certificado": "A1214"
+    },
+    {
+      "marca": "SMARTGYRO",
+      "modelo": "ROCKWAY GT DUAL",
+      "certificado": "A1215"
+    },
+    {
+      "marca": "SUPERPEDESTRIAN",
+      "modelo": "S2.1",
+      "certificado": "B1012"
+    },
+    {
+      "marca": "SUPERPEDESTRIAN",
+      "modelo": "S2.1 - Version S2.1 sb",
+      "certificado": "B1084"
+    },
+    {
+      "marca": "TEVERUN",
+      "modelo": "FIGHTER MINI - Versiones Mini Eco 52v15,6ah / Mini 52v21ah / Mini Pro 60v25ah",
+      "certificado": "B1029"
+    },
+    {
+      "marca": "TEVERUN",
+      "modelo": "FIGHTER MINI - Version Q",
+      "certificado": "B1100"
+    },
+    {
+      "marca": "TEVERUN",
+      "modelo": "BLADE MINI - Version Ultra",
+      "certificado": "B1118"
+    },
+    {
+      "marca": "TEVERUN",
+      "modelo": "SPACE",
+      "certificado": "B1130"
+    },
+    {
+      "marca": "THETATAU",
+      "modelo": "Kaabo Urban - Version 4810",
+      "certificado": "B1149"
+    },
+    {
+      "marca": "THETATAU",
+      "modelo": "Kaabo Wolf Warrior X - Version 6027",
+      "certificado": "B1150"
+    },
+    {
+      "marca": "THETATAU",
+      "modelo": "Kaabo Mantis X - Version 4818",
+      "certificado": "B1163"
+    },
+    {
+      "marca": "TIER",
+      "modelo": "TIER 6",
+      "certificado": "A1007"
+    },
+    {
+      "marca": "TIER",
+      "modelo": "TIER 6 Pro",
+      "certificado": "A1025"
+    },
+    {
+      "marca": "URBAN GLIDE",
+      "modelo": "ECROSS PRO - Versiones ECROSS PRO y ECROSS PRO BLUE",
+      "certificado": "A1116"
+    },
+    {
+      "marca": "URBAN GLIDE",
+      "modelo": "100 MAX - Version MAX-77834",
+      "certificado": "A1135"
+    },
+    {
+      "marca": "URBAN GLIDE",
+      "modelo": "100 PRO II - Version PRO II",
+      "certificado": "A1136"
+    },
+    {
+      "marca": "URBAN GLIDE",
+      "modelo": "85 EVO",
+      "certificado": "A1222"
+    },
+    {
+      "marca": "URBAN GLIDE",
+      "modelo": "100 EVO",
+      "certificado": "A1223"
+    },
+    {
+      "marca": "VANKUS",
+      "modelo": "TEVERUN BLADE MINI PRO",
+      "certificado": "A1091"
+    },
+    {
+      "marca": "VANKUS",
+      "modelo": "TEVERUN BLADE MINI",
+      "certificado": "A1097"
+    },
+    {
+      "marca": "VANKUS",
+      "modelo": "TEVERUN FIGHTER MINI",
+      "certificado": "A1095"
+    },
+    {
+      "marca": "VANKUS",
+      "modelo": "TEVERUN FIGHTER MINI +",
+      "certificado": "A1096"
+    },
+    {
+      "marca": "VANKUS",
+      "modelo": "TEVERUN FIGHTER MINI 27Ah",
+      "certificado": "A1141"
+    },
+    {
+      "marca": "VANKUS",
+      "modelo": "TEVERUN BLADE MINI PRO 27Ah",
+      "certificado": "A1152"
+    },
+    {
+      "marca": "VANKUS",
+      "modelo": "DUALTRON ACHILLEUS",
+      "certificado": "A1174"
+    },
+    {
+      "marca": "VMAX",
+      "modelo": "VX4 ST - Version ST",
+      "certificado": "A1177"
+    },
+    {
+      "marca": "VMAX",
+      "modelo": "VX2 PRO ST - Version ST-B",
+      "certificado": "A1178"
+    },
+    {
+      "marca": "VMAX",
+      "modelo": "VX5 PRO ST - Version ST",
+      "certificado": "A1179"
+    },
+    {
+      "marca": "VOI",
+      "modelo": "SNSC 2.3.3 VOI - Version V5",
+      "certificado": "A1011"
+    },
+    {
+      "marca": "VOI",
+      "modelo": "V7",
+      "certificado": "A1107"
+    },
+    {
+      "marca": "VOLTROCK",
+      "modelo": "F-Wasp 350",
+      "certificado": "A1211"
+    },
+    {
+      "marca": "VOLTROCK",
+      "modelo": "R-Viper 800",
+      "certificado": "A1212"
+    },
+    {
+      "marca": "WISPEED",
+      "modelo": "C8-20 - Version 00",
+      "certificado": "A1115"
+    },
+    {
+      "marca": "WISPEED",
+      "modelo": "SUVPILOT 150 - Version 00",
+      "certificado": "A1142"
+    },
+    {
+      "marca": "XIAOMI",
+      "modelo": "Xiaomi Electric Scooter 4 Go EU",
+      "certificado": "B1008"
+    },
+    {
+      "marca": "XIAOMI",
+      "modelo": "Xiaomi Electric Scooter 4 Lite EU",
+      "certificado": "B1009, B1032"
+    },
+    {
+      "marca": "XIAOMI",
+      "modelo": "Xiaomi Electric Scooter 4 EU",
+      "certificado": "B1010, B1031"
+    },
+    {
+      "marca": "XIAOMI",
+      "modelo": "Xiaomi Electric Scooter 4 Ultra EU",
+      "certificado": "B1011, B1033"
+    },
+    {
+      "marca": "XIAOMI",
+      "modelo": "Xiaomi Electric Scooter 4 Go EU - Versiones NEB A, NEB B, NEB C, NEB D",
+      "certificado": "B1013"
+    },
+    {
+      "marca": "XIAOMI",
+      "modelo": "Xiaomi Electric Scooter 4 Pro Plus ES",
+      "certificado": "B1022"
+    },
+    {
+      "marca": "XIAOMI",
+      "modelo": "Xiaomi Electric Scooter 4 Pro Max EU",
+      "certificado": "B1025"
+    },
+    {
+      "marca": "XIAOMI",
+      "modelo": "Xiaomi Electric Scooter 4 Pro (2nd Gen) ES",
+      "certificado": "B1030"
+    },
+    {
+      "marca": "XIAOMI",
+      "modelo": "Xiaomi Electric Scooter 4 Lite (2nd Gen) ES",
+      "certificado": "B1036"
+    },
+    {
+      "marca": "XIAOMI",
+      "modelo": "DDHBC09LQ - Versiones 01, 02",
+      "certificado": "B1069, B1089"
+    },
+    {
+      "marca": "XIAOMI",
+      "modelo": "Xiaomi Electric Scooter 5 ES",
+      "certificado": "B1079"
+    },
+    {
+      "marca": "XIAOMI",
+      "modelo": "Xiaomi Electric Scooter 5 Max ES",
+      "certificado": "B1080"
+    },
+    {
+      "marca": "XIAOMI",
+      "modelo": "Xiaomi Electric Scooter 5 Pro DE",
+      "certificado": "B1081"
+    },
+    {
+      "marca": "XIAOMI",
+      "modelo": "Xiaomi Electric Scooter Elite ES",
+      "certificado": "B1092"
+    },
+    {
+      "marca": "XIAOMI",
+      "modelo": "Xiaomi Electric Scooter 5 Plus ES",
+      "certificado": "B1117"
+    },
+    {
+      "marca": "XIAOMI",
+      "modelo": "Xiaomi Electric Scooter 6 Pro",
+      "certificado": "B1131"
+    },
+    {
+      "marca": "XIAOMI",
+      "modelo": "DDHBC01XB",
+      "certificado": "B1132"
+    },
+    {
+      "marca": "XIAOMI",
+      "modelo": "Xiaomi Electric Scooter 6 GL",
+      "certificado": "B1133"
+    },
+    {
+      "marca": "XIAOMI",
+      "modelo": "Xiaomi Electric Scooter 6 Lite GL",
+      "certificado": "B1134"
+    },
+    {
+      "marca": "XIAOMI",
+      "modelo": "DDHBC35LQ",
+      "certificado": "B1157"
+    },
+    {
+      "marca": "XIAOMI",
+      "modelo": "DDHBC15XB",
+      "certificado": "B1160"
+    },
+    {
+      "marca": "XIAOMI",
+      "modelo": "Xiaomi Electric Scooter 6 Max GL",
+      "certificado": "C1014"
+    },
+    {
+      "marca": "XTREME MOTORSPORT",
+      "modelo": "T4 - Version XTR-T4-1",
+      "certificado": "A1125"
+    },
+    {
+      "marca": "XTREME MOTORSPORT",
+      "modelo": "F1 - Version XTR-F1-1",
+      "certificado": "A1204"
+    },
+    {
+      "marca": "YADEA",
+      "modelo": "YDX1",
+      "certificado": "B1026"
+    },
+    {
+      "marca": "YOUIN",
+      "modelo": "XL MAX LITE - Version V 2.0",
+      "certificado": "A1079"
+    },
+    {
+      "marca": "YOUIN",
+      "modelo": "XL MAX - Version V 2.0",
+      "certificado": "A1080"
+    },
+    {
+      "marca": "YOUIN",
+      "modelo": "XL3",
+      "certificado": "A1082"
+    },
+    {
+      "marca": "ZWHEEL",
+      "modelo": "ZRINO-00",
+      "certificado": "A1020"
+    },
+    {
+      "marca": "ZWHEEL",
+      "modelo": "ZRINO DUO-00",
+      "certificado": "A1021"
+    },
+    {
+      "marca": "ZWHEEL",
+      "modelo": "ZFOX-00",
+      "certificado": "A1026"
+    },
+    {
+      "marca": "ZWHEEL",
+      "modelo": "ZFOX-01",
+      "certificado": "A1027"
+    },
+    {
+      "marca": "ZWHEEL",
+      "modelo": "ZLION X-00",
+      "certificado": "A1028"
+    },
+    {
+      "marca": "ZWHEEL",
+      "modelo": "ZRINO DUO-01",
+      "certificado": "A1029"
+    },
+    {
+      "marca": "ZWHEEL",
+      "modelo": "ZRINO-02",
+      "certificado": "A1030"
+    },
+    {
+      "marca": "ZWHEEL",
+      "modelo": "ZRINO-01",
+      "certificado": "A1031"
+    },
+    {
+      "marca": "ZWHEEL",
+      "modelo": "ZCOUGAR-00",
+      "certificado": "A1038"
+    },
+    {
+      "marca": "ZWHEEL",
+      "modelo": "ZCOUGAR-01",
+      "certificado": "A1039"
+    },
+    {
+      "marca": "ZWHEEL",
+      "modelo": "ZCOUGAR DUO-00",
+      "certificado": "A1040"
+    },
+    {
+      "marca": "ZWHEEL",
+      "modelo": "ZLIONX MAX-00",
+      "certificado": "A1051"
+    },
+    {
+      "marca": "ZWHEEL",
+      "modelo": "ZFOX MAX-00",
+      "certificado": "A1068"
+    },
+    {
+      "marca": "ZWHEEL",
+      "modelo": "ZRINO-03",
+      "certificado": "A1070"
+    },
+    {
+      "marca": "ZWHEEL",
+      "modelo": "ZFOX MAX-01",
+      "certificado": "A1072"
+    },
+    {
+      "marca": "ZWHEEL",
+      "modelo": "ZLION PRO-00",
+      "certificado": "A1084"
+    },
+    {
+      "marca": "ZWHEEL",
+      "modelo": "S1-00",
+      "certificado": "A1119"
+    },
+    {
+      "marca": "ZWHEEL",
+      "modelo": "S2-00",
+      "certificado": "A1120"
+    },
+    {
+      "marca": "ZWHEEL",
+      "modelo": "S4-00",
+      "certificado": "A1121"
+    },
+    {
+      "marca": "ZWHEEL",
+      "modelo": "ZWOLF-01",
+      "certificado": "A1199"
+    },
+    {
+      "marca": "ZWHEEL",
+      "modelo": "ZWOLF-00",
+      "certificado": "A1200"
+    },
+    {
+      "marca": "ZWHEEL",
+      "modelo": "ZWOLF DUO-00",
+      "certificado": "A1201"
+    },
+    {
+      "marca": "ZWHEEL",
+      "modelo": "ZLION NITRO-00",
+      "certificado": "A1225"
+    },
+    {
+      "marca": "ZWHEEL",
+      "modelo": "ZLION NITRO-01",
+      "certificado": "A1226"
+    },
+    {
+      "marca": "5THWHEEL",
+      "modelo": "ES09",
+      "certificado": "B1090"
+    }
+  ]
+}

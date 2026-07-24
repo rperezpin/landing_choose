@@ -39,7 +39,23 @@ const path = icons[name] ?? icons["target"];
   viewBox="0 0 24 24"
   fill="none"
   stroke="currentColor"
-  stroke-width="1.5"
+  stroke-width="1.75"
   aria-hidden="true"
   set:html={path}
 />
+
+<style>
+  /*
+    Scoped styles only reach elements rendered inside this component's own
+    template, so sizing/color must live here rather than in each page that
+    calls <Icon> — a page-level ".icon-svg" rule never matches this <svg>.
+  */
+  svg {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+</style>
